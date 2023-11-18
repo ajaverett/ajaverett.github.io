@@ -1,0 +1,35 @@
+mood,tense,pronoun_group,form
+Indicativo,presente,singular,gusta
+Indicativo,presente,plural,gustan
+Indicativo,perfecto,singular,ha gustado
+Indicativo,perfecto,plural,han gustado
+Indicativo,imperfecto,singular,gustaba
+Indicativo,imperfecto,plural,gustaban
+Indicativo,pluscuamperfecto,singular,había gustado
+Indicativo,pluscuamperfecto,plural,habían gustado
+Indicativo,pretérito,singular,gustó
+Indicativo,pretérito,plural,gustaron
+Indicativo,pretérito anterior,singular,hubo gustado
+Indicativo,pretérito anterior,plural,hubieron gustado
+Indicativo,futuro,singular,gustará
+Indicativo,futuro,plural,gustarán
+Indicativo,futuro perfecto,singular,habrá gustado
+Indicativo,futuro perfecto,plural,habrán gustado
+Indicativo,potencial simple,singular,gustaría
+Indicativo,potencial simple,plural,gustarían
+Indicativo,potencial compuesto,singular,habría gustado
+Indicativo,potencial compuesto,plural,habrían gustado
+Subjunctivo,presente,singular,que guste
+Subjunctivo,presente,plural,que gusten
+Subjunctivo,perfecto,singular,que haya gustado
+Subjunctivo,perfecto,plural,que hayan gustado
+Subjunctivo,imperfecto,singular,que gustara
+Subjunctivo,imperfecto,plural,que gustaran
+Subjunctivo,imperfecto,singular,que gustase
+Subjunctivo,imperfecto,plural,que gustasen
+Subjunctivo,pluscuamperfecto,singular,que hubiera gustado
+Subjunctivo,pluscuamperfecto,plural,que hubieran gustado
+Subjunctivo,pluscuamperfecto,singular,que hubiese gustado
+Subjunctivo,pluscuamperfecto,plural,que hubiesen gustado
+Imperativo,-,singular,¡Que guste!
+Imperativo,-,plural,¡Que gusten!

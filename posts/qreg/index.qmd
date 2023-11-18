@@ -1,0 +1,13 @@
+---
+title: "Quantile Regression"
+subtitle: "Regression without the typical assumptions"
+title-block-banner: ../../images/banner.png
+title-block-banner-color: 'white'
+image: "qreg.webp"
+categories: ["Math", "Statistics"]
+format:
+  html:
+    code-fold: show
+    code-summary: "Show the code"
+---
+# Quantile Regression

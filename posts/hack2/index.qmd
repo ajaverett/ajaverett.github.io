@@ -1,6 +1,10 @@
 ---
 title: "1st Place Hackathon (Fall 2023)"
+subtitle: "Democratized voter data insights for grassroots campaigns"
+title-block-banner: ../../images/banner.png
+title-block-banner-color: 'white'
 image: "pandaverse.png"
+categories: ["R Shiny", "Plotly", "Python", "Visualization","Machine Learning","Google Cloud", "Politics"]
 format:
   html:
     code-fold: true

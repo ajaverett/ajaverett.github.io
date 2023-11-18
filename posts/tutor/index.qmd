@@ -1,6 +1,10 @@
 ---
-title-block-banner: true
+title: "The Data Science Rosetta Stone"
+subtitle: "A guide between Python's Pandas, R's Tidyverse, and a few other data science languages"
+title-block-banner: ../../images/banner.png
+title-block-banner-color: 'white'
 image: "pandaverse2.png"
+categories: ["Streamlit", "Python", "R", "SQL"]
 format:
   html:
     code-fold: true

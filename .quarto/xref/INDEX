@@ -1,59 +1,50 @@
 {
   "index.qmd": {
-    "index.html": "f12e8ff0"
+    "index.html": "99886cca"
   },
   "about.qmd": {
-    "about.html": "f0bb5abf"
-  },
-  "posts/post-with-code/index.qmd": {
-    "index.html": "03c7ee82"
-  },
-  "posts/welcome/index.qmd": {
-    "index.html": "b40caae4"
-  },
-  "posts/pca/pca.qmd": {
-    "pca.html": "76437bef"
-  },
-  "posts/power_triangle/power_triangle.qmd": {
-    "power_triangle.html": "8e71b01a"
-  },
-  "posts/usa_christian/index.qmd": {
-    "index.html": "a0e58d18"
-  },
-  "posts/tutor/index.qmd": {
-    "index.html": "57b0aad0"
-  },
-  "posts/hack1/index.qmd": {
-    "index.html": "a1e1df7c"
-  },
-  "posts/hack2/index.qmd": {
-    "index.html": "e106a3a1"
-  },
-  "resume.qmd": {
-    "resume.html": "050bfc10"
-  },
-  "raw_resume.qmd": {
-    "raw_resume.tex": "6d51f5ec",
-    "raw_resume.html": "7b3ced83"
-  },
-  "resume0.qmd": {
-    "resume0.html": "27fa686c"
+    "about.html": "9daf8b62"
   },
   "posts/dash/index.qmd": {
-    "index.html": "9efede86"
+    "index.html": "717010c1"
   },
-  "resume_de.qmd": {
-    "resume_de.html": "288b115e",
-    "resume_de.tex": "5f6f58bf"
+  "posts/hack1/index.qmd": {
+    "index.html": "c5c1f1f8"
   },
-  "resume_ds.qmd": {
-    "resume_ds.html": "dcb0ee00"
+  "posts/hack2/index.qmd": {
+    "index.html": "df25366e"
+  },
+  "posts/pca/pca.qmd": {
+    "pca.html": "a99017c2"
+  },
+  "posts/power_triangle/power_triangle.qmd": {
+    "power_triangle.html": "f9045df7"
+  },
+  "posts/qreg/index.qmd": {
+    "index.html": "470a791b"
+  },
+  "posts/spanish/index.qmd": {
+    "index.html": "7c3c0419"
+  },
+  "posts/tutor/index.qmd": {
+    "index.html": "6fa297e5"
+  },
+  "posts/usa_christian/index.qmd": {
+    "index.html": "4c9edc61"
   },
   "resumes/resume_de.qmd": {
-    "resume_de.tex": "db451a10"
+    "resume_de.html": "f51d2243"
   },
   "resumes/resume_ds.qmd": {
-    "resume_ds.tex": "7d223143",
-    "resume_ds.html": "403a74fb"
+    "resume_ds.html": "97c52fb0"
+  },
+  "resume_de.qmd": {
+    "resume_de.html": "4ad889ee"
+  },
+  "resume_ds.qmd": {
+    "resume_ds.html": "577529ca"
+  },
+  "404.qmd": {
+    "404.html": "df6b481b"
   }
 }

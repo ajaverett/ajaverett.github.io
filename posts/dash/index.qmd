@@ -1,8 +1,10 @@
 ---
 title: "Dash through the cosmos"
-title-block-banner: true
-title-block-include: true
+subtitle: "A framework with just the right amount of abstraction"
+title-block-banner: ../../images/banner.png
+title-block-banner-color: 'white'
 image: "cosmos.webp"
+categories: ["Dash", "Plotly", "Python", "Visualization","Space"]
 format:
   html:
     code-fold: show

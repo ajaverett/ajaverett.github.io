@@ -1,7 +1,8 @@
 ---
-title: ""
+# title: ""
 page-layout: full
-resources: resume.pdf
+resources: resumes/resume_ds.pdf
+id: home
 about: 
     template: marquee
     links: 
@@ -13,7 +14,7 @@ about:
       href: https://www.linkedin.com/in/ajaverett/
     - text: Resume
       icon: file-text
-      href: "resume.pdf"
+      href: "resumes/resume_ds.pdf"
     - text: Instagram
       icon: instagram
       href: "https://www.instagram.com/rooftop_asian"
@@ -25,9 +26,12 @@ listing:
   contents: posts
   sort: "date desc"
   type: grid
-  categories: false
+  categories: cloud 
   feed: true
 ---
+
+:::{#home .column-screen}
+
 
 <!-- HERO SECTION -->
 ::: {.column-screen}
@@ -42,6 +46,15 @@ listing:
 ::: {.column-screen}
 
 ```{=html}
+
+<style>
+
+#quarto-margin-sidebar {
+    display: none;
+}
+
+</style>
+
 <div style="background-image: url('images/bg_hero.webp'); 
             background-size: cover; 
             height: 100vh; 
@@ -72,9 +85,34 @@ listing:
 ```
 :::
 
+:::
+
 # Some of Alan's Projects
 
 On this portfolio, I share and teach what I learn. To get started, you can check out my most popular content below. You can find me on GitHub and LinkedIn. Feel free to reach out to me via mail or follow my Instagram.
 
 
 <br><br>
+
+
+```{=html}
+
+<script>
+
+  
+  document.addEventListener("scroll", function() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var scrollHeight = document.documentElement.scrollHeight;
+    var clientHeight = document.documentElement.clientHeight;
+    var halfwayPoint = scrollHeight / 5;
+
+    if (scrollTop >= halfwayPoint) {
+        document.getElementById("quarto-margin-sidebar").style.display = "block";
+    } else {
+        document.getElementById("quarto-margin-sidebar").style.display = "none";
+    }
+});
+
+</script>
+
+```

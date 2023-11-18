@@ -5,6 +5,8 @@ project:
 website:
   title: "Alan J Averett"
   favicon: favicon.png
+  site-url: https://ajaverett.github.io
+  back-to-top-navigation: true
   navbar:
     background: "#FFFFFF"
     left:
@@ -12,15 +14,14 @@ website:
         text: Home
       - href: about.qmd
         text: About
-      - href: resume.qmd
-        text: Resume
+      - href: resumes/resume_ds.html
+        text: Resume  
       
 
 format:
   html:
     max-width: 300%
     theme: cosmo
-    css: styles.css
     toc: false
 
 

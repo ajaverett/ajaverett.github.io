@@ -1,8 +1,10 @@
 ---
 title: "The Triangle of Power"
-categories: [notation, latex]
+subtitle: "A new notation for exponents, roots, and logarithms, covered by 3Blue1Brown"
+title-block-banner: ../../images/banner.png
+title-block-banner-color: 'white'
 image: "penrose.png"
-jupyter: python3
+categories: ["Math", "Latex", "Notation"]
 ---
 
 A post on Math Overflow about the relationship between powers, roots, and logs sparked the birth of a notation to harmonize these seemingly unrelated concepts. Grant Sanderson from 3Blue1Brown further popularized and named this notation as, "The Triangle of Power"

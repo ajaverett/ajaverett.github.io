@@ -1,7 +1,10 @@
 ---
 title: "A county like mine"
-categories: ['politics','visualization','statistics','python']
+subtitle: "Factors that underly the similarity of counties in the United States"
+title-block-banner: ../../images/banner.png
+title-block-banner-color: 'white'
 image: "pca.png"
+categories: ["Plotly", "Python", "Visualization","Politics","Statistics"]
 jupyter: python3
 format:
   html:
