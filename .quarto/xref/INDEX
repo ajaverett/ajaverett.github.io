@@ -33,10 +33,12 @@
     "index.html": "4c9edc61"
   },
   "resumes/resume_de.qmd": {
-    "resume_de.html": "f51d2243"
+    "resume_de.html": "f51d2243",
+    "resume_de.tex": "49a74456"
   },
   "resumes/resume_ds.qmd": {
-    "resume_ds.html": "97c52fb0"
+    "resume_ds.html": "97c52fb0",
+    "resume_ds.tex": "0a6b5ece"
   },
   "resume_de.qmd": {
     "resume_de.html": "4ad889ee"
