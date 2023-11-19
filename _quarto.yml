@@ -14,7 +14,7 @@ website:
         text: Home
       - href: about.qmd
         text: About
-      - href: resumes/resume_ds.html
+      - href: 404.qmd
         text: Resume  
       
 

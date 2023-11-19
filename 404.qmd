@@ -1,48 +1,91 @@
+# Alan's Resumes
+
 
 ```{=html}
+
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f2f2f2;
-        margin: 0;
-        padding: 0;
-    }
 
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-    }
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f0f0f0; /* Example background */
+}
 
-    h1 {
-        font-size: 48px;
-        color: #333;
-        margin-bottom: 20px;
-    }
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 800px; /* Adjust based on preference */
+}
 
-    p {
-        font-size: 24px;
-        color: #666;
-        margin-bottom: 40px;
-    }
+.square {
+    width: calc(50% - 20px); /* 50% for 2 in a row, minus margin */
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    background: white; /* Background color for the square */
+    text-align: center;
+}
 
-    a {
-        text-decoration: none;
-        color: #007bff;
+@media screen and (max-width: 600px) { /* Adjust breakpoint as needed */
+    .square {
+        width: calc(100% - 20px); /* 100% for single column on mobile */
     }
+}
 
-    a:hover {
-        text-decoration: underline;
-    }
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #007bff; /* Example button color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
 </style>
 
+<script src="https://cdn.lordicon.com/lordicon-1.2.0.js"></script>
 
-<div class="container">
-    <h1>404 Page Not Found</h1>
-    <p>The page you are looking for does not exist.</p>
-    <p>Please <a href="/">click here</a> to go back to the homepage.</p>
-</div>
+
+<body>
+    <div class="container">
+        <!-- Data Science Section -->
+        <div class="square resume">
+            <lord-icon
+                src="https://cdn.lordicon.com/eodavnff.json"
+                trigger="hover"
+                stroke="bold"
+                style="width:150px;height:150px">
+            </lord-icon>
+            <h3>Data Science</h3>
+            <br>
+            <a href="resumes/resume_ds.pdf" class="button" target="_blank">Download</a>
+        </div>
+
+        <!-- Data Science Go Section -->
+        <div class="square data-science-go">
+            <lord-icon
+                src="https://cdn.lordicon.com/yvrtgyqf.json"
+                trigger="hover"
+                stroke="bold"
+                style="width:150px;height:150px">
+            </lord-icon>
+            <h3>Data Engineering</h3>
+            <br>
+            <a href="resumes/resume_de.pdf" class="button" target="_blank">Access</a>
+        </div>
+
+        <!-- Additional squares can be added here -->
+    </div>
+</body>
+
+
+
 
 ```
+
+

@@ -1,52 +1,50 @@
 {
   "index.qmd": {
-    "index.html": "99886cca"
-  },
-  "about.qmd": {
-    "about.html": "9daf8b62"
-  },
-  "posts/dash/index.qmd": {
-    "index.html": "717010c1"
-  },
-  "posts/hack1/index.qmd": {
-    "index.html": "c5c1f1f8"
-  },
-  "posts/hack2/index.qmd": {
-    "index.html": "df25366e"
-  },
-  "posts/pca/pca.qmd": {
-    "pca.html": "a99017c2"
-  },
-  "posts/power_triangle/power_triangle.qmd": {
-    "power_triangle.html": "f9045df7"
-  },
-  "posts/qreg/index.qmd": {
-    "index.html": "470a791b"
-  },
-  "posts/spanish/index.qmd": {
-    "index.html": "7c3c0419"
-  },
-  "posts/tutor/index.qmd": {
-    "index.html": "6fa297e5"
-  },
-  "posts/usa_christian/index.qmd": {
-    "index.html": "4c9edc61"
-  },
-  "resumes/resume_de.qmd": {
-    "resume_de.html": "f51d2243",
-    "resume_de.tex": "49a74456"
-  },
-  "resumes/resume_ds.qmd": {
-    "resume_ds.html": "97c52fb0",
-    "resume_ds.tex": "0a6b5ece"
-  },
-  "resume_de.qmd": {
-    "resume_de.html": "4ad889ee"
-  },
-  "resume_ds.qmd": {
-    "resume_ds.html": "577529ca"
+    "index.html": "d6192d94"
   },
   "404.qmd": {
-    "404.html": "df6b481b"
+    "404.html": "a4794fb4"
+  },
+  "about.qmd": {
+    "about.html": "8eb26b3f"
+  },
+  "posts/dash/index.qmd": {
+    "index.html": "3a2e8142"
+  },
+  "posts/hack1/index.qmd": {
+    "index.html": "b6250ed2"
+  },
+  "posts/hack2/index.qmd": {
+    "index.html": "9466d11e"
+  },
+  "posts/pca/pca.qmd": {
+    "pca.html": "15aa8274"
+  },
+  "posts/power_triangle/power_triangle.qmd": {
+    "power_triangle.html": "f3a6ed5e"
+  },
+  "posts/qreg/index.qmd": {
+    "index.html": "78a65296"
+  },
+  "posts/spanish/index.qmd": {
+    "index.html": "f31e348f"
+  },
+  "posts/tutor/index.qmd": {
+    "index.html": "7a85f725"
+  },
+  "posts/usa_christian/index.qmd": {
+    "index.html": "54273d1f"
+  },
+  "resumes/resume_de.qmd": {
+    "resume_de.html": "747185d9"
+  },
+  "resumes/resume_ds.qmd": {
+    "resume_ds.html": "afc18c88"
+  },
+  "resume_de.qmd": {
+    "resume_de.html": "08d1b5e5"
+  },
+  "resume_ds.qmd": {
+    "resume_ds.html": "80dd43b6"
   }
 }

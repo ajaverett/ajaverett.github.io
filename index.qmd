@@ -14,7 +14,7 @@ about:
       href: https://www.linkedin.com/in/ajaverett/
     - text: Resume
       icon: file-text
-      href: "resumes/resume_ds.pdf"
+      href: "404.qmd"
     - text: Instagram
       icon: instagram
       href: "https://www.instagram.com/rooftop_asian"
