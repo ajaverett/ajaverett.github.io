@@ -1,6 +1,10 @@
 ---
 title: "State of American Christianity"
+subtitle: "Who's coming to Church on Sunday?"
+title-block-banner: ../../images/banner.png
+title-block-banner-color: 'white'
 image: "chreaster.png"
+categories: ["R", "Visualization", "Religion"]
 format:
   html:
     code-fold: true
