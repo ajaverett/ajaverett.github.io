@@ -142,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-cloud"><div class="category" data-category="Dash"><span class="quarto-category-count category-cloud-2">Dash</span></div><div class="category" data-category="Google Cloud"><span class="quarto-category-count category-cloud-2">Google Cloud</span></div><div class="category" data-category="Latex"><span class="quarto-category-count category-cloud-2">Latex</span></div><div class="category" data-category="Machine Learning"><span class="quarto-category-count category-cloud-3">Machine Learning</span></div><div class="category" data-category="Math"><span class="quarto-category-count category-cloud-3">Math</span></div><div class="category" data-category="NLP"><span class="quarto-category-count category-cloud-2">NLP</span></div><div class="category" data-category="Notation"><span class="quarto-category-count category-cloud-2">Notation</span></div><div class="category" data-category="Plotly"><span class="quarto-category-count category-cloud-5">Plotly</span></div><div class="category" data-category="Politics"><span class="quarto-category-count category-cloud-3">Politics</span></div><div class="category" data-category="Python"><span class="quarto-category-count category-cloud-6">Python</span></div><div class="category" data-category="R"><span class="quarto-category-count category-cloud-3">R</span></div><div class="category" data-category="R Shiny"><span class="quarto-category-count category-cloud-2">R Shiny</span></div><div class="category" data-category="Relgion"><span class="quarto-category-count category-cloud-2">Relgion</span></div><div class="category" data-category="Religion"><span class="quarto-category-count category-cloud-2">Religion</span></div><div class="category" data-category="SQL"><span class="quarto-category-count category-cloud-2">SQL</span></div><div class="category" data-category="Space"><span class="quarto-category-count category-cloud-2">Space</span></div><div class="category" data-category="Spanish"><span class="quarto-category-count category-cloud-2">Spanish</span></div><div class="category" data-category="Statistics"><span class="quarto-category-count category-cloud-3">Statistics</span></div><div class="category" data-category="Streamlit"><span class="quarto-category-count category-cloud-3">Streamlit</span></div><div class="category" data-category="Visualization"><span class="quarto-category-count category-cloud-6">Visualization</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-cloud"><div class="category" data-category="Dash"><span class="quarto-category-count category-cloud-1">Dash</span></div><div class="category" data-category="Google Cloud"><span class="quarto-category-count category-cloud-1">Google Cloud</span></div><div class="category" data-category="Latex"><span class="quarto-category-count category-cloud-1">Latex</span></div><div class="category" data-category="Linear Algebra"><span class="quarto-category-count category-cloud-1">Linear Algebra</span></div><div class="category" data-category="Machine Learning"><span class="quarto-category-count category-cloud-2">Machine Learning</span></div><div class="category" data-category="Math"><span class="quarto-category-count category-cloud-3">Math</span></div><div class="category" data-category="NLP"><span class="quarto-category-count category-cloud-1">NLP</span></div><div class="category" data-category="Notation"><span class="quarto-category-count category-cloud-1">Notation</span></div><div class="category" data-category="Plotly"><span class="quarto-category-count category-cloud-4">Plotly</span></div><div class="category" data-category="Politics"><span class="quarto-category-count category-cloud-2">Politics</span></div><div class="category" data-category="Python"><span class="quarto-category-count category-cloud-5">Python</span></div><div class="category" data-category="R"><span class="quarto-category-count category-cloud-2">R</span></div><div class="category" data-category="R Shiny"><span class="quarto-category-count category-cloud-1">R Shiny</span></div><div class="category" data-category="Relgion"><span class="quarto-category-count category-cloud-1">Relgion</span></div><div class="category" data-category="Religion"><span class="quarto-category-count category-cloud-1">Religion</span></div><div class="category" data-category="SQL"><span class="quarto-category-count category-cloud-1">SQL</span></div><div class="category" data-category="Space"><span class="quarto-category-count category-cloud-1">Space</span></div><div class="category" data-category="Spanish"><span class="quarto-category-count category-cloud-1">Spanish</span></div><div class="category" data-category="Statistics"><span class="quarto-category-count category-cloud-2">Statistics</span></div><div class="category" data-category="Streamlit"><span class="quarto-category-count category-cloud-2">Streamlit</span></div><div class="category" data-category="Visualization"><span class="quarto-category-count category-cloud-5">Visualization</span></div></div></div>
 <!-- main -->
 <div class="quarto-about-marquee page-columns page-full column-body">
   <div class="about-image-container">
@@ -187,15 +187,20 @@ ul.task-list li input[type="checkbox"] {
 <p>On this portfolio, I share and teach what I learn. To get started, you can check out my most popular content below. You can find me on GitHub and LinkedIn. Feel free to reach out to me via mail or follow my Instagram.</p>
 <p><br><br></p>
 <script>
-  document.addEventListener("scroll", function() {
+document.addEventListener("scroll", function() {
     var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     var scrollHeight = document.documentElement.scrollHeight;
     var clientHeight = document.documentElement.clientHeight;
     var halfwayPoint = scrollHeight / 5;
-    if (scrollTop >= halfwayPoint) {
-        document.getElementById("quarto-margin-sidebar").style.display = "block";
-    } else {
+    // Check if the device is likely a mobile device based on the viewport width
+    if (window.innerWidth < 768) {
         document.getElementById("quarto-margin-sidebar").style.display = "none";
+    } else {
+        if (scrollTop >= halfwayPoint) {
+            document.getElementById("quarto-margin-sidebar").style.display = "block";
+        } else {
+            document.getElementById("quarto-margin-sidebar").style.display = "none";
+        }
     }
 });
 </script>
@@ -330,7 +335,36 @@ Grassroots campaigns, donation drives, and voter canvassing always start with a 
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="Plotly,Python,Visualization,Politics,Statistics" data-listing-file-modified-sort="1700343717512" data-listing-reading-time-sort="12" data-listing-word-count-sort="2328">
+<div class="g-col-1" data-index="3" data-categories="Math,Linear Algebra" data-listing-file-modified-sort="1700365830726" data-listing-reading-time-sort="2" data-listing-word-count-sort="260">
+<a href="./posts/linalg/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./posts/linalg/matrix.webp" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Linear Algebra (WIP)
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Math'); return false;">
+Math
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Linear Algebra'); return false;">
+Linear Algebra
+</div>
+</div>
+<div class="card-text listing-description">
+The Invertible Matrix Theorem in Parts
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="Plotly,Python,Visualization,Politics,Statistics" data-listing-file-modified-sort="1700343717512" data-listing-reading-time-sort="12" data-listing-word-count-sort="2328">
 <a href="./posts/pca/pca.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -368,7 +402,7 @@ Principal Component Analysis (PCA) is a statistical technique used to simplify c
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="4" data-categories="Math,Latex,Notation" data-listing-file-modified-sort="1700343772307" data-listing-reading-time-sort="3" data-listing-word-count-sort="588">
+<div class="g-col-1" data-index="5" data-categories="Math,Latex,Notation" data-listing-file-modified-sort="1700343772307" data-listing-reading-time-sort="3" data-listing-word-count-sort="588">
 <a href="./posts/power_triangle/power_triangle.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -400,7 +434,7 @@ A post on Math Overflow about the relationship between powers, roots, and logs s
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="5" data-categories="Math,Statistics" data-listing-file-modified-sort="1700345679373">
+<div class="g-col-1" data-index="6" data-categories="Math,Statistics" data-listing-file-modified-sort="1700355097497" data-listing-reading-time-sort="1" data-listing-word-count-sort="2">
 <a href="./posts/qreg/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -419,11 +453,7 @@ Statistics
 </div>
 </div>
 <div class="card-text listing-description">
-
-
-
-
-
+check out
 </div>
 <div class="card-attribution card-text-small start">
 <div class="listing-author">
@@ -433,7 +463,7 @@ Statistics
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="6" data-categories="Spanish" data-listing-file-modified-sort="1700344058319" data-listing-reading-time-sort="105" data-listing-word-count-sort="20931">
+<div class="g-col-1" data-index="7" data-categories="Spanish" data-listing-file-modified-sort="1700344058319" data-listing-reading-time-sort="105" data-listing-word-count-sort="20931">
 <a href="./posts/spanish/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -459,7 +489,7 @@ Spanish is the second most popular language in the United States and the officia
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="7" data-categories="Streamlit,Python,R,SQL" data-listing-file-modified-sort="1700344334722" data-listing-reading-time-sort="1" data-listing-word-count-sort="69">
+<div class="g-col-1" data-index="8" data-categories="Streamlit,Python,R,SQL" data-listing-file-modified-sort="1700344334722" data-listing-reading-time-sort="1" data-listing-word-count-sort="69">
 <a href="./posts/tutor/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -495,7 +525,7 @@ The Data Science Rosetta Stone is named after the, a stele inscribed with the sa
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="8" data-categories="R,Visualization,Religion" data-listing-file-modified-sort="1700354020509" data-listing-reading-time-sort="13" data-listing-word-count-sort="2473">
+<div class="g-col-1" data-index="9" data-categories="R,Visualization,Religion" data-listing-file-modified-sort="1700354020509" data-listing-reading-time-sort="13" data-listing-word-count-sort="2473">
 <a href="./posts/usa_christian/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">

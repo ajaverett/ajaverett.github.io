@@ -1,0 +1,69 @@
+
+---
+title: "Linear Algebra (WIP)"
+subtitle: "wip"
+title-block-banner: ../../images/banner.png
+title-block-banner-color: 'white'
+image: "matrix.webp"
+categories: ["Math", "Linear Algebra"]
+format:
+  html:
+    code-fold: show
+    code-summary: "Show the code"
+---
+
+The Invertible Matrix Theorem in Parts
+
+**Let $A$ be an $(n\times m)$ matrix where $n\leq m$**  
+
+If there are pivots in every column of $A$:
+
+ - The columns of A make up a linearly independent set
+
+ - The equation, $A\vec{x}=\vec{0}$ has only the trivial solution
+
+ - The linear transformation $\vec{x} \rightarrow A\vec{x}$ is *one-to-one*, or injective
+
+ - The rows of $A$ span $\mathbb{R}^n$
+
+ - There exists an $(n\times m)$ matrix $C$ such that $CA=I_n$
+
+**Let $A$ be an $(n\times m)$ matrix where $n\geq m$**
+
+If there are pivots in every row of $A$:
+
+ - The rows of $A$ make up a linearly independent set
+
+ - The equation, $A\vec{x}=\vec{b}$ has at least one solution for every $\vec{b}$ in $\mathbb{R}^m$
+ 
+ - The linear transformation $\vec{x} \rightarrow A\vec{x}$ maps $\mathbb{R}^m$ *onto* $\mathbb{R}^n$, or is surjective
+
+ - The columns of $A$ span $\mathbb{R}^m$
+
+ - There exists an $(n\times m)$ matrix $D$ such that $AD=I_m$
+
+
+**Let $A$ be an $(n\times n)$ matrix**
+
+If there are pivots in every row and column of $A$, then both groups of statements above are true, and:
+
+ - A is an invertible matrix
+
+ - A is row equivalent to $I_n$
+
+ - A has $n$ pivot positions
+
+ - A's left inverse and right inverse are the same matrix
+
+ - The columns of $A$ form a basis of $\mathbb{R}^n$ 
+
+ - The column space, $\text{Col}\{A\}$, is $\mathbb{R}^n$
+
+ - The rank of $A = \text{Rank}\{A\} = \text{dim}\{\text{Col}\{A\}\} = n$
+
+ - The nullity of $A = \text{Nullity}\{A\} = \text{dim}\{\text{Nul}\{A\}\} = 0$
+
+ - 0 is not an eigenvalue of $A$
+
+ - The determinant of $A$, $\det{A} \neq 0$
+

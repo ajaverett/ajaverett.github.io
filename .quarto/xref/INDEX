@@ -48,5 +48,8 @@
   },
   "resume_ds.qmd": {
     "resume_ds.html": "80dd43b6"
+  },
+  "posts/linalg/index.qmd": {
+    "index.html": "6ab787ce"
   }
 }

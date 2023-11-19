@@ -98,18 +98,21 @@ On this portfolio, I share and teach what I learn. To get started, you can check
 ```{=html}
 
 <script>
-
-  
-  document.addEventListener("scroll", function() {
+document.addEventListener("scroll", function() {
     var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     var scrollHeight = document.documentElement.scrollHeight;
     var clientHeight = document.documentElement.clientHeight;
     var halfwayPoint = scrollHeight / 5;
 
-    if (scrollTop >= halfwayPoint) {
-        document.getElementById("quarto-margin-sidebar").style.display = "block";
-    } else {
+    // Check if the device is likely a mobile device based on the viewport width
+    if (window.innerWidth < 768) {
         document.getElementById("quarto-margin-sidebar").style.display = "none";
+    } else {
+        if (scrollTop >= halfwayPoint) {
+            document.getElementById("quarto-margin-sidebar").style.display = "block";
+        } else {
+            document.getElementById("quarto-margin-sidebar").style.display = "none";
+        }
     }
 });
 

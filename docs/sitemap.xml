@@ -2,15 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ajaverett.github.io/index.html</loc>
-    <lastmod>2023-11-19T00:34:34.821Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.github.io/resume_de.html</loc>
-    <lastmod>2023-11-16T08:06:52.675Z</lastmod>
+    <lastmod>2023-11-19T03:51:32.968Z</lastmod>
   </url>
   <url>
     <loc>https://ajaverett.github.io/resumes/resume_de.html</loc>
-    <lastmod>2023-11-19T00:28:16.851Z</lastmod>
+    <lastmod>2023-11-19T03:51:53.089Z</lastmod>
   </url>
   <url>
     <loc>https://ajaverett.github.io/posts/tutor/index.html</loc>
@@ -18,27 +14,31 @@
   </url>
   <url>
     <loc>https://ajaverett.github.io/posts/qreg/index.html</loc>
-    <lastmod>2023-11-18T22:14:39.373Z</lastmod>
+    <lastmod>2023-11-19T00:51:37.497Z</lastmod>
   </url>
   <url>
     <loc>https://ajaverett.github.io/posts/pca/pca.html</loc>
     <lastmod>2023-11-18T21:41:57.512Z</lastmod>
   </url>
   <url>
-    <loc>https://ajaverett.github.io/posts/hack1/index.html</loc>
-    <lastmod>2023-11-18T21:53:10.685Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.github.io/about.html</loc>
-    <lastmod>2023-11-06T14:13:36.800Z</lastmod>
+    <loc>https://ajaverett.github.io/posts/hack2/index.html</loc>
+    <lastmod>2023-11-18T21:40:25.852Z</lastmod>
   </url>
   <url>
     <loc>https://ajaverett.github.io/posts/dash/index.html</loc>
     <lastmod>2023-11-18T21:34:28.619Z</lastmod>
   </url>
   <url>
-    <loc>https://ajaverett.github.io/posts/hack2/index.html</loc>
-    <lastmod>2023-11-18T21:40:25.852Z</lastmod>
+    <loc>https://ajaverett.github.io/about.html</loc>
+    <lastmod>2023-11-06T14:13:36.800Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ajaverett.github.io/posts/hack1/index.html</loc>
+    <lastmod>2023-11-18T21:53:10.685Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ajaverett.github.io/posts/linalg/index.html</loc>
+    <lastmod>2023-11-19T03:50:30.726Z</lastmod>
   </url>
   <url>
     <loc>https://ajaverett.github.io/posts/power_triangle/power_triangle.html</loc>
@@ -54,10 +54,6 @@
   </url>
   <url>
     <loc>https://ajaverett.github.io/resumes/resume_ds.html</loc>
-    <lastmod>2023-11-19T00:28:17.375Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.github.io/resume_ds.html</loc>
-    <lastmod>2023-11-16T08:19:40.110Z</lastmod>
+    <lastmod>2023-11-19T03:51:53.476Z</lastmod>
   </url>
 </urlset>
