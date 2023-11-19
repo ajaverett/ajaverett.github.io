@@ -36,10 +36,12 @@
     "index.html": "54273d1f"
   },
   "resumes/resume_de.qmd": {
-    "resume_de.html": "747185d9"
+    "resume_de.html": "747185d9",
+    "resume_de.tex": "1aba354c"
   },
   "resumes/resume_ds.qmd": {
-    "resume_ds.html": "afc18c88"
+    "resume_ds.html": "afc18c88",
+    "resume_ds.tex": "14f32d95"
   },
   "resume_de.qmd": {
     "resume_de.html": "08d1b5e5"
