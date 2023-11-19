@@ -1,4 +1,6 @@
-# Alan's Resumes
+---
+title: "Alan's Resumes"
+---
 
 
 ```{=html}
