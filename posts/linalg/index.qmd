@@ -1,7 +1,7 @@
 
 ---
-title: "Linear Algebra (WIP)"
-subtitle: "wip"
+title: "Linear Algebra, Lesson 1"
+subtitle: "Systems of Linear Equations to the Invertible Matrix Theorem"
 title-block-banner: ../../images/banner.png
 title-block-banner-color: 'white'
 image: "matrix.webp"
@@ -12,7 +12,1827 @@ format:
     code-summary: "Show the code"
 ---
 
-The Invertible Matrix Theorem in Parts
+:::: {.panel-tabset}
+
+# Systems of Linear Equations {.unnumbered}
+
+### Systems with a Single Solution {.unnumbered}
+
+Below is a **linear equation**:
+
+$$
+\begin{cases}
+x_1 - 2x_2 = -1
+\end{cases}
+$$
+
+```{python}
+#| code-fold: true
+#| fig-align: center
+
+import sympy as sp
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Declare variables
+x1, x2 = sp.symbols('x_1 x_2')
+
+# Define the equation
+equation_1 = sp.Eq(x1 - 2*x2, -1)
+graph_eq1 = sp.solve(equation_1, x2)[0]
+
+# Generate data for plotting
+x1_vals = np.linspace(-10, 10, 400)
+graph_eq1_lambdified = sp.lambdify(x1, graph_eq1)
+y1_vals = graph_eq1_lambdified(x1_vals)
+
+# Plotting
+fig, ax = plt.subplots(figsize=(7, 6))
+
+# Title and labels
+ax.set_title('A single linear equation')
+ax.set_xlabel('$x_1$                                                                                                                            ')
+ax.set_ylabel('$x_2$                                                                                                    ')
+
+# Plot the equation
+ax.plot(x1_vals, y1_vals, label='$x_1 - 2x_2 = -1$', color='blue')
+
+# Move the left and bottom spines to x = 0 and y = 0, respectively
+ax.spines['left'].set_position('zero')
+ax.spines['bottom'].set_position('zero')
+ax.spines['right'].set_color('none')
+ax.spines['top'].set_color('none')
+
+# Add legend and grid
+ax.legend()
+plt.show()
+```
+
+::: {.callout-note collapse="true"}
+
+# Definition of a linear equation
+
+A linear equation in the variables $x_1, x_2, \ldots, x_n$ is an equation that can be written in the form
+
+$$
+a_1x_1 + a_2x_2 + \cdots + a_nx_n = b
+$$
+
+where $b$ and the coefficients $a_1, a_2, \ldots, a_n$ are real or complex numbers. The subscript $n$ may be any positive integer.
+
+:::
+
+
+Take the following **system of linear equations**:
+$$
+\begin{cases}
+&x_1 &- 2x_2 &= -1\\
+-&x_1 &+ 3x_2 &= 3
+\end{cases}
+$$
+
+If we plot these equations on a graph, we can see that they intersect at a single point. This point is the solution to the system of equations.
+
+```{python}
+#| code-fold: true
+#| fig-align: center
+
+import sympy as sp
+import matplotlib.pyplot as plt
+import numpy as np
+
+x1, x2 = sp.symbols('x_1 x_2')
+
+equation_1 = sp.Eq(x1 - 2*x2, -1)
+graph_eq1 = sp.solve(equation_1, x2)[0]
+
+equation_2 = sp.Eq(-x1 + 3*x2, 3)
+graph_eq2 = sp.solve(equation_2, x2)[0]
+
+# Generate data for plotting
+x1_vals = np.linspace(-10, 10, 400)
+graph_eq1_lambdified = sp.lambdify(x1, graph_eq1)
+graph_eq2_lambdified = sp.lambdify(x1, graph_eq2)
+y1_vals = graph_eq1_lambdified(x1_vals)
+y2_vals = graph_eq2_lambdified(x1_vals)
+
+# Plotting
+fig, ax = plt.subplots(figsize=(7, 6))
+
+ax.set_title('A system of equations with a single solution')
+ax.set_xlabel('$x_1$                                                                                                                            ')
+ax.set_ylabel('$x_2$                                                                                                    ')
+
+# Plot the equations
+ax.plot(x1_vals, y1_vals, label='$x_1 - 2x_2 = -1$', color='blue')
+ax.plot(x1_vals, y2_vals, label='$-x_1 + 3x_2 = 3$', color='green')
+
+# Move the left and bottom spines to x = 0 and y = 0, respectively
+ax.spines['left'].set_position('zero')
+ax.spines['bottom'].set_position('zero')
+ax.spines['right'].set_color('none')
+ax.spines['top'].set_color('none')
+
+# Add legend and grid
+ax.legend()
+plt.show()
+```
+
+::: {.callout-note collapse="true"}
+
+# Definition of a system of linear equations
+
+A system of linear equations (or a linear system) is a collection of one or more linear equations involving the same variables- say $x_1, x_2, \ldots, x_n$. An example is
+
+$$
+\begin{cases}
+&x_1 &- 2x_2 &= -1\\
+-&x_1 &+ 3x_2 &= 3
+\end{cases}
+$$
+
+The above system has two equations and two variables where $x_1, x_2$ are the variables. 
+
+:::
+
+The equations above have only one solution since they intersect at a single point. 
+
+```{python}
+#| code-fold: true
+from IPython.display import Markdown
+
+solution = sp.solve((equation_1, equation_2), (x1, x2))
+Markdown(f'$$\n{sp.latex(solution)}\n$$')
+```
+
+
+```{python}
+#| code-fold: true
+#| fig-align: center
+
+import sympy as sp
+import matplotlib.pyplot as plt
+import numpy as np
+
+x1, x2 = sp.symbols('x_1 x_2')
+
+equation_1 = sp.Eq(x1 - 2*x2, -1)
+graph_eq1 = sp.solve(equation_1, x2)[0]
+
+equation_2 = sp.Eq(-x1 + 3*x2, 3)
+graph_eq2 = sp.solve(equation_2, x2)[0]
+
+# Generate data for plotting
+x1_vals = np.linspace(-10, 10, 400)
+graph_eq1_lambdified = sp.lambdify(x1, graph_eq1)
+graph_eq2_lambdified = sp.lambdify(x1, graph_eq2)
+y1_vals = graph_eq1_lambdified(x1_vals)
+y2_vals = graph_eq2_lambdified(x1_vals)
+
+# Plotting
+fig, ax = plt.subplots(figsize=(7, 6))
+
+ax.set_title('A system of equations with a single solution')
+ax.set_xlabel('$x_1$                                                                                                                            ')
+ax.set_ylabel('$x_2$                                                                                                    ')
+
+# Plot the equations
+ax.plot(x1_vals, y1_vals, label='$x_1 - 2x_2 = -1$', color='blue')
+ax.plot(x1_vals, y2_vals, label='$-x_1 + 3x_2 = 3$', color='green')
+
+# Move the left and bottom spines to x = 0 and y = 0, respectively
+ax.spines['left'].set_position('zero')
+ax.spines['bottom'].set_position('zero')
+ax.spines['right'].set_color('none')
+ax.spines['top'].set_color('none')
+
+# Plot the solution
+solution = sp.solve((equation_1, equation_2), (x1, x2))
+solution_x1 = solution[x1]
+solution_x2 = solution[x2]
+
+ax.scatter([solution_x1], [solution_x2], color='red', zorder=3)  
+ax.text(solution_x1+.5, solution_x2-.5, '  Solution', fontsize=12)
+
+# Add legend and grid
+ax.legend()
+plt.show()
+```
+
+::: {.callout-note collapse="true"}
+
+# Definition of a solution
+
+A solution of a linear system is a list of numbers ($s_1, s_2, \ldots, s_n$) that makes each equation a true statement when the values $s_1, s_2, \ldots, s_n$ are substituted for $x_1, x_2, \ldots, x_n$, respectively. 
+
+For example, the list of numbers, $(3,2)$, is a solution of the system above because, when the values $3,2$ are substituted for $x_1, x_2$, respectively, both equations are a true statement.
+
+:::
+
+The above list, $(3,2)$, is the solution to the system of equations because it is the only list of numbers that makes both equations true. When we substitute $3$ and $2$ for $x_1$ and $x_2$ in the first equation, both equations turn out to be true!
+
+
+$$
+\begin{cases}
+&x_1 &- 2x_2 &= -1\\
+-&x_1 &+ 3x_2 &= 3
+\end{cases}
+$$
+
+turns into 
+
+$$
+\begin{cases}
+&(3) &- 2(2) &= -1 \;\; &\text{True!}\\
+-&(3) &+ 3(2) &= 3 \;\; &\text{True!}
+\end{cases}
+$$
+
+
+### Systems without a Single Solution {.unnumbered}
+
+##### **No Solution** {.unnumbered}
+
+Take the following system of linear equations:
+
+$$
+\begin{cases}
+&x_1 &- 2x_2 &= -1\\
+-&x_1 &+ 2x_2 &= 3
+\end{cases}
+$$
+
+If we plot these equations on a graph, we can see that they are parallel and never intersect. This means that there is no solution to this system of equations.
+
+```{python}
+#| code-fold: true
+#| fig-align: center
+
+import sympy as sp
+import matplotlib.pyplot as plt
+import numpy as np
+
+x1, x2 = sp.symbols('x_1 x_2')
+
+# Define the equations
+equation_1 = sp.Eq(x1 - 2*x2, -1)
+graph_eq1 = sp.solve(equation_1, x2)[0]
+
+equation_2 = sp.Eq(-x1 + 2*x2, 3)
+graph_eq2 = sp.solve(equation_2, x2)[0]
+
+# Generate data for plotting
+x1_vals = np.linspace(-10, 10, 400)
+graph_eq1_lambdified = sp.lambdify(x1, graph_eq1)
+graph_eq2_lambdified = sp.lambdify(x1, graph_eq2)
+y1_vals = graph_eq1_lambdified(x1_vals)
+y2_vals = graph_eq2_lambdified(x1_vals)
+
+# Plotting
+fig, ax = plt.subplots(figsize=(7, 6))
+
+ax.set_title('A system of equations with no solution')
+ax.set_xlabel('$x_1$                                                                                                                            ')
+ax.set_ylabel('$x_2$                                                                                                    ')
+
+# Plot the equations
+ax.plot(x1_vals, y1_vals, label='$x_1 - 2x_2 = -1$', color='blue')
+ax.plot(x1_vals, y2_vals, label='$-x_1 + 2x_2 = 3$', color='green')
+
+# Move the left and bottom spines to x = 0 and y = 0, respectively
+ax.spines['left'].set_position('zero')
+ax.spines['bottom'].set_position('zero')
+ax.spines['right'].set_color('none')
+ax.spines['top'].set_color('none')
+
+# Add legend and grid
+ax.legend()
+plt.show()
+```
+
+##### **Infinite Solutions** {.unnumbered}
+
+Take the following system of linear equations:
+
+$$
+\begin{cases}
+&x_1 &- 2x_2 &= -1\\
+-&x_1 &+ 2x_2 &= 1
+\end{cases}
+$$
+
+If we plot these equations on a graph, we can see that they are the same line. This means that there are an infinite number of solutions to this system of equations.
+
+```{python}
+#| code-fold: true
+#| fig-align: center
+
+import sympy as sp
+import matplotlib.pyplot as plt
+import numpy as np
+
+x1, x2 = sp.symbols('x_1 x_2')
+
+# Define the equations
+equation_1 = sp.Eq(x1 - 2*x2, -1)
+graph_eq1 = sp.solve(equation_1, x2)[0]
+
+equation_2 = sp.Eq(-x1 + 2*x2, 1)
+graph_eq2 = sp.solve(equation_2, x2)[0]
+
+# Generate data for plotting
+x1_vals = np.linspace(-10, 10, 400)
+graph_eq1_lambdified = sp.lambdify(x1, graph_eq1)
+graph_eq2_lambdified = sp.lambdify(x1, graph_eq2)
+y1_vals = graph_eq1_lambdified(x1_vals)
+y2_vals = graph_eq2_lambdified(x1_vals)
+
+# Plotting
+fig, ax = plt.subplots(figsize=(7, 6))
+
+ax.set_title('A system of equations with infinite solutions')
+ax.set_xlabel('$x_1$                                                                                                                            ')
+ax.set_ylabel('$x_2$                                                                                                    ')
+
+# Plot the equations
+ax.plot(x1_vals, y1_vals, label='$x_1 - 2x_2 = -1$', color='blue')
+ax.plot(x1_vals, y2_vals, label='$-x_1 + 2x_2 = 1$', color='green', linestyle='dashed')
+
+# Move the left and bottom spines to x = 0 and y = 0, respectively
+ax.spines['left'].set_position('zero')
+ax.spines['bottom'].set_position('zero')
+ax.spines['right'].set_color('none')
+ax.spines['top'].set_color('none')
+
+# Add legend and grid
+ax.legend()
+plt.show()
+```
+
+::: {.callout-tip}
+
+A system of linear equations has
+
+1. no solution, or
+2. exactly one solution, or
+3. infinitely many solutions.
+
+:::
+
+
+## Matrix Notation {.unnumbered}
+
+### Converting a system of linear equations to matrix form {.unnumbered}
+
+The essential information of a linear system can be recorded compactly in a rectangular array called a matrix.
+
+The following system of linear equations:
+
+$$
+\begin{cases}
+&x_1 &- 2x_2 &= -1\\
+-&x_1 &+ 3x_2 &= 3
+\end{cases}
+$$
+
+The following matrix is called the **coefficient matrix** of the system, it contains the coefficients of the variables left of the equals sign:
+
+$$
+\begin{bmatrix}
+1 & -2\\
+-1 & 3
+\end{bmatrix}
+$$
+
+The following matrix is called the **augmented matrix** of the system, it contains the coefficients of the variables left of the equals sign and the constants right of the equals sign (separated by a vertical line):
+
+$$
+\begin{bmatrix}
+1 & -2 &|& -1\\
+-1 & 3 &|& 3
+\end{bmatrix}
+$$
+
+## Dimensions of a matrix: {.unnumbered}
+
+The size of a matrix tells how many rows and columns it has. The augmented matrix below has 3 rows and 4 columns and is called a $3 \times 4$ (read “3 by 4”) matrix. 
+
+$$
+\begin{bmatrix}
+&1 &2 &3 &4\\
+&5 &6 &7 &8\\
+&9 &10 &11 &12
+\end{bmatrix}
+$$
+
+If m and n are positive integers, an m  n matrix is a rectangular array of numbers with m rows and n columns. (The number of rows always comes first.) Matrix notation will simplify the calculations in the examples that follow
+
+::: {.callout-tip}
+
+In matrix notation: 
+
+ - $m$ is the number of rows 
+ - $n$ is the number of columns
+
+:::
+
+
+# Row Reduction and Echelon Forms
+
+A matrix has a few different "special" forms. Two specific forms are the **row echelon form** and the **reduced row echelon form**. These forms are useful because they make it easy to solve systems of linear equations. Below we will build up to these forms by discussing the elements of a matrix, types of forms, and the elementary row operations that are used to reduce a matrix to these forms.
+
+## Elements of a matrix {.unnumbered}
+
+Check out the following matrix:
+
+$$
+\left[\begin{array}{ccc}
+    1 & 2 & 3 & 4 \\
+    0 & 5 & 6 & 7 \\
+    0 & 0 & 0 & 8 \\
+    0 & 0 & 0 & 0
+\end{array}\right]
+\begin{array}{c}
+    \leftarrow R_1 \\
+    \leftarrow R_2 \\
+    \leftarrow R_3 \\
+    \leftarrow R_4
+\end{array}
+$$
+
+### Leading Entries {.unnumbered}
+
+The **leading entry** of a row is the first nonzero entry in that row. For example,
+
+-   the leading entry of $R_1$ is 1,
+-   the leading entry of $R_2$ is 5,\
+-   the leading entry of $R_3$ is 8, and
+-   $R_4$ has no leading entry.
+
+### Pivot Positions {.unnumbered}
+
+The **pivot positions** of a matrix are the positions of the leading entries in the matrix.
+
+-   for $R_1$, the leading entry is in the first column,
+-   for $R_2$ the leading entry is in the second column,\
+-   for $R_3$, the leading entry is in the fourth column, and
+-   $R_4$ has no leading entry- thus no pivot position.
+
+### Zero Rows {.unnumbered}
+
+A **zero row** is a row that contains only zeros. In the example above, $R_4$ is a zero row.
+
+## Row Echelon Form {.unnumbered}
+
+A matrix is in **row echelon form** if it meets the following criteria:
+
+1.  Zero rows are at the bottom of the matrix.
+2.  Each leading entry of a row is in a column to the right of the leading entry of the row above it.
+3.  All entries in a column below a leading entry are zeros.
+
+Here are some examples of matrices in row echelon form:
+
+::: panel-tabset
+:header-classes: myheader
+
+# Square
+
+$$
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    0 & 4 & 5 \\
+    0 & 0 & 6 
+\end{bmatrix}
+$$
+
+# Tall (m \> n)
+
+$$
+\begin{bmatrix}
+    2 & 3 & 4 \\
+    0 & 1 & 5 \\
+    0 & 0 & 3 \\
+    0 & 0 & 0
+\end{bmatrix}
+$$
+
+# Wide (m \< n)
+
+$$
+\begin{bmatrix}
+  1 & 2 & 3 & 4 \\
+  0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+# General Form (sorta)
+
+$$
+\begin{bmatrix}
+    \square & * & * & \dots & * \\
+    0 & \square & * & \dots & * \\
+    0 & 0 & \square & \dots & * \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & 0 & \dots & \square \\
+    0 & 0 & 0 & \dots & 0
+\end{bmatrix}
+$$
+
+where $\square$ represents a nonzero entry, and $*$ represents any entry (possibly zero).
+:::
+
+## Reduced Row Echelon Form {.unnumbered}
+
+A matrix is in **reduced row echelon form** if it meets the following criteria:
+
+1.  It is in row echelon form.
+2.  The leading entry in each nonzero row is 1.
+3.  Each leading 1 is the only nonzero entry in its column.
+
+::: {.callout-note}
+
+# Theorem 1
+
+**Uniqueness of the Reduced Echelon Form**
+
+Each matrix is row equivalent to one and only one reduced echelon matrix
+
+:::
+
+Here are some examples of matrices in reduced row echelon form:
+
+::: panel-tabset
+:header-classes: myheader
+
+# Square
+
+$$
+\begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1 
+\end{bmatrix}
+$$
+
+# Tall (m \> n)
+
+$$
+\begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1 \\
+    0 & 0 & 0
+\end{bmatrix}
+$$
+
+# Wide (m \< n)
+
+$$
+\begin{bmatrix}
+  1 & 0 & 0 & 1 \\
+  0 & 1 & 0 & 2 \\
+  0 & 0 & 1 & 3
+\end{bmatrix}
+$$
+
+# General Form (sorta)
+
+$$
+\begin{bmatrix}
+    1 & 0 & \dots & 0 & * \\
+    0 & 1 & \dots & 0 & * \\
+    \vdots & \vdots & \ddots & \vdots & \vdots \\
+    0 & 0 & \dots & 1 & * \\
+    0 & 0 & \dots & 0 & 0
+\end{bmatrix}
+$$
+:::
+
+## Elementary Row Operations {.unnumbered}
+
+There are three types of elementary row operations:
+
+1.  **Swap the positions of two rows.**
+
+$$
+R_i \leftrightarrow R_j
+$$
+
+2.  **Multiply a row by a non-zero scalar.**
+
+$$
+kR_i \rightarrow R_i
+$$
+
+3.  **Add or subtract the multiple of one row to another row.**
+
+$$
+kR_i + R_j \rightarrow R_j
+$$
+
+## The Row Reduction Algorithm {.unnumbered}
+
+The **row reduction algorithm** is a method for solving systems of linear equations. It is based on the idea that if two systems of equations have the same solution, then the augmented matrices of those systems are row equivalent. This means that the two matrices can be transformed into each other by a sequence of elementary row operations. The row reduction algorithm is used to transform a matrix into row echelon form or reduced row echelon form.
+
+### The Forward Phase {.unnumbered}
+
+The forward phase of the row reduction algorithm is used to reduce a matrix to row echelon form. The steps are as follows:
+
+1.  Write the augmented matrix of the system of equations.
+2.  Begin with the leftmost nonzero column. This is a pivot column. The pivot position is at the top. Select a nonzero entry in the pivot column as a pivot. If necessary, interchange rows to move this entry into the pivot position
+3.  Use row replacement operations to create zeros in all positions below the pivot
+4.  Assuming all the entries under the last pivot is zero, we can now ignore the row containing the pivot position and cover all rows, if any, above it. Apply steps 1-3 to the remaining submatrix. Repeat the process until there are no more nonzero rows to modify.
+
+::: panel-tabset
+# Step 1
+
+Below is the augmented matrix of a system of equations. 
+
+$$
+\begin{bmatrix}
+    0 & 3 & -6 & 6 \\
+    3 & -7 & 8 & -5 \\
+    3 & -9 & 12 & -9
+\end{bmatrix}
+$$
+
+# Step 2
+
+Step 2 states: *Begin with the leftmost nonzero column. This is a pivot column. The pivot position is at the top. Select a nonzero entry in the pivot column as a pivot. If necessary, interchange rows to move this entry into the pivot position.*
+
+$$
+\begin{bmatrix}
+    \mathbf{0} & 3 & -6 & 6 \\
+    \mathbf{3} & -7 & 8 & -5 \\
+    \mathbf{3} & -9 & 12 & -9
+\end{bmatrix}
+$$
+
+
+Since the first entry in $R_1$ is a zero, we need to swap it with a row where the first entry is not a zero. We can swap $R_1$ with $R_2$ or $R_3$.
+
+$$
+\begin{array}{c}
+     R_1 \rightarrow \\
+     R_2 \rightarrow \\
+     R_3 \rightarrow \\
+\end{array}
+\left[\begin{array}{ccc}
+    \mathbf{0} & 3 & -6 & 6 \\
+    \mathbf{3} & -7 & 8 & -5 \\
+    \mathbf{3} & -9 & 12 & -9
+\end{array}\right]
+$$
+
+We can do the following:
+
+$R_1 \leftrightarrow R_2 \;\;\;$ or $\;\;\;R_1 \leftrightarrow R_3$
+
+I guess, let's do $R_1 \leftrightarrow R_2$...
+
+Since we did an elementary row operation, we need to update our matrix into a new matrix:
+
+
+$$
+\begin{bmatrix}
+    \mathbf{0} & 3 & -6 & 6 \\
+    \mathbf{3} & -7 & 8 & -5 \\
+    \mathbf{3} & -9 & 12 & -9
+\end{bmatrix}
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\begin{bmatrix}
+    \mathbf{3} & -7 & 8 & -5  \\
+    \mathbf{0} & 3 & -6 & 6   \\
+    \mathbf{3} & -9 & 12 & -9
+\end{bmatrix}
+$$
+
+# Step 3
+
+Step 3 states: *Use row replacement operations to create zeros in all positions below the pivot.*
+
+$$
+\begin{array}{c}
+    R_1\rightarrow\\
+    R_2\rightarrow\\
+    R_3\rightarrow\\
+\end{array}
+\left[\begin{array}{ccc}
+    \mathbf{3} & -7 & 8 & -5  \\
+    \mathbf{0} & 3 & -6 & 6   \\
+    \mathbf{3} & -9 & 12 & -9
+\end{array}\right]
+$$
+
+The bottom left number $3$ in $R_3$ needs fixing since it is a non-zero entry below the pivot that we're working with. We can do the elementary row operation: *Add or subtract the multiple of one row to another row* to fix this.
+$$
+kR_i + R_j \rightarrow R_j
+$$
+
+$$
+\text{where } k = -1, i = 1, \text{ and } j = 3
+$$
+
+$$
+-R_1 + R_3 \rightarrow R_2
+$$
+
+The operation is performed as follows:
+
+
+::: columns
+::: column
+
+$$
+-R_1
+$$
+
+<br>
+
+$$
+\begin{align*}
+    &(-1)\left[ -3,  \;-7, \;\; 8, \;\;\; -5 \right] \\
+\end{align*}
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\begin{align*}
+    &\left[ (-1)3,  \;(-1)-7, \;\; (-1)8, \;\;\; (-1)-5 \right] \\
+\end{align*}
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\begin{bmatrix}
+    -3, \;\;7, -8, \;\;5
+\end{bmatrix}
+$$
+:::
+
+::: column
+$$
+R_3
+$$
+
+<br>
+
+$$
+\begin{bmatrix}
+    3 & -9 & 12 & -9 \\
+\end{bmatrix}
+$$
+
+:::
+
+:::
+
+Below is what happens when we add the two rows together:
+
+$$
+-R_1 + R_2
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\begin{array}{cc}
+    &\left[\;-3,  \;\;\;\;7, \;\; -8, \;\;\;\; 5 \right] \\
+    +\; &\left[ \;\;\;3, \;\; -9, \;\;\;12, \; -9 \right]
+\end{array}
+$$
+
+$$
+\rule{6cm}{0.4pt}
+$$
+
+$$
+=\;\;\;\;\;\begin{bmatrix}
+    \;\;0 & -2 & \;\;4 & -4 \\
+\end{bmatrix}
+$$
+
+Now, $\left[0 \; -2 \;\; 4 -4 \right]$ is the new $R_2$.
+
+New matrix:
+
+$$
+\begin{bmatrix}
+    3 & -9 & 12 & -9 \\
+    0 & 3 & -6 & 6 \\
+    0 & -2 & 4 & -4
+\end{bmatrix}
+$$
+
+# Step 4
+
+Step 4 states: *Assuming all the entries under the last pivot is zero, we can now ignore the row containing the pivot position and cover all rows, if any, above it. Apply steps 1-3 to the remaining submatrix. Repeat the process until there are no more nonzero rows to modify.*
+
+Below, we can see that all the entries under the last pivot are zero, so we can ignore the row containing the pivot position and cover all rows, if any, above it.
+
+$$
+\begin{bmatrix}
+    \bf{3} & -9 & 12 & -9 \\
+    \bf{0} & 3 & -6 & 6 \\
+    \bf{0} & 2 & 4 & 4
+\end{bmatrix}
+$$
+
+<br><br>
+
+$$
+\text{Since everything below the 3 is a zero,}
+$$
+
+$$
+\begin{array}{c}
+    \text{we can ignore the first row now} \rightarrow \\
+                                \\
+                                \\
+\end{array}
+\begin{bmatrix}
+    \times & \times & \times & \times \\
+    0 & \bf{3} & -6 & 6 \\
+    0 & \bf{-2} & 4 & -4
+\end{bmatrix}
+$$
+
+We can now apply steps 1-3 to the remaining submatrix. Repeat the process until finished.
+
+$$
+\begin{array}{c}
+    R_1 \rightarrow \\
+    R_2 \rightarrow \\
+    R_3 \rightarrow \\
+\end{array}
+\begin{bmatrix}
+    3 & -9 & 12 & -9 \\
+    0 & 3 & -6 & 6 \\
+    0 & -2 & 4 & -4
+\end{bmatrix}
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\frac{2}{3}R_2 + R_3 \rightarrow R_3
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\begin{bmatrix}
+    3 & -9 & 12 & -9 \\
+    0 & 3 & -6 & 6 \\
+    0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+# Finish
+
+We can now see that the matrix is in row echelon form. 
+
+$$
+\begin{bmatrix}
+    3 & -9 & 12 & -9 \\
+    0 & 3 & -6 & 6 \\
+    0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+If we were to solve this with python, we would do the following:
+
+```{python}
+import sympy as sp  
+from sympy import init_printing
+init_printing()
+
+A = sp.Matrix([
+    [0,  3,  -6,   6], 
+    [3, -7,   8,  -5], 
+    [3, -9,  12,  -9]])
+
+A.echelon_form()
+```
+
+*Note that depending on step 2, we could have swapped $R_1$ with $R_3$ instead of $R_1$ with $R_2$. This would have resulted in a different matrix*
+
+
+:::
+
+### The Backwards Phase {.unnumbered}
+
+The backwards phase of the row reduction algorithm is used to reduce a matrix in row echelon form to reduced row echelon form. The **reduced row echelon form** of a matrix is unique. This means that there is only one reduced row echelon form for a given matrix. This is not true for row echelon form. A matrix can have many different row echelon forms. The steps are as follows:
+
+5.  Beginning with the rightmost pivot and working upward and to the left, create zeros above each pivot. If a pivot is not 1, make it 1 by a scaling operation.
+
+
+::: panel-tabset
+
+# Step 5a
+
+Step five says: *Beginning with the rightmost pivot and working upward and to the left, create zeros above each pivot. If a pivot is not 1, make it 1 by a scaling operation.*
+
+Below is the matrix from the previous example in row echelon form. Currently the only pivots are 3 and 3. We can make the rightmost pivot 1 by dividing the row by 3.
+
+$$
+\begin{bmatrix}
+    \bf{3} & -9 & 12 & -9 \\
+    0 & \bf{3} & -6 & 6 \\
+    0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\frac{1}{3}R_2 \rightarrow R_2
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\begin{bmatrix}
+    \bf{3} & -9 & 12 & -9 \\
+    0 & \bf{1} & -2 & 2 \\
+    0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+# Step 5b
+
+For the right most pivot, we can make the entries above it zero with elementary row operations.
+
+$$
+\begin{bmatrix}
+    3 & -9 & 12 & -9 \\
+    0 & \bf{1} & -2 & 2 \\
+    0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+$$
+\downarrow
+$$
+
+$$
+9R_2 + R_1 \rightarrow R_1
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\begin{bmatrix}
+    3 & 0 & -6 & 9 \\
+    0 & \bf{1} & -2 & 2 \\
+    0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+# Step 5c
+
+Now we can make the leftmost pivot 1 by dividing the row by 3.
+
+$$
+\begin{bmatrix}
+    3 & 0 & -6 & 9 \\
+    0 & \bf{1} & -2 & 2 \\
+    0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\frac{1}{3}R_1 \rightarrow R_1
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\begin{bmatrix}
+    1 & 0 & -2 & 3 \\
+    0 & 1 & -2 & 2 \\
+    0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+# Finish
+
+We can now see that the matrix is in reduced row echelon form.
+
+$$
+\begin{bmatrix}
+    1 & 0 & -2 & 3 \\
+    0 & 1 & -2 & 2 \\
+    0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+Alternatively, we can solve this with python:
+
+```{python}
+import sympy as sp  
+from sympy import init_printing
+init_printing()
+
+A = sp.Matrix([
+    [0,  3,  -6,   6], 
+    [3, -7,   8,  -5], 
+    [3, -9,  12,  -9]])
+
+A.rref()[0]
+```
+
+```{python}
+import sympy as sp  
+from sympy import init_printing
+init_printing()
+
+A = sp.Matrix([
+    [3, -9,  12,  -9], 
+    [0,  3,  -6,   6],
+    [0,  0,   0,   0]])
+
+A.rref()[0]
+```
+
+
+:::
+ 
+# Solving Linear Systems
+
+
+## The workflow for solving a linear system {.unnumbered}
+
+1.  The linear system is written out in a system of equations.
+2.  Convert the system of equations to an augmented matrix.
+3.  Use elementary row operations to reduce the matrix to row echelon form.
+4.  Convert the reduced row echelon form back to a system of equations.
+
+
+### Infinitely Many Solutions Example {.unnumbered}
+
+::: panel-tabset
+
+# Step 1
+
+1.  The linear system is written out in a system of equations.
+
+Here is a linear system written as a system of equations.
+
+$$
+\begin{cases}
+&\;\;x_1 &- &3x_2 &+ &4x_3 &= -4 \\
+&3x_1 &- &7x_2 &+ &7x_3 &= -8 \\
+&2x_1 &- &6x_2 &- &8x_3 &= -8
+\end{cases}
+$$
+
+# Step 2
+
+2.  Convert the system of equations to an augmented matrix.
+
+The system of equations is converted to an augmented matrix.
+
+$$
+\begin{cases}
+&\;\;x_1 &- &3x_2 &+ &4x_3 &= -4 \\
+&3x_1 &- &7x_2 &+ &7x_3 &= -8 \\
+&2x_1 &- &6x_2 &- &8x_3 &= -8
+\end{cases}
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\left[\begin{array}{ccc|c}
+1 & -3 & 4 & -4 \\
+3 & -7 & 7 & -8 \\
+2 & -6 & -8 & -8
+\end{array}\right]
+$$
+
+# Step 3
+
+3.  Use elementary row operations to reduce the matrix to row echelon form.
+
+$$
+\left[\begin{array}{ccc|c}
+1 & -3 & 4 & -4 \\
+3 & -7 & 7 & -8 \\
+2 & -6 & -8 & -8
+\end{array}\right]
+$$
+
+$$
+\downarrow
+$$
+
+```{python}
+import sympy as sp
+from sympy import init_printing
+init_printing()
+
+A = sp.Matrix([
+    [1, -3, 4, -4],
+    [3, -7, 7, -8],
+    [2, -6, 8, -8]
+])
+
+A.echelon_form()
+```
+
+# Step 4
+
+4.  Convert the reduced row echelon form back to a system of equations.
+
+$$
+\displaystyle \left[\begin{matrix}1 & -3 & 4 & -4\\0 & 2 & -5 & 4\\0 & 0 & 0 & 0\end{matrix}\right]
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\begin{cases}
+x_1 &- &3x_2 &+ &4x_3 &= -4 \\
+& &\;\;2x_2 &- &5x_3 &= \;\;\;4 \\
+& & & &0x_3 &= \;\;\;0
+\end{cases}
+$$
+
+# Finish
+
+The system of equations is written out as so:
+
+$$
+\begin{cases}
+x_1 &- &3x_2 &+ &4x_3 &= -4 \\
+& &2x_2 &- &5x_3 &= \;\;\;4 \\
+& & & &0x_3 &= \;\;\;0
+\end{cases}
+$$
+
+We can see that the system is consistent because the last equation is $0x_3 = 0$ which is always true. Therefore, the system has infinitely many solutions.
+
+:::
+
+### No Solution Example {.unnumbered}
+
+::: panel-tabset
+
+# Step 1
+
+1.  The linear system is written out in a system of equations.
+
+Here is a linear system written as a system of equations.
+
+$$
+\begin{cases}
+& & &\;\;x_2 &+ &4x_3 &= -5 \\
+&\;\;x_1 &- &3x_2 &+ &5x_3 &= -2 \\
+&3x_1 &+ &7x_2 &+ &7x_3 &= \;\;\;6
+\end{cases}
+$$
+
+# Step 2
+
+2.  Convert the system of equations to an augmented matrix.
+
+The system of equations is converted to an augmented matrix.
+
+$$
+\begin{cases}
+& & &\;\;x_2 &+ &4x_3 &= -5 \\
+&\;\;x_1 &- &3x_2 &+ &5x_3 &= -2 \\
+&3x_1 &+ &7x_2 &+ &7x_3 &= \;\;\;6
+\end{cases}
+$$
+
+$$
+\downarrow
+$$
+
+$$
+\left[\begin{array}{ccc|c}
+0 & 1 & 4 & -5 \\
+1 & 3 & 5 & -2 \\
+3 & 7 & 7 & 6
+\end{array}\right]
+$$
+
+# Step 3
+
+3.  Use elementary row operations to reduce the matrix to row echelon form.
+
+
+$$
+\left[\begin{array}{ccc|c}
+0 & 1 & 4 & -5 \\
+1 & 3 & 5 & -2 \\
+3 & 7 & 7 & 6
+\end{array}\right]
+$$
+
+$$
+\downarrow
+$$
+
+```{python}
+import sympy as sp  
+from sympy import init_printing
+init_printing()
+
+A = sp.Matrix([
+    [0, 1, 4, -5],
+    [1, 3, 5, -2],
+    [3, 7, 7, 6]
+])
+
+A.echelon_form()
+```
+
+# Step 4
+
+4.  Convert the reduced row echelon form back to a system of equations.
+
+$$
+\displaystyle \left[\begin{matrix}1 & 3 & 5 & -2\\0 & 1 & 4 & -5\\0 & 0 & 0 & 2\end{matrix}\right]
+$$
+
+$$  
+\downarrow
+$$
+
+$$
+\begin{cases}
+x_1 &+ &3x_2 &+ &5x_3 &= -2 \\
+& &\;\;x_2 &+ &4x_3 &= -5 \\
+& & & &0x_3 &= \;\;\;2
+\end{cases}
+$$
+
+# Finish
+
+The system of equations is written out as so:
+
+$$
+\begin{cases}
+x_1 &+ &3x_2 &+ &5x_3 &= -2 \\
+& &\;\;x_2 &+ &4x_3 &= -5 \\
+& & & &0x_3 &= \;\;\;2
+\end{cases}
+$$
+
+We can see that the system is inconsistent because the last equation is $0x_3 = 2$ which is impossible. No value of $x_3$ will make this equation true. Therefore, the system has no solution.
+
+:::
+
+
+
+## Existence and Uniqueness Question {.unnumbered}
+
+
+The two fundamental questions about a linear system are:
+
+1. Is the system consistent; that is, does at least one solution exist?
+2. If a solution exists, is it the only one; that is, is the solution unique
+
+
+**Examples from [Linear Systems (page 1)](/p1.html)** 
+
+A consistent system that has a unique solution
+
+$$
+\left[\begin{array}{cc|c}
+1 & -2 & -1 \\
+-1 & 3 & 3
+\end{array}\right]
+$$
+
+$$
+\text{or}
+$$
+
+$$
+\begin{cases}
+&\;\;\;x_1 &- &2x_2 &= -1 \\
+&-x_1 &+ &3x_2 &= \;\;\;3
+\end{cases}
+$$
+
+A consistent system that has infinitely many solutions
+
+$$
+\left[\begin{array}{cc|c}
+1 & -2 & -1 \\
+-1 & 2 & 1
+\end{array}\right]  
+$$
+
+$$
+\text{or}
+$$
+
+$$
+\begin{cases}
+&\;\;\;x_1 &- &2x_2 &= -1 \\
+&-x_1 &+ &2x_2 &= \;\;\;1
+\end{cases}
+$$
+
+
+An inconsistent system (A system that has no solution)
+
+$$
+\left[\begin{array}{cc|c}
+1 & -2 & -1 \\
+-1 & 2 & 3
+\end{array}\right]
+$$
+
+$$
+\text{or}
+$$
+
+$$
+\begin{cases}
+&\;\;\;x_1 &- &2x_2 &= -1 \\
+&-x_1 &+ &2x_2 &= \;\;\;3
+\end{cases}
+$$
+
+::: {.callout-note}
+
+# Theorem 2 
+
+**Existence and Uniqueness Theorem**
+
+A linear system is consistent if and only if the rightmost column of the augmented matrix is not a pivot column—that is, if and only if an echelon form of the
+augmented matrix has no row of the form
+
+$$
+\left[\begin{array}{cccc|c}
+0 & \cdots & 0 & 0 & b
+\end{array}\right]
+\;\;\;\;\;\;\;\text{where } b \neq 0
+$$
+
+If a linear system is consistent, then the solution set contains either (i) a unique solution, when there are no free variables, or (ii) infinitely many solutions, when there is at least one free variable.  
+
+:::
+
+# Vectors
+
+## A framework for thinking about vectors {.unnumbered}
+
+**One dimension**
+
+Imagine a number line. A point on the number line is a number. This number line is in one dimensional space.
+
+
+```{python}
+#| code-fold: true
+
+import plotly.graph_objects as go
+
+x_values = list(range(-100, 101))
+
+fig = go.Figure()
+
+(fig.add_trace(
+    go.Scatter(
+        x=x_values,
+        y=[0] * len(x_values),
+        mode="markers+text",
+        marker=dict(size=8, color='red'),
+        text=x_values,
+        textposition="bottom center"))
+    .add_shape(
+    go.layout.Shape(
+        type="line",
+        x0=min(x_values),
+        x1=max(x_values),
+        y0=0,
+        y1=0,
+        line=dict(
+            color="Black",
+            width=3)))
+    .update_xaxes(
+        tickvals=[],
+        showline=True,
+        linewidth=2,
+        linecolor='black',
+        showgrid=False,
+        zeroline=False,
+        ticks="",
+        range=[-10, 10])
+    .update_yaxes(
+        tickvals=[],
+        showline=False,
+        showgrid=False,
+        zeroline=False,
+        ticks="")
+    .update_layout(
+        showlegend=False,
+        plot_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor='rgba(0,0,0,0)',
+        yaxis_title="",
+        height=250,  # Set the height of the plot
+        annotations=[
+            dict(
+                x=0,
+                y=-0.2,
+                xref="x",
+                yref="y",
+                text="drag me left and right ⬇️ (x_1)",  # Custom text for the x-axis
+                showarrow=False)])
+
+)
+
+fig.show()
+
+```
+
+A point in a 1 dimensional space is represented by a single number. The number specifies the location of the point along the ($x_1$) axis. In other words, there is only one direction in which the point can move (left and right).
+
+Example: $1$
+
+**Two dimension**
+
+```{python}
+#| code-fold: true
+
+import plotly.express as px
+import pandas as pd
+
+# Create an empty DataFrame
+df = pd.DataFrame({'drag me ($x_1$)': [], 'drag me ($x_2$)': []})
+
+# Create the scatter plot
+fig =(px
+    .scatter(df, x='drag me ($x_1$)', y='drag me ($x_1$)')
+    .update_xaxes(range=[-30, 30], 
+                 zeroline=True, 
+                 zerolinewidth=2, 
+                 zerolinecolor='Black', 
+                 tickvals=list(range(-100, 101, 10)))
+    .update_yaxes(range=[-30, 30], 
+                 zeroline=True, 
+                 zerolinewidth=2, 
+                 zerolinecolor='Black', 
+                 tickvals=list(range(-100, 101, 10))))
+
+fig.show()
+
+
+```
+
+
+A point in a 2 dimensional space is represented by two numbers. The first number specifies the location of the point along the first, $x_1$, axis and the second number specifies the location of the point along the second, $x_2$, axis. In other words, there are two independent directions in which the point can move (left and right, up and down).
+
+Example: $\begin{bmatrix}1\\2\end{bmatrix}$
+
+**Three dimension**
+
+```{python}
+#| code-fold: true
+
+import pandas as pd
+import plotly.express as px
+
+x_values = [i for i in range(-100, 101)]
+y_values = [i for i in range(-100, 101)]
+z_values = [i for i in range(-100, 101)]
+
+df_x = pd.DataFrame({'x1': x_values, 'x2': [0]*len(x_values), 'x3': [0]*len(x_values)})
+df_y = pd.DataFrame({'x1': [0]*len(y_values), 'x2': y_values, 'x3': [0]*len(y_values)})
+df_z = pd.DataFrame({'x1': [0]*len(z_values), 'x2': [0]*len(z_values), 'x3': z_values})
+
+df = pd.concat([df_x, df_y, df_z], ignore_index=True)
+
+fig = px.scatter_3d(df, x='x1', y='x2', z='x3')
+
+fig.show()
+```
+
+A point in a 3 dimensional space is represented by three numbers. The first number specifies the location of the point along the first, $x_1$, axis, the second number specifies the location of the point along the second, $x_2$, axis, and the third number specifies the location of the point along the third, $x_3$, axis. In other words, there are three independent directions in which the point can move (left and right, up and down, in and out). 
+
+Example: $\begin{bmatrix}1\\2\\3\end{bmatrix}$
+
+
+## Vectors in $\mathbb{R}^2$ {.unnumbered}
+
+A matrix with only one column is called a column vector, or simply a vector. Examples of vectors with two entries are
+
+$$
+\bf{u} = 
+\begin{bmatrix}
+1 \\
+2
+\end{bmatrix}
+;
+\quad
+\bf{v} = 
+\begin{bmatrix}
+-1 \\
+0
+\end{bmatrix}
+;
+\quad
+\bf{w} = 
+\begin{bmatrix}
+w_1 \\
+w_2
+\end{bmatrix}
+$$
+
+The set of all vectors with two entries is denoted by $\mathbb{R}^2$. The set of all vectors with three entries is denoted by $\mathbb{R}^3$. In general, the set of all vectors with $n$ entries is denoted by $\mathbb{R}^n$.
+
+{{< video https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab title='What are vectors?' >}} 
+
+## Operations with vectors {.unnumbered}
+
+**Equalities**
+
+Two vectors $\bf{u}$ and $\bf{v}$ in $\mathbb{R}^2$ are equal if and only if $u_1 = v_1$ and $u_2 = v_2$. In other words, two vectors are equal if and only if their corresponding entries are equal.
+
+For example:
+
+$$
+\begin{bmatrix}
+1 \\
+2
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 \\
+2
+\end{bmatrix}
+$$
+
+$$
+\begin{bmatrix}
+1 \\
+2
+\end{bmatrix}
+\neq
+\begin{bmatrix}
+2 \\
+1
+\end{bmatrix}
+$$
+
+**Addition**
+
+Given two vectors $\bf{u}$ and $\bf{v}$ in $\mathbb{R}^2$, their sum $\bf{u} + \bf{v}$ is obtained by adding their corresponding entries:
+
+$$
+\begin{bmatrix}
+u_1 \\
+u_2
+\end{bmatrix}
++
+\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}
+=
+\begin{bmatrix}
+u_1 + v_1 \\
+u_2 + v_2
+\end{bmatrix}
+$$
+
+
+**Scalar multiplication**
+
+Given a vector $\bf{u}$ in $\mathbb{R}^2$ and a scalar $c$, their product $c\bf{u}$ is obtained by multiplying each entry of $\bf{u}$ by $c$:
+
+$$
+c
+\begin{bmatrix}
+u_1 \\
+u_2
+\end{bmatrix}
+=
+\begin{bmatrix}
+cu_1 \\
+cu_2
+\end{bmatrix}
+$$
+
+
+
+# Linear Combinations and Span
+
+{{< video https://www.youtube.com/watch?v=k7RM-ot2NWY title='What are vectors?' >}} 
+
+## Linear Combinations
+
+A **linear combination** is a sum of scalar multiples of vectors. The scalars are called the weights.
+
+Given vectors $\mathbf{v}_1, \mathbf{v}_2, ..., \mathbf{v}_p$ in $\mathbb{R}^n$ and weights (scalars) $c_1, c_2, ..., c_p$, the vector, $\mathbf{y}$, is a linear combination of $\mathbf{v}_1, \mathbf{v}_2, ..., \mathbf{v}_p$ if:
+
+$$
+\mathbf{y} = c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + ... + c_p\mathbf{v}_p
+$$
+
+Each weight (scalar) $c_i$ scales the vector $\mathbf{v}_i$, and the sum of all these scaled vectors is the resulting linear combination.
+
+
+### Example
+
+Imagine vectors, $\mathbf{v}_1$ and $\mathbf{v}_2$, in $\mathbb{R}^2$ where $\mathbf{v}_1 = \begin{bmatrix}-1\\2\end{bmatrix}$ and $\mathbf{v}_2 = \begin{bmatrix}2\\0\end{bmatrix}$. 
+
+Now, imagine vector, $\mathbf{y}$, in $\mathbb{R}^2$ where $\mathbf{y} = \begin{bmatrix}2\\2\end{bmatrix}$.
+
+We can see that $\mathbf{y}$ is a linear combination of $\mathbf{v}_1$ and $\mathbf{v}_2$ because $\mathbf{y}$ can be written as:
+
+$$
+(1)\mathbf{v}_1 + (1.5)\mathbf{v}_2 = \mathbf{y} = 
+$$
+
+or, in other words:
+
+$$
+(1)\begin{bmatrix}-1\\2\end{bmatrix} + (1.5)\begin{bmatrix}2\\0\end{bmatrix} = \begin{bmatrix}2\\2\end{bmatrix} 
+$$
+
+
+
+```{=html}
+<iframe src="https://www.geogebra.org/classic/watmgddv?embed" width="700" height="500" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+```
+
+
+
+::: {.callout-note}
+A vector equation
+
+$$
+x_1\mathbf{a}_1 + x_2\mathbf{a}_2 + \ldots + x_n\mathbf{a}_n = \mathbf{b}
+$$
+
+has the same solution set as the linear system whose augmented matrix is
+
+$$
+\begin{bmatrix}
+\mathbf{a}_1 & \mathbf{a}_2 & \ldots & \mathbf{a}_n & \mathbf{b}
+\end{bmatrix}
+$$
+
+In particular, $\mathbf{b}$ can be generated by a linear combination of $\mathbf{a}_1, \ldots, \mathbf{a}_n$ if and only if there exists a solution to the linear system corresponding to the matrix (5).
+
+One of the key ideas in linear algebra is to study the set of all vectors that can be generated or written as a linear combination of a fixed set $\{\mathbf{v}_1, \ldots, \mathbf{v}_p\}$ of vectors.
+
+If $\mathbf{v}_1, \ldots, \mathbf{v}_p$ are in $\mathbb{R}^n$, then the set of all linear combinations of $\mathbf{v}_1, \ldots, \mathbf{v}_p$ is denoted by $\text{Span}\{\mathbf{v}_1, \ldots, \mathbf{v}_p\}$ and is called the subset of $\mathbb{R}^n$ spanned (or generated) by $\mathbf{v}_1, \ldots, \mathbf{v}_p$. That is, $\text{Span}\{\mathbf{v}_1, \ldots, \mathbf{v}_p\}$ is the collection of all vectors that can be written in the form
+
+$$
+c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \ldots + c_p\mathbf{v}_p
+$$
+
+with $c_1, \ldots, c_p$ scalars.
+
+Asking whether a vector $\mathbf{b}$ is in $\text{Span}\{\mathbf{v}_1, \ldots, \mathbf{v}_p\}$ amounts to asking whether the vector equation
+
+$$
+x_1\mathbf{v}_1 + x_2\mathbf{v}_2 + \ldots + x_p\mathbf{v}_p = \mathbf{b}
+$$
+
+has a solution, or, equivalently, asking whether the linear system with augmented matrix
+
+$$
+\begin{bmatrix}
+\mathbf{v}_1 & \ldots & \mathbf{v}_p & \mathbf{b}
+\end{bmatrix}
+$$
+
+has a solution.
+
+:::
+
+
+
+
+## Span of Vectors
+
+The **span** of a set of vectors is the collection of all possible linear combinations of those vectors. It represents all the vectors that can be reached or generated by scaling and combining the original set of vectors.
+
+Check out [this](https://www.geogebra.org/m/sZvguX3J) interactive graph to see how the span of vectors changes as the vectors are scaled and combined.
+
+
+### Definition
+
+The span of vectors $\mathbf{v}_1, \mathbf{v}_2, ..., \mathbf{v}_n$ is denoted as $\text{Span}\{\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_n\}$ and includes every vector that can be written in the form:
+
+$$
+a_1\mathbf{v}_1 + a_2\mathbf{v}_2 + ... + a_n\mathbf{v}_n
+$$
+
+where $a_1, a_2, ..., a_n$ are real numbers.
+
+### Example
+
+
+
+
+Consider vectors $\mathbf{u} = \begin{bmatrix}1\\0\end{bmatrix}$ and $\mathbf{v} = \begin{bmatrix}0\\1\end{bmatrix}$. The span of $\mathbf{u}$ and $\mathbf{v}$ is all of $\mathbb{R}^2$ because any vector in $\mathbb{R}^2$ can be expressed as a linear combination of $\mathbf{u}$ and $\mathbf{v}$.
+
+For instance, the vector $\begin{bmatrix}3\\4\end{bmatrix}$ can be obtained as:
+
+$$
+3\begin{bmatrix}1\\0\end{bmatrix} + 4\begin{bmatrix}0\\1\end{bmatrix} = \begin{bmatrix}3\\4\end{bmatrix}
+$$
+
+# The Matrix Equation, $\mathbf{A}\mathbf{x} = \mathbf{b}$
+
+A fundamental idea in linear algebra is to view a linear combination of vectors as the product of a matrix and a vector. 
+
+::: {.callout-note}
+
+# Definition of a Linear Combination
+
+If $\mathbf{A}$ is an $m \times n$ matrix, with columns $\mathbf{a}_1, ..., \mathbf{a}_n$, and if $\mathbf{x}$ is in $\mathbb{R}^n$, then the product of $\mathbf{A}$ and $\mathbf{x}$, denoted by $\mathbf{A}\mathbf{x}$, is the linear combination of the columns of $\mathbf{A}$ using the corresponding entries in $\mathbf{x}$ as weights; that is,
+
+$$
+\mathbf{A}x = [\mathbf{a}_1 \quad \mathbf{a}_2 \quad ... \quad \mathbf{a}_n]
+\begin{bmatrix}
+x_1 \\
+\vdots \\
+x_n
+\end{bmatrix}
+= x_1\mathbf{a}_1 + x_2\mathbf{a}_2 + ... + x_n\mathbf{a}_n
+$$
+
+:::
+
+::: {.callout-note}
+
+# Comparison of the Vector and Matrix Equations
+
+If $A$ is an $m \times n$ matrix, with columns $a_1, ..., a_n$, and if $b$ is in $\mathbb{R}^m$, the matrix equation
+
+$$
+\mathbf{A}\mathbf{x} = \mathbf{b} 
+$$
+
+has the same solution set as the vector equation
+
+$$
+x_1\mathbf{a}_1 + x_2\mathbf{a}_2 + ... + x_n\mathbf{a}_n = \mathbf{b} 
+$$
+
+which, in turn, has the same solution set as the system of linear equations whose augmented matrix is
+
+$$
+\begin{bmatrix}
+\mathbf{a}_1 & \mathbf{a}_2 & ... & \mathbf{a}_n & \mathbf{b}
+\end{bmatrix} 
+$$
+
+:::
+
+Just like a linear combination of vectors, the product of a matrix and a vector is a linear combination of the columns of the matrix using the corresponding entries in the vector as weights.
+
+In other words, the matrix equation $\mathbf{A}\mathbf{x} = \mathbf{b}$ can be thought of as a linear combination of the columns of $\mathbf{A}$ using the corresponding entries in $\mathbf{x}$ as weights.
+
+Thus, the equation, $\mathbf{A}\mathbf{x} = \mathbf{b}$, has a solution if and only if $\mathbf{b}$ is a linear combination of the columns of $\mathbf{A}$.
+
+# The Invertible Matrix Theorem in Parts
 
 **Let $A$ be an $(n\times m)$ matrix where $n\leq m$**  
 
@@ -67,3 +1887,4 @@ If there are pivots in every row and column of $A$, then both groups of statemen
 
  - The determinant of $A$, $\det{A} \neq 0$
 
+::::
