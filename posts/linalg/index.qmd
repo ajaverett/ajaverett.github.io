@@ -1,4 +1,3 @@
-
 ---
 title: "Linear Algebra, Lesson 1"
 subtitle: "Systems of Linear Equations to the Invertible Matrix Theorem"
