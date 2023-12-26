@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ajaverett.github.io/index.html</loc>
-    <lastmod>2023-11-20T04:04:00.370Z</lastmod>
+    <lastmod>2023-11-20T04:47:03.107Z</lastmod>
   </url>
   <url>
     <loc>https://ajaverett.github.io/resumes/resume_de.html</loc>
-    <lastmod>2023-11-20T04:03:55.559Z</lastmod>
+    <lastmod>2023-12-17T06:20:55.634Z</lastmod>
   </url>
   <url>
     <loc>https://ajaverett.github.io/posts/tutor/index.html</loc>
@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://ajaverett.github.io/posts/qreg/index.html</loc>
-    <lastmod>2023-11-19T00:51:37.497Z</lastmod>
+    <lastmod>2023-12-11T21:57:21.319Z</lastmod>
   </url>
   <url>
     <loc>https://ajaverett.github.io/posts/pca/pca.html</loc>
@@ -55,5 +55,13 @@
   <url>
     <loc>https://ajaverett.github.io/resumes/resume_ds.html</loc>
     <lastmod>2023-11-19T03:51:53.476Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ajaverett.github.io/posts/barplots/index.html</loc>
+    <lastmod>2023-12-12T00:05:04.296Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ajaverett.github.io/posts/temp/temp1.html</loc>
+    <lastmod>2023-12-17T06:20:48.665Z</lastmod>
   </url>
 </urlset>

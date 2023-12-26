@@ -7,10 +7,165 @@ image: "qreg.webp"
 categories: ["Math", "Statistics"]
 format:
   html:
-    code-fold: show
+    code-fold: true
     code-summary: "Show the code"
 ---
+  
+
+# A recap on simple linear Regression
+
+Given data with the following assumptions:
+
+- Linear Relation: the true regression relation between $Y$ and $X$ is linear.
+
+- Normal Errors: the error terms $\epsilon_i$ are normally distributed with a mean of zero.
+
+- Constant Variance: the variance $\sigma^2$ of the error terms is constant over all $X_i$ values.
+
+- Fixed $X$: the $X_i$ values can be considered fixed and measured without error.
+
+- Independent Errors: the error terms $\epsilon_i$,are independent.
+
+We can model the data with the following equation: 
+
+$$
+\mathbb{E}[Y_i​∣X_i]=\beta_0​+\beta_1​X_i​
+$$
+
+The interpretation of thse slope in this model is increase in the average or expected value of $Y$ given a unit change in $X$.
+
+The problem with this is that this is limited. 
+
 # Quantile Regression
+
+$$
+\mathbb{Q}_{\tau}[Y_i∣X_i]=\beta_0+\beta_1X_i
+$$
+
+```{r}
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(mosaic)
+library(gridExtra)
+library(plotly)
+```
+
+```{=html}
+<br><br>
+```
+
+```{r}
+#| warning: false
+#| message: false
+
+fig1 = Utilities %>% 
+  head(15) %>% 
+  ggplot(aes(x = kwh, y= elecbill)) +
+  geom_point(size=5, alpha=.4) +
+  geom_smooth(method="lm", se=F, linewidth=2, color="black") +
+  # geom_quantile(quantiles = 0.5, linewidth=2, color="purple") +
+  theme_classic() +
+  labs(title="Without Outlier")+
+  coord_cartesian(ylim=c(0,100), xlim=c(0,1650))
+
+fig2 = Utilities %>% 
+  head(15) %>% 
+  bind_rows(data.frame(kwh=1600, elecbill=0)) %>% 
+  ggplot(aes(x = kwh, y= elecbill)) +
+  geom_point(size=5, alpha=.4) +
+  geom_smooth(method="lm", se=F, linewidth=2, color="black") +
+  # geom_quantile(quantiles = 0.5, linewidth=2, color="purple") +
+  theme_classic()+
+  labs(title="With Outlier")+
+  coord_cartesian(ylim=c(0,100), xlim=c(0,1650))
+
+subplot(fig1 %>% ggplotly, fig2 %>% ggplotly) %>% 
+  layout(title = 'Regression Estimating the Mean Y')
+
+```
+
+```{=html}
+<br><br>
+```
+
+
+```{r}
+#| warning: false
+#| message: false
+
+fig1 = Utilities %>% 
+  head(15) %>% 
+  ggplot(aes(x = kwh, y= elecbill)) +
+  geom_point(size=5, alpha=.4) +
+  # geom_smooth(method="lm", se=F, linewidth=2, color="black") +
+  geom_quantile(quantiles = 0.5, linewidth=2, color="purple") +
+  theme_classic() +
+  labs(title="Without Outlier")+
+  coord_cartesian(ylim=c(0,100), xlim=c(0,1650))
+
+fig2 = Utilities %>% 
+  head(15) %>% 
+  bind_rows(data.frame(kwh=1600, elecbill=0)) %>% 
+  ggplot(aes(x = kwh, y= elecbill)) +
+  geom_point(size=5, alpha=.4) +
+  # geom_smooth(method="lm", se=F, linewidth=2, color="black") +
+  geom_quantile(quantiles = 0.5, linewidth=2, color="purple") +
+  theme_classic()+
+  labs(title="With Outlier")+
+  coord_cartesian(ylim=c(0,100), xlim=c(0,1650))
+
+subplot(fig1 %>% ggplotly, fig2 %>% ggplotly) %>% 
+  layout(title = 'Regression Estimating the Median Y')
+
+```
+
+
+```{r}
+library(quantreg)
+
+df = Utilities %>% 
+  head(15) %>% 
+  bind_rows(data.frame(kwh=1600, elecbill=0)) 
+
+# model assumes slopes are the same
+avg_reg <- lm(elecbill ~ kwh, data = df)
+med_reg <- rq(elecbill ~ kwh, data = df, tau = .5)
+
+AIC(avg_reg, med_reg) %>% 
+  pander::pander()
+```
+
+```{r}
+library(sjPlot) 
+theme_set(theme_bw())
+plot_models(avg_reg, med_reg, show.values = TRUE, 
+            m.labels = c("Linear model", "Median model"), 
+            legend.title = "Model type")
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 check out
 

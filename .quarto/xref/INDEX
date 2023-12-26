@@ -51,5 +51,11 @@
   },
   "posts/linalg/index.qmd": {
     "index.html": "6ab787ce"
+  },
+  "posts/barplots/index.qmd": {
+    "index.html": "bd848962"
+  },
+  "posts/temp/temp1.qmd": {
+    "temp1.html": "b46c08bf"
   }
 }
