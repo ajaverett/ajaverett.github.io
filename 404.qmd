@@ -67,7 +67,7 @@ body {
             </lord-icon>
             <h3>Data Science Resume</h3>
             <br>
-            <a href="resumes/resume_ds.pdf" class="button" target="_blank">Check it out!</a>
+            <a href="resume.pdf" class="button" target="_blank">Check it out!</a>
         </div>
 
         <!-- Data Science Go Section -->
@@ -80,7 +80,7 @@ body {
             </lord-icon>
             <h3>Data Engineering Resume</h3>
             <br>
-            <a href="resumes/resume_de.pdf" class="button" target="_blank">Check it out!</a>
+            <a href="resume.pdf" class="button" target="_blank">Check it out!</a>
         </div>
 
         <!-- Additional squares can be added here -->

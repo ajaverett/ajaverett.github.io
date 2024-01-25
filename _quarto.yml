@@ -10,11 +10,11 @@ website:
   navbar:
     background: "#FFFFFF"
     left:
-      - href: index.qmd
+      - href: "index.qmd"
         text: Home
-      - href: about.qmd
+      - href: "about.qmd"
         text: About
-      - href: 404.qmd
+      - href: "resume.pdf"
         text: Resume  
       
 

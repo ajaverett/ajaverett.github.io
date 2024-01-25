@@ -12,6 +12,7 @@ format:
 
 
 ```{=html}
+
 <div>
 
 <h1 style="text-align: center; color: white; font-size: 3em; margin-top: 2em; margin-bottom: 2em;">Alan's Journey</h1>
@@ -258,4 +259,3 @@ format:
 
 
 ```
-

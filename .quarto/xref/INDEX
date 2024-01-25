@@ -57,5 +57,9 @@
   },
   "posts/temp/temp1.qmd": {
     "temp1.html": "b46c08bf"
+  },
+  "resume.qmd": {
+    "resume.html": "0f7b3754",
+    "resume.tex": "166bc71a"
   }
 }

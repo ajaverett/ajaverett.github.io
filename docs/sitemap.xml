@@ -2,66 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ajaverett.github.io/index.html</loc>
-    <lastmod>2023-11-20T04:47:03.107Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.github.io/resumes/resume_de.html</loc>
-    <lastmod>2023-12-17T06:20:55.634Z</lastmod>
+    <lastmod>2024-01-25T01:50:13.493Z</lastmod>
   </url>
   <url>
     <loc>https://ajaverett.github.io/posts/tutor/index.html</loc>
     <lastmod>2023-11-18T21:52:14.722Z</lastmod>
   </url>
   <url>
-    <loc>https://ajaverett.github.io/posts/qreg/index.html</loc>
-    <lastmod>2023-12-11T21:57:21.319Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.github.io/posts/pca/pca.html</loc>
-    <lastmod>2023-11-18T21:41:57.512Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.github.io/posts/hack2/index.html</loc>
-    <lastmod>2023-11-18T21:40:25.852Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.github.io/posts/dash/index.html</loc>
-    <lastmod>2023-11-18T21:34:28.619Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.github.io/about.html</loc>
-    <lastmod>2023-11-06T14:13:36.800Z</lastmod>
+    <loc>https://ajaverett.github.io/posts/power_triangle/power_triangle.html</loc>
+    <lastmod>2023-11-18T21:42:52.307Z</lastmod>
   </url>
   <url>
     <loc>https://ajaverett.github.io/posts/hack1/index.html</loc>
     <lastmod>2023-11-18T21:53:10.685Z</lastmod>
   </url>
   <url>
-    <loc>https://ajaverett.github.io/posts/linalg/index.html</loc>
-    <lastmod>2023-11-20T04:03:27.421Z</lastmod>
+    <loc>https://ajaverett.github.io/about.html</loc>
+    <lastmod>2024-01-25T01:50:16.845Z</lastmod>
   </url>
   <url>
-    <loc>https://ajaverett.github.io/posts/power_triangle/power_triangle.html</loc>
-    <lastmod>2023-11-18T21:42:52.307Z</lastmod>
+    <loc>https://ajaverett.github.io/posts/pca/pca.html</loc>
+    <lastmod>2023-11-18T21:41:57.512Z</lastmod>
   </url>
   <url>
-    <loc>https://ajaverett.github.io/posts/spanish/index.html</loc>
-    <lastmod>2023-11-18T21:47:38.319Z</lastmod>
+    <loc>https://ajaverett.github.io/posts/qreg/index.html</loc>
+    <lastmod>2023-12-11T21:57:21.319Z</lastmod>
   </url>
   <url>
-    <loc>https://ajaverett.github.io/posts/usa_christian/index.html</loc>
-    <lastmod>2023-11-19T00:33:40.509Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.github.io/resumes/resume_ds.html</loc>
-    <lastmod>2023-11-19T03:51:53.476Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.github.io/posts/barplots/index.html</loc>
-    <lastmod>2023-12-12T00:05:04.296Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.github.io/posts/temp/temp1.html</loc>
-    <lastmod>2023-12-17T06:20:48.665Z</lastmod>
+    <loc>https://ajaverett.github.io/resume.html</loc>
+    <lastmod>2024-01-25T01:42:19.192Z</lastmod>
   </url>
 </urlset>

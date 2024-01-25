@@ -1,7 +1,7 @@
 ---
 # title: ""
 page-layout: full
-resources: resumes/resume_ds.pdf
+resources: resume.pdf
 id: home
 about: 
     template: marquee
@@ -14,7 +14,7 @@ about:
       href: https://www.linkedin.com/in/ajaverett/
     - text: Resume
       icon: file-text
-      href: "404.qmd"
+      href: "resume.pdf"
     - text: Instagram
       icon: instagram
       href: "https://www.instagram.com/rooftop_asian"
@@ -77,7 +77,7 @@ listing:
       I'm a data scientist committed to driving impactful results through data, whether in the academic, political, or historical domain. I have a passion for Python, R, data visualization, and statistics/machine learning. 
     </p>
     
-    <a href="404.html" style="background-color: #007BFF; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);">View My Resume (PDF)</a>
+    <a href="resume.pdf" style="background-color: #007BFF; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);">View My Resume (PDF)</a>
 
     
 </div>
