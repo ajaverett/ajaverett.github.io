@@ -1,35 +1,36 @@
 {
   "resume.qmd": {
-    "resume.tex": "f7df63f1"
-  },
-  "posts/brainrot/main.qmd": {
-    "main.html": "2dad0da2"
-  },
-  "404.qmd": {
-    "404.html": "b997ba06"
-  },
-  "about.qmd": {
-    "about.html": "e6754e71"
-  },
-  "posts/hack1/index.qmd": {
-    "index.html": "ef5c3122"
-  },
-  "posts/hack2/index.qmd": {
-    "index.html": "1b5d73d7"
+    "resume.tex": "77652ecf",
+    "resume.html": "5ee0bb30"
   },
   "index.qmd": {
-    "index.html": "d3bd61a7"
+    "index.html": "ebe54378"
+  },
+  "404.qmd": {
+    "404.html": "3b2cf7a9"
+  },
+  "about.qmd": {
+    "about.html": "059e4f59"
+  },
+  "posts/brainrot/main.qmd": {
+    "main.html": "fe5ef86d"
+  },
+  "posts/hack1/index.qmd": {
+    "index.html": "55e12f08"
+  },
+  "posts/hack2/index.qmd": {
+    "index.html": "2b5c59b5"
   },
   "posts/pca/pca.qmd": {
-    "pca.html": "8c6aa84f"
+    "pca.html": "169d4f83"
   },
   "posts/power_triangle/power_triangle.qmd": {
-    "power_triangle.html": "e69bcdac"
+    "power_triangle.html": "1000873d"
   },
   "posts/tutor/index.qmd": {
-    "index.html": "5cc795f8"
+    "index.html": "10fd5efe"
   },
   "posts/usa_christian/index.qmd": {
-    "index.html": "79367e49"
+    "index.html": "0edb47e3"
   }
 }

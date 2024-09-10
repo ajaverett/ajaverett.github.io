@@ -97,7 +97,7 @@ def create_plots(data_dict, sorted_date_dict):
         fig = px.line(df, 
             x='date', 
             y='value', 
-            title=f'Relative Search Volume on Google for "{term.title()}"',
+            title=f'"{term.title()}" Relative Search Volume on Google',
             height=200,
             labels={
                 "date": "<br><br><br>",
