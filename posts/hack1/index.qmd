@@ -4,7 +4,7 @@ subtitle: "Natural language processing with Mormon scripture"
 title-block-banner: ../../images/banner.png
 title-block-banner-color: 'white'
 image: "pandaverse.png"
-categories: ["Streamlit", "Plotly", "Python", "Visualization","Relgion","NLP","Machine Learning"]
+categories: ["Streamlit", "Plotly", "Python", "Visualization","Religion","NLP","Machine Learning"]
 format:
   html:
     code-fold: true

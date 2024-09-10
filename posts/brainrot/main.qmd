@@ -1,0 +1,133 @@
+---
+title: "Which meme came first?"
+subtitle: "From Amogus to Zesty"
+image: "skibidi.png"
+categories: ["Plotly", "Python", "Visualization"]
+format:
+  html:
+    code-fold: true
+---
+
+# What the Sigma?
+
+Several neologisms have recently entered into the vocabulary of younger generations. Because of the rapid pace of change in language, it is difficult to determine when these terms first appeared in the broader culture. To investigate this, we can analyze the relative search volume on Google for these terms over time. By identifying the period with the largest increase in search interest, we can determine when each term gained popularity, and which term entered the broader culture first. 
+
+In order to do this, I downloaded over a hundred CSV files from Google Trends, each containing the relative search volume for a different term. The data spans from January 2010 to the present (September 2024). The data is cleaned and loaded into a pandas DataFrame, and the period with the largest increase in search interest is identified for each term. The relative search volume for each term is then plotted over time, sorted from most to least recent, with a vertical line indicating the period with the largest increase in search interest.
+
+# Finding the biggest spike!
+
+Let's say we want to find the date of the largest increase, $t_{max}$ for any given term. Let $y_t$ represent the search interest value for a given term at time $t$, where $t$ corresponds to any month between January 2010 and the present (September 2024). The change in search interest from one month to the next, $\Delta y_t$, is computed as the first difference of the time series:
+
+$$
+\Delta y_t = y_t - y_{t-1}
+$$
+
+To capture a broader trend in the changes over time, a rolling sum $S$ is calculated over a window of $w$ months. The rolling sum at a given time $t$ is expressed as:
+
+$$
+S_t^{(w)} = \sum_{i=0}^{w-1} \Delta y_{t-i}
+$$
+
+For example, when $w = 3$, the rolling sum at time $t$ is calculated as:
+
+$$
+S_t^{(3)} = \Delta y_t + \Delta y_{t-1} + \Delta y_{t-2}
+$$
+
+The rolling sum reaches its maximum value at $t_{\text{max}}$, meaning that this is the period with the largest cumulative increase in search interest:
+
+$$
+t_{\text{max}} = \arg\max_t \left( S_t^{(w)} \right)
+$$
+
+By comparing $t_{\text{max}}$ across different terms, we can see which terms like "Sigma" or "Rizz" entered into the broader culture first
+
+# Plots for all Zalpha neologisms 
+
+```{python}
+#| code-fold: true
+
+import os
+import pandas as pd
+import datetime
+import plotly.express as px
+import numpy as np
+from scipy.signal import find_peaks
+
+data_folder = 'data'
+
+def extract_term(file_path):
+    with open(file_path, 'r') as file:
+        file.readline()
+        file.readline()
+        second_line = file.readline()
+        term = second_line.split(',')[1].split(':')[0].strip()
+        return term
+
+def clean_and_load_data(file_path):
+    df = pd.read_csv(file_path, skiprows=2)\
+            .set_axis(['date', "value"], axis=1)\
+            .assign(value = lambda x: x['value'].replace('<1', '0.5'))\
+            .assign(value = lambda x: pd.to_numeric(x['value'], errors='coerce'))\
+            .assign(date = lambda x: pd.to_datetime(x['date'], format='%Y-%m'))
+    return df
+
+def find_large_increase_periods(
+    df, 
+    value="value", 
+    window=3, 
+    start_date="2010-01-01"):
+
+    return df\
+        .query('date > @start_date')\
+        .assign(diff=lambda x: x[value].diff(1))\
+        .assign(rolling_diff_sum=lambda x: x['diff']\
+                .rolling(window=window, min_periods=1)\
+                .sum())\
+        .query('rolling_diff_sum == rolling_diff_sum.max()')\
+        .filter(items=['date'])\
+        .values[0][0]
+
+def create_plots(data_dict, sorted_date_dict):
+    plots = []
+    for term in sorted_date_dict.keys():
+        df = data_dict[term].query("date > '2010-01-01'")
+        large_increase_date = sorted_date_dict[term]
+
+        fig = px.line(df, 
+            x='date', 
+            y='value', 
+            title=f'Relative Search Volume on Google for "{term.title()}"',
+            height=200,
+            labels={
+                "date": "<br><br><br>",
+                "value": "Interest"})
+
+        fig.add_vline(
+            x=int(large_increase_date) / 1e6,
+            annotation_text="Largest Increase",
+            annotation_position="top left",
+            line=dict(color="red") 
+        )
+
+        plots.append(fig)
+    return plots
+
+data_dict = {}
+date_dict = {}
+
+for file in os.listdir(data_folder):
+    if file.endswith('.csv'):
+        file_path = os.path.join(data_folder, file)
+        term = extract_term(file_path)
+        df = clean_and_load_data(file_path) 
+        data_dict[term] = df  
+        date_dict[term] = find_large_increase_periods(df)
+
+sorted_date_dict = dict(sorted(date_dict.items(), key=lambda item: item[1], reverse=True))
+plots = create_plots(data_dict, sorted_date_dict)
+
+for fig in plots:
+    fig.show()
+
+```

@@ -29,12 +29,16 @@ format:
                    margin-bottom: 20px;
                    color:white">
 
-        Daejon, Korea
+        Head of the Hanyang Koo Clan
 
         </h2>
 
         <p>
-            Alan was born to the name "Min Soeb" in Daejon, South Korea. For the first year of his life, he was raised in the Korean foster care system. He was one of the last kids at the adoption center to get a home!
+            Alan was born to the name "구민섭" (Koo, Min Sub) in South Korea. 
+            
+            For the first year of his life, he was raised in the Korean foster care system. He was one of the last kids at the adoption center to get a home!
+
+            According to the Korean Family Registry, he is the head of the Hanyang Koo Clan in South Korea (since he is the only member)
             
         </p>
 
@@ -58,13 +62,17 @@ format:
                    margin-bottom: 20px;
                    color:white">
 
-        Phoenix, Arizona
+        Adopted to America
 
         </h2>
 
         <p>
-            The Averett's adopted Alan and brought him to Phoenix Arizona in the United States. He became the youngest of 5 children. His mother's family was from California and Mexico and his father's family from Wyoming. Throughout his life, his mother worked as an educator and his father worked in sales with companies across India and Asia.
+            The Averett's adopted Alan and brought him to Phoenix Arizona in the United States. He became the youngest of 5 children. 
             
+            His mother's family was from California and Mexico and his father's family from Wyoming. 
+            
+            Throughout his life, his mother worked in education and his father worked in sales with companies across India and Asia.
+        
         </p>
 
         <img class="storyimg"  src="images/story/family.png" style="width: 80%; border-radius: 50%; display: block; margin-left: auto; margin-right: auto; transition: transform 0.3s; cursor: pointer; max-width: 15rem;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
@@ -90,16 +98,18 @@ format:
                    margin-bottom: 20px;
                    color:white">
 
-        Austin, Texas
+        Eagle Scout in Texas
 
         </h2>
 
         <p>
-            Near the end of elementary school, Alan and his family moved to Austin, Texas. This is where he grew up and spent most of his life. He eventually attended Lake Travis Middle and High School.
+            While Alan was growing up in Texas, he joined the Boy Scouts of America, serving as the Scribe in his troop. In 2018, he earned the rank of Eagle Scout.
 
+            His Eagle Scout project was to run community service events partering with the Pajama Program for disadvantaged youth in the local Austin area. 
+            
         </p>
 
-        <img class="storyimg"  src="images/story/grad.png" style="width: 80%; border-radius: 50%; display: block; margin-left: auto; margin-right: auto; transition: transform 0.3s; cursor: pointer; max-width: 15rem;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <img class="storyimg"  src="images/story/eagle.png" style="width: 80%; border-radius: 50%; display: block; margin-left: auto; margin-right: auto; transition: transform 0.3s; cursor: pointer; max-width: 15rem;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
 
     </div>
 
@@ -108,12 +118,45 @@ format:
     <!-- second slide -->
     <div style="max-width: 95%; margin: 0 auto; padding: 30px; background-color: rgba(0,0,0,0.8); border-radius: 8px;">
 
+        <h2 style="font-size: 1.5em; 
+                   margin-bottom: 20px;
+                   color:white">
+
+        Music in the Marching Band
+
+        </h2>
+
         <p>
-            At Lake Travis High School, he was involved in the marching band, varsity choir, DECA International, and theatre.
+            Even though Alan was the only child not to take piano lessons, that did not stop him from pursuing piano. Alan learned piano by ear and learned from mimicking YouTube videos.   
 
-            During his time in the marching band, he played in the front ensemble as a marimba and vibraphone player. He also played the piano and sang in the varsity choir as a tenor and bass.
+            In highschool, he was involved in the marching band, learning how to play the keyboard, battery, and auxiliary percussion. He was also involved in chorus as a tenor and bass, singing for the varsity choir.
 
-            In DECA, he competed in business competitions and won awards at the regional, state and international level.
+            Alan joined a band where he played the drumset and keyboard, though it was pretty short-lived.
+
+        </p>
+
+        <img class="storyimg"  src="images/story/band.png" style="width: 80%; border-radius: 50%; display: block; margin-left: auto; margin-right: auto; transition: transform 0.3s; cursor: pointer; max-width: 15rem;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+
+
+    </div>
+
+    <br><br>
+
+    <!-- second slide -->
+    <div style="max-width: 95%; margin: 0 auto; padding: 30px; background-color: rgba(0,0,0,0.8); border-radius: 8px;">
+
+        <h2 style="font-size: 1.5em; 
+                   margin-bottom: 20px;
+                   color:white">
+
+        Competing in the Business Club 
+
+        </h2>
+
+        <p>
+            Alan, along with his friends, joined and competed in his school's business club, called DECA. He helped run a public relations campaign, partnering with TerraCycle, an innovative recycling company that has become a global leader in recycling hard-to-recycle materials.
+
+            They won regional, state, and went on to compete at the international level in Atlanta, Georgia.
 
         </p>
 
@@ -124,30 +167,23 @@ format:
 
     <br><br>
 
-    <!-- third slide -->
+    <!-- fourth slide -->
     <div style="max-width: 95%; margin: 0 auto; padding: 30px; background-color: rgba(0,0,0,0.8); border-radius: 8px;">
 
+        <h2 style="font-size: 1.5em; 
+                   margin-bottom: 20px;
+                   color:white">
+
+        Taekwondo to Tire Repair
+
+        </h2>
+
         <p>
-            Alan was always determined and eager to work from a young age. In Texas, he took on a variety of jobs- working at a bakery, instructing at a martial arts studio, and fixing tires as a tire repair technician. 
+            Alan has always been eager to work from a young age. In Texas, he took on a variety of jobs- working at a bakery, instructing at a martial arts studio, and fixing tires as a tire repair technician. 
 
         </p>
 
         <img class="storyimg"  src="images/story/tkd.png" style="width: 80%; border-radius: 50%; display: block; margin-left: auto; margin-right: auto; transition: transform 0.3s; cursor: pointer; max-width: 15rem;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-
-
-    </div>
-
-    <br><br>
-
-    <!-- third slide -->
-    <div style="max-width: 95%; margin: 0 auto; padding: 30px; background-color: rgba(0,0,0,0.8); border-radius: 8px;">
-
-        <p>
-            Outside of work and school, Alan was involved in his church as a leader for his local youth group. He pursued martial arts- getting to the rank of red belt at an Olympic certified school before leaving to college. He was even a Scribe in his local Boy Scout troop and earned the rank of Eagle Scout.
-
-        </p>
-
-        <img class="storyimg"  src="images/story/eagle.png" style="width: 80%; border-radius: 50%; display: block; margin-left: auto; margin-right: auto; transition: transform 0.3s; cursor: pointer; max-width: 15rem;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
 
 
     </div>
@@ -169,14 +205,15 @@ format:
                    margin-bottom: 20px;
                    color:white">
 
-        Baltimore, Maryland
+        Volunteer work in Maryland
 
         </h2>
 
         <p>
-            After Alan graduated, he served as a Technology Consultant in the Maryland Baltimore Mormon Mission.
 
-            During this time, he learned how to effectively communicate with others, work in a team, and solve problems. He also learned how to speak Spanish fluently.
+            After Alan graduated, he spent a year volunteering full-time for his Church as split between a technology consultant, and a volunteer in the humanitarian aid program helping those in the clergy and congregation better use technology for outreach and communication and helping those in need.
+            
+            During this time, he learned how to effectively communicate with others, work in a team, and solve problems. He also improved his Spanish to speak fluently.
             
         </p>
 
@@ -202,14 +239,14 @@ format:
                    margin-bottom: 20px;
                    color:white">
 
-        Rexburg, Idaho
+        Data Science and Statistics
 
         </h2>
 
         <p>
-            When Alan entered in college, he ultimately decided to study data science since it combined his interests in statistics, and computer programming. 
+            When Alan entered university, he ultimately decided to study data science since it combined his interests in statistics, and computer programming. 
 
-            At Brigham Young University- Idaho, he was involved in the Data Science Society where he served as President. He was a TA for five courses in the Mathematics Department and ran the data science lab where he trained tutors and helped students with their data science projects.
+            During his studies, he was involved in the Data Science Society where he served as President. He was a TA for five courses in the Mathematics Department and ran the data science lab where he trained tutors and helped students with their data science projects.
             
             He even won a few hackathons!
             
@@ -219,6 +256,34 @@ format:
 
 
     </div>
+
+    <br><br>
+
+        <!-- second slide -->
+    <div style="max-width: 95%; margin: 0 auto; padding: 30px; background-color: rgba(0,0,0,0.8); border-radius: 8px;">
+
+        <h2 style="font-size: 1.5em; 
+                   margin-bottom: 20px;
+                   color:white">
+
+        Hispanic Scholarship 
+
+        </h2>
+
+        <p>
+            During university, Alan was a founding member of SHPE, the Society of Hispanic Professional Engineers. Though not a typical Hispanic person, since he had Hispanic heritage from his mother, he could better relate to the Hispanic experience and community.
+
+            He was awarded the SHPE BYUI National Convention Scholarship from Si Se Puede Scholarship Foundation on top of being a full Pell Grant recipient.
+
+        </p>
+
+        <img class="storyimg"  src="images/story/deca.png" style="width: 80%; border-radius: 50%; display: block; margin-left: auto; margin-right: auto; transition: transform 0.3s; cursor: pointer; max-width: 15rem;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+
+
+    </div>
+
+    <br><br>
+
 
 </section>
 
@@ -236,12 +301,12 @@ format:
                    margin-bottom: 20px;
                    color:white">
 
-        Washington, DC
+        Pollster in DC
 
         </h2>
 
         <p>
-            A pollster in Washington DC hired Alan as a Data Science Intern. He worked right on capitol hill to help garner information about the 2022 midterm elections. He analyzed voter data trends, applying them to machine learning models.
+            A pollster in Washington DC hired Alan as a Data Science Intern. He worked right on Capitol Hill to help garner information about the 2022 midterm elections. He analyzed voter data trends, applying them to machine learning models.
             
         </p>
 
@@ -250,7 +315,108 @@ format:
 
     </div>
 
+    <br><br>
+
+        <!-- second slide -->
+    <div style="max-width: 95%; margin: 0 auto; padding: 30px; background-color: rgba(0,0,0,0.8); border-radius: 8px;">
+
+        <h2 style="font-size: 1.5em; 
+                   margin-bottom: 20px;
+                   color:white">
+
+        Visiting Fellow at the Youth in Policy Institute 
+
+        </h2>
+
+        <p>
+            Unrelated to his work as a pollster, Alan is also a Visiting Fellow at the Youth in Policy Institute. He worked with a team of youth and young adults to research and write policy papers on issues affecting youth in the United States.
+
+        </p>
+
+        <img class="storyimg"  src="images/story/yip.png" style="width: 80%; border-radius: 50%; display: block; margin-left: auto; margin-right: auto; transition: transform 0.3s; cursor: pointer; max-width: 15rem;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+
+    </div>
+
+    <br><br>
+
 </section>
+
+<br><br><br>
+
+<!-- Lehi Utah -->
+<section style="background-size: cover; 
+                color: #fff; 
+                padding: 100px 0;
+                background: url('https://raw.githubusercontent.com/ajaverett/data/main/bg/utah.webp') no-repeat center center fixed; ">
+
+    <div style="max-width: 95%; margin: 0 auto; padding: 30px; background-color: rgba(0,0,0,0.8); border-radius: 8px;">
+
+        <h2 style="font-size: 1.5em; 
+                   margin-bottom: 20px;
+                   color:white">
+
+        The Best Decision of His Life
+
+        </h2>
+
+        <p>
+
+            Alan met Audrey Mae in the same data engineering class. After some skateboard dates and boba, Alan knew she was the one. Alan proposed to Audrey in Tokyo Japan, and they were married in a court house in Salt Lake City, Utah. 
+
+            Audrey Mae happened to be a better data scientist and data engineer than Alan, working as a data engineer for a health data company in Utah.
+            
+        </p>
+
+        <img class="storyimg"  src="images/story/audreymae.png" style="width: 80%; border-radius: 50%; display: block; margin-left: auto; margin-right: auto; transition: transform 0.3s; cursor: pointer; max-width: 15rem;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+
+    </div>
+    <br><br>
+
+    <div style="display: flex; justify-content: center;">
+        <br><br>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/8qz3B9z03tA?si=w_huJjKevBjLfJzd" title="YouTube video player" frameborder="10" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    </div>
+
+    <br><br>
+
+</section>
+
+<br><br><br>
+
+
+<!-- Virginia Beach VA -->
+<section style="background-size: cover; 
+                color: #fff; 
+                padding: 100px 0;
+                background: url('https://raw.githubusercontent.com/ajaverett/data/main/bg/virginia.webp') no-repeat center center fixed; ">
+
+    <div style="max-width: 95%; margin: 0 auto; padding: 30px; background-color: rgba(0,0,0,0.8); border-radius: 8px;">
+
+        <h2 style="font-size: 1.5em; 
+                   margin-bottom: 20px;
+                   color:white">
+
+        Finally, a Full-Time Job
+
+        </h2>
+
+        <p>
+
+            Alan was hired as a Data Scientist at Booz Allen Hamilton in Norfolk, Virginia. He was able to help the Navy gauge readiness for Nuclear-powered Aircraft Carriers.
+            
+        </p>
+
+        <img class="storyimg"  src="images/story/bah.png" style="width: 80%; border-radius: 50%; display: block; margin-left: auto; margin-right: auto; transition: transform 0.3s; cursor: pointer; max-width: 15rem;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+
+
+    </div>
+
+</section>
+
+<br><br><br>
+
 
 </div>
 
