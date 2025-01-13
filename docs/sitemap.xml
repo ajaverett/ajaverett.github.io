@@ -2,35 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ajaverett.github.io/index.html</loc>
-    <lastmod>2025-01-13T05:15:28.285Z</lastmod>
+    <lastmod>2025-01-13T06:05:46.133Z</lastmod>
   </url>
   <url>
     <loc>https://ajaverett.github.io/posts/usa_christian/index.html</loc>
     <lastmod>2025-01-13T05:15:28.419Z</lastmod>
   </url>
   <url>
-    <loc>https://ajaverett.github.io/posts/power_triangle/power_triangle.html</loc>
+    <loc>https://ajaverett.github.io/posts/spanish/index.html</loc>
     <lastmod>2025-01-13T05:15:28.403Z</lastmod>
   </url>
   <url>
-    <loc>https://ajaverett.github.io/posts/hack2/index.html</loc>
-    <lastmod>2025-01-13T05:15:28.350Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.github.io/posts/brainrot/main.html</loc>
-    <lastmod>2025-01-13T05:15:28.333Z</lastmod>
+    <loc>https://ajaverett.github.io/map.html</loc>
+    <lastmod>2025-01-13T06:51:48.956Z</lastmod>
   </url>
   <url>
     <loc>https://ajaverett.github.io/about.html</loc>
     <lastmod>2025-01-13T05:24:21.985Z</lastmod>
   </url>
   <url>
-    <loc>https://ajaverett.github.io/posts/hack1/index.html</loc>
-    <lastmod>2025-01-13T05:15:28.342Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.github.io/posts/pca/pca.html</loc>
-    <lastmod>2025-01-13T05:15:28.378Z</lastmod>
+    <loc>https://ajaverett.github.io/posts/power_triangle/power_triangle.html</loc>
+    <lastmod>2025-01-13T05:15:28.403Z</lastmod>
   </url>
   <url>
     <loc>https://ajaverett.github.io/posts/tutor/index.html</loc>
@@ -38,14 +30,14 @@
   </url>
   <url>
     <loc>https://ajaverett.github.io/resume.html</loc>
-    <lastmod>2025-01-13T05:31:50.190Z</lastmod>
+    <lastmod>2025-01-13T06:06:13.454Z</lastmod>
   </url>
   <url>
-    <loc>https://ajaverett.github.io/posts/spanish/index.html</loc>
-    <lastmod>2025-01-13T05:15:28.403Z</lastmod>
+    <loc>https://ajaverett.github.io/posts/pca/pca.html</loc>
+    <lastmod>2025-01-13T05:15:28.378Z</lastmod>
   </url>
   <url>
-    <loc>https://ajaverett.github.io/adventures.html</loc>
-    <lastmod>2025-01-13T06:00:48.587Z</lastmod>
+    <loc>https://ajaverett.github.io/posts/brainrot/main.html</loc>
+    <lastmod>2025-01-13T05:15:28.333Z</lastmod>
   </url>
 </urlset>
