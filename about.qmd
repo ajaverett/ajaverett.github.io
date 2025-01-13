@@ -72,6 +72,8 @@ format:
             His mother's family was from California and Mexico and his father's family from Wyoming. 
             
             Throughout his life, his mother worked in education and his father worked in sales with companies across India and Asia.
+
+            Before living in Arizona, the four Averett children before Alan were raised in Springfield, Ohio! A small town in the midwest
         
         </p>
 
@@ -129,7 +131,11 @@ format:
         <p>
             Even though Alan was the only child not to take piano lessons, that did not stop him from pursuing piano. Alan learned piano by ear and learned from mimicking YouTube videos.   
 
+            <br><br>
+
             In highschool, he was involved in the marching band, learning how to play the keyboard, battery, and auxiliary percussion. He was also involved in chorus as a tenor and bass, singing for the varsity choir.
+
+            <br><br>
 
             Alan joined a band where he played the drumset and keyboard, though it was pretty short-lived.
 
@@ -179,7 +185,7 @@ format:
         </h2>
 
         <p>
-            Alan has always been eager to work from a young age. In Texas, he took on a variety of jobs- working at a bakery, instructing at a martial arts studio, and fixing tires as a tire repair technician. 
+            Alan has always been eager to work from a young age. In Texas, he took on a variety of jobs- working at a bakery (as a dishwasher), instructing at a martial arts studio, and fixing tires as a tire repair technician. 
 
         </p>
 
@@ -398,7 +404,7 @@ format:
                    margin-bottom: 20px;
                    color:white">
 
-        Finally, a Full-Time Job
+        Full-time Job with the Navy
 
         </h2>
 
