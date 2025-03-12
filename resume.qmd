@@ -47,7 +47,7 @@ format:
   \vspace{-0.25cm}
 \end{large}
  * **Certifications**: Web and Computer Programming (3.7/4.0); Machine Learning (4.0/4.0)
- * **Leadership and Awards**: Data Science Society President, SHPE Founding Member, Winner of 3 School-wide Hackathons
+ * **Leadership and Awards**: Data Science Society President, Hispanics in STEM Founding Member, Chief Lab Manager for School-wide Data Science lab, TA for Mathematics Department (5 Classes), 1st place (overall) for 3 School-wide Hackathons
 
 \vspace{7pt}
 
@@ -60,15 +60,17 @@ format:
   \end{multicols}
   \vspace{-0.17cm}
   \begin{multicols}{2}
-    \begin{flushleft}\text{Senior Consultant}\end
-    {flushleft}\begin{flushright}May 2024 - Present\end
+    \begin{flushleft}\text{Senior Consultant, Data Engineer}\end
+    {flushleft}\begin{flushright}Apr 2024 - Present\end
     {flushright}
   \end{multicols}
 \end{large}
 \vspace{-0.16cm}
 
-- Implemented end-to-end \textbf{\textit{ETL solutions}} with \textbf{\textit{Databricks}}, ingesting and transforming readiness reports for Nuclear-Powered Aircraft Carriers (CVNs), enabling data-driven insights and visualization on interactive \textbf{\textit{Qlik}} dashboards for the CNAL's Readiness Operation Center, using analytics tools, including \textbf{\textit{Advana's Jupiter}} (\textbf{\textit{PySpark, Python, SQL}})
-- Collaborated within an \textbf{\textit{Agile}} framework using \textbf{\textit{Kanban and Scrum}} for contributing to the continuous improvement and efficiency of the data processing pipeline, and ensuring timely delivery of actionable insights for carrier readiness and operability assessments (obtained Secret Clearance) 
+- Developed and deployed a comprehensive \textbf{\textit{ETL pipeline}} using \textbf{\textit{Databricks}}, \textbf{\textit{PySpark}}, integrating unstructured ship data with Department of Navy data to create a predictive maintenance dashboard in \textbf{\textit{Qlik}}, enabling executives at AIRLANT to efficiently track aircraft carrier equipment damage and streamline maintenance processes, reducing carrier downtime.
+- Initiated and developed a \textbf{\textit{data pipeline}} for automated report generation from unstructured readiness data across several ships, delivering actionable insights to AIRLANT leadership, improving strategic visibility and operational responsiveness.
+- Collaborated within an \textbf{\textit{Agile (Scrum/Kanban)}} team environment for \textbf{\textit{CI/CD}}, authoring detailed pipeline documentation in \textbf{\textit{Confluence}} and \textbf{\textit{Google Docstrings}}, facilitated client communication (active secret clearance).
+
 
 
 \vspace{7pt}
@@ -86,8 +88,8 @@ format:
 \end{large}
 \vspace{-0.16cm}
 
-- Transformed a manual 5-hour task into a streamlined 10-minute operation by engineering an advanced \textbf{\textit{Python script with Selenium}} to automate the detection of unauthorized use of copyrighted software in mobile applications. Utilized \textbf{\textit{Pandas}} for efficient data management and analysis for scanning mobile application stores, downloading and extracting data, and \textbf{\textit{automating reports}} to identify key indicators of copyright infringement for software usage.
-- Maintained regular communication with the CEO, providing updates and insights on project progress, and discussing strategic approaches to enhance software development and data analysis processes.
+- Engineered a \textbf{\textit{Python script with Selenium}} that improved the detection of unauthorized copyrighted software in mobile applications, transforming a manual process into an automated system. Used \textbf{\textit{Pandas}} for data management while scanning application stores, extracting data, and \textbf{\textit{automating reports}} to identify indicators of infringement. This solution converted a 5-hour task into a streamlined 10-minute operation, reducing costs while improving accuracy.
+- Maintained regular communication with the CEO, providing updates on project progress and discussing approaches to enhance software development and data analysis processes.
 
 
 
@@ -100,17 +102,28 @@ format:
   \end{multicols}
   \vspace{-0.17cm}
   \begin{multicols}{2}
-    \begin{flushleft}\text{Junior Data Scientist}\end
-    {flushleft}\begin{flushright}May 2023 - Dec 2023\end
+    \begin{flushleft}\text{Data Consultant (Contract)}\end
+    {flushleft}\begin{flushright}Sep 2023 - Dec 2023\end
     {flushright}
   \end{multicols}
 \end{large}
 \vspace{-0.16cm}
 
-- Eliminated 50+ anomalous entities in client's global campaign by \textbf{\textit{developing and automating}} in-house tuned \textbf{\textit{anomaly detection}} methods in \textbf{\textit{Python}} for over 200k+ submissions of unstructured raw survey data
-- Delivered an interactive recommend algorithm with \textbf{\textit{Python, Plotly, and Streamlit}} using various \textbf{\textit{NLP}} tools such as \textbf{\textit{sentiment analysis}}, \textbf{\textit{unsupervised textual clustering}}, and \textbf{\textit{time-series analysis}}, to produce detailed analytics for my client's production team, enhancing user engagement
+ - Collaborated directly with executive leadership of an international non-profit's identity documentation program, \textbf{\textit{implementing data integrity solutions}} that preserved authenticity of participant records and optimized resource allocation
+ - Eliminated over fifty anomalous entities by \textbf{\textit{developing and automating}} in-house tuned \textbf{\textit{anomaly detection}} algorithms in \textbf{\textit{Python}}, analyzing over 200,000 submissions of unstructured, participant-submitted information for quality assurance
 
+\begin{large}
+  \begin{multicols}{2}
+    \begin{flushleft}\text{Data Analyst (Contract)}\end
+    {flushleft}\begin{flushright}May 2023 - Sep 2023\end
+    {flushright}
+  \end{multicols}
+\end{large}
+\vspace{-0.16cm}
 
+ - Collaborated with product leadership to implement website-wide content recommendation system using \textbf{\textit{topic modeling}}
+ - Developed web applications using \textbf{\textit{Plotly}} and \textbf{\textit{Streamlit}} that cross-referenced company-owned content repositories with public records using \textbf{\textit{text vectorization methods}} in \textbf{\textit{Python}}, improving research capabilities for the client 
+ 
 \vspace{7pt}
 
 \begin{large}
@@ -125,43 +138,10 @@ format:
   \end{multicols}
 \end{large}
 \vspace{-0.16cm}
-- Analyzed and visualized voter data trends using \textbf{\textit{SQL}} and \textbf{\textit{R’s tidyverse}} to create digestible reports for over a hundred political campaigns, employing \textbf{\textit{machine learning models}} to predict ideological disposition and turnout
-- Improved accuracy and AUC of all future ML models by 1-3% by feature engineering \textbf{\textit{GIS data}} to classify over 100 million voter records into 12 population density granularities using \textbf{\textit{R’s sf}} 
+- Analyzed and visualized public demographic data trends using \textbf{\textit{SQL}} and \textbf{\textit{R’s tidyverse}} to create digestible reports for over a hundred public outreach and political campaigns across the United States, employing \textbf{\textit{machine learning models}} to predict ideological disposition and turnout, enabling clients to strategically allocate resources and maximize engagement impact
+- Improved accuracy and AUC of all future ML models by 1-3% by feature engineering \textbf{\textit{GIS data}} to classify over 100 million voter records into 12 population density granularities using US Census Bureau's geographic spatial data and \textbf{\textit{R’s sf}} library 
 
 \vspace{7pt}
-
-\begin{large}
-  \begin{multicols}{2}
-    \begin{flushleft}{\bf \href{https://byuidatascience.github.io/}{Mathematics Department- BYUI}}\end{flushleft}
-    \begin{flushright}Rexburg, ID\end{flushright}
-  \end{multicols}
-  \vspace{-0.17cm}
-  \begin{multicols}{2}
-    \begin{flushleft}\text{Chief Lab Manager, Teacher's Assistant}\end{flushleft}
-    \begin{flushright}Apr 2022 - Dec 2023\end{flushright}
-  \end{multicols}
-\end{large}
-\vspace{-0.16cm}
-- Coordinated all data science activities, managed all data science tutors, and taught various programming and statistics courses including Business Stats, DS Programming, Data Wrangling and Viz., Big Data Programming, and Linear Algebra
-
-\vspace{7pt}
-
-
-\begin{large}
-  \begin{multicols}{2}
-    \begin{flushleft}{\bf \href{https://lspoly.com}{Lone Star Polypac}}\end{flushleft}
-    \begin{flushright}Wimberly, TX\end{flushright}
-  \end{multicols}
-  \vspace{-0.17cm}
-  \begin{multicols}{2}
-    \begin{flushleft}\text{Technical Aide}\end{flushleft}
-    \begin{flushright}Jun 2021 - Apr 2022\end{flushright}
-  \end{multicols}
-\end{large}
-\vspace{-0.16cm}
-
-\vspace{7pt}
-
 
 
 <!-- SKILLS -->
@@ -171,9 +151,9 @@ format:
 \end{large}
 \vspace{-0.16cm}
 \vspace{6pt}
-* **Python**: Pandas, PySpark, Jupyter, numpy, sklearn, polars, tensorflow (keras), pytorch, bs4, selenium, spacy, statsmodels 
+* **Python/R**: numpy, pandas, polars, pyspark, jupyter, sklearn, tensorflow/keras, selenium, spaCy, statsmodels, tidyverse
 \vspace{2pt}
-* **Visualization libraries**: Databricks, Streamlit, ggplot2, matplotlib / seaborn, plotly, altair, Qlik, PowerBI
+* **Visualization**: ggplot2, Streamlit, matplotlib, seaborn, plotly, altair, Qlik, PowerBI, Tableau
 \vspace{2pt}
-* **Other Technical Skills**: R's tidyverse, Excel, VBA, SQL, Spark SQL, Git/GitHub, Quarto, LaTeX, Regex, Docker, Advana
+* **Other Technical Skills**: Databricks, Excel, SQL, Quarto, LaTeX, Regex, Docker, Agile (Scrum, Kanban), Confluence
 \vspace{2pt}
