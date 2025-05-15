@@ -60,18 +60,17 @@ format:
   \end{multicols}
   \vspace{-0.17cm}
   \begin{multicols}{2}
-    \begin{flushleft}\text{Senior Consultant, Data Engineer}\end
+    \begin{flushleft}\text{Senior Consultant, Data Scientist}\end
     {flushleft}\begin{flushright}Apr 2024 - Present\end
     {flushright}
   \end{multicols}
 \end{large}
 \vspace{-0.16cm}
 
-- Developed and deployed a comprehensive \textbf{\textit{ETL pipeline}} using \textbf{\textit{Databricks}}, \textbf{\textit{PySpark}}, integrating unstructured ship data with Department of Navy data to create a predictive maintenance dashboard in \textbf{\textit{Qlik}}, enabling executives at AIRLANT to efficiently track aircraft carrier equipment damage and streamline maintenance processes, reducing carrier downtime.
-- Initiated and developed a \textbf{\textit{data pipeline}} for automated report generation from unstructured readiness data across several ships, delivering actionable insights to AIRLANT leadership, improving strategic visibility and operational responsiveness.
-- Collaborated within an \textbf{\textit{Agile (Scrum/Kanban)}} team environment for \textbf{\textit{CI/CD}}, authoring detailed pipeline documentation in \textbf{\textit{Confluence}} and \textbf{\textit{Google Docstrings}}, facilitated client communication (active secret clearance).
-
-
+- Designed and implemented \textbf{\textit{automated workflows}} to generate readiness reports across all aircraft carriers under contract specification, delivering consistent, actionable metrics that enhanced strategic oversight and decision-making capabilities.
+- Independently created \textbf{\textit{end-to-end data pipelines}}, extracting and migrating diverse data sources to \textbf{\textit{Databricks}} environment, transforming and joining datasets under \textbf{\textit{medallion architecture}}, and loading aggregated data into \textbf{\textit{Qlik Sense}}
+- Built and delivered intuitive mission-critical dashboards in \textbf{\textit{QlikSense}}, fully compliant with \textbf{\textit{QPAS}}, and successfully navigated approval processes to secure operational deployment authorization from client under strictcontract requirements.
+- Collaborated within \textbf{\textit{Agile}} for \textbf{\textit{CI/CD}}, maintained technical documentation in \textbf{\textit{Confluence}}; \textbf{\textit{Active Secret Clearance}}.
 
 \vspace{7pt}
 
@@ -88,8 +87,8 @@ format:
 \end{large}
 \vspace{-0.16cm}
 
-- Engineered a \textbf{\textit{Python script with Selenium}} that improved the detection of unauthorized copyrighted software in mobile applications, transforming a manual process into an automated system. Used \textbf{\textit{Pandas}} for data management while scanning application stores, extracting data, and \textbf{\textit{automating reports}} to identify indicators of infringement. This solution converted a 5-hour task into a streamlined 10-minute operation, reducing costs while improving accuracy.
-- Maintained regular communication with the CEO, providing updates on project progress and discussing approaches to enhance software development and data analysis processes.
+- Engineered and maintained software using \textbf{\textit{Python and Selenium}} that improved the detection of unauthorized copyrighted software in mobile applications, transforming a manual process into an automated system. Used \textbf{\textit{Pandas}} for data analysis while scanning application stores, extracting data, and \textbf{\textit{automating reports}} to identify indicators of infringement. This solution converted a 5-hour task into a streamlined 10-minute operation, reducing costs while improving accuracy.
+- Maintained regular communication with the CEO, providing updates on project progress and discussing approaches to digitally hunt and catch pirates.
 
 
 
@@ -102,7 +101,7 @@ format:
   \end{multicols}
   \vspace{-0.17cm}
   \begin{multicols}{2}
-    \begin{flushleft}\text{Data Consultant (Contract)}\end
+    \begin{flushleft}\text{Data Consultant; \textit{Contract}}\end
     {flushleft}\begin{flushright}Sep 2023 - Dec 2023\end
     {flushright}
   \end{multicols}
@@ -110,11 +109,11 @@ format:
 \vspace{-0.16cm}
 
  - Collaborated directly with executive leadership of an international non-profit's identity documentation program, \textbf{\textit{implementing data integrity solutions}} that preserved authenticity of participant records and optimized resource allocation
- - Eliminated over fifty anomalous entities by \textbf{\textit{developing and automating}} in-house tuned \textbf{\textit{anomaly detection}} algorithms in \textbf{\textit{Python}}, analyzing over 200,000 submissions of unstructured, participant-submitted information for quality assurance
+ - Eliminated over fifty anomalous entities by \textbf{\textit{developing and automating}} in-house tuned \textbf{\textit{anomaly detection}} algorithms in \textbf{\textit{Python}}, analyzing over 200k submissions of unstructured, participant-submitted information for data quality assurance
 
 \begin{large}
   \begin{multicols}{2}
-    \begin{flushleft}\text{Data Analyst (Contract)}\end
+    \begin{flushleft}\text{Data Analyst; \textit{Contract}}\end
     {flushleft}\begin{flushright}May 2023 - Sep 2023\end
     {flushright}
   \end{multicols}
@@ -128,7 +127,7 @@ format:
 
 \begin{large}
   \begin{multicols}{2}
-    \begin{flushleft}{\bf \href{https://wpaintel.com/about/}{WPA Intelligence}}\end{flushleft}
+    \begin{flushleft}{\bf \href{https://pulsedecisionscience.com/}{Pulse Decision Science}}\end{flushleft}
     \begin{flushright}SE Washington, DC\end{flushright}
   \end{multicols}
   \vspace{-0.17cm}
@@ -151,9 +150,11 @@ format:
 \end{large}
 \vspace{-0.16cm}
 \vspace{6pt}
-* **Python/R**: numpy, pandas, polars, pyspark, jupyter, sklearn, tensorflow/keras, selenium, spaCy, statsmodels, tidyverse
+* **Python/R**: pandas, numpy, polars, scikit-learn, tensorflow/keras, xgboost, statsmodels, spaCy, selenium, tidyverse (dplyr)
 \vspace{2pt}
-* **Visualization**: ggplot2, Streamlit, matplotlib, seaborn, plotly, altair, Qlik, PowerBI, Tableau
+* **Visualization**: ggplot2, matplotlib, seaborn, plotly, altair, Streamlit, QlikSense, R Shiny, PowerBI, Tableau, Mermaid
 \vspace{2pt}
-* **Other Technical Skills**: Databricks, Excel, SQL, Quarto, LaTeX, Regex, Docker, Agile (Scrum, Kanban), Confluence
+* **Development**: Databricks, Jupyter, Spark, Git, GitHub, Docker, Azure
+\vspace{2pt}
+* **Other Technical Skills**: SQL, Excel, Quarto, LaTeX, regex, Agile Workflow (Scrum), Confluence
 \vspace{2pt}
