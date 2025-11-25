@@ -1,48 +1,59 @@
 {
-  "resume.qmd": {
-    "resume.tex": "77652ecf",
-    "resume.html": "5ee0bb30"
-  },
   "index.qmd": {
-    "index.html": "ebe54378"
+    "index.html": "6eea188f"
   },
   "404.qmd": {
-    "404.html": "3b2cf7a9"
+    "404.html": "329beab7"
   },
   "about.qmd": {
-    "about.html": "059e4f59"
-  },
-  "posts/brainrot/main.qmd": {
-    "main.html": "fe5ef86d"
-  },
-  "posts/hack1/index.qmd": {
-    "index.html": "55e12f08"
-  },
-  "posts/hack2/index.qmd": {
-    "index.html": "2b5c59b5"
-  },
-  "posts/pca/pca.qmd": {
-    "pca.html": "169d4f83"
+    "about.html": "de2d51fc"
   },
   "posts/power_triangle/power_triangle.qmd": {
-    "power_triangle.html": "1000873d"
-  },
-  "posts/tutor/index.qmd": {
-    "index.html": "10fd5efe"
-  },
-  "posts/usa_christian/index.qmd": {
-    "index.html": "0edb47e3"
+    "power_triangle.html": "37dedf30"
   },
   "posts/spanish/index.qmd": {
-    "index.html": "0559aba1"
+    "index.html": "421aea83"
   },
-  "adventures.qmd": {
-    "adventures.html": "e1be8feb"
+  "posts/usa_christian/index.qmd": {
+    "index.html": "b63226b5"
   },
-  "map.qmd": {
-    "map.html": "74390f2c"
+  "404 copy.qmd": {
+    "404 copy.html": "eb3c1b2b"
   },
-  "resume_1.qmd": {
-    "resume_1.tex": "eea4aad4"
+  "404copy.qmd": {
+    "404copy.html": "82975cd3"
+  },
+  "test.qmd": {
+    "test.html": "33b79970"
+  },
+  "posts/mermaid/mermaid.qmd": {
+    "mermaid.html": "e9996f95"
+  },
+  "blocks.qmd": {
+    "blocks.html": "e4470716"
+  },
+  "posts.qmd": {
+    "posts.html": "8275bc52"
+  },
+  "blocks/power_triangle/power_triangle.qmd": {
+    "power_triangle.html": "1422e9e4"
+  },
+  "blocks/usa_christian/index.qmd": {
+    "index.html": "bf796738"
+  },
+  "posts/brainrot/main.qmd": {
+    "main.html": "ba213078"
+  },
+  "posts/pca/pca.qmd": {
+    "pca.html": "4d894798"
+  },
+  "posts/tutor/index.qmd": {
+    "index.html": "ebc0847c"
+  },
+  "blocks/test/test.qmd": {
+    "test.html": "582e2747"
+  },
+  "resume.qmd": {
+    "resume.tex": "b213ade2"
   }
 }

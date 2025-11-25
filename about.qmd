@@ -5,7 +5,7 @@ format:
         text: |
             <style>
                 body {
-                background-color: black;
+                background-color: black !important;
                 }
             </style>
 ---
@@ -15,7 +15,7 @@ format:
 
 <div>
 
-<h1 style="text-align: center; color: white; font-size: 3em; margin-top: 2em; margin-bottom: 2em;">Alan's Journey</h1>
+<h1 style="text-align: center; color: white; font-size: 3em; margin-top: 2em; margin-bottom: 2em;">AJ's Journey</h1>
 
 <!-- Korea -->
 <section style="background-size: cover; 
@@ -34,9 +34,9 @@ format:
         </h2>
 
         <p>
-            Alan was born to the name "구민섭" (Koo, Min Sub) in South Korea. 
+            AJ was born to the name "구민섭" (Koo, Min Sub) in South Korea. 
             
-            For the first year of his life, he was raised in the Korean foster care system. He was one of the last kids at the adoption center to get a home!
+            For the first year of his life, he was raised in the foster care system. He was one of the last kids at the adoption center to get a home!
 
             According to the Korean Family Registry, he is the head of the Hanyang Koo Clan in South Korea (since he is the only member)
             
@@ -67,13 +67,13 @@ format:
         </h2>
 
         <p>
-            The Averett's adopted Alan and brought him to Phoenix Arizona in the United States. He became the youngest of 5 children. 
+            The Averett's adopted AJ and brought him to Phoenix Arizona in the United States. He became the youngest of 5 children. 
             
             His mother's family was from California and Mexico and his father's family from Wyoming. 
             
             Throughout his life, his mother worked in education and his father worked in sales with companies across India and Asia.
 
-            Before living in Arizona, the four Averett children before Alan were raised in Springfield, Ohio! A small town in the midwest
+            Before living in Arizona, the four Averett children before AJ were raised in Springfield, Ohio! A small town in the midwest
         
         </p>
 
@@ -105,7 +105,7 @@ format:
         </h2>
 
         <p>
-            While Alan was growing up in Texas, he joined the Boy Scouts of America, serving as the Scribe in his troop. In 2018, he earned the rank of Eagle Scout.
+            While AJ was growing up in Texas, he joined the Boy Scouts of America, serving as the Scribe in his troop. In 2018, he earned the rank of Eagle Scout.
 
             His Eagle Scout project was to run community service events partering with the Pajama Program for disadvantaged youth in the local Austin area. 
             
@@ -129,7 +129,7 @@ format:
         </h2>
 
         <p>
-            Even though Alan was the only child not to take piano lessons, that did not stop him from pursuing piano. Alan learned piano by ear and learned from mimicking YouTube videos.   
+            Even though AJ was the only child not to take piano lessons, that did not stop him from pursuing piano. AJ learned piano by ear and learned from mimicking YouTube videos.   
 
             <br><br>
 
@@ -137,7 +137,7 @@ format:
 
             <br><br>
 
-            Alan joined a band where he played the drumset and keyboard, though it was pretty short-lived.
+            AJ joined a band where he played the drumset and keyboard, though it was pretty short-lived.
 
         </p>
 
@@ -160,7 +160,7 @@ format:
         </h2>
 
         <p>
-            Alan, along with his friends, joined and competed in his school's business club, called DECA. He helped run a public relations campaign, partnering with TerraCycle, an innovative recycling company that has become a global leader in recycling hard-to-recycle materials.
+            AJ, along with his friends, joined and competed in his school's business club, called DECA. He helped run a public relations campaign, partnering with TerraCycle, an innovative recycling company that has become a global leader in recycling hard-to-recycle materials.
 
             They won regional, state, and went on to compete at the international level in Atlanta, Georgia.
 
@@ -185,7 +185,7 @@ format:
         </h2>
 
         <p>
-            Alan has always been eager to work from a young age. In Texas, he took on a variety of jobs- working at a bakery (as a dishwasher), instructing at a martial arts studio, and fixing tires as a tire repair technician. 
+            AJ has always been eager to work from a young age. In Texas, he took on a variety of jobs- working at a bakery (as a dishwasher), instructing at a martial arts studio, and fixing tires as a tire repair technician. 
 
         </p>
 
@@ -217,7 +217,7 @@ format:
 
         <p>
 
-            After Alan graduated, he spent a year volunteering full-time for his Church as split between a technology consultant, and a volunteer in the humanitarian aid program helping those in the clergy and congregation better use technology for outreach and communication and helping those in need.
+            After AJ graduated, he spent a year volunteering full-time for his Church as split between a technology consultant, and a volunteer in the humanitarian aid program helping those in the clergy and congregation better use technology for outreach and communication and helping those in need.
             
             During this time, he learned how to effectively communicate with others, work in a team, and solve problems. He also improved his Spanish to speak fluently.
             
@@ -250,7 +250,7 @@ format:
         </h2>
 
         <p>
-            When Alan entered university, he ultimately decided to study data science since it combined his interests in statistics, and computer programming. 
+            When AJ entered university, he ultimately decided to study data science since it combined his interests in statistics, and computer programming. 
 
             During his studies, he was involved in the Data Science Society where he served as President. He was a TA for five courses in the Mathematics Department and ran the data science lab where he trained tutors and helped students with their data science projects.
             
@@ -277,7 +277,7 @@ format:
         </h2>
 
         <p>
-            During university, Alan was a founding member of SHPE, the Society of Hispanic Professional Engineers. Though not a typical Hispanic person, since he had Hispanic heritage from his mother, he could better relate to the Hispanic experience and community.
+            During university, AJ was a founding member of SHPE, the Society of Hispanic Professional Engineers. Though not a typical Hispanic person, since he had Hispanic heritage from his mother, he could better relate to the Hispanic experience and community.
 
             He was awarded the SHPE BYUI National Convention Scholarship from Si Se Puede Scholarship Foundation on top of being a full Pell Grant recipient.
 
@@ -312,7 +312,7 @@ format:
         </h2>
 
         <p>
-            A pollster in Washington DC hired Alan as a Data Science Intern. He worked right on Capitol Hill to help garner information about the 2022 midterm elections. He analyzed voter data trends, applying them to machine learning models.
+            A pollster in Washington DC hired AJ as a Data Science Intern. He worked right on Capitol Hill to help garner information about the 2022 midterm elections. He analyzed voter data trends, applying them to machine learning models.
             
         </p>
 
@@ -335,7 +335,7 @@ format:
         </h2>
 
         <p>
-            Unrelated to his work as a pollster, Alan is also a Visiting Fellow at the Youth in Policy Institute. He worked with a team of youth and young adults to research and write policy papers on issues affecting youth in the United States.
+            Unrelated to his work as a pollster, AJ is also a Visiting Fellow at the Youth in Policy Institute. He worked with a team of youth and young adults to research and write policy papers on issues affecting youth in the United States.
 
         </p>
 
@@ -367,9 +367,9 @@ format:
 
         <p>
 
-            Alan met Audrey Mae in the same data engineering class. After some skateboard dates and boba, Alan knew she was the one. Alan proposed to Audrey in Tokyo Japan, and they were married in a court house in Salt Lake City, Utah. 
+            AJ met Audrey Mae in the same data engineering class. After some skateboard dates and boba, AJ knew she was the one. AJ proposed to Audrey in Tokyo Japan, and they were married in a court house in Salt Lake City, Utah. 
 
-            Audrey Mae happened to be a better data scientist and data engineer than Alan, working as a data engineer for a health data company in Utah.
+            Audrey Mae happened to be a better data scientist and data engineer than AJ, working as a data engineer for a health data company in Utah.
             
         </p>
 
@@ -410,7 +410,7 @@ format:
 
         <p>
 
-            Alan was hired as a Data Scientist at Booz Allen Hamilton in Norfolk, Virginia. He was able to help the Navy gauge readiness for Nuclear-powered Aircraft Carriers.
+            AJ was hired as a Data Scientist at Booz Allen Hamilton in Norfolk, Virginia. He was able to help the Navy gauge readiness for Nuclear-powered Aircraft Carriers.
             
         </p>
 

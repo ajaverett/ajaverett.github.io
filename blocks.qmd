@@ -1,0 +1,45 @@
+---
+title: "Blocks of Evidence"
+# https://quarto.org/docs/websites/website-listings.html
+listing:
+  contents: blocks
+  sort: "date desc"
+  type: grid
+  categories: cloud 
+  feed: true
+  image-placeholder: images/coffee.png
+---
+
+```{=html}
+<div style="box-sizing: border-box; max-width: 64rem; width: 100%; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; padding-top: 3rem; padding-bottom: 3rem; text-align: center; overflow-wrap: break-word;">
+        
+        <p style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; color: #0891b2; margin-bottom: 0.75rem; margin-top: 0; font-size: 0.75rem;">
+            /// PHILOSOPHY
+        </p>
+        
+        <h2 style="box-sizing: border-box; font-size: clamp(1rem, 2vw, 1.125rem); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 300; line-height: 1.5; color: #1e293b; margin: 0;">
+            “General impressions are never to be trusted. Unfortunately when they are of long standing, they become fixed rules of life, and assume a prescriptive right not to be questioned. Consequently, those who are not accustomed to original inquiry entertain a hatred and a horror of statistics. They cannot endure the idea of submitting their sacred impressions to cold-blooded verification.
+            <span style="box-sizing: border-box; color: #0f172a; font-weight: 700; text-decoration: underline; text-decoration-color: #a855f7; text-decoration-thickness: 2px; text-underline-offset: 2px;">
+                But it is the triumph of [science] to rise superior to such superstitions
+            </span>.”
+        </h2>
+        
+        <div style="box-sizing: border-box; margin-top: 1rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.25rem; color: #64748b; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.75rem;">
+            <span>— Francis Galton</span>
+            
+            <span style="color: #cbd5e1;">|</span>
+            
+            <a href="https://galton.org/books/generic-images/galton-1879-generic-images.pdf" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 0.25rem; text-decoration: none; color: inherit; border-bottom: 1px solid transparent; transition: color 0.2s;">
+                (1879) 
+                <svg style="width: 0.65rem; height: 0.65rem; opacity: 0.5;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
+            </a>
+        </div>
+
+    </div>
+```
+
+The following "blocks" are facts, statistics, and other data on more polarizing topics that I feel deserve more awareness.
+
+<br>

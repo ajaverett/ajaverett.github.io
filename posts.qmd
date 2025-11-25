@@ -1,0 +1,12 @@
+---
+title: "My Posts"
+# https://quarto.org/docs/websites/website-listings.html
+listing:
+  contents: posts
+  sort: "date desc"
+  type: grid
+  categories: cloud 
+  feed: true
+---
+
+Below are some small projects that AJ has worked on

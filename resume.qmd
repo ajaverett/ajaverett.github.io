@@ -28,106 +28,106 @@ format:
 <!-- CONTACT INFO -->
 \begin{center} 832.856.4666 | ajaverett0@gmail.com | linkedin.com/in/ajaverett | ajaverett.github.io
 \end{center}
-\vspace{12pt}
+\vspace{14pt}
 
-<!-- EDUCATION: 1ST BULLET -->
+<!-- EDUCATION -->
 \begin{large}
   {\bf EDUCATION}
   \vspace{3pt}
   \hrule
   \begin{multicols}{2}
-    \begin{flushleft}{\bf Brigham Young University- Idaho}\end{flushleft}
+    \begin{flushleft}{\bf Brigham Young University–Idaho}\end{flushleft}
     \begin{flushright}Rexburg, ID\end{flushright}
   \end{multicols}
   \vspace{-0.17cm}
   \begin{multicols}{2}
-    \begin{flushleft}B.Sc. Data Science, Statistics; \textit{Major GPA: 3.8/4.0} \end{flushleft}
+    \begin{flushleft}B.Sc. Data Science, Statistics \end{flushleft}
     \begin{flushright} Apr 2020 - Dec 2023\end{flushright}
   \end{multicols}
   \vspace{-0.25cm}
 \end{large}
- * **Certifications**: Web and Computer Programming (3.7/4.0); Machine Learning (4.0/4.0)
- * **Leadership and Awards**: Data Science Society President, Hispanics in STEM Founding Member, Chief Lab Manager for School-wide Data Science lab, TA for Mathematics Department (5 Classes), 1st place (overall) for 3 School-wide Hackathons
+ * **Achievements**: Soc of Hispanic Professional Engineer Scholarship, President of Data Science Society, Chief Lab Manager
+\vspace{14pt}
 
-\vspace{7pt}
+<!-- EXPERIENCE -->
 
+<!-- Booz Allen -->
 \begin{large}{\bf EXPERIENCE}
 \vspace{3pt}
 \hrule
   \begin{multicols}{2}
     \begin{flushleft}{\bf \href{https://www.boozallen.com/}{Booz Allen Hamilton}}\end{flushleft}
-    \begin{flushright}Norfolk, VA\end{flushright}
+    \begin{flushright}Salt Lake City, UT\end{flushright}
   \end{multicols}
   \vspace{-0.17cm}
   \begin{multicols}{2}
-    \begin{flushleft}\text{Senior Consultant, Data Scientist}\end
-    {flushleft}\begin{flushright}Apr 2024 - Present\end
+    \begin{flushleft}\text{Data Engineer (Senior Consultant)}\end
+    {flushleft}\begin{flushright}May 2024 - Present\end
     {flushright}
   \end{multicols}
 \end{large}
 \vspace{-0.16cm}
+- Led \textbf{\textit{end-to-end ETL processes}} for multi-source naval time-series data, implementing a \textbf{\textit{medallion architecture}} in \textbf{\textit{Databricks}} and orchestrating data pipelines using \textbf{\textit{Spark SQL}}, \textbf{\textit{Pyspark (Python)}}, and \textbf{\textit{Databricks}} Jobs/Workflows
+- Built, delivered, and maintained robust, \textbf{\textit{KPI-driven}}, mission-critical dashboards in \textbf{\textit{QlikSense}} compliant with QPAS technical standards to ~76 stakeholders across several naval commands to inform about fleet-wide warfighting readiness
+- Operated in \textbf{\textit{Scrum and Agile}} development cycles for \textbf{\textit{CI/CD}} on client deliverables, \textbf{\textit{Active Secret Clearance}}.
+\vspace{14pt}
 
-- Designed and implemented \textbf{\textit{automated workflows}} to generate readiness reports across all aircraft carriers under contract specification, delivering consistent, actionable metrics that enhanced strategic oversight and decision-making capabilities.
-- Independently created \textbf{\textit{end-to-end data pipelines}}, extracting and migrating diverse data sources to \textbf{\textit{Databricks}} environment, transforming and joining datasets under \textbf{\textit{medallion architecture}}, and loading aggregated data into \textbf{\textit{Qlik Sense}}
-- Built and delivered intuitive mission-critical dashboards in \textbf{\textit{QlikSense}}, fully compliant with \textbf{\textit{QPAS}}, and successfully navigated approval processes to secure operational deployment authorization from client under strictcontract requirements.
-- Collaborated within \textbf{\textit{Agile}} for \textbf{\textit{CI/CD}}, maintained technical documentation in \textbf{\textit{Confluence}}; \textbf{\textit{Active Secret Clearance}}.
-
-\vspace{7pt}
-
+<!-- MTECH -->
 \begin{large}
   \begin{multicols}{2}
-    \begin{flushleft}{\bf \href{https://www.corecodec.com/}{Corecodec}}\end{flushleft}
+    \begin{flushleft}{\bf \href{https://mtec.edu/programs/data-technology/}{Mountainland Technical College}}\end{flushleft}
+    \begin{flushright}Lehi, UT\end{flushright}
+  \end{multicols}
+  \vspace{-0.17cm}
+  \begin{multicols}{2}
+    \begin{flushleft}\text{Adjunct Faculty Instructor; \textit{Part-time}}\end{flushleft}
+    \begin{flushright}Jul 2025 - Present\end{flushright}
+  \end{multicols}
+\end{large}
+\vspace{-0.16cm}
+- Delivered comprehensive instruction for \textbf{\textit{Excel}}, \textbf{\textit{Python (Pandas, Sklearn)}}, \textbf{\textit{R (Tidyverse)}}, \textbf{\textit{SQL}}, \textbf{\textit{Power BI}}, and \textbf{\textit{Tableau}}
+- Instructed intro to intermediate level statistics for hypothesis testing using various tests in practical business applications
+- Collaborated with academic leadership on \textbf{\textit{curriculum development}} to ensure course alignment with industry standards
+\vspace{14pt}
+
+<!-- Corecodec -->
+\begin{large}
+  \begin{multicols}{2}
+    \begin{flushleft}{\bf \href{https://github.com/corecodec}{Corecodec}}\end{flushleft}
     \begin{flushright}San Antonio, TX\end{flushright}
   \end{multicols}
   \vspace{-0.17cm}
   \begin{multicols}{2}
-    \begin{flushleft}\text{Software Developer}\end{flushleft}
+    \begin{flushleft}\text{Data Engineer Intern}\end{flushleft}
     \begin{flushright}Dec 2023 - Apr 2024\end{flushright}
   \end{multicols}
 \end{large}
 \vspace{-0.16cm}
+ - Designed \textbf{\textit{ETL pipeline architecture}} using \textbf{\textit{Python and Selenium}} to regularly extract large-scale unstructured data from app-repositories, built \textbf{\textit{custom analytical models}} integrated into \textbf{\textit{Pandas-based transformation workflows}} to detect copyright infringement patterns, and generated automated reports in \textbf{\textit{Excel}} using \textbf{\textit{openpyxl}} for actionable insights.
+\vspace{14pt}
 
-- Engineered and maintained software using \textbf{\textit{Python and Selenium}} that improved the detection of unauthorized copyrighted software in mobile applications, transforming a manual process into an automated system. Used \textbf{\textit{Pandas}} for data analysis while scanning application stores, extracting data, and \textbf{\textit{automating reports}} to identify indicators of infringement. This solution converted a 5-hour task into a streamlined 10-minute operation, reducing costs while improving accuracy.
-- Maintained regular communication with the CEO, providing updates on project progress and discussing approaches to digitally hunt and catch pirates.
-
-
-
-\vspace{7pt}
-
+<!-- RDBC -->
 \begin{large}
   \begin{multicols}{2}
-    \begin{flushleft}{\bf \href{https://www.idahoecenter.org/}{Idaho Entrepreneur Center}}\end{flushleft}
-    \begin{flushright}Rexburg, ID\end{flushright}
+    \begin{flushleft}{\bf \href{https://www.rbdcenter.org}{Research \& Business Development Center}}\end{flushleft}
+    \begin{flushright}Idaho Falls, ID\end{flushright}
   \end{multicols}
   \vspace{-0.17cm}
   \begin{multicols}{2}
-    \begin{flushleft}\text{Data Consultant; \textit{Contract}}\end
+    \begin{flushleft}\text{Data Consulting Intern}\end
     {flushleft}\begin{flushright}Sep 2023 - Dec 2023\end
     {flushright}
   \end{multicols}
 \end{large}
 \vspace{-0.16cm}
+ - Collaborated with FamilySearch executive leadership to deploy several in-house tuned \textbf{\textit{anomaly detection}} algorithms in \textbf{\textit{Python}}, analyzing over 200k submissions of unstructured, participant-submitted information for \textbf{\textit{quality assurance}}
+ - Developed dashboards using \textbf{\textit{Plotly}} and \textbf{\textit{Streamlit}} that cross-referenced firm-owned content repositories with public records using \textbf{\textit{text vectorization}} in \textbf{\textit{Python}}, improving research capabilities for the Wilford Woodruff Papers Foundation
+\vspace{14pt}
 
- - Collaborated directly with executive leadership of an international non-profit's identity documentation program, \textbf{\textit{implementing data integrity solutions}} that preserved authenticity of participant records and optimized resource allocation
- - Eliminated over fifty anomalous entities by \textbf{\textit{developing and automating}} in-house tuned \textbf{\textit{anomaly detection}} algorithms in \textbf{\textit{Python}}, analyzing over 200k submissions of unstructured, participant-submitted information for data quality assurance
-
+<!-- WPA -->
 \begin{large}
   \begin{multicols}{2}
-    \begin{flushleft}\text{Data Analyst; \textit{Contract}}\end
-    {flushleft}\begin{flushright}May 2023 - Sep 2023\end
-    {flushright}
-  \end{multicols}
-\end{large}
-\vspace{-0.16cm}
-
- - Collaborated with product leadership to implement website-wide content recommendation system using \textbf{\textit{topic modeling}}
- - Developed web applications using \textbf{\textit{Plotly}} and \textbf{\textit{Streamlit}} that cross-referenced company-owned content repositories with public records using \textbf{\textit{text vectorization methods}} in \textbf{\textit{Python}}, improving research capabilities for the client 
- 
-\vspace{7pt}
-
-\begin{large}
-  \begin{multicols}{2}
-    \begin{flushleft}{\bf \href{https://pulsedecisionscience.com/}{Pulse Decision Science}}\end{flushleft}
+    \begin{flushleft}{\bf \href{http://wpaintel.com/}{WPA Intelligence}}\end{flushleft}
     \begin{flushright}SE Washington, DC\end{flushright}
   \end{multicols}
   \vspace{-0.17cm}
@@ -137,24 +137,19 @@ format:
   \end{multicols}
 \end{large}
 \vspace{-0.16cm}
-- Analyzed and visualized public demographic data trends using \textbf{\textit{SQL}} and \textbf{\textit{R’s tidyverse}} to create digestible reports for over a hundred public outreach and political campaigns across the United States, employing \textbf{\textit{machine learning models}} to predict ideological disposition and turnout, enabling clients to strategically allocate resources and maximize engagement impact
+- Analyzed and visualized voter demographic trends using \textbf{\textit{SQL}} and \textbf{\textit{R’s tidyverse}} to create digestible reports for hundreds of civic campaigns, training and deploying \textbf{\textit{machine learning models}} to predict ideological disposition and voter turnout, 
 - Improved accuracy and AUC of all future ML models by 1-3% by feature engineering \textbf{\textit{GIS data}} to classify over 100 million voter records into 12 population density granularities using US Census Bureau's geographic spatial data and \textbf{\textit{R’s sf}} library 
-
-\vspace{7pt}
-
+\vspace{14pt}
 
 <!-- SKILLS -->
 \begin{large}{\bf SKILLS}
   \vspace{3pt}
   \hrule
 \end{large}
-\vspace{-0.16cm}
-\vspace{6pt}
-* **Python/R**: pandas, numpy, polars, scikit-learn, tensorflow/keras, xgboost, statsmodels, spaCy, selenium, tidyverse (dplyr)
+* **Python/R**: pandas, pyspark, numpy, polars, sklearn, TensorFlow/Keras, xgboost, statsmodels, spaCy, selenium, tidyverse
 \vspace{2pt}
-* **Visualization**: ggplot2, matplotlib, seaborn, plotly, altair, Streamlit, QlikSense, R Shiny, PowerBI, Tableau, Mermaid
+* **Visualization**: ggplot2, matplotlib, seaborn, plotly, altair, Streamlit, QlikSense, R Shiny, Power BI, Tableau, Mermaid
+\vspace{2pt}
+* **Other Technical Skills**: SQL, Spark SQL, Excel, Quarto, LaTeX, regex, Agile Workflow (Scrum), Confluence
 \vspace{2pt}
 * **Development**: Databricks, Jupyter, Spark, Git, GitHub, Docker, Azure
-\vspace{2pt}
-* **Other Technical Skills**: SQL, Excel, Quarto, LaTeX, regex, Agile Workflow (Scrum), Confluence
-\vspace{2pt}

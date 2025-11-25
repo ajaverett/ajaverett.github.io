@@ -4,28 +4,43 @@ project:
   output-dir: docs
 
 website:
-  title: "Alan J Averett"
-  favicon: favicon.png
-  site-url: https://ajaverett.github.io
-  back-to-top-navigation: true
+  title: "AJ Averett"
+  favicon: images\favicon.png
+  
+  description: "Senior Consultant at Booz Allen & Adjunct Faculty at MTECH"
+  site-url: "https://ajaverett.com" 
+  open-graph: true
+  twitter-card: true
+
   navbar:
-    background: "#FFFFFF"
+    background: "#0f172a"
+    foreground: light
+    pinned: true
+    collapse: true
+
     left:
-      - href: "index.qmd"
-        text: Home
+      - text: "Home"
+        href: index.qmd
       - href: "about.qmd"
         text: About
-      - href: "map.qmd"
-        text: Adventures
-      - href: "resume.pdf"
-        text: Resume  
-      
+      - href: "posts.qmd"
+        text: Posts
+      - href: "blocks.qmd"
+        text: Blocks
+
+    # RIGHT SIDE: Icons & Search
+    right:
+      - icon: linkedin
+        href: https://www.linkedin.com/in/ajaverett
+        aria-label: "LinkedIn"
+      - icon: github
+        href: https://github.com/ajaverett
+        aria-label: "GitHub"
+      - icon: bi-file-earmark-person-fill      
+        href: resume.pdf
+        aria-label: "Resume"
 
 format:
   html:
-    max-width: 300%
     theme: cosmo
-    toc: false
-
-
-
+    # css: styles.css

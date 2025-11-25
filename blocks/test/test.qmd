@@ -1,0 +1,9 @@
+---
+title: "test fact"
+subtitle: "this is a test fact subtitle"
+title-block-banner: ../../images/banner.png
+title-block-banner-color: 'white'
+categories: ["test category"]
+---
+
+this is a test

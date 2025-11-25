@@ -1,0 +1,62 @@
+html {
+  scroll-behavior: smooth;
+}
+
+@media (min-width: 1024px) {
+  html {
+    scroll-snap-type: y mandatory;
+  }
+}
+
+
+body {
+  overflow-x: hidden;
+  background-color: #020617; /* slate-950 match */
+}
+
+/* Hide scrollbar for cleaner look */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+body::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+body::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+/* Step Card Animations */
+.step-card {
+  transition: all 0.5s ease-out;
+}
+
+.step-active {
+  opacity: 1;
+  transform: scale(1);
+  border-color: rgba(34, 211, 238, 0.3); /* Cyan tint */
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.05);
+}
+
+.step-inactive {
+  opacity: 0.3;
+  transform: scale(0.98);
+  filter: grayscale(100%);
+}
+
+/* Custom Animations */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}

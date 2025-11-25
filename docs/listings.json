@@ -1,6 +1,12 @@
 [
   {
-    "listing": "/index.html",
+    "listing": "/blocks.html",
+    "items": [
+      "/blocks/test/test.html"
+    ]
+  },
+  {
+    "listing": "/posts.html",
     "items": [
       "/posts/brainrot/main.html",
       "/posts/hack1/index.html",
