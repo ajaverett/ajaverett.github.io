@@ -2,70 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ajaverett.com/index.html</loc>
-    <lastmod>2025-11-25T23:33:27.012Z</lastmod>
+    <lastmod>2025-11-26T03:22:39.014Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ajaverett.com/resume.html</loc>
+    <lastmod>2025-11-26T03:22:47.422Z</lastmod>
   </url>
   <url>
     <loc>https://ajaverett.com/posts/usa_christian/index.html</loc>
     <lastmod>2025-01-13T05:15:28.419Z</lastmod>
   </url>
   <url>
-    <loc>https://ajaverett.com/posts/power_triangle/power_triangle.html</loc>
-    <lastmod>2025-01-13T05:15:28.403Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.com/about.html</loc>
-    <lastmod>2025-11-25T04:00:52.299Z</lastmod>
-  </url>
-  <url>
     <loc>https://ajaverett.com/posts/spanish/index.html</loc>
     <lastmod>2025-01-13T05:15:28.403Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.com/404 copy.html</loc>
-    <lastmod>2025-11-25T07:05:58.768Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.com/404copy.html</loc>
-    <lastmod>2025-11-25T07:29:32.962Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.com/test.html</loc>
-    <lastmod>2025-11-25T21:51:03.944Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.com/posts/mermaid/mermaid.html</loc>
-    <lastmod>2025-11-25T22:02:18.007Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.com/blocks.html</loc>
-    <lastmod>2025-11-25T23:24:48.716Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.com/posts.html</loc>
-    <lastmod>2025-11-25T22:40:23.293Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.com/blocks/power_triangle/power_triangle.html</loc>
-    <lastmod>2025-11-25T23:19:45.838Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.com/blocks/usa_christian/index.html</loc>
-    <lastmod>2025-01-13T05:15:28.419Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.com/posts/tutor/index.html</loc>
-    <lastmod>2025-01-13T05:15:28.403Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ajaverett.com/posts/brainrot/main.html</loc>
-    <lastmod>2025-01-13T05:15:28.333Z</lastmod>
   </url>
   <url>
     <loc>https://ajaverett.com/posts/pca/pca.html</loc>
     <lastmod>2025-01-13T05:15:28.378Z</lastmod>
   </url>
   <url>
+    <loc>https://ajaverett.com/posts/hack1/index.html</loc>
+    <lastmod>2025-01-13T05:15:28.342Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ajaverett.com/blocks.html</loc>
+    <lastmod>2025-11-25T23:24:48.716Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ajaverett.com/about.html</loc>
+    <lastmod>2025-11-25T04:00:52.299Z</lastmod>
+  </url>
+  <url>
     <loc>https://ajaverett.com/blocks/test/test.html</loc>
     <lastmod>2025-11-25T23:23:24.076Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ajaverett.com/posts/brainrot/main.html</loc>
+    <lastmod>2025-01-13T05:15:28.333Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ajaverett.com/posts/hack2/index.html</loc>
+    <lastmod>2025-01-13T05:15:28.350Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ajaverett.com/posts/power_triangle/power_triangle.html</loc>
+    <lastmod>2025-01-13T05:15:28.403Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ajaverett.com/posts/tutor/index.html</loc>
+    <lastmod>2025-01-13T05:15:28.403Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ajaverett.com/posts.html</loc>
+    <lastmod>2025-11-25T22:40:23.293Z</lastmod>
   </url>
 </urlset>

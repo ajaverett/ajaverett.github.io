@@ -10,7 +10,7 @@
 <atom:link href="https://ajaverett.com/blocks.xml" rel="self" type="application/rss+xml"/>
 <description>Senior Consultant at Booz Allen &amp; Adjunct Faculty at MTECH</description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Tue, 25 Nov 2025 23:24:56 GMT</lastBuildDate>
+<lastBuildDate>Wed, 26 Nov 2025 03:16:31 GMT</lastBuildDate>
 <item>
   <title>test fact</title>
   <link>https://ajaverett.com/blocks/test/test.html</link>
@@ -27,7 +27,7 @@
  ]]></description>
   <category>test category</category>
   <guid>https://ajaverett.com/blocks/test/test.html</guid>
-  <pubDate>Tue, 25 Nov 2025 23:24:56 GMT</pubDate>
+  <pubDate>Wed, 26 Nov 2025 03:16:31 GMT</pubDate>
 </item>
 </channel>
 </rss>

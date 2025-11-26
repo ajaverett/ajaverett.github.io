@@ -15,6 +15,7 @@ format:
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
             <script>
               tailwind.config = {
                 theme: {
@@ -27,7 +28,6 @@ format:
                       'glass': 'rgba(255, 255, 255, 0.05)',
                       'glass-border': 'rgba(255, 255, 255, 0.1)',
                     },
-                    // NEW: Custom Animation for "Landing" effect
                     animation: {
                       'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
                       'spin-slow': 'spin 10s linear infinite',
@@ -774,13 +774,13 @@ format:
              <p class="text-slate-500 text-sm">Built with Quarto, Tailwind, & Coffee.</p>
          </div>
          <div class="mt-6 md:mt-0 flex gap-6">
-            <a href="/about.html" class="text-slate-400 hover:text-cyan-400 transition-colors">About</a>
-            <a href="/about.html" class="text-slate-400 hover:text-cyan-400 transition-colors">Posts</a>
-            <a href="/posts.html" class="text-slate-400 hover:text-cyan-400 transition-colors">Blocks</a>
-            <a href="/blocks.html" class="text-slate-400 hover:text-cyan-400 transition-colors">LinkedIn</a>
-            <a href="https://github.com/ajaverett/" class="text-slate-400 hover:text-cyan-400 transition-colors">GitHub</a>
-            <a href="/resume.pdf" class="text-slate-400 hover:text-cyan-400 transition-colors">Resume</a>
-         </div>
+          <a href="/about.html" class="text-slate-400 hover:text-cyan-400 transition-colors">About</a>
+          <a href="/posts.html" class="text-slate-400 hover:text-cyan-400 transition-colors">Posts</a>
+          <a href="/blocks.html" class="text-slate-400 hover:text-cyan-400 transition-colors">Blocks</a>
+          <a href="https://www.linkedin.com/in/ajaverett/" class="text-slate-400 hover:text-cyan-400 transition-colors"><i class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/ajaverett/" class="text-slate-400 hover:text-cyan-400 transition-colors"><i class="bi bi-github"></i></a>
+          <a href="/resume.pdf" class="text-slate-400 hover:text-cyan-400 transition-colors"><i class="bi bi-file-earmark-person-fill"></i></a>
+      </div>
       </div>
     </footer>
   </body>

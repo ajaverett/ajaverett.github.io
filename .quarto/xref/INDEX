@@ -1,59 +1,48 @@
 {
   "index.qmd": {
-    "index.html": "6eea188f"
+    "index.html": "293bc8a9"
   },
   "404.qmd": {
-    "404.html": "329beab7"
+    "404.html": "cd4a400e"
   },
   "about.qmd": {
-    "about.html": "de2d51fc"
-  },
-  "posts/power_triangle/power_triangle.qmd": {
-    "power_triangle.html": "37dedf30"
-  },
-  "posts/spanish/index.qmd": {
-    "index.html": "421aea83"
-  },
-  "posts/usa_christian/index.qmd": {
-    "index.html": "b63226b5"
-  },
-  "404 copy.qmd": {
-    "404 copy.html": "eb3c1b2b"
-  },
-  "404copy.qmd": {
-    "404copy.html": "82975cd3"
-  },
-  "test.qmd": {
-    "test.html": "33b79970"
-  },
-  "posts/mermaid/mermaid.qmd": {
-    "mermaid.html": "e9996f95"
-  },
-  "blocks.qmd": {
-    "blocks.html": "e4470716"
-  },
-  "posts.qmd": {
-    "posts.html": "8275bc52"
-  },
-  "blocks/power_triangle/power_triangle.qmd": {
-    "power_triangle.html": "1422e9e4"
-  },
-  "blocks/usa_christian/index.qmd": {
-    "index.html": "bf796738"
-  },
-  "posts/brainrot/main.qmd": {
-    "main.html": "ba213078"
-  },
-  "posts/pca/pca.qmd": {
-    "pca.html": "4d894798"
-  },
-  "posts/tutor/index.qmd": {
-    "index.html": "ebc0847c"
+    "about.html": "128c4eea"
   },
   "blocks/test/test.qmd": {
-    "test.html": "582e2747"
+    "test.html": "22541f75"
+  },
+  "blocks.qmd": {
+    "blocks.html": "1f23be6a"
+  },
+  "posts/brainrot/main.qmd": {
+    "main.html": "b896dfc8"
+  },
+  "posts/hack1/index.qmd": {
+    "index.html": "88aed69c"
+  },
+  "posts/hack2/index.qmd": {
+    "index.html": "1c035bd8"
+  },
+  "posts/pca/pca.qmd": {
+    "pca.html": "ab53ddd6"
+  },
+  "posts/power_triangle/power_triangle.qmd": {
+    "power_triangle.html": "412a54b0"
+  },
+  "posts/spanish/index.qmd": {
+    "index.html": "577d529e"
+  },
+  "posts/tutor/index.qmd": {
+    "index.html": "d0aaf35b"
+  },
+  "posts/usa_christian/index.qmd": {
+    "index.html": "f0c6f752"
+  },
+  "posts.qmd": {
+    "posts.html": "63034fa7"
   },
   "resume.qmd": {
-    "resume.tex": "b213ade2"
+    "resume.html": "dade105c",
+    "resume.tex": "586fe6cd"
   }
 }
