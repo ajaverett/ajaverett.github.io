@@ -1,11 +1,11 @@
 ---
 title: "Planned Obsolecence in Home Appliances"
 subtitle: "While there has been a decrease in housing appliance durability, this decline is overstated and usually not contrasted with the large gains in affordability and efficiency"
-image: "appliance_efficiency.png"
+image: "images/appliance_efficiency.png"
 title-block-banner: ../images/banner.png
 title-block-banner-color: 'white'
 categories: ["economics", "planned obsolecence", "manufacturing", "cost of living", "good ol' days"]
-bibliography: references.bib
+bibliography: _references.bib
 bibliographystyle: apa
 ---
 

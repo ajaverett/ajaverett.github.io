@@ -1,0 +1,12 @@
+---
+title: "Productivity-Pay Gap"
+subtitle: "subtitle"
+image: "images/productivity_pay_gap.png"
+title-block-banner: ../images/banner.png
+title-block-banner-color: 'white'
+categories: ["economics", "good ol' days", "productivity", "late-stage capitalism"]
+bibliography: _references.bib
+bibliographystyle: apa
+---
+
+wip

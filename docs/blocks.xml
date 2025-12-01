@@ -10,7 +10,7 @@
 <atom:link href="https://ajaverett.com/blocks.xml" rel="self" type="application/rss+xml"/>
 <description>Senior Consultant at Booz Allen &amp; Adjunct Faculty at MTECH</description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Mon, 01 Dec 2025 09:04:08 GMT</lastBuildDate>
+<lastBuildDate>Mon, 01 Dec 2025 09:17:10 GMT</lastBuildDate>
 <item>
   <title>Planned Obsolecence in Home Appliances</title>
   <link>https://ajaverett.com/blocks/planned_obsolecence.html</link>
@@ -151,28 +151,30 @@ Wharton, Rachel. 2024a. <span>“The Real Reasons Your Appliances Die Young.”<
   <category>cost of living</category>
   <category>good ol&#39; days</category>
   <guid>https://ajaverett.com/blocks/planned_obsolecence.html</guid>
-  <pubDate>Mon, 01 Dec 2025 09:04:08 GMT</pubDate>
-  <media:content url="https://ajaverett.com/blocks/appliance_efficiency.png" medium="image" type="image/png"/>
+  <pubDate>Mon, 01 Dec 2025 09:17:10 GMT</pubDate>
+  <media:content url="https://ajaverett.com/blocks/images/appliance_efficiency.png" medium="image" type="image/png" height="78" width="144"/>
 </item>
 <item>
-  <title>Test block</title>
-  <link>https://ajaverett.com/blocks/wages_productivity.html</link>
+  <title>Productivity-Pay Gap</title>
+  <link>https://ajaverett.com/blocks/productivity_pay_gap.html</link>
   <description><![CDATA[ 
 
 
 
 
 
-<blockquote class="blockquote">
-
-</blockquote>
+<p>wip</p>
 
 
 
  ]]></description>
   <category>economics</category>
-  <guid>https://ajaverett.com/blocks/wages_productivity.html</guid>
-  <pubDate>Mon, 01 Dec 2025 09:04:08 GMT</pubDate>
+  <category>good ol&#39; days</category>
+  <category>productivity</category>
+  <category>late-stage capitalism</category>
+  <guid>https://ajaverett.com/blocks/productivity_pay_gap.html</guid>
+  <pubDate>Mon, 01 Dec 2025 09:17:10 GMT</pubDate>
+  <media:content url="https://ajaverett.com/blocks/images/productivity_pay_gap.png" medium="image" type="image/png" height="98" width="144"/>
 </item>
 </channel>
 </rss>

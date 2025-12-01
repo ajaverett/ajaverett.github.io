@@ -1,9 +1,0 @@
----
-title: "Test block"
-subtitle: "this is a test fact subtitle"
-title-block-banner: ../../images/banner.png
-title-block-banner-color: 'white'
-categories: ["economics"]
----
-
-> ### BLOCK: wages
