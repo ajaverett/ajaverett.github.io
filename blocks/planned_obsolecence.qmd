@@ -1,0 +1,60 @@
+---
+title: "Planned Obsolecence in Home Appliances"
+subtitle: "While there has been a decrease in housing appliance durability, this decline is overstated and usually not contrasted with the large gains in affordability and efficiency"
+image: "appliance_efficiency.png"
+title-block-banner: ../images/banner.png
+title-block-banner-color: 'white'
+categories: ["economics", "planned obsolecence", "manufacturing", "cost of living", "good ol' days"]
+bibliography: references.bib
+bibliographystyle: apa
+---
+
+> “It was never 30 years,” said Richard Zilka, a 40-year veteran of the appliance service industry who runs a local repair business near Miami. Even the more straightforward appliances made three or four decades ago lasted only 10 to 15 years, said Zilka. “That was the average lifespan,” he said.
+<br>
+> @wharton2024
+
+<h3>EVIDENCE:</h3> 
+**The article "Long-term lifetime trends of large appliances since the introduction in Norwegian households" (published in the Journal of Industrial Ecology, 2025), analyzed historical data on six types of large household appliances (fridges, freezers, washing machines, tumble dryers, dishwashers, and ovens) in Norway. Contrary to popular belief, the researchers found that product lifetimes are not universally decreasing.**
+
+ * For most appliances (fridges, freezers, dishwashers, dryers), the average lifespan has remained stable over the decades.
+ * Two appliances showed a significant drop in lifespan: washing machines (dropped ~45%) and ovens (dropped ~39%).
+
+Why did Washing Machines and Ovens decline?
+Since the study dismisses "planned obsolescence" as the primary cause, it offers alternative explanations for the two exceptions:
+
+ * Washing Machines: The decline in years is likely due to increased usage intensity. Households wash clothes much more frequently today than in the past. While the machine lasts fewer years, it might still be delivering a similar number of wash cycles before wearing out.
+ * Ovens: The decline is largely social, not technical. A high percentage (~40%) of ovens are discarded while still functioning, often due to kitchen renovations. As the kitchen became a social hub, consumers began replacing ovens for aesthetic reasons rather than mechanical failure.
+
+@krych2025
+
+<h3>EVIDENCE:</h3> 
+**The EIA RECS report measures only a ~3 percent decrease in old refrigerators from 2020 compared to 30 years prior in 1990.**
+
+U.S. Energy Information Administration (EIA) earliest records with granular appliance age data, reported that 8.4% of households had a primary refrigerator over 20 years old, with 38.2% exceeding 10 years. By the 2020 RECS, these figures were 5.5% and 35.1%, respectively. 
+
+<iframe 
+    src="https://datawrapper.dwcdn.net/ecrfQ/5/" 
+    frameborder="0" 
+    id="datawrapper-chart-ecrfQ" 
+    scrolling="no" 
+    height="329" 
+    style="width: 100%; min-width: 100% !important; border: none;" 
+    loading="lazy">
+</iframe>
+
+@eia_recs_1990, -@eia_recs_2020
+
+<h3>EVIDENCE:</h3> 
+**The Association of Home Appliance Manufacturers trade group shows that in 2010 most appliances lasted from 11 to 16 years. By 2019, those numbers had dropped, to a range of nine to 14 years. (In some cases, such as for gas ranges and dryers, the lifespans actually increased)**
+
+```{=html}
+<strong>Average lifespan of appliances in circulation in 2010 vs. 2019</strong>
+<div class="ba4a5829"><div class="d3e6af1a a9d55016"><table><tbody><tr><td></td><td>2010 average<br>
+lifespan (years)</td><td>2019 average<br>
+lifespan (years)</td><td>% change</td></tr><tr><td>Gas range</td><td>12.9</td><td>14.2</td><td><strong>+10%</strong></td></tr><tr><td>Top-freezer refrigerator</td><td>14.1</td><td>14</td><td>-0.7%</td></tr><tr><td>Dryer</td><td>11.7</td><td>13.4</td><td><strong>+14.5%</strong></td></tr><tr><td>Dishwasher</td><td>12.6</td><td>12</td><td>-4.8%</td></tr><tr><td>Electric range</td><td>16</td><td>11.6</td><td>-27.5%</td></tr><tr><td>Top-load washer</td><td>11.8</td><td>11.2</td><td>-5.1%</td></tr><tr><td>Side-by-side refrigerator</td><td>11.5</td><td>11.1</td><td>-3.5%</td></tr><tr><td>Front-load washer</td><td>11.1</td><td>9.1</td><td>-18%</td></tr></tbody></table></div></div>
+```
+According to an AHAM survey of appliance owners, some appliance lifespans decreased modestly between 2010 and 2019. Source: Association of Home Appliance Manufacturers
+
+@wharton2024b
+
+Also see: @aham1996

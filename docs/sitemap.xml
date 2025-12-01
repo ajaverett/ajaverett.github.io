@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ajaverett.com/index.html</loc>
-    <lastmod>2025-11-26T03:22:39.014Z</lastmod>
+    <lastmod>2025-11-30T19:24:13.755Z</lastmod>
   </url>
   <url>
     <loc>https://ajaverett.com/resume.html</loc>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://ajaverett.com/blocks.html</loc>
-    <lastmod>2025-11-25T23:24:48.716Z</lastmod>
+    <lastmod>2025-11-30T19:25:16.653Z</lastmod>
   </url>
   <url>
     <loc>https://ajaverett.com/about.html</loc>
@@ -34,7 +34,7 @@
   </url>
   <url>
     <loc>https://ajaverett.com/blocks/test/test.html</loc>
-    <lastmod>2025-11-25T23:23:24.076Z</lastmod>
+    <lastmod>2025-11-28T12:24:33.419Z</lastmod>
   </url>
   <url>
     <loc>https://ajaverett.com/posts/brainrot/main.html</loc>
@@ -55,5 +55,25 @@
   <url>
     <loc>https://ajaverett.com/posts.html</loc>
     <lastmod>2025-11-25T22:40:23.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ajaverett.com/blocks/appliance_efficiency/appliance_efficiency.html</loc>
+    <lastmod>2025-11-30T20:46:49.639Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ajaverett.com/blocks/wages_productivity/wages_productivity.html</loc>
+    <lastmod>2025-11-28T12:58:53.225Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ajaverett.com/blocks/appliance_efficiency.html</loc>
+    <lastmod>2025-12-01T08:41:29.852Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ajaverett.com/blocks/wages_productivity.html</loc>
+    <lastmod>2025-11-28T12:58:53.225Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ajaverett.com/blocks/planned_obsolecence.html</loc>
+    <lastmod>2025-12-01T09:04:03.869Z</lastmod>
   </url>
 </urlset>

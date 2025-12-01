@@ -44,5 +44,21 @@
   "resume.qmd": {
     "resume.html": "dade105c",
     "resume.tex": "586fe6cd"
+  },
+  "blocks/appliance_efficiency/appliance_efficiency.qmd": {
+    "appliance_efficiency.html": "812bd9af",
+    "appliance_efficiency.typ": "a79e6a8a"
+  },
+  "blocks/wages_productivity/wages_productivity.qmd": {
+    "wages_productivity.html": "32ba4267"
+  },
+  "blocks/appliance_efficiency.qmd": {
+    "appliance_efficiency.html": "cf4fccef"
+  },
+  "blocks/wages_productivity.qmd": {
+    "wages_productivity.html": "5a7aac97"
+  },
+  "blocks/planned_obsolecence.qmd": {
+    "planned_obsolecence.html": "ea240018"
   }
 }

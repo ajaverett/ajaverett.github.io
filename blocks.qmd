@@ -7,6 +7,8 @@ listing:
   type: grid
   categories: cloud 
   feed: true
+  sort-ui: true
+  filter-ui: true
   image-placeholder: images/coffee.png
 ---
 
@@ -40,6 +42,6 @@ listing:
     </div>
 ```
 
-The following "blocks" are facts, statistics, and other data on more polarizing topics that I feel deserve more awareness.
+The following "blocks" are general notions that are truthful based upon evidences like facts, statistics, and other data points. This curation of blocks are generally on more polarizing topics that I feel deserve more awareness.
 
 <br>
