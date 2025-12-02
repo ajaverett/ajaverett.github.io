@@ -6,7 +6,6 @@ project:
 website:
   title: "AJ Averett"
   favicon: images\favicon.png
-  
   description: "Senior Consultant at Booz Allen & Adjunct Faculty at MTECH"
   site-url: "https://ajaverett.com" 
   open-graph: true
