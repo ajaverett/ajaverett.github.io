@@ -27,6 +27,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../images/favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <script src="https://cdn.tailwindcss.com"></script>
+
 <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&amp;family=Lato:wght@400;700&amp;display=swap" rel="stylesheet">
 
 
@@ -37,69 +38,63 @@ ul.task-list li input[type="checkbox"] {
 <meta name="twitter:card" content="summary">
 </head>
 
-<body>
+<body class="bg-[#fdfbf7] text-[#2c1810] overflow-hidden h-screen w-screen selection:bg-[#8b0000] selection:text-white">
 
 
 
 
 
-<div class="column-screen">
 
-<div class="h-screen w-screen flex flex-col relative">
-    <div id="bg-texture"></div>
-        <div id="cinematic-bg"></div>
 
-        <header class="h-14 flex-shrink-0 bg-[#f4e4bc]/95 border-b-2 border-amber-900/20 flex items-center px-4 shadow-md z-40 justify-between relative">
-            <h1 class="text-xl md:text-2xl font-serif-1700 italic text-amber-950 tracking-wide drop-shadow-sm truncate">The Road to the Constitution</h1>
-        </header>
+    <div id="cinematic-bg" class="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-1000 z-0 pointer-events-none"></div>
 
-        <div class="flex-grow flex relative z-10 h-full overflow-hidden">
+    <div class="relative z-10 flex h-full w-full">
 
-            <div class="flex-shrink-0 bg-[#fbf3db]/95 border-r border-amber-900/20 z-20 shadow-lg flex flex-col pt-8 backdrop-blur-sm" id="sidebar">
+        <div id="sidebar" class="flex-none w-[60px] md:w-[200px] h-full bg-[#f4f1ea] border-r-2 border-[#dcd6ce] z-20 shadow-xl overflow-hidden relative flex flex-col">
+            
+            <div class="h-[50px] hidden md:flex items-center justify-center border-b border-[#dcd6ce] font-fell italic text-xl flex-none bg-[#f4f1ea] z-10">
+                <span>United </span>
+            </div>
+            
+            <div id="state-list-container" class="flex flex-col overflow-y-auto">
                 </div>
+        </div>
 
-            <div id="scroller" class="flex-grow overflow-x-auto overflow-y-hidden relative no-scrollbar cursor-ew-resize">
-                
-                <div id="timeline-canvas" class="h-full relative pt-8" style="width: 3000px;"> <div class="absolute top-0 w-full flex pointer-events-none opacity-40 text-4xl md:text-6xl font-serif-1700 text-amber-900 select-none">
-                        <span class="absolute left-[50px]">1786</span>
-                        <span class="absolute left-[1000px]">1787</span>
-                        <span class="absolute left-[2000px]">1788</span>
-                    </div>
-
-                    <div id="labels-container" class="absolute inset-0 pointer-events-none z-0"></div>
-                    <div id="lines-container" class="relative w-full flex flex-col z-10"></div>
-                    <div id="global-events-container" class="absolute inset-0 pointer-events-none z-10"></div>
+        <div id="timeline-viewport" class="flex-1 relative overflow-x-scroll overflow-y-hidden custom-scrollbar">
+            
+            <div id="playhead" class="fixed top-0 bottom-0 left-1/2 w-[2px] bg-[#8b0000] z-30 transform -translate-x-1/2 pointer-events-none shadow-[0_0_10px_rgba(139,0,0,0.5)]">
+                <div class="absolute top-2 left-1/2 -translate-x-1/2 bg-[#8b0000] text-[#fdfbf7] px-2 py-1 text-xs font-bold rounded font-lato">
+                    <span id="current-date-display">1785</span>
                 </div>
-
-                <div class="fixed left-1/2 top-14 bottom-0 w-0.5 bg-red-600/80 z-30 pointer-events-none shadow-[0_0_4px_red]">
-                    <div class="absolute top-0 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-red-600 rounded-full shadow-sm"></div>
-                </div>
-
             </div>
 
-            <div id="main-card" class="history-card pointer-events-auto flex flex-col md:block">
-                <div id="card-img-wrapper" class="card-image-container bg-gray-200 relative">
-                    <img id="card-img" src="" class="w-full h-full object-cover sepia-[0.3]" alt="Historical Event">
-                    <div class="absolute inset-0 shadow-[inset_0_0_20px_rgba(0,0,0,0.2)]"></div> 
-                </div>
-
-                <div class="p-4 flex flex-row md:block items-center md:items-start gap-4"> 
-                    <div class="flex-1">
-                        <div class="flex justify-between items-center mb-1 md:mb-3">
-                            <span id="card-date" class="text-xs font-bold text-red-900 bg-red-100/50 px-2 py-0.5 border border-red-900/20 tracking-widest">DATE</span>
-                            <span id="card-type" class="text-[10px] text-amber-900/60 font-sans-modern font-bold uppercase">EVENT</span>
-                        </div>
-                        <h2 id="card-title" class="text-xl md:text-4xl font-serif-1700 text-black mb-1 md:mb-4 leading-none anchored">Title</h2>
-                        <p id="card-desc" class="text-xs md:text-lg font-sans-modern text-amber-950/90 leading-tight md:leading-relaxed">Description.</p>
-                    </div>
+            <div id="timeline-content" class="relative h-full">
+                
+                <div id="timeline-offset" class="relative w-full h-full mt-0 md:mt-[50px]">
+                    
+                    <div id="grid-lines" class="absolute inset-0 pointer-events-none"></div>
+                    
+                    <div id="events-container" class="absolute inset-0 w-full h-full"></div>
+                    
                 </div>
             </div>
 
         </div>
-    </div>    
-</div>    
-:::
+    </div>
 
+    <div id="info-card" class="fixed bottom-0 right-0 md:bottom-8 md:right-8 w-full md:w-[400px] bg-paper border-t-4 md:border-4 border-ink/80 shadow-2xl transform translate-y-[120%] transition-transform duration-500 z-[100] p-6 rounded-t-lg md:rounded-lg">
+        <div id="card-content">
+            <div id="card-image-container" class="hidden mb-4 overflow-hidden rounded border border-[#2c1810] opacity-80 sepia">
+                <img id="card-image" src="" alt="" class="w-full h-48 object-cover">
+            </div>
+            
+            <h2 id="card-title" class="font-fell text-2xl md:text-3xl mb-2 text-[#8b0000] border-b border-[#2c1810]/20 pb-2 anchored">Event Title</h2>
+            <p id="card-date" class="font-lato text-xs md:text-sm font-bold text-[#2c1810]/60 mb-2">Date</p>
+            <p id="card-desc" class="font-lato text-sm md:text-base leading-relaxed">Description goes here.</p>
+        </div>
+    </div>
+
+ 
 
 
 
@@ -151,388 +146,334 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 <script>
-    // --- 1. DATA (Shortened for brevity) ---
-    // Note: 'offset' is strictly visual position on the canvas.
+    // --- CONFIGURATION ---
+    const CONFIG = {
+        START_DATE: new Date("1785-01-01"),
+        END_DATE: new Date("1790-12-31"),
+        TOTAL_WIDTH: 12000, // Pixels for the total timeline length
+        TRIGGER_THRESHOLD: 300, // Pixels from center to trigger event
+    };
 
-    const statesData = [
-            { abbr: "DE", full: "Delaware" },        // 1st: Dec 7, 1787
-            { abbr: "PA", full: "Pennsylvania" },    // 2nd: Dec 12, 1787
-            { abbr: "NJ", full: "New Jersey" },      // 3rd: Dec 18, 1787
-            { abbr: "GA", full: "Georgia" },         // 4th: Jan 2, 1788
-            { abbr: "CT", full: "Connecticut" },     // 5th: Jan 9, 1788
-            { abbr: "MA", full: "Massachusetts" },   // 6th: Feb 6, 1788
-            { abbr: "MD", full: "Maryland" },        // 7th: Apr 28, 1788
-            { abbr: "SC", full: "South Carolina" },  // 8th: May 23, 1788
-            { abbr: "NH", full: "New Hampshire" },   // 9th: June 21, 1788
-            { abbr: "VA", full: "Virginia" },        // 10th: June 25, 1788
-            { abbr: "NY", full: "New York" },        // 11th: July 26, 1788
-            { abbr: "NC", full: "North Carolina" },  // 12th: Nov 21, 1789
-            { abbr: "RI", full: "Rhode Island" }     // 13th: May 29, 1790
-        ];
-    const historyEvents = [
-                    {
-                        title: "",
-                        date: "January 1, 1783",
-                        type: "small",
-                        offset: 2,
-                        description: "",
-                        involved: [],
-                        notes: {}
-                    },
-                    {
-                        title: "Mount Vernon Conference",
-                        date: "March 28, 1785",
-                        type: "small",
-                        offset: 2,
-                        description: "Delegates from Maryland and Virginia meet at George Washington's home to address navigational rights, agreeing to the Mount Vernon Compact.",
-                        involved: ["Virginia", "Maryland"],
-                        notes: {
-                            "Virginia": "Represented by George Mason and Alexander Henderson.",
-                            "Maryland": "Ratified the compact to regulate the Chesapeake Bay."
-                        }
-                    },
-                    {
-                        title: "The Annapolis Convention",
-                        date: "Sept 14, 1786",
-                        type: "small",
-                        offset: 8,
-                        description: "Delegates from five states meet to discuss trade barriers. They issue a report requesting a convention in Philadelphia the following May.",
-                        involved: ["New York", "New Jersey", "Pennsylvania", "Delaware", "Virginia"],
-                        notes: {
-                            "New York": "Hamilton pushes for a convention to amend the Articles.",
-                            "Delaware": "One of only five states to arrive in time."
-                        }
-                    },
-                    {
-                        title: "Convention Convenes",
-                        date: "May 25, 1787",
-                        type: "large",
-                        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Independence_Hall_Assembly_Room.jpg/1280px-Independence_Hall_Assembly_Room.jpg",
-                        bgImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Independence_Hall_Philadelphia_2017.jpg/1920px-Independence_Hall_Philadelphia_2017.jpg",
-                        offset: 15,
-                        description: "A quorum is finally reached at the Pennsylvania State House. George Washington is elected president of the convention.",
-                        involved: ["All"],
-                        notes: { "Virginia": "Washington's election lends immense legitimacy to the gathering." }
-                    },
-                    {
-                        title: "The Great Compromise",
-                        date: "July 16, 1787",
-                        type: "medium",
-                        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Roger_Sherman.jpg/480px-Roger_Sherman.jpg",
-                        offset: 25,
-                        description: "The convention adopts the Connecticut Compromise (5–4–1): House by population, Senate by state equality.",
-                        involved: ["Connecticut", "Pennsylvania", "Delaware", "Maryland", "North Carolina"],
-                        notes: { "Connecticut": "Roger Sherman's plan saves the convention from collapse." }
-                    },
-                    {
-                        title: "Signing the Constitution",
-                        date: "Sept 17, 1787",
-                        type: "large",
-                        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Christy_Scene_at_the_Signing_of_the_Constitution_of_the_United_States.jpg/640px-Christy_Scene_at_the_Signing_of_the_Constitution_of_the_United_States.jpg",
-                        bgImage: "https://upload.wikimedia.org/wikipedia/commons/9/98/Howard_Chandler_Christy_-_Scene_at_the_Signing_of_the_Constitution_of_the_United_States_-_Google_Art_Project.jpg",
-                        offset: 35,
-                        description: "39 delegates sign the document. Three present (Randolph, Mason, Gerry) decline. Franklin notes the 'Rising Sun'.",
-                        involved: ["All"],
-                        notes: { "Pennsylvania": "Benjamin Franklin weeps with joy." }
-                    },
-                    {
-                        title: "First Ratifications",
-                        date: "Dec 1787",
-                        type: "medium",
-                        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Seal_of_Delaware.svg/640px-Seal_of_Delaware.svg.png",
-                        offset: 40,
-                        description: "The ratification process begins. Delaware is first (30–0), followed by Pennsylvania (46–23) and New Jersey (38–0).",
-                        involved: ["Delaware", "Pennsylvania", "New Jersey"],
-                        notes: {
-                            "Delaware": "The first state to ratify (Unanimous 30–0).",
-                            "Pennsylvania": "Ratifies 46–23 despite Anti-Federalist dissent.",
-                            "New Jersey": "Ratifies unanimously (38–0)."
-                        }
-                    },
-                    {
-                        title: "Georgia & Connecticut",
-                        date: "Jan 1788",
-                        type: "small",
-                        offset: 45,
-                        description: "Momentum continues as Georgia (26–0) and Connecticut (128–40) join the Union.",
-                        involved: ["Georgia", "Connecticut"],
-                        notes: {
-                            "Georgia": "Unanimous ratification (26–0).",
-                            "Connecticut": "Strong support (128–40)."
-                        }
-                    },
-                    {
-                        title: "Massachusetts Compromise",
-                        date: "Feb 6, 1788",
-                        type: "medium",
-                        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Elbridge_Gerry.jpg/480px-Elbridge_Gerry.jpg",
-                        offset: 50,
-                        description: "Massachusetts ratifies (187–168) but demands nineteen alterations, setting the precedent for a Bill of Rights.",
-                        involved: ["Massachusetts"],
-                        notes: { "Massachusetts": "A tight vote (187–168) secured by promising amendments." }
-                    },
-                    {
-                        title: "Spring Ratifications",
-                        date: "Apr-May 1788",
-                        type: "small",
-                        offset: 55,
-                        description: "Maryland (63–11) and South Carolina (149–73) ratify. Rhode Island voters reject the constitution in a referendum.",
-                        involved: ["Maryland", "South Carolina", "Rhode Island"],
-                        notes: {
-                            "Maryland": "Ratifies 63–11.",
-                            "Rhode Island": "Voters overwhelmingly reject it (2,708–237)."
-                        }
-                    },
-                    {
-                        title: "Constitution Established",
-                        date: "June 21, 1788",
-                        type: "medium",
-                        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/New_Hampshire_population_map_1790.jpg/618px-New_Hampshire_population_map_1790.jpg",
-                        offset: 60,
-                        description: "New Hampshire becomes the 9th state to ratify (57–47), officially establishing the Constitution under Article VII.",
-                        involved: ["New Hampshire"],
-                        notes: { "New Hampshire": "The 9th and deciding vote (57–47)." }
-                    },
-                    {
-                        title: "Virginia & New York",
-                        date: "Summer 1788",
-                        type: "medium",
-                        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Patrick_henry.JPG/480px-Patrick_henry.JPG",
-                        offset: 65,
-                        description: "The largest states finally sign on. Virginia (89–79) and New York (30–27) ratify by narrow margins.",
-                        involved: ["Virginia", "New York"],
-                        notes: {
-                            "Virginia": "Ratifies 89–79; suggests 20 amendments.",
-                            "New York": "Ratifies 30–27; suggests 33 amendments."
-                        }
-                    },
-                    {
-                        title: "Washington Inaugurated",
-                        date: "April 30, 1789",
-                        type: "large",
-                        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Gilbert_Stuart_Williamstown_Portrait_of_George_Washington.jpg/480px-Gilbert_Stuart_Williamstown_Portrait_of_George_Washington.jpg",
-                        bgImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Federal_Hall_National_Memorial_2016.jpg/1920px-Federal_Hall_National_Memorial_2016.jpg",
-                        offset: 80,
-                        description: "George Washington is sworn in at Federal Hall, NYC, after being unanimously elected by the Electoral College.",
-                        involved: ["All"],
-                        notes: { "New York": "Hosted the first capital at Federal Hall." }
-                    },
-                    {
-                        title: "Bill of Rights Proposed",
-                        date: "Sept 25, 1789",
-                        type: "small",
-                        offset: 85,
-                        description: "Congress approves twelve articles of amendment and sends them to the states. Ten will eventually become the Bill of Rights.",
-                        involved: ["All"],
-                        notes: { "Virginia": "Provided the model for many rights." }
-                    },
-                    {
-                        title: "North Carolina Joins",
-                        date: "Nov 21, 1789",
-                        type: "small",
-                        offset: 90,
-                        description: "After initially rejecting it, North Carolina ratifies the Constitution (194–77) at a second convention.",
-                        involved: ["North Carolina"],
-                        notes: { "North Carolina": "Ratifies 194–77 on the second attempt." }
-                    },
-                    {
-                        title: "Rhode Island Joins",
-                        date: "May 29, 1790",
-                        type: "medium",
-                        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Rhode_Island.svg/640px-Flag_of_Rhode_Island.svg.png",
-                        offset: 98,
-                        description: "Rhode Island becomes the last of the original 13 states to ratify (34–32), completing the Union.",
-                        involved: ["Rhode Island"],
-                        notes: { "Rhode Island": "Ratifies by the narrowest margin (34–32)." }
-                    },
-                    {
-                        title: "",
-                        date: "January 1, 1792",
-                        type: "small",
-                        offset: 2,
-                        description: "",
-                        involved: [],
-                        notes: {}
-                    },
-                ];
-    // --- 2. SETUP DOM ---
-    const sidebar = document.getElementById('sidebar');
-    const linesContainer = document.getElementById('lines-container');
-    const globalContainer = document.getElementById('global-events-container');
-    const labelsContainer = document.getElementById('labels-container');
-    const timelineWidth = document.getElementById('timeline-canvas').clientWidth;
+    // Hardcoded States (sorted by ratification generally, or geographic)
+    const STATES = [
+        { name: "Delaware", abbr: "DE" },
+        { name: "Pennsylvania", abbr: "PA" },
+        { name: "New Jersey", abbr: "NJ" },
+        { name: "Georgia", abbr: "GA" },
+        { name: "Connecticut", abbr: "CT" },
+        { name: "Massachusetts", abbr: "MA" },
+        { name: "Maryland", abbr: "MD" },
+        { name: "South Carolina", abbr: "SC" },
+        { name: "New Hampshire", abbr: "NH" },
+        { name: "Virginia", abbr: "VA" },
+        { name: "New York", abbr: "NY" },
+        { name: "North Carolina", abbr: "NC" },
+        { name: "Rhode Island", abbr: "RI" }
+    ];
 
-    // Dynamic Row Height based on screen height to ensure they fit without vertical scroll
-    // On mobile we might want them tighter.
-    const rowHeight = "calc((100vh - 3.5rem) / 13)"; // 3.5rem is header height approx
+    let eventsData = [];
+    let activeEventId = null;
 
-    // Build Grid
-    statesData.forEach((state) => {
-        // LABEL Logic
-        const label = document.createElement('div');
-        // We use a CSS class to toggle content based on media query or JS,
-        // but simpler here: we put both in spans and hide one with CSS utility classes
-        label.className = "w-full flex items-center justify-center md:justify-start md:px-4 font-serif-1700 text-sm md:text-lg text-slate-700 font-semibold border-b border-amber-900/10 transition-colors duration-300";
-        label.style.height = rowHeight;
-        label.id = `label-${state.full.replace(/\s/g, '')}`;
+    // --- DOM ELEMENTS ---
+    const elements = {
+        sidebar: document.getElementById('state-list-container'),
+        timelineViewport: document.getElementById('timeline-viewport'),
+        timelineContent: document.getElementById('timeline-content'),
+        gridLines: document.getElementById('grid-lines'),
+        eventsContainer: document.getElementById('events-container'),
+        infoCard: document.getElementById('info-card'),
+        cinematicBg: document.getElementById('cinematic-bg'),
+        dateDisplay: document.getElementById('current-date-display'),
+        // Card Elements
+        cardTitle: document.getElementById('card-title'),
+        cardDate: document.getElementById('card-date'),
+        cardDesc: document.getElementById('card-desc'),
+        cardImgContainer: document.getElementById('card-image-container'),
+        cardImg: document.getElementById('card-image')
+    };
 
-        // Mobile Abbr (visible block, hidden md)
-        const abbrSpan = document.createElement('span');
-        abbrSpan.className = "md:hidden";
-        abbrSpan.innerText = state.abbr;
+    // --- INITIALIZATION ---
 
-        // Desktop Full (hidden, visible md block)
-        const fullSpan = document.createElement('span');
-        fullSpan.className = "hidden md:block truncate";
-        fullSpan.innerText = state.full;
+    async function init() {
+        setupLayout();
+        renderSidebar();
+        renderGridBackground();
 
-        label.appendChild(abbrSpan);
-        label.appendChild(fullSpan);
-        sidebar.appendChild(label);
+        // Fetch Data
+        try {
+            const response = await fetch('data/history_events.json');
+            if (!response.ok) throw new Error('Network response not ok');
+            eventsData = await response.json();
+            renderEvents();
 
-        // LINE Logic
-        const lineRow = document.createElement('div');
-        lineRow.className = "state-line w-full relative";
-        lineRow.style.height = rowHeight;
-        lineRow.id = `line-${state.full.replace(/\s/g, '')}`;
-        linesContainer.appendChild(lineRow);
-    });
-
-    // Build Markers
-    historyEvents.forEach((evt, evtIndex) => {
-        const pxPos = (evt.offset / 100) * timelineWidth;
-        const isUnionEvent = evt.involved.includes("All");
-
-        // Wall Label
-        const wallLabel = document.createElement('div');
-        wallLabel.className = 'wall-label';
-        wallLabel.innerText = evt.title;
-        wallLabel.style.left = `${pxPos}px`;
-        wallLabel.id = `wall-label-${evtIndex}`;
-        labelsContainer.appendChild(wallLabel);
-
-        if (isUnionEvent) {
-            const unionLine = document.createElement('div');
-            unionLine.className = 'union-line';
-            unionLine.style.left = `${pxPos}px`;
-            globalContainer.appendChild(unionLine);
-        } else {
-            evt.involved.forEach(stateName => {
-                const cleanName = stateName.replace(/\s/g, '');
-                const line = document.getElementById(`line-${cleanName}`);
-
-                const marker = document.createElement('div');
-                marker.className = `marker-diamond`;
-                marker.style.left = `${pxPos}px`;
-                // Center marker vertically in dynamic row height
-                marker.style.top = "50%";
-                marker.style.marginTop = "-7px"; // Half of 14px height
-                marker.dataset.evtIndex = evtIndex;
-
-                line.appendChild(marker);
-            });
-        }
-    });
-
-    // --- 3. LOGIC ---
-    const scroller = document.getElementById('scroller');
-    const cinematicBg = document.getElementById('cinematic-bg');
-
-    const mainCard = document.getElementById('main-card');
-    const cardImgWrapper = document.getElementById('card-img-wrapper');
-    const cardImg = document.getElementById('card-img');
-    const cardTitle = document.getElementById('card-title');
-    const cardDate = document.getElementById('card-date');
-    const cardType = document.getElementById('card-type');
-    const cardDesc = document.getElementById('card-desc');
-
-    function updateView() {
-        const scrollLeft = scroller.scrollLeft;
-        const containerW = scroller.clientWidth;
-        const playhead = scrollLeft + (containerW / 2);
-
-        let activeEvent = null;
-        let minDistance = Infinity;
-
-        // Detect event
-        historyEvents.forEach((evt, idx) => {
-            const evtPos = (evt.offset / 100) * timelineWidth;
-            const dist = Math.abs(playhead - evtPos);
-            // Detection range needs to be tighter on mobile or it jumps too fast
-            const range = (window.innerWidth < 768) ? 150 : 350;
-
-            if (dist < range) {
-                if (dist < minDistance) {
-                    minDistance = dist;
-                    activeEvent = evt;
-                }
-            }
-            // Reset labels
-            document.getElementById(`wall-label-${idx}`).classList.remove('active');
-        });
-
-        // Reset Visuals
-        document.querySelectorAll('.state-line').forEach(el => el.classList.remove('active'));
-        document.querySelectorAll('[id^="label-"]').forEach(el => {
-            el.classList.remove('text-black', 'font-bold', 'bg-red-50/50');
-            el.classList.add('text-slate-700');
-        });
-        document.querySelectorAll('.marker-diamond').forEach(el => el.classList.remove('marker-visible'));
-
-        if (activeEvent) {
-            // Label
-            const evtIndex = historyEvents.indexOf(activeEvent);
-            document.getElementById(`wall-label-${evtIndex}`).classList.add('active');
-
-            // Card Content
-            mainCard.classList.add('card-visible'); // Slide up
-            cardTitle.innerText = activeEvent.title;
-            cardDate.innerText = activeEvent.date;
-            cardDesc.innerText = activeEvent.description;
-            cardType.innerText = activeEvent.type.toUpperCase();
-
-            // Image Logic (Only Desktop actually sees the wrapper, but logic remains)
-            if (activeEvent.type !== 'small') {
-                cardImgWrapper.classList.add('has-image');
-                cardImg.src = activeEvent.image;
-            } else {
-                cardImgWrapper.classList.remove('has-image');
-            }
-
-            // BG Logic (Large events)
-            if (activeEvent.type === 'large') {
-                cinematicBg.style.backgroundImage = `url('${activeEvent.bgImage}')`;
-                cinematicBg.style.opacity = '1';
-            } else {
-                cinematicBg.style.opacity = '0';
-            }
-
-            // Highlighting
-            const isUnion = activeEvent.involved.includes("All");
-            if (!isUnion) {
-                activeEvent.involved.forEach(name => {
-                    const clean = name.replace(/\s/g, '');
-                    const line = document.getElementById(`line-${clean}`);
-                    if(line) line.classList.add('active');
-
-                    const lbl = document.getElementById(`label-${clean}`);
-                    if(lbl) {
-                        lbl.classList.remove('text-slate-700');
-                        lbl.classList.add('text-black', 'font-bold', 'bg-red-50/50');
-                    }
-
-                    const marker = document.getElementById(`line-${clean}`).querySelector(`div[data-evt-index="${evtIndex}"]`);
-                    if(marker) marker.classList.add('marker-visible');
-                });
-            }
-        } else {
-            mainCard.classList.remove('card-visible'); // Slide down
-            cinematicBg.style.opacity = '0';
+            // Start Loop
+            requestAnimationFrame(updateLoop);
+        } catch (error) {
+            console.error("Error loading events:", error);
         }
     }
 
-    scroller.addEventListener('scroll', () => requestAnimationFrame(updateView));
-    updateView();
+    function setupLayout() {
+        // 1. Set Timeline Width
+        elements.timelineContent.style.width = `${CONFIG.TOTAL_WIDTH}px`;
+
+        // 2. The Center Scroll Fix
+        // Add 50vw padding to left and right so the start/end can reach the center playhead
+        const halfScreen = window.innerWidth / 2;
+        elements.timelineContent.style.paddingLeft = `${halfScreen}px`;
+        elements.timelineContent.style.paddingRight = `${halfScreen}px`;
+    }
+
+    // --- RENDERING ---
+
+    function renderSidebar() {
+        STATES.forEach((state, index) => {
+            const row = document.createElement('div');
+            row.className = 'state-row h-[40px] flex items-center px-4 font-lato text-sm';
+            row.dataset.state = state.name; // For referencing later
+            row.innerHTML = `
+                <span class="hidden md:block font-bold">${state.name}</span>
+                <span class="md:hidden font-bold">${state.abbr}</span>
+            `;
+            elements.sidebar.appendChild(row);
+        });
+    }
+
+    function renderGridBackground() {
+        // 1. Horizontal Lines (matching sidebar rows)
+        STATES.forEach((state, index) => {
+            const line = document.createElement('div');
+            line.className = 'timeline-row-line h-[40px] w-full absolute';
+            line.style.top = `${index * 40}px`; // Match sidebar height
+            line.dataset.stateRow = state.name;
+            elements.gridLines.appendChild(line);
+        });
+
+        // 2. Vertical Year Markers
+        const startYear = CONFIG.START_DATE.getFullYear();
+        const endYear = CONFIG.END_DATE.getFullYear();
+
+        for (let year = startYear; year <= endYear; year++) {
+            const dateStr = `${year}-01-01`;
+            const leftPos = dateToPixel(dateStr);
+
+            const marker = document.createElement('div');
+            marker.className = 'absolute top-0 bottom-0 border-l border-[#2c1810]/20 font-fell text-4xl text-[#2c1810]/10 pl-2 select-none';
+            marker.style.left = `${leftPos}px`;
+            marker.innerText = year;
+            elements.gridLines.appendChild(marker);
+        }
+    }
+
+    function renderEvents() {
+        eventsData.forEach((event, index) => {
+            const leftPos = dateToPixel(event.date);
+            event.id = index;
+
+            // 1. THE WALL LABEL
+            const label = document.createElement('div');
+            // CHANGED: Added 'md:-top-[40px]' to lift the text up into the header area on desktop
+            label.className = 'absolute top-2 md:-top-[40px] transform -translate-x-1/2 font-fell italic text-2xl text-[#2c1810]/40 whitespace-nowrap select-none z-0 pointer-events-none';
+            label.style.left = `${leftPos}px`;
+            label.innerText = event.title;
+            elements.eventsContainer.appendChild(label);
+
+            // 2. VERTICAL DROP LINE (Dashed - for normal events)
+            const dropLine = document.createElement('div');
+            dropLine.className = 'absolute top-12 bottom-0 border-l border-dashed border-[#2c1810]/20 pointer-events-none';
+            dropLine.style.left = `${leftPos}px`;
+            elements.eventsContainer.appendChild(dropLine);
+
+            // Save element for scroll detection
+            event.domElement = dropLine;
+
+            // 3. State Markers
+            if (event.involved.includes("All")) {
+                // Union Line (For "All" events)
+                const unionLine = document.createElement('div');
+                // CHANGED: Added 'md:-top-[50px]' so the line extends to the very top of the screen on desktop
+                unionLine.className = 'absolute top-0 md:-top-[50px] bottom-0 w-[4px] bg-[#2c1810] z-20 transform -translate-x-1/2';
+                unionLine.style.left = `${leftPos}px`;
+
+                const badge = document.createElement('div');
+                badge.className = 'absolute top-[40%] left-1/2 transform -translate-x-1/2 bg-[#2c1810] text-[#fdfbf7] px-3 py-1 font-fell text-lg tracking-widest whitespace-nowrap shadow-lg border border-[#fdfbf7]/20';
+                badge.innerText = event.title.toUpperCase();
+
+                unionLine.appendChild(badge);
+                elements.eventsContainer.appendChild(unionLine);
+            } else {
+                // Individual State Diamonds
+                event.involved.forEach(stateName => {
+                    const stateIndex = STATES.findIndex(s => s.name === stateName);
+                    if (stateIndex === -1) return;
+                    const topPos = (stateIndex * 40) + 20;
+
+                    const diamond = document.createElement('div');
+                    diamond.className = 'marker-diamond absolute w-4 h-4 bg-[#8b0000] rotate-45 transform -translate-x-1/2 -translate-y-1/2 z-20 cursor-help shadow-sm transition-transform hover:scale-150';
+                    diamond.style.left = `${leftPos}px`;
+                    diamond.style.top = `${topPos}px`;
+
+                    if (event.tooltip && event.tooltip[stateName]) {
+                        const tip = document.createElement('div');
+                        tip.className = 'tooltip-box absolute bottom-6 left-1/2 -translate-x-1/2 bg-[#2c1810] text-[#fdfbf7] text-xs p-2 rounded w-[150px] -rotate-45 pointer-events-none z-50 shadow-xl';
+                        tip.innerText = event.tooltip[stateName];
+                        diamond.appendChild(tip);
+                    }
+                    elements.eventsContainer.appendChild(diamond);
+                });
+            }
+        });
+    }
+
+
+    // --- MATH HELPERS ---
+
+    function dateToPixel(dateString) {
+        const date = new Date(dateString);
+        const totalTime = CONFIG.END_DATE - CONFIG.START_DATE;
+        const eventTime = date - CONFIG.START_DATE;
+        const percentage = eventTime / totalTime;
+        return percentage * CONFIG.TOTAL_WIDTH;
+    }
+
+    function pixelToDate(pixel) {
+        const percentage = pixel / CONFIG.TOTAL_WIDTH;
+        const totalTime = CONFIG.END_DATE - CONFIG.START_DATE;
+        const timeElapsed = totalTime * percentage;
+        const newDate = new Date(CONFIG.START_DATE.getTime() + timeElapsed);
+        return newDate.getFullYear(); // Just returning year for display
+    }
+
+    // --- THE GAME LOOP (RequestAnimationFrame) ---
+
+    function updateLoop() {
+        // 1. Get the visual center of the screen (Where the red line is)
+        const screenCenter = window.innerWidth / 2;
+
+        // Update Date Display based on scroll math (this is approximation for the label only)
+        const scrollLeft = elements.timelineViewport.scrollLeft;
+        elements.dateDisplay.innerText = pixelToDate(scrollLeft);
+
+        // 2. Find Active Event using VISUAL POSITION
+        let foundEvent = null;
+
+        // Narrower threshold for snappier feel
+        const VISUAL_THRESHOLD = 50;
+
+        eventsData.forEach(event => {
+            if (!event.domElement) return;
+
+            // Get the line's position relative to the viewport window
+            const rect = event.domElement.getBoundingClientRect();
+
+            // Calculate distance: (Line's Left Position) minus (Screen Center)
+            const dist = Math.abs(rect.left - screenCenter);
+
+            if (dist < VISUAL_THRESHOLD) {
+                foundEvent = event;
+            }
+        });
+
+        if (foundEvent && foundEvent.id !== activeEventId) {
+            activateEvent(foundEvent);
+        } else if (!foundEvent && activeEventId !== null) {
+            // Only deactivate if we moved far enough away from the current event
+            // This prevents flickering if you are just 1 pixel outside the threshold
+            deactivateEvent();
+        }
+
+        requestAnimationFrame(updateLoop);
+    }
+
+    // --- INTERACTION LOGIC ---
+
+    function activateEvent(event) {
+        activeEventId = event.id;
+
+        // 1. Update Card Content
+        elements.cardTitle.innerText = event.title;
+        elements.cardDate.innerText = formatFriendlyDate(event.date);
+        elements.cardDesc.innerText = event.description;
+
+        // Handle Image Types
+        if (event.type === 'medium' || event.type === 'large') {
+            elements.cardImg.src = event.image;
+            elements.cardImgContainer.classList.remove('hidden');
+        } else {
+            elements.cardImgContainer.classList.add('hidden');
+        }
+
+        // Show Card (Slide Up)
+        elements.infoCard.classList.remove('translate-y-[120%]');
+
+        // 2. Handle "Matrix" Lines (Row Highlighting)
+        // Clear previous
+        document.querySelectorAll('.state-row, .timeline-row-line').forEach(el => el.classList.remove('active'));
+
+        if (event.involved.includes("All")) {
+            // "Union" Mode - Don't highlight rows, trigger cinematic BG
+            if (event.type === 'large' && event.bgImage) {
+                elements.cinematicBg.style.backgroundImage = `url('${event.bgImage}')`;
+                elements.cinematicBg.classList.remove('opacity-0');
+                elements.sidebar.classList.add('opacity-50'); // Dim UI
+                elements.gridLines.classList.add('blur-mode'); // Blur lines
+            }
+        } else {
+            // Specific States Mode
+            event.involved.forEach(stateName => {
+                // Highlight Sidebar Row
+                const sidebarRow = document.querySelector(`.state-row[data-state="${stateName}"]`);
+                if (sidebarRow) sidebarRow.classList.add('active');
+
+                // Highlight Grid Line
+                const gridRow = document.querySelector(`.timeline-row-line[data-state-row="${stateName}"]`);
+                if (gridRow) gridRow.classList.add('active');
+            });
+        }
+    }
+
+    function deactivateEvent() {
+        activeEventId = null;
+
+        // Hide Card
+        elements.infoCard.classList.add('translate-y-[120%]');
+
+        // Reset Rows
+        document.querySelectorAll('.state-row, .timeline-row-line').forEach(el => el.classList.remove('active'));
+
+        // Reset Cinematic Mode
+        elements.cinematicBg.classList.add('opacity-0');
+        elements.sidebar.classList.remove('opacity-50');
+        elements.gridLines.classList.remove('blur-mode');
+    }
+
+    function formatFriendlyDate(dateString) {
+        // 1. Parse the date ensuring no timezone offsets shift the day
+        const [year, month, day] = dateString.split('-');
+        const date = new Date(year, month - 1, day);
+
+        // 2. Get Month Name
+        const monthName = date.toLocaleString('default', { month: 'long' });
+
+        // 3. Get Day and determine Suffix (st, nd, rd, th)
+        const d = parseInt(day);
+        let suffix = 'th';
+
+        if (d > 3 && d < 21) {
+            suffix = 'th'; // Covers 4-20 (11th, 12th, 13th)
+        } else {
+            switch (d % 10) {
+                case 1:  suffix = "st"; break;
+                case 2:  suffix = "nd"; break;
+                case 3:  suffix = "rd"; break;
+            }
+        }
+
+        return `${monthName} ${d}${suffix}, ${year}`;
+    }
+
+    // Start
+    init();
 </script>
 
 

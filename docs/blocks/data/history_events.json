@@ -1,0 +1,36 @@
+[
+  {
+    "title": "Annapolis Convention",
+    "date": "1786-09-11",
+    "type": "small",
+    "description": "Delegates from five states meet to discuss interstate trade barriers. The low turnout highlights the weakness of the Articles of Confederation.",
+    "involved": ["Maryland"],
+    "image": null,
+    "bgImage": null,
+    "tooltip": {}
+  },
+  {
+    "title": "The Connecticut Compromise",
+    "date": "1787-07-16",
+    "type": "medium",
+    "description": "Sherman and Ellsworth propose a bicameral legislature with dual representation systems. This saved the Convention from collapse.",
+    "involved": ["Connecticut", "Virginia", "New Jersey"],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roger_Sherman_by_Earle.jpg/440px-Roger_Sherman_by_Earle.jpg",
+    "bgImage": null,
+    "tooltip": {
+      "Connecticut": "Proposed the dual system.",
+      "Virginia": "Demanded population-based votes.",
+      "New Jersey": "Demanded equal votes per state."
+    }
+  },
+  {
+    "title": "Constitution Signed",
+    "date": "1787-09-17",
+    "type": "large",
+    "description": "The Constitutional Convention concludes. 39 delegates sign the document, sending it to the states for ratification.",
+    "involved": ["All"],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Scene_at_the_Signing_of_the_Constitution_of_the_United_States.jpg/640px-Scene_at_the_Signing_of_the_Constitution_of_the_United_States.jpg",
+    "bgImage": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Scene_at_the_Signing_of_the_Constitution_of_the_United_States.jpg",
+    "tooltip": {}
+  }
+]
