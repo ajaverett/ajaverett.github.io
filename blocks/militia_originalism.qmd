@@ -1,7 +1,7 @@
 ---
-title: "What does the second amendment protect?"
+title: "Understanding the second amendment?"
 subtitle: "Is this an individual or collective right?"
-image: "images/appliance_efficiency.png"
+image: "images/second_amendment.png"
 title-block-banner: ../images/banner.png
 title-block-banner-color: 'white'
 categories: ["constitution", "guns", "second amendment", "federalist papers", "history"]

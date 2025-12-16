@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ajaverett.com/index.html</loc>
-    <lastmod>2025-12-02T06:52:36.751Z</lastmod>
+    <lastmod>2025-12-16T19:03:03.255Z</lastmod>
   </url>
   <url>
     <loc>https://ajaverett.com/resume.html</loc>
@@ -82,10 +82,14 @@
   </url>
   <url>
     <loc>https://ajaverett.com/blocks/militia_originalism.html</loc>
-    <lastmod>2025-12-16T02:29:50.227Z</lastmod>
+    <lastmod>2025-12-16T19:03:22.270Z</lastmod>
   </url>
   <url>
     <loc>https://ajaverett.com/blocks/historytemp.html</loc>
-    <lastmod>2025-12-16T07:03:25.666Z</lastmod>
+    <lastmod>2025-12-16T18:30:43.157Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ajaverett.com/blocks/history_2ndamen.html</loc>
+    <lastmod>2025-12-16T19:06:13.344Z</lastmod>
   </url>
 </urlset>

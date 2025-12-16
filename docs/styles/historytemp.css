@@ -1,3 +1,7 @@
+#title-block-header {
+    display: none;
+  }
+
 /* Base Themes */
 .font-fell { font-family: 'IM Fell English', serif; }
 .font-lato { font-family: 'Lato', sans-serif; }
@@ -63,13 +67,4 @@
     #card-image-container {
         display: none !important;
     }
-}
-
-.font-header { 
-    /* This must match the name in the Google Link exactly */
-    font-family: 'IM Fell English', serif; 
-}
-
-.font-body { 
-    font-family: 'Lato', sans-serif; 
 }

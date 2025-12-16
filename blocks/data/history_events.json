@@ -1,36 +1,109 @@
 [
   {
-    "title": "Annapolis Convention",
-    "date": "1786-09-11",
-    "type": "small",
-    "description": "Delegates from five states meet to discuss interstate trade barriers. The low turnout highlights the weakness of the Articles of Confederation.",
-    "involved": ["Maryland"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {}
-  },
-  {
-    "title": "The Connecticut Compromise",
-    "date": "1787-07-16",
+    "title": "Shays' Rebellion",
+    "date": "1787-01-25",
     "type": "medium",
-    "description": "Sherman and Ellsworth propose a bicameral legislature with dual representation systems. This saved the Convention from collapse.",
-    "involved": ["Connecticut", "Virginia", "New Jersey"],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Roger_Sherman_by_Earle.jpg/440px-Roger_Sherman_by_Earle.jpg",
+    "description": "An armed uprising in Massachusetts shocks the nation. Daniel Shays leads 4,000 rebels against the Springfield Armory. This event highlights the weakness of the Articles of Confederation and convinces elites like Washington that a stronger national government—and a regulated militia—is essential.",
+    "involved": ["Massachusetts"],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Shays_Rebellion_Springfield.jpg/640px-Shays_Rebellion_Springfield.jpg",
     "bgImage": null,
     "tooltip": {
-      "Connecticut": "Proposed the dual system.",
-      "Virginia": "Demanded population-based votes.",
-      "New Jersey": "Demanded equal votes per state."
+      "Massachusetts": "Rebels attack the Springfield Armory."
     }
   },
   {
-    "title": "Constitution Signed",
-    "date": "1787-09-17",
+    "title": "Mason's Dissent",
+    "date": "1787-09-12",
+    "type": "small",
+    "description": "In the final days of the Convention, George Mason of Virginia proposes a Bill of Rights to preface the Constitution. Roger Sherman disagrees, arguing state bills are sufficient. The motion is defeated unanimously (0-10), a mistake that will nearly derail ratification.",
+    "involved": ["Virginia", "Connecticut"],
+    "image": null,
+    "bgImage": null,
+    "tooltip": {
+      "Virginia": "Mason demands a Bill of Rights.",
+      "Connecticut": "Sherman argues it is unnecessary."
+    }
+  },
+  {
+    "title": "Pennsylvania Minority Dissent",
+    "date": "1787-12-18",
+    "type": "medium",
+    "description": "After Pennsylvania ratifies, the Anti-Federalist minority publishes a scathing dissent. They demand 14 amendments, explicitly stating: 'That the people have a right to bear arms for the defense of themselves and their own state, or the United States, or for the purpose of killing game.'",
+    "involved": ["Pennsylvania"],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/United_States_Constitution.jpg/450px-United_States_Constitution.jpg",
+    "bgImage": null,
+    "tooltip": {
+      "Pennsylvania": "First demand for right to bear arms."
+    }
+  },
+  {
+    "title": "Sam Adams' Proposal",
+    "date": "1788-02-06",
+    "type": "small",
+    "description": "During the Massachusetts convention, Samuel Adams proposes an amendment ensuring that 'the Constitution shall never be construed... to prevent the people of the United States who are peaceable citizens from keeping their own arms.' Though rejected, it influences future language.",
+    "involved": ["Massachusetts"],
+    "image": null,
+    "bgImage": null,
+    "tooltip": {
+      "Massachusetts": "Adams tries to protect 'peaceable citizens'."
+    }
+  },
+  {
+    "title": "New Hampshire Proposals",
+    "date": "1788-06-21",
+    "type": "medium",
+    "description": "New Hampshire becomes the 9th state to ratify, making the Constitution legal. Crucially, they append proposed amendments, including one stating: 'Congress shall never disarm any citizen, unless such as are or have been in actual rebellion.'",
+    "involved": ["New Hampshire"],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Seal_of_New_Hampshire.svg/1200px-Seal_of_New_Hampshire.svg.png",
+    "bgImage": null,
+    "tooltip": {
+      "New Hampshire": "Proposes ban on disarming citizens."
+    }
+  },
+  {
+    "title": "Virginia's Demand",
+    "date": "1788-06-27",
     "type": "large",
-    "description": "The Constitutional Convention concludes. 39 delegates sign the document, sending it to the states for ratification.",
+    "description": "Virginia ratifies, but only with a strong recommendation for amendments. Led by Patrick Henry and George Mason, they propose language asserting that 'a well regulated militia... is the proper, natural and safe defence of a free state.'",
+    "involved": ["Virginia"],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Patrick_Henry_Rothermel.jpg/640px-Patrick_Henry_Rothermel.jpg",
+    "bgImage": "https://res.cloudinary.com/aenetworks/image/upload/c_fill,ar_2,w_1920,h_960,g_auto/dpr_auto/f_auto/q_auto:eco/v1/topic-bill-of-rights-gettyimages-1134265648-feature?_a=BAVAZGID0",
+    "tooltip": {
+      "Virginia": "Henry and Mason force the issue."
+    }
+  },
+  {
+    "title": "Madison Introduces Bill of Rights",
+    "date": "1789-06-08",
+    "type": "large",
+    "description": "Fulfilling his promise to the Anti-Federalists, James Madison introduces a series of amendments to the First Congress. His draft includes the right of the people to keep and bear arms, emphasizing that a well-regulated militia is the best security of a free country.",
     "involved": ["All"],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Scene_at_the_Signing_of_the_Constitution_of_the_United_States.jpg/640px-Scene_at_the_Signing_of_the_Constitution_of_the_United_States.jpg",
-    "bgImage": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Scene_at_the_Signing_of_the_Constitution_of_the_United_States.jpg",
+    "location": "New York",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/James_Madison.jpg/490px-James_Madison.jpg",
+    "bgImage": "https://res.cloudinary.com/aenetworks/image/upload/c_fill,ar_2,w_1920,h_960,g_auto/dpr_auto/f_auto/q_auto:eco/v1/topic-bill-of-rights-gettyimages-1134265648-feature?_a=BAVAZGID0",
     "tooltip": {}
+  },
+  {
+    "title": "Congress Passes Bill of Rights",
+    "date": "1789-09-25",
+    "type": "medium",
+    "description": "After debates in the House and Senate, Congress approves 12 articles of amendment to be sent to the states for ratification. The article concerning the militia and right to bear arms becomes the Second Amendment.",
+    "involved": ["All"],
+    "location": "New York",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/79/Bill_of_Rights_Pg1of1_AC.jpg",
+    "bgImage": null,
+    "tooltip": {}
+  },
+  {
+    "title": "Ratification of 2nd Amendment",
+    "date": "1791-12-15",
+    "type": "large",
+    "description": "Virginia becomes the 11th state to approve the amendments, reaching the three-fourths threshold required. The Bill of Rights, including the Second Amendment, officially becomes part of the U.S. Constitution.",
+    "involved": ["Virginia"],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Bill_of_Rights_Commemorative_Stamp_-_175th_Anniversary_Issue_-_1966_-_5c.jpg/500px-Bill_of_Rights_Commemorative_Stamp_-_175th_Anniversary_Issue_-_1966_-_5c.jpg",
+    "bgImage": "https://res.cloudinary.com/aenetworks/image/upload/c_fill,ar_2,w_1920,h_960,g_auto/dpr_auto/f_auto/q_auto:eco/v1/topic-bill-of-rights-gettyimages-1134265648-feature?_a=BAVAZGID0",
+    "tooltip": {
+      "Virginia": "Final vote secures the Bill of Rights."
+    }
   }
 ]
