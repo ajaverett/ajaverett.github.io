@@ -1,0 +1,461 @@
+---
+title: ""
+format:
+  html:
+    minimal: true
+    css: ../styles/historytemp.css
+    anchor-sections: true
+    page-layout: full   
+    toc: false
+    include-in-header:
+          text: |
+            <script src="https://cdn.tailwindcss.com"></script>
+            <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    include-after-body:
+      text: |
+        <script>
+            // --- 1. DATA (Shortened for brevity) ---
+            // Note: 'offset' is strictly visual position on the canvas.
+
+            const statesData = [
+                    { abbr: "DE", full: "Delaware" },        // 1st: Dec 7, 1787
+                    { abbr: "PA", full: "Pennsylvania" },    // 2nd: Dec 12, 1787
+                    { abbr: "NJ", full: "New Jersey" },      // 3rd: Dec 18, 1787
+                    { abbr: "GA", full: "Georgia" },         // 4th: Jan 2, 1788
+                    { abbr: "CT", full: "Connecticut" },     // 5th: Jan 9, 1788
+                    { abbr: "MA", full: "Massachusetts" },   // 6th: Feb 6, 1788
+                    { abbr: "MD", full: "Maryland" },        // 7th: Apr 28, 1788
+                    { abbr: "SC", full: "South Carolina" },  // 8th: May 23, 1788
+                    { abbr: "NH", full: "New Hampshire" },   // 9th: June 21, 1788
+                    { abbr: "VA", full: "Virginia" },        // 10th: June 25, 1788
+                    { abbr: "NY", full: "New York" },        // 11th: July 26, 1788
+                    { abbr: "NC", full: "North Carolina" },  // 12th: Nov 21, 1789
+                    { abbr: "RI", full: "Rhode Island" }     // 13th: May 29, 1790
+                ];
+            const historyEvents = [
+                            {
+                                title: "",
+                                date: "January 1, 1783",
+                                type: "small",
+                                offset: 2,
+                                description: "",
+                                involved: [],
+                                notes: {}
+                            },
+                            {
+                                title: "Mount Vernon Conference",
+                                date: "March 28, 1785",
+                                type: "small",
+                                offset: 2,
+                                description: "Delegates from Maryland and Virginia meet at George Washington's home to address navigational rights, agreeing to the Mount Vernon Compact.",
+                                involved: ["Virginia", "Maryland"],
+                                notes: { 
+                                    "Virginia": "Represented by George Mason and Alexander Henderson.",
+                                    "Maryland": "Ratified the compact to regulate the Chesapeake Bay."
+                                }
+                            },
+                            {
+                                title: "The Annapolis Convention",
+                                date: "Sept 14, 1786",
+                                type: "small",
+                                offset: 8,
+                                description: "Delegates from five states meet to discuss trade barriers. They issue a report requesting a convention in Philadelphia the following May.",
+                                involved: ["New York", "New Jersey", "Pennsylvania", "Delaware", "Virginia"],
+                                notes: { 
+                                    "New York": "Hamilton pushes for a convention to amend the Articles.",
+                                    "Delaware": "One of only five states to arrive in time."
+                                }
+                            },
+                            {
+                                title: "Convention Convenes",
+                                date: "May 25, 1787",
+                                type: "large",
+                                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Independence_Hall_Assembly_Room.jpg/1280px-Independence_Hall_Assembly_Room.jpg",
+                                bgImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Independence_Hall_Philadelphia_2017.jpg/1920px-Independence_Hall_Philadelphia_2017.jpg",
+                                offset: 15,
+                                description: "A quorum is finally reached at the Pennsylvania State House. George Washington is elected president of the convention.",
+                                involved: ["All"], 
+                                notes: { "Virginia": "Washington's election lends immense legitimacy to the gathering." }
+                            },
+                            {
+                                title: "The Great Compromise",
+                                date: "July 16, 1787",
+                                type: "medium",
+                                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Roger_Sherman.jpg/480px-Roger_Sherman.jpg",
+                                offset: 25,
+                                description: "The convention adopts the Connecticut Compromise (5–4–1): House by population, Senate by state equality.",
+                                involved: ["Connecticut", "Pennsylvania", "Delaware", "Maryland", "North Carolina"],
+                                notes: { "Connecticut": "Roger Sherman's plan saves the convention from collapse." }
+                            },
+                            {
+                                title: "Signing the Constitution",
+                                date: "Sept 17, 1787",
+                                type: "large",
+                                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Christy_Scene_at_the_Signing_of_the_Constitution_of_the_United_States.jpg/640px-Christy_Scene_at_the_Signing_of_the_Constitution_of_the_United_States.jpg",
+                                bgImage: "https://upload.wikimedia.org/wikipedia/commons/9/98/Howard_Chandler_Christy_-_Scene_at_the_Signing_of_the_Constitution_of_the_United_States_-_Google_Art_Project.jpg",
+                                offset: 35,
+                                description: "39 delegates sign the document. Three present (Randolph, Mason, Gerry) decline. Franklin notes the 'Rising Sun'.",
+                                involved: ["All"],
+                                notes: { "Pennsylvania": "Benjamin Franklin weeps with joy." }
+                            },
+                            {
+                                title: "First Ratifications",
+                                date: "Dec 1787",
+                                type: "medium",
+                                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Seal_of_Delaware.svg/640px-Seal_of_Delaware.svg.png",
+                                offset: 40,
+                                description: "The ratification process begins. Delaware is first (30–0), followed by Pennsylvania (46–23) and New Jersey (38–0).",
+                                involved: ["Delaware", "Pennsylvania", "New Jersey"],
+                                notes: { 
+                                    "Delaware": "The first state to ratify (Unanimous 30–0).",
+                                    "Pennsylvania": "Ratifies 46–23 despite Anti-Federalist dissent.",
+                                    "New Jersey": "Ratifies unanimously (38–0)."
+                                }
+                            },
+                            {
+                                title: "Georgia & Connecticut",
+                                date: "Jan 1788",
+                                type: "small",
+                                offset: 45,
+                                description: "Momentum continues as Georgia (26–0) and Connecticut (128–40) join the Union.",
+                                involved: ["Georgia", "Connecticut"],
+                                notes: { 
+                                    "Georgia": "Unanimous ratification (26–0).", 
+                                    "Connecticut": "Strong support (128–40)." 
+                                }
+                            },
+                            {
+                                title: "Massachusetts Compromise",
+                                date: "Feb 6, 1788",
+                                type: "medium",
+                                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Elbridge_Gerry.jpg/480px-Elbridge_Gerry.jpg",
+                                offset: 50,
+                                description: "Massachusetts ratifies (187–168) but demands nineteen alterations, setting the precedent for a Bill of Rights.",
+                                involved: ["Massachusetts"],
+                                notes: { "Massachusetts": "A tight vote (187–168) secured by promising amendments." }
+                            },
+                            {
+                                title: "Spring Ratifications",
+                                date: "Apr-May 1788",
+                                type: "small",
+                                offset: 55,
+                                description: "Maryland (63–11) and South Carolina (149–73) ratify. Rhode Island voters reject the constitution in a referendum.",
+                                involved: ["Maryland", "South Carolina", "Rhode Island"],
+                                notes: { 
+                                    "Maryland": "Ratifies 63–11.",
+                                    "Rhode Island": "Voters overwhelmingly reject it (2,708–237)."
+                                }
+                            },
+                            {
+                                title: "Constitution Established",
+                                date: "June 21, 1788",
+                                type: "medium",
+                                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/New_Hampshire_population_map_1790.jpg/618px-New_Hampshire_population_map_1790.jpg",
+                                offset: 60,
+                                description: "New Hampshire becomes the 9th state to ratify (57–47), officially establishing the Constitution under Article VII.",
+                                involved: ["New Hampshire"],
+                                notes: { "New Hampshire": "The 9th and deciding vote (57–47)." }
+                            },
+                            {
+                                title: "Virginia & New York",
+                                date: "Summer 1788",
+                                type: "medium",
+                                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Patrick_henry.JPG/480px-Patrick_henry.JPG",
+                                offset: 65,
+                                description: "The largest states finally sign on. Virginia (89–79) and New York (30–27) ratify by narrow margins.",
+                                involved: ["Virginia", "New York"],
+                                notes: { 
+                                    "Virginia": "Ratifies 89–79; suggests 20 amendments.",
+                                    "New York": "Ratifies 30–27; suggests 33 amendments."
+                                }
+                            },
+                            {
+                                title: "Washington Inaugurated",
+                                date: "April 30, 1789",
+                                type: "large",
+                                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Gilbert_Stuart_Williamstown_Portrait_of_George_Washington.jpg/480px-Gilbert_Stuart_Williamstown_Portrait_of_George_Washington.jpg",
+                                bgImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Federal_Hall_National_Memorial_2016.jpg/1920px-Federal_Hall_National_Memorial_2016.jpg",
+                                offset: 80,
+                                description: "George Washington is sworn in at Federal Hall, NYC, after being unanimously elected by the Electoral College.",
+                                involved: ["All"],
+                                notes: { "New York": "Hosted the first capital at Federal Hall." }
+                            },
+                            {
+                                title: "Bill of Rights Proposed",
+                                date: "Sept 25, 1789",
+                                type: "small",
+                                offset: 85,
+                                description: "Congress approves twelve articles of amendment and sends them to the states. Ten will eventually become the Bill of Rights.",
+                                involved: ["All"],
+                                notes: { "Virginia": "Provided the model for many rights." }
+                            },
+                            {
+                                title: "North Carolina Joins",
+                                date: "Nov 21, 1789",
+                                type: "small",
+                                offset: 90,
+                                description: "After initially rejecting it, North Carolina ratifies the Constitution (194–77) at a second convention.",
+                                involved: ["North Carolina"],
+                                notes: { "North Carolina": "Ratifies 194–77 on the second attempt." }
+                            },
+                            {
+                                title: "Rhode Island Joins",
+                                date: "May 29, 1790",
+                                type: "medium",
+                                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Rhode_Island.svg/640px-Flag_of_Rhode_Island.svg.png",
+                                offset: 98,
+                                description: "Rhode Island becomes the last of the original 13 states to ratify (34–32), completing the Union.",
+                                involved: ["Rhode Island"],
+                                notes: { "Rhode Island": "Ratifies by the narrowest margin (34–32)." }
+                            },
+                            {
+                                title: "",
+                                date: "January 1, 1792",
+                                type: "small",
+                                offset: 2,
+                                description: "",
+                                involved: [],
+                                notes: {}
+                            },
+                        ];
+            // --- 2. SETUP DOM ---
+            const sidebar = document.getElementById('sidebar');
+            const linesContainer = document.getElementById('lines-container');
+            const globalContainer = document.getElementById('global-events-container');
+            const labelsContainer = document.getElementById('labels-container');
+            const timelineWidth = document.getElementById('timeline-canvas').clientWidth;
+            
+            // Dynamic Row Height based on screen height to ensure they fit without vertical scroll
+            // On mobile we might want them tighter.
+            const rowHeight = "calc((100vh - 3.5rem) / 13)"; // 3.5rem is header height approx
+
+            // Build Grid
+            statesData.forEach((state) => {
+                // LABEL Logic
+                const label = document.createElement('div');
+                // We use a CSS class to toggle content based on media query or JS, 
+                // but simpler here: we put both in spans and hide one with CSS utility classes
+                label.className = "w-full flex items-center justify-center md:justify-start md:px-4 font-serif-1700 text-sm md:text-lg text-slate-700 font-semibold border-b border-amber-900/10 transition-colors duration-300";
+                label.style.height = rowHeight;
+                label.id = `label-${state.full.replace(/\s/g, '')}`;
+                
+                // Mobile Abbr (visible block, hidden md)
+                const abbrSpan = document.createElement('span');
+                abbrSpan.className = "md:hidden";
+                abbrSpan.innerText = state.abbr;
+                
+                // Desktop Full (hidden, visible md block)
+                const fullSpan = document.createElement('span');
+                fullSpan.className = "hidden md:block truncate";
+                fullSpan.innerText = state.full;
+                
+                label.appendChild(abbrSpan);
+                label.appendChild(fullSpan);
+                sidebar.appendChild(label);
+
+                // LINE Logic
+                const lineRow = document.createElement('div');
+                lineRow.className = "state-line w-full relative";
+                lineRow.style.height = rowHeight;
+                lineRow.id = `line-${state.full.replace(/\s/g, '')}`;
+                linesContainer.appendChild(lineRow);
+            });
+
+            // Build Markers
+            historyEvents.forEach((evt, evtIndex) => {
+                const pxPos = (evt.offset / 100) * timelineWidth;
+                const isUnionEvent = evt.involved.includes("All");
+                
+                // Wall Label
+                const wallLabel = document.createElement('div');
+                wallLabel.className = 'wall-label';
+                wallLabel.innerText = evt.title;
+                wallLabel.style.left = `${pxPos}px`;
+                wallLabel.id = `wall-label-${evtIndex}`;
+                labelsContainer.appendChild(wallLabel);
+
+                if (isUnionEvent) {
+                    const unionLine = document.createElement('div');
+                    unionLine.className = 'union-line';
+                    unionLine.style.left = `${pxPos}px`;
+                    globalContainer.appendChild(unionLine);
+                } else {
+                    evt.involved.forEach(stateName => {
+                        const cleanName = stateName.replace(/\s/g, '');
+                        const line = document.getElementById(`line-${cleanName}`);
+                        
+                        const marker = document.createElement('div');
+                        marker.className = `marker-diamond`;
+                        marker.style.left = `${pxPos}px`;
+                        // Center marker vertically in dynamic row height
+                        marker.style.top = "50%";
+                        marker.style.marginTop = "-7px"; // Half of 14px height
+                        marker.dataset.evtIndex = evtIndex;
+                        
+                        line.appendChild(marker);
+                    });
+                }
+            });
+
+            // --- 3. LOGIC ---
+            const scroller = document.getElementById('scroller');
+            const cinematicBg = document.getElementById('cinematic-bg');
+            
+            const mainCard = document.getElementById('main-card');
+            const cardImgWrapper = document.getElementById('card-img-wrapper');
+            const cardImg = document.getElementById('card-img');
+            const cardTitle = document.getElementById('card-title');
+            const cardDate = document.getElementById('card-date');
+            const cardType = document.getElementById('card-type');
+            const cardDesc = document.getElementById('card-desc');
+
+            function updateView() {
+                const scrollLeft = scroller.scrollLeft;
+                const containerW = scroller.clientWidth;
+                const playhead = scrollLeft + (containerW / 2);
+
+                let activeEvent = null;
+                let minDistance = Infinity;
+
+                // Detect event
+                historyEvents.forEach((evt, idx) => {
+                    const evtPos = (evt.offset / 100) * timelineWidth;
+                    const dist = Math.abs(playhead - evtPos);
+                    // Detection range needs to be tighter on mobile or it jumps too fast
+                    const range = (window.innerWidth < 768) ? 150 : 350; 
+
+                    if (dist < range) { 
+                        if (dist < minDistance) {
+                            minDistance = dist;
+                            activeEvent = evt;
+                        }
+                    }
+                    // Reset labels
+                    document.getElementById(`wall-label-${idx}`).classList.remove('active');
+                });
+
+                // Reset Visuals
+                document.querySelectorAll('.state-line').forEach(el => el.classList.remove('active'));
+                document.querySelectorAll('[id^="label-"]').forEach(el => {
+                    el.classList.remove('text-black', 'font-bold', 'bg-red-50/50');
+                    el.classList.add('text-slate-700');
+                });
+                document.querySelectorAll('.marker-diamond').forEach(el => el.classList.remove('marker-visible'));
+
+                if (activeEvent) {
+                    // Label
+                    const evtIndex = historyEvents.indexOf(activeEvent);
+                    document.getElementById(`wall-label-${evtIndex}`).classList.add('active');
+
+                    // Card Content
+                    mainCard.classList.add('card-visible'); // Slide up
+                    cardTitle.innerText = activeEvent.title;
+                    cardDate.innerText = activeEvent.date;
+                    cardDesc.innerText = activeEvent.description;
+                    cardType.innerText = activeEvent.type.toUpperCase();
+
+                    // Image Logic (Only Desktop actually sees the wrapper, but logic remains)
+                    if (activeEvent.type !== 'small') {
+                        cardImgWrapper.classList.add('has-image');
+                        cardImg.src = activeEvent.image;
+                    } else {
+                        cardImgWrapper.classList.remove('has-image');
+                    }
+                    
+                    // BG Logic (Large events)
+                    if (activeEvent.type === 'large') {
+                        cinematicBg.style.backgroundImage = `url('${activeEvent.bgImage}')`;
+                        cinematicBg.style.opacity = '1';
+                    } else {
+                        cinematicBg.style.opacity = '0';
+                    }
+
+                    // Highlighting
+                    const isUnion = activeEvent.involved.includes("All");
+                    if (!isUnion) {
+                        activeEvent.involved.forEach(name => {
+                            const clean = name.replace(/\s/g, '');
+                            const line = document.getElementById(`line-${clean}`);
+                            if(line) line.classList.add('active');
+                            
+                            const lbl = document.getElementById(`label-${clean}`);
+                            if(lbl) {
+                                lbl.classList.remove('text-slate-700');
+                                lbl.classList.add('text-black', 'font-bold', 'bg-red-50/50');
+                            }
+                            
+                            const marker = document.getElementById(`line-${clean}`).querySelector(`div[data-evt-index="${evtIndex}"]`);
+                            if(marker) marker.classList.add('marker-visible');
+                        });
+                    }
+                } else {
+                    mainCard.classList.remove('card-visible'); // Slide down
+                    cinematicBg.style.opacity = '0';
+                }
+            }
+
+            scroller.addEventListener('scroll', () => requestAnimationFrame(updateView));
+            updateView();
+        </script>
+---
+
+::: {.column-screen}
+
+```{=html}
+
+<div class="h-screen w-screen flex flex-col relative">
+    <div id="bg-texture"></div>
+        <div id="cinematic-bg"></div>
+
+        <header class="h-14 flex-shrink-0 bg-[#f4e4bc]/95 border-b-2 border-amber-900/20 flex items-center px-4 shadow-md z-40 justify-between relative">
+            <h1 class="text-xl md:text-2xl font-serif-1700 italic text-amber-950 tracking-wide drop-shadow-sm truncate">The Road to the Constitution</h1>
+        </header>
+
+        <div class="flex-grow flex relative z-10 h-full overflow-hidden">
+
+            <div class="flex-shrink-0 bg-[#fbf3db]/95 border-r border-amber-900/20 z-20 shadow-lg flex flex-col pt-8 backdrop-blur-sm" id="sidebar">
+                </div>
+
+            <div id="scroller" class="flex-grow overflow-x-auto overflow-y-hidden relative no-scrollbar cursor-ew-resize">
+                
+                <div id="timeline-canvas" class="h-full relative pt-8" style="width: 3000px;"> <div class="absolute top-0 w-full flex pointer-events-none opacity-40 text-4xl md:text-6xl font-serif-1700 text-amber-900 select-none">
+                        <span class="absolute left-[50px]">1786</span>
+                        <span class="absolute left-[1000px]">1787</span>
+                        <span class="absolute left-[2000px]">1788</span>
+                    </div>
+
+                    <div id="labels-container" class="absolute inset-0 pointer-events-none z-0"></div>
+                    <div id="lines-container" class="relative w-full flex flex-col z-10"></div>
+                    <div id="global-events-container" class="absolute inset-0 pointer-events-none z-10"></div>
+                </div>
+
+                <div class="fixed left-1/2 top-14 bottom-0 w-0.5 bg-red-600/80 z-30 pointer-events-none shadow-[0_0_4px_red]">
+                    <div class="absolute top-0 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-red-600 rounded-full shadow-sm"></div>
+                </div>
+
+            </div>
+
+            <div id="main-card" class="history-card pointer-events-auto flex flex-col md:block">
+                <div id="card-img-wrapper" class="card-image-container bg-gray-200 relative">
+                    <img id="card-img" src="" class="w-full h-full object-cover sepia-[0.3]" alt="Historical Event">
+                    <div class="absolute inset-0 shadow-[inset_0_0_20px_rgba(0,0,0,0.2)]"></div> 
+                </div>
+
+                <div class="p-4 flex flex-row md:block items-center md:items-start gap-4"> 
+                    <div class="flex-1">
+                        <div class="flex justify-between items-center mb-1 md:mb-3">
+                            <span id="card-date" class="text-xs font-bold text-red-900 bg-red-100/50 px-2 py-0.5 border border-red-900/20 tracking-widest">DATE</span>
+                            <span id="card-type" class="text-[10px] text-amber-900/60 font-sans-modern font-bold uppercase">EVENT</span>
+                        </div>
+                        <h2 id="card-title" class="text-xl md:text-4xl font-serif-1700 text-black mb-1 md:mb-4 leading-none">Title</h2>
+                        <p id="card-desc" class="text-xs md:text-lg font-sans-modern text-amber-950/90 leading-tight md:leading-relaxed">Description.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>    
+</div>    
+:::
+
+```

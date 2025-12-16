@@ -2,6 +2,8 @@
   {
     "listing": "/blocks.html",
     "items": [
+      "/blocks/historytemp.html",
+      "/blocks/militia_originalism.html",
       "/blocks/planned_obsolecence.html",
       "/blocks/productivity_pay_gap.html"
     ]

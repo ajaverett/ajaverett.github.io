@@ -1,12 +1,24 @@
 ---
-title: "Productivity-Pay Gap"
+title: "The Productivity-Pay Gap Notion"
 subtitle: "subtitle"
 image: "images/productivity_pay_gap.png"
 title-block-banner: ../images/banner.png
 title-block-banner-color: 'white'
-categories: ["economics", "good ol' days", "productivity", "late-stage capitalism"]
+categories: ["economics", "good ol' days", "productivity", "wages", "late-stage capitalism"]
 bibliography: _references.bib
 bibliographystyle: apa
 ---
 
-wip
+> quote.
+<br>
+> @wharton2024
+
+<h3>EVIDENCE:</h3> 
+**Evidence**
+
+<iframe 
+    src="https://www.epi.org?p=235212&view=embed&embed_template=charts_v2013_08_21&embed_date=20251202&onp=91701&utm_source=epi_press&utm_medium=chart_embed&utm_campaign=charts_v2" 
+    frameborder="0" 
+    scrolling="no" 
+    style="width: 100%; aspect-ratio: 4/3; border:none; overflow:hidden;">
+</iframe>
