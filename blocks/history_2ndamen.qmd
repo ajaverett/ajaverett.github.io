@@ -24,8 +24,8 @@ format:
             const CONFIG = {
                 START_DATE: new Date("1787-01-01"),
                 END_DATE: new Date("1791-12-31"),
-                TOTAL_WIDTH: 9000, // Pixels for the total timeline length
-                TRIGGER_THRESHOLD: 300, // Pixels from center to trigger event
+                TOTAL_WIDTH: 100000, // Pixels for the total timeline length
+                TRIGGER_THRESHOLD: 200, // Pixels from center to trigger event
             };
 
             // Hardcoded States (sorted by ratification generally, or geographic)
@@ -81,6 +81,7 @@ format:
                     if (!response.ok) throw new Error('Network response not ok');
                     eventsData = await response.json();
                     renderEvents();
+                    renderBanners();
                     
                     // Start Loop
                     requestAnimationFrame(updateLoop);
@@ -229,38 +230,86 @@ format:
 
                         // D. Smart Label Placement (Collision Logic)
                         let labelX = leftPos + 15; 
-                        let labelY = (primaryState.index * 40) + 5; 
-                        const textWidth = (event.title.length * 10) + 20; 
-                        const textHeight = 40; 
+                            let labelY = (primaryState.index * 40) + 5; 
+                            
+                            // Estimate Text Dimensions based on type (Larger events = larger text space)
+                            let charWidth = 10;
+                            if (event.type === 'large') charWidth = 14;
+                            
+                            const textWidth = (event.title.length * charWidth) + 20; 
+                            const textHeight = 40; 
 
-                        let collision = true;
-                        let safetyCounter = 0;
+                            let collision = true;
+                            let safetyCounter = 0;
 
-                        while (collision && safetyCounter < 20) {
-                            collision = false;
-                            for (const placed of placedLabels) {
-                                const xOverlap = (labelX < placed.right + 10) && ((labelX + textWidth) > placed.left);
-                                const yOverlap = (labelY < placed.bottom) && ((labelY + textHeight) > placed.top);
-                                if (xOverlap && yOverlap) {
-                                    collision = true;
-                                    labelY += 40; // Bump down one row
-                                    break;
+                            while (collision && safetyCounter < 20) {
+                                collision = false;
+                                for (const placed of placedLabels) {
+                                    const xOverlap = (labelX < placed.right + 10) && ((labelX + textWidth) > placed.left);
+                                    const yOverlap = (labelY < placed.bottom) && ((labelY + textHeight) > placed.top);
+                                    if (xOverlap && yOverlap) {
+                                        collision = true;
+                                        labelY += 40; // Bump down one row
+                                        break;
+                                    }
                                 }
+                                safetyCounter++;
                             }
-                            safetyCounter++;
-                        }
 
-                        placedLabels.push({ left: labelX, right: labelX + textWidth, top: labelY, bottom: labelY + textHeight });
+                            placedLabels.push({ left: labelX, right: labelX + textWidth, top: labelY, bottom: labelY + textHeight });
 
-                        const label = document.createElement('div');
-                        label.className = 'absolute font-fell italic text-xl text-[#2c1810] whitespace-nowrap select-none z-20 pointer-events-none opacity-90 drop-shadow-sm';
-                        label.style.left = `${labelX}px`;
-                        label.style.top = `${labelY}px`;
-                        label.innerText = event.title;
-                        elements.eventsContainer.appendChild(label);
+                            const label = document.createElement('div');
+                            
+                            // CHANGED: Dynamic Styling based on Event Type
+                            let baseClasses = 'absolute font-fell italic whitespace-nowrap select-none z-20 pointer-events-none text-[#2c1810] ';
+                            
+                            if (event.type === 'large') {
+                                // Big, Bold, Fully Opaque
+                                label.className = baseClasses + 'text-3xl font-bold opacity-100 drop-shadow-md';
+                            } else if (event.type === 'medium') {
+                                // Normal size, slightly distinct
+                                label.className = baseClasses + 'text-xl font-bold opacity-80';
+                            } else {
+                                // Small, Fainter
+                                label.className = baseClasses + 'text-lg opacity-60';
+                            }
+
+                            label.style.left = `${labelX}px`;
+                            label.style.top = `${labelY}px`;
+                            label.innerText = event.title;
+                            elements.eventsContainer.appendChild(label);
                     }
                 });
             }
+
+            function renderBanners() {
+                eventsData.forEach(event => {
+                    if (event.type !== 'banner' || !event.endDate) return;
+
+                    const startX = dateToPixel(event.date);
+                    const endX = dateToPixel(event.endDate);
+                    const width = endX - startX;
+
+                    // 1. The Horizontal Bar (Visual Duration)
+                    const bannerBar = document.createElement('div');
+                    bannerBar.className = 'absolute top-0 h-[8px] bg-[#2c1810]/10 border-b border-[#2c1810]/20 z-0 pointer-events-none';
+                    bannerBar.style.left = `${startX}px`;
+                    bannerBar.style.width = `${width}px`;
+                    
+                    // 2. Small Labels on the Bar itself (Start/End context)
+                    const labelDiv = document.createElement('div');
+                    labelDiv.className = 'absolute top-2 left-2 text-[10px] font-bold font-lato text-[#2c1810]/30 uppercase tracking-widest';
+                    labelDiv.innerText = `${event.title} (START)`;
+                    
+                    bannerBar.appendChild(labelDiv);
+                    elements.eventsContainer.appendChild(bannerBar);
+
+                    // Save pre-calculated positions for the loop
+                    event.bannerStart = startX;
+                    event.bannerEnd = endX;
+                });
+            }
+
             // --- MATH HELPERS ---
 
             function dateToPixel(dateString) {
@@ -285,35 +334,26 @@ format:
             // --- THE GAME LOOP (RequestAnimationFrame) ---
 
             function updateLoop() {
-                // 1. Get the visual center of the screen (Where the red line is)
+                // 1. Get the visual center of the screen
                 const screenCenter = window.innerWidth / 2;
 
-                // Update Date Display based on scroll math
+                // Update Date Display
                 const scrollLeft = elements.timelineViewport.scrollLeft;
                 elements.dateDisplay.innerText = pixelToDate(scrollLeft);
 
                 // 2. Find Active Event using VISUAL POSITION
                 let foundEvent = null;
-                
-                // Narrower threshold for snappier feel
                 const VISUAL_THRESHOLD = 50; 
-                
-                // NEW: Variable to track the closest distance found so far
                 let closestDist = VISUAL_THRESHOLD; 
 
                 eventsData.forEach(event => {
                     if (!event.domElement) return;
 
-                    // Get the line's position relative to the viewport window
                     const rect = event.domElement.getBoundingClientRect();
-                    
-                    // Calculate distance: (Line's Left Position) minus (Screen Center)
                     const dist = Math.abs(rect.left - screenCenter);
 
-                    // CHANGED LOGIC: 
-                    // Only update foundEvent if this one is CLOSER than the previous best match
                     if (dist < closestDist) {
-                        closestDist = dist; // Update the new record for "closest"
+                        closestDist = dist; 
                         foundEvent = event;
                     }
                 });
@@ -332,47 +372,45 @@ format:
             function activateEvent(event) {
                 activeEventId = event.id;
 
-                // 1. Update Card Content (Same as before)
+                // 1. Update Card Content
                 elements.cardTitle.innerText = event.title;
                 elements.cardDate.innerText = formatFriendlyDate(event.date);                
                 elements.cardDesc.innerText = event.description;
 
-                if (event.type === 'medium' || event.type === 'large') {
+                // CHANGED: Logic to show image if it exists, regardless of 'type'
+                if (event.image) {
                     elements.cardImg.src = event.image;
                     elements.cardImgContainer.classList.remove('hidden');
                 } else {
                     elements.cardImgContainer.classList.add('hidden');
                 }
+                
                 elements.infoCard.classList.remove('translate-y-[120%]');
 
+                // ... (Keep the rest of the function: "Matrix Lines", "Cinematic BG", "Hybrid Check" etc.)
+                // ...
                 // 2. Handle "Matrix" Lines
                 document.querySelectorAll('.state-row, .timeline-row-line').forEach(el => el.classList.remove('active'));
 
-                // NEW LOGIC:
                 if (event.involved.includes("All")) {
-                    // Triggers Cinematic BG
+                    // ... (Keep existing Union Logic)
                     if (event.type === 'large' && event.bgImage) {
                         elements.cinematicBg.style.backgroundImage = `url('${event.bgImage}')`;
                         elements.cinematicBg.classList.remove('opacity-0');
                         elements.sidebar.classList.add('opacity-50');
                         elements.gridLines.classList.add('blur-mode');
                     }
-
-                    // HYBRID CHECK: If it has a specific location, Highlight that row too!
                     if (event.location) {
                         const sidebarRow = document.querySelector(`.state-row[data-state="${event.location}"]`);
                         if (sidebarRow) sidebarRow.classList.add('active');
-
                         const gridRow = document.querySelector(`.timeline-row-line[data-state-row="${event.location}"]`);
                         if (gridRow) gridRow.classList.add('active');
                     }
-
                 } else {
-                    // Standard State Logic
+                    // ... (Keep existing State Logic)
                     event.involved.forEach(stateName => {
                         const sidebarRow = document.querySelector(`.state-row[data-state="${stateName}"]`);
                         if (sidebarRow) sidebarRow.classList.add('active');
-                        
                         const gridRow = document.querySelector(`.timeline-row-line[data-state-row="${stateName}"]`);
                         if (gridRow) gridRow.classList.add('active');
                     });
@@ -449,12 +487,12 @@ Timeline of the Second Amendment Development
         </div>
 
         <div id="timeline-viewport" class="flex-1 relative overflow-x-scroll overflow-y-hidden custom-scrollbar">
-            
-        <div id="playhead" class="fixed top-0 bottom-0 left-1/2 w-[2px] bg-[#8b0000] z-10 transform -translate-x-1/2 pointer-events-none shadow-[0_0_10px_rgba(139,0,0,0.5)]">
-            <div class="hidden md:block absolute top-2 left-1/2 -translate-x-1/2 bg-[#8b0000] text-[#fdfbf7] px-2 py-1 text-xs font-bold rounded font-lato whitespace-nowrap">
-                <span id="current-date-display">1785</span>
+                
+            <div id="playhead" class="fixed top-0 bottom-0 left-1/2 w-[2px] bg-[#8b0000] z-10 transform -translate-x-1/2 pointer-events-none shadow-[0_0_10px_rgba(139,0,0,0.5)]">
+                <div class="hidden md:block absolute top-2 left-1/2 -translate-x-1/2 bg-[#8b0000] text-[#fdfbf7] px-2 py-1 text-xs font-bold rounded font-lato whitespace-nowrap">
+                    <span id="current-date-display">1785</span>
+                </div>
             </div>
-        </div>
 
             <div id="timeline-content" class="relative h-full">
                 
