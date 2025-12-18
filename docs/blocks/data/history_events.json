@@ -1,6 +1,84 @@
 [
-{
-    "title": "The Constitutional Convention",
+  {
+    "title": "The Road to Revolution",
+    "date": "1763-10-07",
+    "endDate": "1775-04-18",
+    "type": "banner",
+    "description": "Rising Tensions. Britain imposes taxes and attempts to disarm colonists. The 'Powder Alarm' and similar raids convince Americans that an armed populace is the only check on tyranny.",
+    "involved": [],
+    "image": null,
+    "bgImage": null
+  },
+
+  {
+    "title": "The Continental Association",
+    "date": "1774-10-20",
+    "type": "large",
+    "description": "The First Charter of Union. The First Continental Congress creates a unified trade boycott against Britain, marking the first time the colonies acted as a single political entity.",
+    "involved": ["All"],
+    "location": "Pennsylvania",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Continental_Association_1774.jpg/640px-Continental_Association_1774.jpg",
+    "bgImage": "https://upload.wikimedia.org/wikipedia/commons/7/76/Continental_Association_1774.jpg",
+    "tooltip": {}
+  },
+
+  {
+    "title": "The Revolutionary War",
+    "date": "1775-04-19",
+    "endDate": "1783-09-03",
+    "type": "banner",
+    "description": "The War for Independence. Colonial militias and the Continental Army fight to overthrow British rule, cementing the distrust of standing armies.",
+    "involved": [],
+    "image": null,
+    "bgImage": null
+  },
+
+  {
+    "title": "Declaration of Independence",
+    "date": "1776-07-04",
+    "type": "large",
+    "description": "The Birth of the Nation. Congress unanimously adopts the Declaration, asserting the natural right of the people to alter or abolish destructive governments.",
+    "involved": ["All"],
+    "location": "Pennsylvania",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Declaration_independence.jpg/800px-Declaration_independence.jpg",
+    "bgImage": "https://upload.wikimedia.org/wikipedia/commons/1/15/Declaration_independence.jpg",
+    "tooltip": {}
+  },
+
+  {
+    "title": "Articles of Confederation",
+    "date": "1781-03-01",
+    "type": "large",
+    "description": "The First Republic. Maryland finally ratifies the Articles, formally establishing a 'firm league of friendship' where states retained sovereignty and control over their militias.",
+    "involved": ["All"],
+    "location": "Pennsylvania",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Articles_of_Confederation_1777.jpg/800px-Articles_of_Confederation_1777.jpg",
+    "bgImage": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Articles_of_Confederation_1777.jpg",
+    "tooltip": {}
+  },
+  {
+    "title": "Treaty of Paris",
+    "date": "1783-09-03",
+    "type": "large",
+    "description": "Independence Recognized. Britain formally recognizes American sovereignty and cedes territory east of the Mississippi. The war officially ends.",
+    "involved": ["All"],
+    "location": "Europe",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Treaty_of_Paris_by_Benjamin_West_1783.jpg/800px-Treaty_of_Paris_by_Benjamin_West_1783.jpg",
+    "bgImage": "https://upload.wikimedia.org/wikipedia/commons/2/23/Treaty_of_Paris_by_Benjamin_West_1783.jpg",
+    "tooltip": {}
+  },  
+  {
+    "title": "Shays' Rebellion",
+    "date": "1786-08-29",
+    "endDate": "1787-02-27",
+    "type": "banner",
+    "description": "Armed uprising in Massachusetts. Revolutionary War veterans seize courthouses to stop debt hearings, proving the inability of the Confederation to maintain order.",
+    "involved": [],
+    "image": null,
+    "bgImage": null
+  },
+  {
+    "title": "The Convention",
     "date": "1787-05-25",
     "endDate": "1787-09-17",
     "type": "banner",
@@ -8,111 +86,6 @@
     "involved": [],
     "image": null,
     "bgImage": null
-  },
-  {
-      "title": "Virginia Plan",
-      "date": "1787-05-29",
-      "type": "medium",
-      "description": "Edmund Randolph, the Governor of Virginia, opened the main business of the Convention by presenting 15 resolutions drafted primarily by James Madison. \n\nKnown as the <b>Virginia Plan</b>, it proposed a radical restructuring of the government: replacing the loose Confederation with a supreme National Government composed of three branches (Legislative, Executive, Judicial) and a bicameral Congress where representation was based on population. This immediately shifted the debate from 'amending' the Articles to 'abolishing' them.",
-      "involved": ["Virginia"],
-      "image": null,
-      "bgImage": null,
-      "tooltip":{
-        "Virginia": "<b>Edmund Randolph</b> and <b>James Madison</b> were from Virginia."
-      }
-  },
-{
-  "title": "Committee of the Whole Formed",
-  "date": "1787-05-30",
-  "type": "small",
-  "description": "The Convention resolved itself into a 'Committee of the Whole' to debate the Virginia Plan freely. This procedural move allowed delegates to vote tentatively without their decisions being binding, encouraging candor.\n\nImmediately, the Convention faced a defining moment: Edmund Randolph moved to postpone 'amending' the Articles and instead proposed that 'a national government ought to be established consisting of a supreme Legislative, Executive and Judiciary.' This radical pivot—from a loose federation to a supreme nation—passed 6 votes to 1.",
-  "involved": [],
-  "image": null,
-  "bgImage": null,
-  "tooltip": {}
-  },
-{
-  "title": "Single Executive",
-  "date": "1787-05-30",
-  "type": "small",
-  "description": "The delegates struggled to define the presidency, fearing a monarchy but wanting a strong leader. The Convention agreed (7 - 3) to have a Single Executive rather than a committee.",
-  "involved": [],
-  "image": null,
-  "bgImage": null,
-  "tooltip": {}
-  },
-  {
-  "title": "Three-Fifths Compromise",
-  "date": "1787-06-11",
-  "type": "medium",
-  "description": "James Wilson, seconded by Charles Pinckney, moved to define the ratio of representation. This motion proposed that representation would include the whole number of free citizens plus three-fifths of \"all other persons\"",
-  "involved": ["Pennsylvania", "South Carolina"],
-  "image": null,
-  "bgImage": null,
-  "tooltip": {}
-  },
-  {
-  "title": "New Jersey Plan",
-  "date": "1787-06-15",
-  "type": "medium",
-  "description": "After weeks of debate dominated by the Virginia Plan, the small states struck back. William Paterson of New Jersey introduced a counter-proposal drafted by a coalition of delegates from New Jersey, New York, Connecticut, and Delaware.\n\nThe 'New Jersey Plan' proposed merely amending the Articles of Confederation rather than scrapping them. It retained a unicameral (one-house) legislature with equal voting rights ('one state, one vote') but granted Congress new powers to tax and regulate commerce. This established the central ideological battle of the summer: State Sovereignty vs. National Supremacy.",
-  "involved": ["New Jersey"],
-  "image": null,
-  "bgImage": null,
-  "tooltip": {
-    "New Jersey": "William Paterson introduced the plan, arguing that the Convention had no authority to destroy the Articles of Confederation, only to revise them."
-  }
-  },
-  {
-    "title": "Rejection of the New Jersey Plan",
-    "date": "1787-06-19",
-    "type": "small",
-    "description": "After days of intense comparison between the two plans, James Madison delivered a crushing speech analyzing the New Jersey Plan, arguing it would fail to secure the Union or prevent states from violating treaties. \n\nPersuaded by Madison's logic, the Convention voted 7 states to 3 (with Maryland divided) to reject the New Jersey Plan and proceed with the Virginia Plan. By doing so, the delegates officially decided that the Articles of Confederation could not be fixed and must be abolished in favor of a new national government.",
-    "involved": [
-      "New Jersey"
-    ],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "New Jersey": "William Paterson saw his plan defeated, but his group had successfully forced the Convention to acknowledge that the small states would not submit to total domination."
-    }
-  },
-  {
-    "title": "Lansing, Mason, & Martin Debate",
-    "date": "1787-06-20",
-    "type": "small",
-    "description": "Following the defeat of the New Jersey Plan, the delegates were debating the first resolution of the Virginia Plan. The tension centered on whether the States should remain sovereign in a confederation, or become a consolidated national government. The delegates voted to reject the Articles of Confederation which marked the last significant attempt to save the Articles of Confederation",
-    "involved": ["New York", "Virginia", "Maryland"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "New York": "John Lansing of New York, a staunch defender of state sovereignty proposed to keep the structure of the Articles of Confederation where the legislature was a single-house in which states had equal votes rather than adopting the Virginia Plan's bicameral system based on population.",
-      "Virginia": "George Mason of Virginia argued that the Confederation was critically flawed because it operated on states, not individuals. He famously asked if the delegates were willing to give the power of the \"sword and the purse\" to a single legislative body that was not directly chosen by the people. He argued the new government needed to operate directly on citizens to avoid this.",
-      "Maryland":"Luther Martin of Maryland, known for his intense and often lengthy speeches defending state rights, supported Lansing's motion because he feared the larger states (like Virginia and Pennsylvania) would dominate the smaller states in the proposed national government."
-    }
-  },
-  {
-    "title": "The Connecticut Compromise",
-    "date": "1787-07-16",
-    "type": "medium",
-    "description": "Under the Virginia plan, the number of officials in both houses would be allocated to each state proportional to its population. Less populous states were afraid that such an arrangement would result in their voices and interests being drowned out by the larger states. In response, Roger Sherman proposed to keep a bicameral legislature, but keep one proportional to population, and in the second branch of the Legislature, have each State an equal vote.",
-    "involved": ["Connecticut"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {}
-  },
-  {
-    "title": "Mason's Objections",
-    "date": "1787-09-12",
-    "type": "medium",
-    "description": "George Mason writes his formal objections, famously declaring: 'There is no Declaration of Rights.' He fears the new government will become a monarchy or aristocracy.",
-    "involved": ["Virginia"],
-    "location": "Virginia",
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "Virginia": "Mason demands a Bill of Rights."
-    }
   },
   {
     "title": "Signing of the Constitution",
@@ -126,828 +99,53 @@
     "tooltip": {}
   },
   {
-    "title": "NC Delegates Report to Gov",
+    "title": "The Ratification Debates",
     "date": "1787-09-18",
-    "type": "small",
-    "description": "The North Carolina delegates write to Governor Richard Caswell, explaining the compromises made and urging consideration of the new plan.",
-    "involved": ["North Carolina"],
-    "location": "North Carolina",
+    "endDate": "1788-06-21",
+    "type": "banner",
+    "description": "The Constitution goes to the states. A fierce battle erupts between Federalists and Anti-Federalists over the lack of listed rights.",
+    "involved": [],
     "image": null,
-    "bgImage": null,
-    "tooltip": {}
+    "bgImage": null
   },
   {
-    "title": "Congress Reads Constitution",
-    "date": "1787-09-20",
-    "type": "medium",
-    "description": "The Confederation Congress in New York officially receives the proposed Constitution. The text is read aloud to the members.",
-    "involved": ["All"],
-    "location": "New York",
-    "image": null,
-    "bgImage": null,
-    "tooltip": {}
-  },
-  {
-    "title": "Congress Debates",
-    "date": "1787-09-26",
-    "type": "small",
-    "description": "Debate begins in the Confederation Congress on whether to send the Constitution to the states for ratification.",
-    "involved": ["All"],
-    "location": "New York",
-    "image": null,
-    "bgImage": null,
-    "tooltip": {}
-  },
-  {
-    "title": "Pennsylvania Calls Convention",
-    "date": "1787-09-28",
-    "type": "medium",
-    "description": "In a rush to be first, the Pennsylvania Assembly votes to call a state ratifying convention, despite protests from the minority who wanted more time to review.",
-    "involved": ["Pennsylvania"],
-    "location": "Pennsylvania",
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "Pennsylvania": "The first state to call a convention."
-    }
-  },
-  {
-    "title": "James Wilson's Speech",
-    "date": "1787-10-10",
-    "type": "medium",
-    "description": "James Wilson delivers a famous speech in the State House Yard in Philadelphia, forcefully defending the Constitution and denying the need for a Bill of Rights.",
-    "involved": ["Pennsylvania"],
-    "location": "Pennsylvania",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/James_Wilson.jpg/460px-James_Wilson.jpg",
-    "bgImage": null,
-    "tooltip": {
-      "Pennsylvania": "Wilson: 'Powers not given are reserved.'"
-    }
-  },
-  {
-    "title": "R.H. Lee to Randolph",
-    "date": "1787-10-16",
-    "type": "small",
-    "description": "Richard Henry Lee, in New York, writes to Edmund Randolph expressing serious doubts, organizing the Anti-Federalist opposition.",
+    "title": "The Federalist Papers",
+    "date": "1787-10-27",
+    "type": "large",
+    "description": "The Defense of the Constitution. Hamilton, Madison, and Jay begin publishing essays under the name 'Publius' to convince the public that a strong central government is necessary.",
     "involved": ["New York", "Virginia"],
-    "location": "New York",
-    "image": null,
-    "bgImage": null,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/The_Federalist_Papers_1788_edition_title_page.jpg/640px-The_Federalist_Papers_1788_edition_title_page.jpg",
+    "bgImage": "https://upload.wikimedia.org/wikipedia/commons/9/9d/The_Federalist_Papers_1788_edition_title_page.jpg",
     "tooltip": {}
-  },
-  {
-    "title": "Massachusetts Calls Convention",
-    "date": "1787-10-20",
-    "type": "small",
-    "description": "The Massachusetts legislature votes to convene a ratifying convention, setting the stage for a contentious battle in Boston.",
-    "involved": ["Massachusetts"],
-    "location": "Massachusetts",
-    "image": null,
-    "bgImage": null,
-    "tooltip": {}
-  },
-  {
-    "title": "Georgia Calls Convention",
-    "date": "1787-10-26",
-    "type": "small",
-    "description": "Georgia, needing strong federal protection against Creek uprisings on its border, moves quickly to call a convention.",
-    "involved": ["Georgia"],
-    "location": "Georgia",
-    "image": null,
-    "bgImage": null,
-    "tooltip": {}
-  },
-  {
-    "title": "Remarks on PA Convention",
-    "date": "1787-10-28",
-    "type": "small",
-    "description": "Pamphlets begin circulating in Pennsylvania, criticizing the hasty call for a convention and the 'aristocratic' nature of the new plan.",
-    "involved": ["Pennsylvania"],
-    "location": "Pennsylvania",
-    "image": null,
-    "bgImage": null,
-    "tooltip": {}
-  },
-  {
-    "title": "Virginia Calls Convention",
-    "date": "1787-10-31",
-    "type": "medium",
-    "description": "Virginia, the largest and most influential state, officially calls for a convention. The stage is set for a clash between Madison and Henry.",
-    "involved": ["Virginia"],
-    "location": "Virginia",
-    "image": null,
-    "bgImage": null,
-    "tooltip": {}
-  },
-{
-    "title": "NJ Calls Convention",
-    "date": "1787-11-01",
-    "type": "medium",
-    "description": "New Jersey legislature calls for a state ratifying convention.",
-    "involved": ["New Jersey"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": { "New Jersey": "Convention called" }
-  },
-  {
-    "title": "PA Elects Delegates",
-    "date": "1787-11-06",
-    "type": "small",
-    "description": "Pennsylvania elects 69 delegates to their ratifying convention.",
-    "involved": ["Pennsylvania"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": { "Pennsylvania": "69 Delegates elected" }
-  },
-  {
-    "title": "DE Calls Convention",
-    "date": "1787-11-10",
-    "type": "medium",
-    "description": "Delaware calls for a state ratifying convention.",
-    "involved": ["Delaware"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": { "Delaware": "Convention called" }
-  },
-  {
-    "title": "CT Elects Delegates",
-    "date": "1787-11-12",
-    "type": "small",
-    "description": "Connecticut elects 168 delegates.",
-    "involved": ["Connecticut"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": { "Connecticut": "168 Delegates elected" }
-  },
-  {
-    "title": "MA Elections Begin",
-    "date": "1787-11-19",
-    "type": "small",
-    "description": "Massachusetts begins the election of 355 delegates.",
-    "involved": ["Massachusetts"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": { "Massachusetts": "Elections begin" }
-  },
-  {
-    "title": "PA Convention Convenes",
-    "date": "1787-11-20",
-    "type": "medium",
-    "description": "The Pennsylvania ratifying convention officially convenes.",
-    "involved": ["Pennsylvania"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": { "Pennsylvania": "Convention starts" }
-  },
-  {
-    "title": "DE Elects Delegates",
-    "date": "1787-11-22",
-    "type": "small",
-    "description": "Delaware elects 30 delegates (Nov 22-26).",
-    "involved": ["Delaware"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": { "Delaware": "30 Delegates elected" }
-  },
-  {
-    "title": "James Wilson Speech",
-    "date": "1787-11-24",
-    "type": "small",
-    "description": "James Wilson delivers a significant speech at the Pennsylvania Convention.",
-    "involved": ["Pennsylvania"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": { "Pennsylvania": "Wilson speaks on ratification" }
-  },
-  {
-    "title": "MD Calls Convention",
-    "date": "1787-11-27",
-    "type": "medium",
-    "description": "Maryland calls for a state ratifying convention.",
-    "involved": ["Maryland"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": { "Maryland": "Convention called" }
-  },
-  {
-    "title": "NJ Elects Delegates",
-    "date": "1787-11-27",
-    "type": "small",
-    "description": "New Jersey elects 38 delegates (Nov 27-Dec 1).",
-    "involved": ["New Jersey"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": { "New Jersey": "38 Delegates elected" }
-  },
-  {
-    "title": "Remarks on PA Convention",
-    "date": "1787-11-28",
-    "type": "small",
-    "description": "Remarks recorded regarding the ongoing Pennsylvania Ratifying Convention.",
-    "involved": ["Pennsylvania"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": null
-  },
-  {
-    "title": "McHenry's Speech",
-    "date": "1787-11-29",
-    "type": "small",
-    "description": "James McHenry speaks to the Maryland State House of Delegates.",
-    "involved": ["Maryland"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": { "Maryland": "McHenry speaks" }
-  },
-  {
-    "title": "Luther Martin's Speech",
-    "date": "1787-11-29",
-    "type": "small",
-    "description": "Luther Martin speaks to the Maryland State House of Delegates, opposing strong federal power.",
-    "involved": ["Maryland"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": { "Maryland": "Luther Martin dissents" }
-  },
-  {
-    "title": "PA Convention Speech (AM)",
-    "date": "1787-12-04",
-    "type": "small",
-    "description": "Morning session speech to the Pennsylvania Conventions.",
-    "involved": ["Pennsylvania"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": null
-  },
-  {
-    "title": "PA Convention Speech (PM)",
-    "date": "1787-12-04",
-    "type": "small",
-    "description": "Afternoon session speech to the Pennsylvania Conventions.",
-    "involved": ["Pennsylvania"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": null
-  },
-  {
-    "title": "DE Convention Convenes",
-    "date": "1787-12-04",
-    "type": "medium",
-    "description": "The Delaware ratifying convention convenes.",
-    "involved": ["Delaware"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": { "Delaware": "Convention starts" }
-  },
-  {
-    "title": "GA Elects Delegates",
-    "date": "1787-12-04",
-    "type": "small",
-    "description": "Georgia elects 26 delegates (Dec 4-5).",
-    "involved": ["Georgia"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": { "Georgia": "26 Delegates elected" }
-  },
-  {
-    "title": "NC Calls Convention",
-    "date": "1787-12-06",
-    "type": "medium",
-    "description": "North Carolina calls for a state ratifying convention.",
-    "involved": ["North Carolina"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": { "North Carolina": "Convention called" }
-  },
-  {
-    "title": "Delaware Ratifies",
-    "date": "1787-12-07",
-    "type": "large",
-    "description": "Delaware becomes the FIRST state to ratify the Constitution, doing so unanimously (30-0).",
-    "involved": ["Delaware"],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Seal_of_Delaware.svg/1200px-Seal_of_Delaware.svg.png",
-    "bgImage": null,
-    "tooltip": { "Delaware": "First to ratify!" }
-  },
-  {
-    "title": "NJ Convention Convenes",
-    "date": "1787-12-11",
-    "type": "medium",
-    "description": "The New Jersey ratifying convention convenes.",
-    "involved": ["New Jersey"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": { "New Jersey": "Convention starts" }
-  },
-  {
-    "title": "Pennsylvania Ratifies",
-    "date": "1787-12-12",
-    "type": "large",
-    "description": "Pennsylvania becomes the 2nd state to ratify the Constitution with a vote of 46-23.",
-    "involved": ["Pennsylvania"],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Seal_of_Pennsylvania.svg/1200px-Seal_of_Pennsylvania.svg.png",
-    "bgImage": null,
-    "tooltip": { "Pennsylvania": "2nd state to ratify" }
-  },
-  {
-    "title": "NH Calls Convention",
-    "date": "1787-12-14",
-    "type": "medium",
-    "description": "New Hampshire calls for a state ratifying convention.",
-    "involved": ["New Hampshire"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": { "New Hampshire": "Convention called" }
-  },
-  {
-    "title": "New Jersey Ratifies",
-    "date": "1787-12-18",
-    "type": "large",
-    "description": "New Jersey becomes the 3rd state to ratify the Constitution, doing so unanimously (38-0).",
-    "involved": ["New Jersey"],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Seal_of_New_Jersey.svg/1200px-Seal_of_New_Jersey.svg.png",
-    "bgImage": null,
-    "tooltip": { "New Jersey": "3rd state to ratify" }
-  },
-  {
-    "title": "PA Minority Dissent",
-    "date": "1787-12-18",
-    "type": "medium",
-    "description": "The Dissent of the Minority of the Convention of Pennsylvania is published, outlining Anti-Federalist concerns.",
-    "involved": ["Pennsylvania"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": { "Pennsylvania": "Anti-Federalist Dissent" }
-  },
-  {
-    "title": "Yates & Lansing Dissent",
-    "date": "1787-12-21",
-    "type": "medium",
-    "description": "Robert Yates and John Lansing publish their Reasons of Dissent regarding the New York delegation.",
-    "involved": ["New York"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": { "New York": "NY Delegates dissent" }
-  },
-  {
-    "title": "GA Convention Meets",
-    "date": "1787-12-25",
-    "type": "medium",
-    "description": "The Georgia ratifying convention meets on Christmas Day.",
-    "involved": ["Georgia"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": { "Georgia": "Convention meets" }
-  },
-  {
-    "title": "Georgia Ratifies",
-    "date": "1787-12-31",
-    "type": "large",
-    "description": "Georgia becomes the 4th state to ratify the Constitution, doing so unanimously (26-0).",
-    "involved": ["Georgia"],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Seal_of_Georgia.svg/1200px-Seal_of_Georgia.svg.png",
-    "bgImage": null,
-    "tooltip": { "Georgia": "4th state to ratify" }
-  },
-  {
-    "title": "NH Elects Delegates",
-    "date": "1787-12-31",
-    "type": "small",
-    "description": "New Hampshire elects 110 delegates to their convention.",
-    "involved": ["New Hampshire"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": { "New Hampshire": "110 Delegates elected" }
-  },
-{
-    "title": "Georgia Ratifies",
-    "date": "1788-01-02",
-    "type": "large",
-    "description": "Georgia becomes the 4th state to ratify the Constitution. The vote is unanimous (26-0), driven by the state's need for strong federal protection against Creek conflicts on their frontier.",
-    "involved": ["Georgia"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "Georgia": "Unanimous ratification (26-0)."
-    }
-  },
-  {
-    "title": "Connecticut Convention Convenes",
-    "date": "1788-01-03",
-    "type": "small",
-    "description": "Delegates gather in Hartford. The debate is largely favorable, led by Oliver Ellsworth who helped craft the Great Compromise.",
-    "involved": ["Connecticut"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "Connecticut": "Convention opens in Hartford."
-    }
-  },
-  {
-    "title": "Ellsworth & Wadsworth Speeches",
-    "date": "1788-01-07",
-    "type": "small",
-    "description": "Key speeches define the debate. Oliver Ellsworth argues for Union, while James Wadsworth questions the power of the sword and purse being held by the same body.",
-    "involved": ["Connecticut"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "Connecticut": "Debate over federal powers."
-    }
-  },
-  {
-    "title": "Connecticut Ratifies",
-    "date": "1788-01-09",
-    "type": "large",
-    "description": "Connecticut becomes the 5th state to ratify. The vote is decisive (128-40), affirming the state's role in architecting the compromise that made the Constitution possible.",
-    "involved": ["Connecticut"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "Connecticut": "Ratified 128-40."
-    }
-  },
-  {
-    "title": "Massachusetts Election Conclusion",
-    "date": "1788-01-09",
-    "type": "small",
-    "description": "Elections conclude for the 355 delegates to the Massachusetts convention. The sheer size of the delegation reflects the deep divisions in the state following Shays' Rebellion.",
-    "involved": ["Massachusetts"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "Massachusetts": "355 delegates elected."
-    }
-  },
-  {
-    "title": "Charles Turner Speech",
-    "date": "1788-01-17",
-    "type": "small",
-    "description": "In the Massachusetts convention, Charles Turner gives a voice to the Anti-Federalist fears, worrying that the new government lacks sufficient checks against tyranny.",
-    "involved": ["Massachusetts"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "Massachusetts": "Turner voices Anti-Federalist fears."
-    }
-  },
-  {
-    "title": "South Carolina Calls Convention",
-    "date": "1788-01-19",
-    "type": "small",
-    "description": "The South Carolina legislature votes to call a state ratifying convention, setting the stage for debates over slavery and representation.",
-    "involved": ["South Carolina"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "South Carolina": "Legislature initiates process."
-    }
-  },
-  {
-    "title": "Massachusetts Compromise Proposed",
-    "date": "1788-01-30",
-    "type": "medium",
-    "description": "A turning point in history. To win over skeptical Anti-Federalists, Federalists propose ratifying the Constitution *with* recommended amendments (a Bill of Rights). This strategy becomes the model for remaining states.",
-    "involved": ["Massachusetts"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "Massachusetts": "The 'Ratify now, Amend later' strategy."
-    }
-  },
-  {
-    "title": "New York Calls Convention",
-    "date": "1788-02-01",
-    "type": "small",
-    "description": "The New York legislature, deeply divided between Hamilton's Federalists and Clinton's Anti-Federalists, issues a call for a convention.",
-    "involved": ["New York"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "New York": "Convention call issued."
-    }
-  },
-  {
-    "title": "Massachusetts Ratifies",
-    "date": "1788-02-06",
-    "type": "large",
-    "description": "Massachusetts becomes the 6th state to ratify, but by a razor-thin margin (187-168). The victory is secured only by the promise of future amendments.",
-    "involved": ["Massachusetts"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "Massachusetts": "Ratified 187-168 with amendments."
-    }
-  },
-  {
-    "title": "Jefferson to Donald",
-    "date": "1788-02-07",
-    "type": "small",
-    "description": "From Paris, Thomas Jefferson writes to Alexander Donald, expressing cautious optimism about the Constitution but insisting on the necessity of a Bill of Rights.",
-    "involved": ["Virginia"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "Virginia": "Jefferson urges a Bill of Rights."
-    }
-  },
-  {
-    "title": "NH Convention Adjourns",
-    "date": "1788-02-22",
-    "type": "medium",
-    "description": "Trouble for the Federalists. The New Hampshire convention, realizing they lack the votes to ratify, votes 56-51 to adjourn until June rather than risk a rejection.",
-    "involved": ["New Hampshire"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "New Hampshire": "Adjourned to avoid rejection."
-    }
-  },
-  {
-    "title": "Rhode Island Rejects Convention",
-    "date": "1788-03-24",
-    "type": "medium",
-    "description": "Rhode Island, the outlier, refuses to even call a ratifying convention. Instead, they hold a popular referendum where the Constitution is overwhelmingly rejected.",
-    "involved": ["Rhode Island"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "Rhode Island": "Refuses to call convention."
-    }
-  },
-  {
-    "title": "North Carolina Elects Delegates",
-    "date": "1788-03-29",
-    "type": "small",
-    "description": "North Carolina holds elections for their convention. The results lean heavily Anti-Federalist, signaling a difficult road ahead for ratification.",
-    "involved": ["North Carolina"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "North Carolina": "Anti-Federalist majority elected."
-    }
-  },
-  {
-    "title": "Maryland Convention Convenes",
-    "date": "1788-04-21",
-    "type": "small",
-    "description": "Delegates meet in Annapolis. Despite a vocal Anti-Federalist minority, the Federalist organization dominates the proceedings.",
-    "involved": ["Maryland"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "Maryland": "Convention opens in Annapolis."
-    }
-  },
-  {
-    "title": "Maryland Ratifies",
-    "date": "1788-04-26",
-    "type": "large",
-    "description": "Maryland becomes the 7th state to ratify. The vote is a comfortable 63-11, restoring Federalist momentum after the stumble in New Hampshire.",
-    "involved": ["Maryland"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "Maryland": "Ratified 63-11."
-    }
-  },
-  {
-    "title": "New York Elections",
-    "date": "1788-05-03",
-    "type": "small",
-    "description": "New York concludes elections for delegates. Governor George Clinton's Anti-Federalist forces win a significant majority of the seats.",
-    "involved": ["New York"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "New York": "Clinton's faction wins majority."
-    }
-  },
-  {"title": "South Carolina Convention",
-    "date": "1788-05-12",
-    "type": "small",
-    "description": "The South Carolina ratifying convention convenes in Charleston to debate the Constitution.",
-    "involved": ["South Carolina"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {}
-  },
-  {
-    "title": "South Carolina Ratifies",
-    "date": "1788-05-23",
-    "type": "medium",
-    "description": "South Carolina becomes the 8th state to ratify the Constitution, voting 149-73 in favor.",
-    "involved": ["South Carolina"],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Seal_of_South_Carolina.svg/1200px-Seal_of_South_Carolina.svg.png",
-    "bgImage": null,
-    "tooltip": {
-      "South Carolina": "Vote: 149-73"
-    }
-  },
-  {
-    "title": "Virginia Convention",
-    "date": "1788-06-02",
-    "type": "small",
-    "description": "The Virginia ratifying convention convenes. The debate here is critical, featuring heavyweights like Madison, Henry, and Mason.",
-    "involved": ["Virginia"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {}
-  },
-  {
-    "title": "Patrick Henry Speaks",
-    "date": "1788-06-04",
-    "type": "small",
-    "description": "Leading Anti-Federalist Patrick Henry delivers a passionate speech arguing that the new Constitution endangers state sovereignty and individual liberty.",
-    "involved": ["Virginia"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "Virginia": "Henry warns against tyranny."
-    }
-  },
-  {
-    "title": "George Mason's Plea",
-    "date": "1788-06-04",
-    "type": "small",
-    "description": "George Mason argues that without a Bill of Rights, the Constitution grants too much power to the central government.",
-    "involved": ["Virginia"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "Virginia": "Mason demands a Bill of Rights."
-    }
-  },
-  {
-    "title": "Pendleton Supports",
-    "date": "1788-06-12",
-    "type": "small",
-    "description": "Edmund Pendleton, president of the convention, speaks in favor of the judiciary and the stability the Constitution offers.",
-    "involved": ["Virginia"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {}
-  },
-  {
-    "title": "New York Convention",
-    "date": "1788-06-17",
-    "type": "small",
-    "description": "The New York convention convenes in Poughkeepsie. The Anti-Federalists hold a significant majority at the start.",
-    "involved": ["New York"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {}
-  },
-  {
-    "title": "New Hampshire Reconvenes",
-    "date": "1788-06-18",
-    "type": "small",
-    "description": "After adjourning in February to avoid rejection, the New Hampshire convention reconvenes for a second session.",
-    "involved": ["New Hampshire"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {}
-  },
-  {
-    "title": "Melancton Smith Speaks",
-    "date": "1788-06-20",
-    "type": "small",
-    "description": "Melancton Smith, a moderate Anti-Federalist leader in NY, debates representation, arguing the proposed House is too small to represent the common people.",
-    "involved": ["New York"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "New York": "Smith debates representation ratios."
-    }
-  },
-  {
-    "title": "Hamilton Defends",
-    "date": "1788-06-21",
-    "type": "small",
-    "description": "Alexander Hamilton delivers a major speech defending the structure of the new government and the necessity of a strong executive.",
-    "involved": ["New York"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "New York": "Hamilton pushes for ratification."
-    }
   },
   {
     "title": "New Hampshire Ratifies",
     "date": "1788-06-21",
     "type": "large",
-    "description": "A historic milestone. New Hampshire becomes the 9th state to ratify (57-47), satisfying the requirement to put the Constitution into legal effect.",
+    "description": "The Ninth Pillar. New Hampshire becomes the 9th state to ratify, satisfying Article VII. The Constitution is now officially the supreme law for the ratifying states.",
     "involved": ["New Hampshire"],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Seal_of_New_Hampshire.svg/1200px-Seal_of_New_Hampshire.svg.png",
-    "bgImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Scene_at_the_Signing_of_the_Constitution_of_the_United_States.jpg/800px-Scene_at_the_Signing_of_the_Constitution_of_the_United_States.jpg",
-    "tooltip": {
-      "New Hampshire": "The 9th State! Constitution is legal."
-    }
-  },
-  {
-    "title": "Virginia Ratifies",
-    "date": "1788-06-25",
-    "type": "medium",
-    "description": "In a close 89-79 vote, Virginia ratifies the Constitution but proposes 20 amendments to protections rights, heavily influenced by the Anti-Federalists.",
-    "involved": ["Virginia"],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Seal_of_Virginia.svg/1200px-Seal_of_Virginia.svg.png",
-    "bgImage": null,
-    "tooltip": {
-      "Virginia": "Vote: 89-79"
-    }
-  },
-  {
-    "title": "Congress Accepts",
-    "date": "1788-07-02",
-    "type": "medium",
-    "description": "The Confederation Congress, meeting in New York, officially acknowledges that 9 states have ratified and begins planning for the first presidential election.",
-    "involved": ["All"],
-    "location": "New York",
     "image": null,
     "bgImage": null,
     "tooltip": {}
   },
   {
-    "title": "North Carolina Convenes",
-    "date": "1788-07-21",
-    "type": "small",
-    "description": "North Carolina's convention meets. The mood is heavily skeptical of the new central government.",
-    "involved": ["North Carolina"],
+    "title": "The First Congress and Presidency of George Washington",
+    "date": "1789-03-04",
+    "endDate": "1797-03-04",
+    "type": "banner",
+    "description": "The new government convenes. Madison fulfills his promise and leads the House in drafting the Bill of Rights. Washington inaugurated April 30th, 1789 and sets the precedents for the new republic, overseeing the ratification of the Bill of Rights and using the militia powers to enforce federal sovereignty.",
+    "involved": [],
     "image": null,
-    "bgImage": null,
-    "tooltip": {}
+    "bgImage": null
   },
   {
-    "title": "New York Ratifies",
-    "date": "1788-07-26",
-    "type": "medium",
-    "description": "Following news of Virginia and New Hampshire, New York narrowly ratifies (30-27) with a long list of proposed amendments, knowing they cannot remain outside the union.",
-    "involved": ["New York"],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Coat_of_arms_of_New_York.svg/1200px-Coat_of_arms_of_New_York.svg.png",
-    "bgImage": null,
-    "tooltip": {
-      "New York": "Vote: 30-27 (Very Close)"
-    }
-  },
-  {
-    "title": "North Carolina Rejects",
-    "date": "1788-08-02",
-    "type": "medium",
-    "description": "By a vote of 184-84, North Carolina declines to ratify the Constitution until a Bill of Rights is added, leaving them outside the new Union for now.",
-    "involved": ["North Carolina"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "North Carolina": "Refuses without Bill of Rights."
-    }
-  },
-{
-    "title": "NC Convention Convenes",
-    "date": "1789-11-16",
-    "type": "small",
-    "description": "North Carolina's second ratifying convention meets in Fayetteville. Having previously rejected the Constitution for lacking a Bill of Rights, the delegates gather again now that the amendments have been proposed.",
-    "involved": ["North Carolina"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "North Carolina": "Meeting in Fayetteville."
-    }
-  },
-  {
-    "title": "North Carolina Ratifies",
-    "date": "1789-11-21",
-    "type": "medium",
-    "description": "North Carolina becomes the 12th state to ratify the Constitution (194-77). The promise of a Bill of Rights secures the necessary votes, bringing the state officially into the new Union.",
-    "involved": ["North Carolina"],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Seal_of_North_Carolina.svg/1200px-Seal_of_North_Carolina.svg.png",
-    "bgImage": null,
-    "tooltip": {
-      "North Carolina": "Ratified 194-77."
-    }
-  },
-  {
-    "title": "RI Convention Convenes",
-    "date": "1790-05-26",
-    "type": "small",
-    "description": "Rhode Island, the last holdout and the only state to boycott the Constitutional Convention, finally calls a convention in Newport. They face immense pressure, including threats from the U.S. Senate to treat them as a foreign nation and ban trade.",
-    "involved": ["Rhode Island"],
-    "image": null,
-    "bgImage": null,
-    "tooltip": {
-      "Rhode Island": "Newport convention begins under pressure."
-    }
-  },
-  {
-    "title": "Rhode Island Ratifies",
-    "date": "1790-05-29",
+    "title": "Ratifying the Bill of Rights",
+    "date": "1791-12-15",
     "type": "large",
-    "description": "The Union is complete. Rhode Island ratifies by the narrowest of margins (34-32), officially bringing the last of the original thirteen colonies under the new Constitution.",
-    "involved": ["Rhode Island"],
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Seal_of_Rhode_Island.svg/1200px-Seal_of_Rhode_Island.svg.png",
-    "bgImage": "https://upload.wikimedia.org/wikipedia/commons/5/52/Rhode_Island_State_Capitol.jpg",
-    "tooltip": {
-      "Rhode Island": "Ratified 34-32 (The closest vote)."
-    }
+    "description": "Virginia becomes the 11th state to ratify, cementing the Bill of Rights—and the Second Amendment—into the Constitution.",
+    "involved": ["Virginia"],
+    "image": null,
+    "bgImage": null
   }
 
 ]

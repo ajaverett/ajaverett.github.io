@@ -22,12 +22,16 @@ format:
         <script>
             // --- CONFIGURATION ---
             const CONFIG = {
-                START_DATE: new Date("1787-01-01"),
-                END_DATE: new Date("1791-12-31"),
-                TOTAL_WIDTH: 100000, // Pixels for the total timeline length
-                TRIGGER_THRESHOLD: 200, // Pixels from center to trigger event
+                START_DATE: new Date("1773-12-01"),
+                END_DATE: new Date("1792-12-31"),
+                TOTAL_WIDTH: 10000, // Pixels for the total timeline length
+                TRIGGER_THRESHOLD: 50, // Pixels from center to trigger event
                 VERTICAL_OFFSET: 20,
             };
+
+            // Optimization: Define Month names once globally
+            const MONTHS = ["January", "February", "March", "April", "May", "June", 
+                            "July", "August", "September", "October", "November", "December"];
 
             // Hardcoded States (sorted by ratification generally, or geographic)
             const STATES = [
@@ -48,6 +52,7 @@ format:
 
             let eventsData = [];
             let activeEventId = null;
+            let lastDateString = '';
 
             // --- DOM ELEMENTS ---
             const elements = {
@@ -64,53 +69,90 @@ format:
                 cardDate: document.getElementById('card-date'),
                 cardDesc: document.getElementById('card-desc'),
                 cardImgContainer: document.getElementById('card-image-container'),
-                cardImg: document.getElementById('card-image')
+                cardImg: document.getElementById('card-image'),
+                nextBtn: document.getElementById('next-btn')
             };
 
             // --- INITIALIZATION ---
 
             async function init() {
+                // PERFORMANCE: Inject content-visibility styles dynamically
+                // This stops the browser from rendering off-screen pixels
+                elements.eventsContainer.style.contentVisibility = 'auto';
+                elements.eventsContainer.style.containIntrinsicSize = `${CONFIG.TOTAL_WIDTH}px 500px`;
+                elements.gridLines.style.contentVisibility = 'auto';
+                elements.gridLines.style.containIntrinsicSize = `${CONFIG.TOTAL_WIDTH}px 500px`;
+
                 setupLayout();
                 renderSidebar();
                 renderGridBackground();
                 
                 window.addEventListener('resize', setupLayout);
 
-                // Fetch Data
+                document.fonts.ready.then(() => {
+                    setupLayout();
+                });
+
                 try {
                     const response = await fetch('data/history_events.json');
                     if (!response.ok) throw new Error('Network response not ok');
                     eventsData = await response.json();
                     renderEvents();
                     renderBanners();
+
+                    // --- NEW: NEXT BUTTON LOGIC ---
+                    elements.nextBtn.addEventListener('click', () => {
+                        const currentPos = elements.timelineViewport.scrollLeft;
+                        
+                        // Find the first event that is at least 50px ahead of current view
+                        // (The 50px buffer prevents getting stuck on the current event)
+                        const nextEvent = eventsData.find(e => e.pixelLocation > currentPos + 50);
+
+                        if (nextEvent) {
+                            elements.timelineViewport.scrollTo({
+                                left: nextEvent.pixelLocation,
+                                behavior: 'smooth' 
+                            });
+                        } else {
+                            // Optional: If at the end, loop back to start?
+                            // elements.timelineViewport.scrollTo({ left: 0, behavior: 'smooth' });
+                        }
+                    });
                     
-                    // Start Loop
+
                     requestAnimationFrame(updateLoop);
                 } catch (error) {
                     console.error("Error loading events:", error);
                 }
             }
-
             function setupLayout() {
-                // 1. Set Timeline Width
-                elements.timelineContent.style.width = `${CONFIG.TOTAL_WIDTH}px`;
 
+                elements.timelineViewport.style.willChange = 'scroll-position';
+
+                // 1. Set Timeline Total Width
+                elements.timelineContent.style.width = `${CONFIG.TOTAL_WIDTH}px`;
                 elements.sidebar.style.paddingTop = `${CONFIG.VERTICAL_OFFSET}px`;
                 
-                // 2. Force content-box (Crucial for math accuracy)
+                // 2. Force content-box logic
                 elements.timelineContent.style.boxSizing = 'content-box'; 
 
-                // 3. THE FIX: Dynamic Calculation
+                // 3. Dynamic Padding Calculation
                 const halfScreen = window.innerWidth / 2;
                 
-                // Get the actual width of the sidebar (200px on desktop, 60px on mobile)
+                // Safety check: ensure sidebar exists before measuring
                 const sidebarEl = document.getElementById('sidebar');
-                const sidebarWidth = sidebarEl ? sidebarEl.offsetWidth : 0;
+                const sidebarWidth = sidebarEl ? sidebarEl.getBoundingClientRect().width : 0;
 
-                // LEFT PADDING: Subtract sidebar width so the start hits the exact screen center
-                elements.timelineContent.style.paddingLeft = `${halfScreen - sidebarWidth}px`;
+                // LEFT PADDING: 
+                // We want pixel 0 of the timeline to sit exactly under the playhead (center screen)
+                // when the scroll bar is at 0.
+                // Screen Center = Sidebar Width + (Remaining Space / 2) is incorrect logic.
+                // Correct Logic: The Playhead is at absolute 50vw.
+                // The content container starts at 'sidebarWidth'.
+                // So we need padding = (50vw - sidebarWidth).
+                const padLeft = halfScreen - sidebarWidth;
                 
-                // RIGHT PADDING: Keeps the end reachable (Standard 50vw)
+                elements.timelineContent.style.paddingLeft = `${Math.max(0, padLeft)}px`;
                 elements.timelineContent.style.paddingRight = `${halfScreen}px`;
             }
             // --- RENDERING ---
@@ -163,21 +205,24 @@ format:
                 const placedLabels = []; 
 
                 eventsData.forEach((event, index) => {
+                    // --- OPTIMIZATION STEP ---
                     const leftPos = dateToPixel(event.date);
+                    event.pixelLocation = leftPos; // STORE THIS for the update loop
                     event.id = index;
+                    // -------------------------
 
-                    // 1. VERTICAL DROP LINE (Background)
+                    // 1. VERTICAL DROP LINE
                     const dropLine = document.createElement('div');
                     dropLine.className = 'absolute top-0 bottom-0 border-l border-dashed border-[#2c1810]/20 pointer-events-none z-0';
                     dropLine.style.left = `${leftPos}px`;
                     elements.eventsContainer.appendChild(dropLine);
                     event.domElement = dropLine; 
 
-                    // CHECK: Is this a "Pure" Union event (No specific location)?
+                    // CHECK: Is this a "Pure" Union event?
                     const isPureUnion = event.involved.includes("All") && !event.location;
 
                     if (isPureUnion) {
-                        // --- RENDER FULL VERTICAL LINE (Old Way) ---
+                        // --- UNION RENDER ---
                         const unionLine = document.createElement('div');
                         unionLine.className = 'absolute top-0 md:-top-[50px] bottom-0 w-[4px] bg-[#2c1810] z-20 transform -translate-x-1/2';
                         unionLine.style.left = `${leftPos}px`;
@@ -190,20 +235,17 @@ format:
                         elements.eventsContainer.appendChild(unionLine);
                     
                     } else {
-                        // --- RENDER ROW-BASED EVENT (State OR Union w/ Location) ---
+                        // --- STATE/ROW RENDER ---
 
-                        // A. Determine which states get diamonds
+                        // A. Determine target states
                         let targetStates = [];
                         if (event.location) {
-                            // Hybrid Case: It's an "All" event, but pinned to ONE location
                             targetStates = [event.location];
                         } else {
-                            // Standard Case: It's specific states
                             targetStates = event.involved;
                         }
 
-                        // B. Determine the "Primary" state for the label (highest up)
-                        // Sort by sidebar index
+                        // B. Find Primary State (for label placement)
                         const sortedTargets = targetStates.map(name => {
                             return { name, index: STATES.findIndex(s => s.name === name) };
                         }).sort((a, b) => a.index - b.index);
@@ -216,48 +258,31 @@ format:
                             const sIndex = STATES.findIndex(s => s.name === stateName);
                             if (sIndex === -1) return;
                             
-                            // Calculate Top Position (including your Config Offset)
                             const topPos = (sIndex * 40) + 20 + CONFIG.VERTICAL_OFFSET;
 
-                            // 1. Create a Wrapper (The Anchor)
-                            // This holds both the Diamond and the Tooltip in the same spot
                             const wrapper = document.createElement('div');
                             wrapper.className = 'absolute transform -translate-x-1/2 -translate-y-1/2 z-30 group cursor-help';
-                            wrapper.style.left = `${leftPos}px`;
+                            wrapper.style.left = `${leftPos}px`; // Uses calculated pixel
                             wrapper.style.top = `${topPos}px`;
 
-                            // 2. The Diamond (Visuals only, scales on group hover)
                             const diamond = document.createElement('div');
-                            // Note: We removed absolute positioning here because the wrapper handles location
                             diamond.className = 'w-4 h-4 bg-[#8b0000] rotate-45 shadow-sm transition-transform duration-200 group-hover:scale-150';
                             wrapper.appendChild(diamond);
 
-                            // 3. The Tooltip (Sibling, does NOT scale)
                             if (event.tooltip && event.tooltip[stateName]) {
                                 const tip = document.createElement('div');
-                                
-                                // UPDATED:
-                                // 1. Changed 'bottom-6' to 'top-6' (Moves it BELOW the diamond)
-                                // 2. Kept all other styles exactly the same
                                 tip.className = 'absolute top-6 left-1/2 -translate-x-1/2 bg-[#2c1810] text-[#fdfbf7] text-[11px] font-lato tracking-wide p-3 rounded w-max max-w-[220px] opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none shadow-2xl border border-[#fdfbf7]/10 z-50';
-                                
-                                // UPDATED: Changed innerText to innerHTML
                                 tip.innerHTML = event.tooltip[stateName];
-                                
                                 wrapper.appendChild(tip);
                             }
-
                             elements.eventsContainer.appendChild(wrapper);
                         });
 
-                        // D. Smart Label Placement (Collision Logic)
+                        // D. Collision Detection & Label Placement
                         let labelX = leftPos + 15; 
                         let labelY = (primaryState.index * 40) + 5 + CONFIG.VERTICAL_OFFSET;
                         
-                        // Estimate Text Dimensions based on type (Larger events = larger text space)
-                        let charWidth = 10;
-                        if (event.type === 'large') charWidth = 14;
-                        
+                        let charWidth = event.type === 'large' ? 14 : 10;
                         const textWidth = (event.title.length * charWidth) + 20; 
                         const textHeight = 40; 
 
@@ -271,7 +296,7 @@ format:
                                 const yOverlap = (labelY < placed.bottom) && ((labelY + textHeight) > placed.top);
                                 if (xOverlap && yOverlap) {
                                     collision = true;
-                                    labelY += 40; // Bump down one row
+                                    labelY += 40;
                                     break;
                                 }
                             }
@@ -281,18 +306,13 @@ format:
                         placedLabels.push({ left: labelX, right: labelX + textWidth, top: labelY, bottom: labelY + textHeight });
 
                         const label = document.createElement('div');
-                        
-                        // CHANGED: Dynamic Styling based on Event Type
                         let baseClasses = 'absolute font-fell italic whitespace-nowrap select-none z-20 pointer-events-none text-[#2c1810] ';
                         
                         if (event.type === 'large') {
-                            // Big, Bold, Fully Opaque
                             label.className = baseClasses + 'text-3xl font-bold opacity-100 drop-shadow-md';
                         } else if (event.type === 'medium') {
-                            // Normal size, slightly distinct
                             label.className = baseClasses + 'text-xl font-bold opacity-80';
                         } else {
-                            // Small, Fainter
                             label.className = baseClasses + 'text-lg opacity-60';
                         }
 
@@ -353,42 +373,58 @@ format:
 
             function pixelToDate(pixel) {
                 const percentage = pixel / CONFIG.TOTAL_WIDTH;
-                const totalTime = CONFIG.END_DATE - CONFIG.START_DATE;
-                const timeElapsed = totalTime * percentage;
-                const newDate = new Date(CONFIG.START_DATE.getTime() + timeElapsed);
+                const startMs = CONFIG.START_DATE.getTime();
+                const endMs = CONFIG.END_DATE.getTime();
+                const totalMs = endMs - startMs;
+                const currentMs = startMs + (totalMs * percentage);
                 
-                // CHANGED: Format as "Month, Year"
-                const month = newDate.toLocaleString('default', { month: 'long' });
-                return `${month}, ${newDate.getFullYear()}`; 
+                const date = new Date(currentMs);
+                const year = date.getFullYear();
+                const monthIndex = date.getMonth(); 
+                
+                // FIX 2: Uses global const MONTHS instead of recreating array
+                return `${MONTHS[monthIndex]}, ${year}`;
             }
 
             // --- THE GAME LOOP (RequestAnimationFrame) ---
 
             function updateLoop() {
-                // 1. Get the visual center of the screen
-                const screenCenter = window.innerWidth / 2;
-
-                // Update Date Display
+                // 1. Get current scroll position (The only DOM read we need)
                 const scrollLeft = elements.timelineViewport.scrollLeft;
-                elements.dateDisplay.innerText = pixelToDate(scrollLeft);
 
-                // 2. Find Active Event using VISUAL POSITION
+                // 2. Update Date Display
+                // We clamp the value so it doesn't show crazy dates if the user "bounces" the scroll on Mac/iOS
+                const clampedPixel = Math.max(0, Math.min(CONFIG.TOTAL_WIDTH, scrollLeft));
+                const newDateStr = pixelToDate(clampedPixel);
+
+                // ONLY touch the DOM if the text actually changed
+                if (newDateStr !== lastDateString) {
+                    elements.dateDisplay.innerText = newDateStr;
+                    lastDateString = newDateStr;
+                }
+
+                // 3. Find Active Event using PURE MATH
+                // Because we padded the timeline in setupLayout(), 
+                // the scrollLeft value corresponds exactly to the pixel on the timeline 
+                // that is currently under the center playhead.
+                
                 let foundEvent = null;
-                const VISUAL_THRESHOLD = 50; 
-                let closestDist = VISUAL_THRESHOLD; 
+                let closestDist = CONFIG.TRIGGER_THRESHOLD; // Use your config const (e.g. 200)
 
-                eventsData.forEach(event => {
-                    if (!event.domElement) return;
-
-                    const rect = event.domElement.getBoundingClientRect();
-                    const dist = Math.abs(rect.left - screenCenter);
+                // Fast Loop
+                for (let i = 0; i < eventsData.length; i++) {
+                    const event = eventsData[i];
+                    
+                    // Math.abs(EventLocation - CurrentScrollPosition)
+                    const dist = Math.abs(event.pixelLocation - scrollLeft);
 
                     if (dist < closestDist) {
                         closestDist = dist; 
                         foundEvent = event;
                     }
-                });
+                }
 
+                // 4. State Management
                 if (foundEvent && foundEvent.id !== activeEventId) {
                     activateEvent(foundEvent);
                 } else if (!foundEvent && activeEventId !== null) {
@@ -397,6 +433,8 @@ format:
 
                 requestAnimationFrame(updateLoop);
             }
+
+
 
             // --- INTERACTION LOGIC ---
 
@@ -501,9 +539,9 @@ Timeline of the Second Amendment Development
 
 
 ```{=html}
-<body class="bg-[#fdfbf7] text-[#2c1810] overflow-hidden h-screen w-screen selection:bg-[#8b0000] selection:text-white">
+<div class="bg-[#fdfbf7] text-[#2c1810] overflow-hidden h-screen w-screen selection:bg-[#8b0000] selection:text-white">
 
-    <div id="cinematic-bg" class="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-1000 z-0 pointer-events-none"></div>
+    <div id="cinematic-bg" class="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-300 z-0 pointer-events-none"></div>
 
     <div class="relative z-10 flex h-full w-full">
 
@@ -513,8 +551,12 @@ Timeline of the Second Amendment Development
                 <span>The States </span>
             </div>
             
-            <div id="state-list-container" class="flex flex-col overflow-y-auto">
-            </div>
+            <div id="state-list-container" class="flex flex-col overflow-y-auto flex-1 relative">
+                </div>
+
+            <button id="next-btn" class="flex-none w-full h-[60px] bg-[#8b0000] text-[#fdfbf7] flex items-center justify-center hover:bg-[#a00000] transition-colors duration-300 border-t-2 border-[#dcd6ce]">
+                <span class="font-bold text-2xl">➔</span>
+            </button>
         </div>
 
         <div id="timeline-viewport" class="flex-1 relative overflow-x-scroll overflow-y-hidden custom-scrollbar">
@@ -555,6 +597,7 @@ Timeline of the Second Amendment Development
         </div>
     </div>
 
-</body> 
+
+</div> 
 
 ```

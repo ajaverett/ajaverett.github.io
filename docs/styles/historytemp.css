@@ -2,6 +2,11 @@
     display: none;
   }
 
+#events-container, #grid-lines {
+    content-visibility: auto;
+    contain-intrinsic-size: 100000px 500px; /* Approximate width/height to prevent scrollbar jumping */
+}
+
 /* Base Themes */
 .font-fell { font-family: 'IM Fell English', serif; }
 .font-lato { font-family: 'Lato', sans-serif; }

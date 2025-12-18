@@ -10,7 +10,7 @@
 <atom:link href="https://ajaverett.com/blocks.xml" rel="self" type="application/rss+xml"/>
 <description>Senior Consultant at Booz Allen &amp; Adjunct Faculty at MTECH</description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Thu, 18 Dec 2025 05:40:21 GMT</lastBuildDate>
+<lastBuildDate>Thu, 18 Dec 2025 09:35:06 GMT</lastBuildDate>
 <item>
   <title>Second Amendment History</title>
   <link>https://ajaverett.com/blocks/history_2ndamen.html</link>
@@ -20,7 +20,7 @@
   <category>interactive</category>
   <category>history</category>
   <guid>https://ajaverett.com/blocks/history_2ndamen.html</guid>
-  <pubDate>Thu, 18 Dec 2025 05:40:21 GMT</pubDate>
+  <pubDate>Thu, 18 Dec 2025 09:35:06 GMT</pubDate>
   <media:content url="https://ajaverett.com/blocks/images/washington.png" medium="image" type="image/png" height="120" width="144"/>
 </item>
 <item>
@@ -229,7 +229,7 @@ Wells, William V. 1865. <em>The Life and Public Services of Samuel Adams</em>. V
   <category>federalist papers</category>
   <category>history</category>
   <guid>https://ajaverett.com/blocks/militia_originalism.html</guid>
-  <pubDate>Thu, 18 Dec 2025 05:40:21 GMT</pubDate>
+  <pubDate>Thu, 18 Dec 2025 09:35:06 GMT</pubDate>
   <media:content url="https://ajaverett.com/blocks/images/second_amendment.png" medium="image" type="image/png" height="132" width="144"/>
 </item>
 <item>
@@ -372,7 +372,7 @@ Wharton, Rachel. 2024a. <span>“The Real Reasons Your Appliances Die Young.”<
   <category>cost of living</category>
   <category>good ol&#39; days</category>
   <guid>https://ajaverett.com/blocks/planned_obsolecence.html</guid>
-  <pubDate>Thu, 18 Dec 2025 05:40:21 GMT</pubDate>
+  <pubDate>Thu, 18 Dec 2025 09:35:06 GMT</pubDate>
   <media:content url="https://ajaverett.com/blocks/images/appliance_efficiency.png" medium="image" type="image/png" height="78" width="144"/>
 </item>
 <item>
@@ -408,7 +408,7 @@ Wharton, Rachel. 2024. <span>“The Real Reasons Your Appliances Die Young.”</
   <category>wages</category>
   <category>late-stage capitalism</category>
   <guid>https://ajaverett.com/blocks/productivity_pay_gap.html</guid>
-  <pubDate>Thu, 18 Dec 2025 05:40:21 GMT</pubDate>
+  <pubDate>Thu, 18 Dec 2025 09:35:06 GMT</pubDate>
   <media:content url="https://ajaverett.com/blocks/images/productivity_pay_gap.png" medium="image" type="image/png" height="98" width="144"/>
 </item>
 </channel>
