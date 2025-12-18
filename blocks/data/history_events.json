@@ -13,12 +13,12 @@
       "title": "Virginia Plan",
       "date": "1787-05-29",
       "type": "medium",
-      "description": "Edmund Randolph, the Governor of Virginia, opened the main business of the Convention by presenting 15 resolutions drafted primarily by James Madison. \n\nKnown as the **Virginia Plan**, it proposed a radical restructuring of the government: replacing the loose Confederation with a supreme National Government composed of three branches (Legislative, Executive, Judicial) and a bicameral Congress where representation was based on population. This immediately shifted the debate from 'amending' the Articles to 'abolishing' them.",
+      "description": "Edmund Randolph, the Governor of Virginia, opened the main business of the Convention by presenting 15 resolutions drafted primarily by James Madison. \n\nKnown as the <b>Virginia Plan</b>, it proposed a radical restructuring of the government: replacing the loose Confederation with a supreme National Government composed of three branches (Legislative, Executive, Judicial) and a bicameral Congress where representation was based on population. This immediately shifted the debate from 'amending' the Articles to 'abolishing' them.",
       "involved": ["Virginia"],
       "image": null,
       "bgImage": null,
       "tooltip":{
-        "Virginia": "**Edmund Randolph and **James Madison** were from Virginia."
+        "Virginia": "<b>Edmund Randolph</b> and <b>James Madison</b> were from Virginia."
       }
   },
 {

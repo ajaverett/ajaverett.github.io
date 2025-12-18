@@ -26,6 +26,7 @@ format:
                 END_DATE: new Date("1791-12-31"),
                 TOTAL_WIDTH: 100000, // Pixels for the total timeline length
                 TRIGGER_THRESHOLD: 200, // Pixels from center to trigger event
+                VERTICAL_OFFSET: 20,
             };
 
             // Hardcoded States (sorted by ratification generally, or geographic)
@@ -93,6 +94,8 @@ format:
             function setupLayout() {
                 // 1. Set Timeline Width
                 elements.timelineContent.style.width = `${CONFIG.TOTAL_WIDTH}px`;
+
+                elements.sidebar.style.paddingTop = `${CONFIG.VERTICAL_OFFSET}px`;
                 
                 // 2. Force content-box (Crucial for math accuracy)
                 elements.timelineContent.style.boxSizing = 'content-box'; 
@@ -130,13 +133,15 @@ format:
             function renderGridBackground() {
                 // 1. Horizontal Lines (matching sidebar rows)
                 STATES.forEach((state, index) => {
-                    const line = document.createElement('div');
-                    line.className = 'timeline-row-line h-[40px] w-full absolute';
-                    line.style.top = `${index * 40}px`; // Match sidebar height
-                    line.dataset.stateRow = state.name;
-                    elements.gridLines.appendChild(line);
-                });
-
+                        const line = document.createElement('div');
+                        line.className = 'timeline-row-line h-[40px] w-full absolute';
+                        
+                        // CHANGED: Added + 60 to push grid down
+                        line.style.top = `${(index * 40) + CONFIG.VERTICAL_OFFSET}px`;
+                        
+                        line.dataset.stateRow = state.name;
+                        elements.gridLines.appendChild(line);
+                    });
                 // 2. Vertical Year Markers
                 const startYear = CONFIG.START_DATE.getFullYear();
                 const endYear = CONFIG.END_DATE.getFullYear();
@@ -210,74 +215,91 @@ format:
                         targetStates.forEach(stateName => {
                             const sIndex = STATES.findIndex(s => s.name === stateName);
                             if (sIndex === -1) return;
-                            const topPos = (sIndex * 40) + 20;
+                            
+                            // Calculate Top Position (including your Config Offset)
+                            const topPos = (sIndex * 40) + 20 + CONFIG.VERTICAL_OFFSET;
 
+                            // 1. Create a Wrapper (The Anchor)
+                            // This holds both the Diamond and the Tooltip in the same spot
+                            const wrapper = document.createElement('div');
+                            wrapper.className = 'absolute transform -translate-x-1/2 -translate-y-1/2 z-30 group cursor-help';
+                            wrapper.style.left = `${leftPos}px`;
+                            wrapper.style.top = `${topPos}px`;
+
+                            // 2. The Diamond (Visuals only, scales on group hover)
                             const diamond = document.createElement('div');
-                            // Standard Red Diamond
-                            diamond.className = 'marker-diamond absolute w-4 h-4 bg-[#8b0000] rotate-45 transform -translate-x-1/2 -translate-y-1/2 z-30 cursor-help shadow-sm transition-transform hover:scale-150';
-                            diamond.style.left = `${leftPos}px`;
-                            diamond.style.top = `${topPos}px`;
+                            // Note: We removed absolute positioning here because the wrapper handles location
+                            diamond.className = 'w-4 h-4 bg-[#8b0000] rotate-45 shadow-sm transition-transform duration-200 group-hover:scale-150';
+                            wrapper.appendChild(diamond);
 
-                            // Tooltip
+                            // 3. The Tooltip (Sibling, does NOT scale)
                             if (event.tooltip && event.tooltip[stateName]) {
                                 const tip = document.createElement('div');
-                                tip.className = 'tooltip-box absolute bottom-6 left-1/2 -translate-x-1/2 bg-[#2c1810] text-[#fdfbf7] text-xs p-2 rounded w-[150px] -rotate-45 pointer-events-none z-[9999] shadow-xl';
-                                tip.innerText = event.tooltip[stateName];
-                                diamond.appendChild(tip);
+                                
+                                // UPDATED:
+                                // 1. Changed 'bottom-6' to 'top-6' (Moves it BELOW the diamond)
+                                // 2. Kept all other styles exactly the same
+                                tip.className = 'absolute top-6 left-1/2 -translate-x-1/2 bg-[#2c1810] text-[#fdfbf7] text-[11px] font-lato tracking-wide p-3 rounded w-max max-w-[220px] opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none shadow-2xl border border-[#fdfbf7]/10 z-50';
+                                
+                                // UPDATED: Changed innerText to innerHTML
+                                tip.innerHTML = event.tooltip[stateName];
+                                
+                                wrapper.appendChild(tip);
                             }
-                            elements.eventsContainer.appendChild(diamond);
+
+                            elements.eventsContainer.appendChild(wrapper);
                         });
 
                         // D. Smart Label Placement (Collision Logic)
                         let labelX = leftPos + 15; 
-                            let labelY = (primaryState.index * 40) + 5; 
-                            
-                            // Estimate Text Dimensions based on type (Larger events = larger text space)
-                            let charWidth = 10;
-                            if (event.type === 'large') charWidth = 14;
-                            
-                            const textWidth = (event.title.length * charWidth) + 20; 
-                            const textHeight = 40; 
+                        let labelY = (primaryState.index * 40) + 5 + CONFIG.VERTICAL_OFFSET;
+                        
+                        // Estimate Text Dimensions based on type (Larger events = larger text space)
+                        let charWidth = 10;
+                        if (event.type === 'large') charWidth = 14;
+                        
+                        const textWidth = (event.title.length * charWidth) + 20; 
+                        const textHeight = 40; 
 
-                            let collision = true;
-                            let safetyCounter = 0;
+                        let collision = true;
+                        let safetyCounter = 0;
 
-                            while (collision && safetyCounter < 20) {
-                                collision = false;
-                                for (const placed of placedLabels) {
-                                    const xOverlap = (labelX < placed.right + 10) && ((labelX + textWidth) > placed.left);
-                                    const yOverlap = (labelY < placed.bottom) && ((labelY + textHeight) > placed.top);
-                                    if (xOverlap && yOverlap) {
-                                        collision = true;
-                                        labelY += 40; // Bump down one row
-                                        break;
-                                    }
+                        while (collision && safetyCounter < 20) {
+                            collision = false;
+                            for (const placed of placedLabels) {
+                                const xOverlap = (labelX < placed.right + 10) && ((labelX + textWidth) > placed.left);
+                                const yOverlap = (labelY < placed.bottom) && ((labelY + textHeight) > placed.top);
+                                if (xOverlap && yOverlap) {
+                                    collision = true;
+                                    labelY += 40; // Bump down one row
+                                    break;
                                 }
-                                safetyCounter++;
                             }
+                            safetyCounter++;
+                        }
 
-                            placedLabels.push({ left: labelX, right: labelX + textWidth, top: labelY, bottom: labelY + textHeight });
+                        placedLabels.push({ left: labelX, right: labelX + textWidth, top: labelY, bottom: labelY + textHeight });
 
-                            const label = document.createElement('div');
-                            
-                            // CHANGED: Dynamic Styling based on Event Type
-                            let baseClasses = 'absolute font-fell italic whitespace-nowrap select-none z-20 pointer-events-none text-[#2c1810] ';
-                            
-                            if (event.type === 'large') {
-                                // Big, Bold, Fully Opaque
-                                label.className = baseClasses + 'text-3xl font-bold opacity-100 drop-shadow-md';
-                            } else if (event.type === 'medium') {
-                                // Normal size, slightly distinct
-                                label.className = baseClasses + 'text-xl font-bold opacity-80';
-                            } else {
-                                // Small, Fainter
-                                label.className = baseClasses + 'text-lg opacity-60';
-                            }
+                        const label = document.createElement('div');
+                        
+                        // CHANGED: Dynamic Styling based on Event Type
+                        let baseClasses = 'absolute font-fell italic whitespace-nowrap select-none z-20 pointer-events-none text-[#2c1810] ';
+                        
+                        if (event.type === 'large') {
+                            // Big, Bold, Fully Opaque
+                            label.className = baseClasses + 'text-3xl font-bold opacity-100 drop-shadow-md';
+                        } else if (event.type === 'medium') {
+                            // Normal size, slightly distinct
+                            label.className = baseClasses + 'text-xl font-bold opacity-80';
+                        } else {
+                            // Small, Fainter
+                            label.className = baseClasses + 'text-lg opacity-60';
+                        }
 
-                            label.style.left = `${labelX}px`;
-                            label.style.top = `${labelY}px`;
-                            label.innerText = event.title;
-                            elements.eventsContainer.appendChild(label);
+                        label.style.left = `${labelX}px`;
+                        label.style.top = `${labelY}px`;
+                        label.innerText = event.title;
+                        elements.eventsContainer.appendChild(label);
                     }
                 });
             }
@@ -292,19 +314,28 @@ format:
 
                     // 1. The Horizontal Bar (Visual Duration)
                     const bannerBar = document.createElement('div');
-                    bannerBar.className = 'absolute top-0 h-[8px] bg-[#2c1810]/10 border-b border-[#2c1810]/20 z-0 pointer-events-none';
+                    // Red background/border with low opacity
+                    // Added 'flex' to manage the sticky child correctly
+                    bannerBar.className = 'absolute top-0 h-[8px] bg-[#8b0000]/20 border-b border-[#8b0000]/30 z-0 pointer-events-none flex';
                     bannerBar.style.left = `${startX}px`;
                     bannerBar.style.width = `${width}px`;
                     
-                    // 2. Small Labels on the Bar itself (Start/End context)
+                    // 2. The Sliding Label (CSS Sticky)
                     const labelDiv = document.createElement('div');
-                    labelDiv.className = 'absolute top-2 left-2 text-[10px] font-bold font-lato text-[#2c1810]/30 uppercase tracking-widest';
-                    labelDiv.innerText = `${event.title} (START)`;
+                    
+                    // EXPLANATION OF CLASSES:
+                    // 'sticky': Tells browser to stick this element to the view
+                    // 'left-0': Sticks it to the left edge of the camera
+                    // 'mt-3': Pushes it down below the 8px bar
+                    // 'pl-2': Adds a little padding so it doesn't touch the screen edge
+                    // 'text-[#2c1810]/50': Brown text (slightly more visible 50% opacity)
+                    labelDiv.className = 'sticky left-0 mt-3 pl-2 text-[10px] font-bold font-lato text-[#2c1810]/50 uppercase tracking-widest whitespace-nowrap self-start';
+                    labelDiv.innerText = `${event.title}`;
                     
                     bannerBar.appendChild(labelDiv);
                     elements.eventsContainer.appendChild(bannerBar);
 
-                    // Save pre-calculated positions for the loop
+                    // Save positions (still useful for other logic if needed)
                     event.bannerStart = startX;
                     event.bannerEnd = endX;
                 });
@@ -483,7 +514,7 @@ Timeline of the Second Amendment Development
             </div>
             
             <div id="state-list-container" class="flex flex-col overflow-y-auto">
-                </div>
+            </div>
         </div>
 
         <div id="timeline-viewport" class="flex-1 relative overflow-x-scroll overflow-y-hidden custom-scrollbar">
