@@ -17,8 +17,8 @@
     "description": "The First Charter of Union. The First Continental Congress creates a unified trade boycott against Britain, marking the first time the colonies acted as a single political entity.",
     "involved": ["All"],
     "location": "Pennsylvania",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Continental_Association_1774.jpg/640px-Continental_Association_1774.jpg",
-    "bgImage": "https://upload.wikimedia.org/wikipedia/commons/7/76/Continental_Association_1774.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/18/Articles_of_Association.jpg",
+    "bgImage": "https://teachingamericanhistory.org/content/uploads/2021/09/PrayerCongress.jpg",
     "tooltip": {}
   },
 
@@ -30,7 +30,7 @@
     "description": "The War for Independence. Colonial militias and the Continental Army fight to overthrow British rule, cementing the distrust of standing armies.",
     "involved": [],
     "image": null,
-    "bgImage": null
+    "bgImage": "https://res.cloudinary.com/aenetworks/image/upload/c_fill,ar_2,w_1920,h_960,g_auto/dpr_auto/f_auto/q_auto:eco/v1/washington-crosses-the-delaware?_a=BAVAZGID0"
   },
 
   {
@@ -40,8 +40,8 @@
     "description": "The Birth of the Nation. Congress unanimously adopts the Declaration, asserting the natural right of the people to alter or abolish destructive governments.",
     "involved": ["All"],
     "location": "Pennsylvania",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Declaration_independence.jpg/800px-Declaration_independence.jpg",
-    "bgImage": "https://upload.wikimedia.org/wikipedia/commons/1/15/Declaration_independence.jpg",
+    "image": "https://bennettink.com/wp-content/uploads/2020/11/33.png",
+    "bgImage": "https://www.usatoday.com/gcdn/media/2019/06/30/USATODAY/usatsports/declaration-of-independence.jpg",
     "tooltip": {}
   },
 
@@ -52,8 +52,8 @@
     "description": "The First Republic. Maryland finally ratifies the Articles, formally establishing a 'firm league of friendship' where states retained sovereignty and control over their militias.",
     "involved": ["All"],
     "location": "Pennsylvania",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Articles_of_Confederation_1777.jpg/800px-Articles_of_Confederation_1777.jpg",
-    "bgImage": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Articles_of_Confederation_1777.jpg",
+    "image": "https://connecticuthistory.org/wp-content/uploads/sites/6/2013/01/ArticlesConfederation.jpg",
+    "bgImage": "https://www.battlefields.org/sites/default/files/styles/wysiwyg_75/public/thumbnails/image/Declaration%20of%20Independence.jpg.webp",
     "tooltip": {}
   },
   {
@@ -138,6 +138,7 @@
     "image": null,
     "bgImage": null
   },
+
   {
     "title": "Ratifying the Bill of Rights",
     "date": "1791-12-15",

@@ -24,7 +24,7 @@ format:
             const CONFIG = {
                 START_DATE: new Date("1773-12-01"),
                 END_DATE: new Date("1792-12-31"),
-                TOTAL_WIDTH: 10000, // Pixels for the total timeline length
+                TOTAL_WIDTH: 20000, // Pixels for the total timeline length
                 TRIGGER_THRESHOLD: 50, // Pixels from center to trigger event
                 VERTICAL_OFFSET: 20,
             };
