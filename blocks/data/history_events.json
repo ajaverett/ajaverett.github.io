@@ -18,7 +18,7 @@
     "involved": ["All"],
     "location": "Pennsylvania",
     "image": "https://upload.wikimedia.org/wikipedia/commons/1/18/Articles_of_Association.jpg",
-    "bgImage": "https://teachingamericanhistory.org/content/uploads/2021/09/PrayerCongress.jpg",
+    "bgImage": "images/history/continental_association.png",
     "tooltip": {}
   },
 
@@ -30,7 +30,7 @@
     "description": "The War for Independence. Colonial militias and the Continental Army fight to overthrow British rule, cementing the distrust of standing armies.",
     "involved": [],
     "image": null,
-    "bgImage": "https://res.cloudinary.com/aenetworks/image/upload/c_fill,ar_2,w_1920,h_960,g_auto/dpr_auto/f_auto/q_auto:eco/v1/washington-crosses-the-delaware?_a=BAVAZGID0"
+    "bgImage": "images/history/revolutionary_war.png"
   },
 
   {
@@ -41,7 +41,7 @@
     "involved": ["All"],
     "location": "Pennsylvania",
     "image": "https://bennettink.com/wp-content/uploads/2020/11/33.png",
-    "bgImage": "https://www.usatoday.com/gcdn/media/2019/06/30/USATODAY/usatsports/declaration-of-independence.jpg",
+    "bgImage": "images/history/declaration_independence.png",
     "tooltip": {}
   },
 
@@ -53,7 +53,7 @@
     "involved": ["All"],
     "location": "Pennsylvania",
     "image": "https://connecticuthistory.org/wp-content/uploads/sites/6/2013/01/ArticlesConfederation.jpg",
-    "bgImage": "https://www.battlefields.org/sites/default/files/styles/wysiwyg_75/public/thumbnails/image/Declaration%20of%20Independence.jpg.webp",
+    "bgImage": "images/history/articles_confederation.png",
     "tooltip": {}
   },
   {
@@ -63,8 +63,8 @@
     "description": "Independence Recognized. Britain formally recognizes American sovereignty and cedes territory east of the Mississippi. The war officially ends.",
     "involved": ["All"],
     "location": "Europe",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Treaty_of_Paris_by_Benjamin_West_1783.jpg/800px-Treaty_of_Paris_by_Benjamin_West_1783.jpg",
-    "bgImage": "https://upload.wikimedia.org/wikipedia/commons/2/23/Treaty_of_Paris_by_Benjamin_West_1783.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/25/Treaty_of_Paris_%281783%29.jpg",
+    "bgImage": "images/history/treaty_paris.png",
     "tooltip": {}
   },  
   {
@@ -78,14 +78,14 @@
     "bgImage": null
   },
   {
-    "title": "The Convention",
+    "title": "The Constitutional Convention",
     "date": "1787-05-25",
     "endDate": "1787-09-17",
     "type": "banner",
     "description": "The Grand Experiment. Delegates meet in secret to forge a new government.",
     "involved": [],
     "image": null,
-    "bgImage": null
+    "bgImage": "https://res.cloudinary.com/aenetworks/image/upload/c_fill,ar_2,w_1920,h_960,g_auto/dpr_auto/f_auto/q_auto:eco/v1/george-washington-presiding-over-the?_a=BAVAZGID0"
   },
   {
     "title": "Signing of the Constitution",
@@ -94,8 +94,8 @@
     "description": "The Convention concludes. 39 delegates sign the Constitution. The document is forwarded to the Confederation Congress.",
     "involved": ["All"],
     "location": "Pennsylvania",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Scene_at_the_Signing_of_the_Constitution_of_the_United_States.jpg/800px-Scene_at_the_Signing_of_the_Constitution_of_the_United_States.jpg",
-    "bgImage": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Scene_at_the_Signing_of_the_Constitution_of_the_United_States.jpg",
+    "image": "https://www.archives.gov/files/founding-docs/constitution_1_of_4_630.jpg",
+    "bgImage": "images/history/constitution_usa.png",
     "tooltip": {}
   },
   {

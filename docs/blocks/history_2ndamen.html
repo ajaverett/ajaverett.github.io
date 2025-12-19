@@ -175,7 +175,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         START_DATE: new Date("1773-12-01"),
         END_DATE: new Date("1792-12-31"),
         TOTAL_WIDTH: 20000, // Pixels for the total timeline length
-        TRIGGER_THRESHOLD: 50, // Pixels from center to trigger event
+        TRIGGER_THRESHOLD: 100, // Pixels from center to trigger event
         VERTICAL_OFFSET: 20,
     };
 
@@ -596,7 +596,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         elements.cardDate.innerText = formatFriendlyDate(event.date);
         elements.cardDesc.innerText = event.description;
 
-        // CHANGED: Logic to show image if it exists, regardless of 'type'
         if (event.image) {
             elements.cardImg.src = event.image;
             elements.cardImgContainer.classList.remove('hidden');
@@ -606,34 +605,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
         elements.infoCard.classList.remove('translate-y-[120%]');
 
-        // ... (Keep the rest of the function: "Matrix Lines", "Cinematic BG", "Hybrid Check" etc.)
-        // ...
-        // 2. Handle "Matrix" Lines
+        // 2. NEW: Handle Cinematic Background (Universal Check)
+        // This now works for 'banner', 'large', or ANY event with a bgImage
+        if (event.bgImage) {
+            elements.cinematicBg.style.backgroundImage = `url('${event.bgImage}')`;
+            elements.cinematicBg.classList.remove('opacity-0');
+
+            // Apply "Focus Mode" styles
+            elements.sidebar.classList.add('opacity-50');
+            elements.gridLines.classList.add('blur-mode');
+        } else {
+            // Ensure bg is hidden if the new event doesn't have one
+            elements.cinematicBg.classList.add('opacity-0');
+            elements.sidebar.classList.remove('opacity-50');
+            elements.gridLines.classList.remove('blur-mode');
+        }
+
+        // 3. Handle Grid/Sidebar Highlighting (Matrix Lines)
         document.querySelectorAll('.state-row, .timeline-row-line').forEach(el => el.classList.remove('active'));
 
+        // Handle "All" vs Specific States
         if (event.involved.includes("All")) {
-            // ... (Keep existing Union Logic)
-            if (event.type === 'large' && event.bgImage) {
-                elements.cinematicBg.style.backgroundImage = `url('${event.bgImage}')`;
-                elements.cinematicBg.classList.remove('opacity-0');
-                elements.sidebar.classList.add('opacity-50');
-                elements.gridLines.classList.add('blur-mode');
-            }
             if (event.location) {
-                const sidebarRow = document.querySelector(`.state-row[data-state="${event.location}"]`);
-                if (sidebarRow) sidebarRow.classList.add('active');
-                const gridRow = document.querySelector(`.timeline-row-line[data-state-row="${event.location}"]`);
-                if (gridRow) gridRow.classList.add('active');
+                highlightState(event.location);
             }
         } else {
-            // ... (Keep existing State Logic)
-            event.involved.forEach(stateName => {
-                const sidebarRow = document.querySelector(`.state-row[data-state="${stateName}"]`);
-                if (sidebarRow) sidebarRow.classList.add('active');
-                const gridRow = document.querySelector(`.timeline-row-line[data-state-row="${stateName}"]`);
-                if (gridRow) gridRow.classList.add('active');
-            });
+            event.involved.forEach(stateName => highlightState(stateName));
         }
+    }
+
+    // Helper to keep code clean
+    function highlightState(stateName) {
+        const sidebarRow = document.querySelector(`.state-row[data-state="${stateName}"]`);
+        if (sidebarRow) sidebarRow.classList.add('active');
+
+        const gridRow = document.querySelector(`.timeline-row-line[data-state-row="${stateName}"]`);
+        if (gridRow) gridRow.classList.add('active');
     }
 
     function deactivateEvent() {
