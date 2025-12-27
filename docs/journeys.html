@@ -79,7 +79,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="column-screen">
 
-<div class="bg-slate-950 text-slate-200 font-sans selection:bg-cyan-500 selection:text-white overflow-hidden h-screen flex flex-col">
+<div class="bg-slate-950 text-slate-200 font-sans selection:bg-cyan-500 selection:text-white overflow-hidden h-[100dvh] flex flex-col">
 
     <button id="menu-toggle" class="fixed top-6 right-6 z-50 group w-12 h-12 rounded-full bg-white/5 border border-white/10 backdrop-blur-md flex flex-col justify-center items-center gap-1.5 transition-all hover:bg-white/10 hover:scale-105 focus:outline-none">
         <span id="line-1" class="w-6 h-0.5 bg-cyan-400 rounded-full transition-all duration-300 origin-center"></span>
@@ -134,14 +134,10 @@ ul.task-list li input[type="checkbox"] {
         </div>
     </div>
 
-    <div class="flex-grow bg-slate-900/50 backdrop-blur-sm relative z-10 flex flex-col justify-center">
-        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent"></div>
-        
-        <div class="px-6 py-2">
-            <h2 class="font-mono text-xs text-slate-500 uppercase tracking-widest mb-4 anchored">Travel Log</h2>
-        </div>
-
-        <div class="flex-grow overflow-x-auto hide-scroll px-6 pb-6 flex items-center gap-6" id="timeline-container">
+    <div class="flex-grow bg-slate-900/50 backdrop-blur-sm relative z-10 flex flex-col justify-center pt-4">
+            <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent"></div>
+            
+            <div class="flex-grow overflow-x-auto hide-scroll px-6 pb-6 flex items-center gap-6" id="timeline-container">
             </div>
     </div>
 
@@ -582,10 +578,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         renderTimeline();
     }
 
-    // --- 2. MAP SETUP ---
+    // --- 2. MAP SETUP (Mobile Zoom Fix + Resize Fix) ---
     function setupMap() {
         if (map) map.remove();
-        map = L.map('map', { zoomControl: false }).setView([20, 0], 2);
+
+        // 1. Check if we are on mobile (width < 768px)
+        const isMobile = window.innerWidth < 768;
+
+        // 2. Set default zoom: 1.5 for Mobile (Zoomed out), 2.0 for Desktop
+        const startZoom = isMobile ? 0.75 : 2;
+
+        map = L.map('map', {
+            zoomControl: false,
+            zoomSnap: 0.5 // ALLOWS FRACTIONAL ZOOM (Critical for 1.5)
+        }).setView([20, 0], startZoom);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             className: 'map-tiles',
@@ -611,63 +617,68 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
                 if(card) card.scrollIntoView({ behavior: 'smooth', inline: 'center' });
             });
         });
+
+        // --- RESIZE / ROTATION LISTENER ---
+        window.addEventListener('resize', () => {
+            setTimeout(() => {
+                map.invalidateSize();
+
+                // Optional: Re-center map on resize if user hasn't clicked anything
+                // const newIsMobile = window.innerWidth < 768;
+                // map.setZoom(newIsMobile ? 1.5 : 2);
+
+            }, 200);
+        });
     }
 
-    // --- 3. TIMELINE GENERATION (Solid Overlap Fix) ---
-        function renderTimeline() {
-            const timelineContainer = document.getElementById('timeline-container');
-            timelineContainer.innerHTML = '';
+    // --- 3. TIMELINE GENERATION ---
+    function renderTimeline() {
+        const timelineContainer = document.getElementById('timeline-container');
+        timelineContainer.innerHTML = '';
 
-            [...trips].reverse().forEach(trip => {
-                const card = document.createElement('div');
-                card.id = `card-${trip.id}`;
-                // Base card background
-                card.className = "flex-shrink-0 w-80 h-64 bg-slate-900 border border-white/5 hover:border-cyan-500/50 rounded-2xl overflow-hidden cursor-pointer group transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] flex flex-col relative";
+        [...trips].reverse().forEach(trip => {
+            const card = document.createElement('div');
+            card.id = `card-${trip.id}`;
+            card.className = "flex-shrink-0 w-80 h-64 bg-slate-900 border border-white/5 hover:border-cyan-500/50 rounded-2xl overflow-hidden cursor-pointer group transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] flex flex-col relative";
 
-                card.onclick = () => {
-                    openModal(trip);
-                    map.flyTo(trip.coords, 6, { duration: 1.5 });
-                };
+            card.onclick = () => {
+                openModal(trip);
 
-                // Preload on hover
-                card.addEventListener('mouseenter', () => {
-                    const preloadLink = document.createElement('link');
-                    preloadLink.rel = 'preload';
-                    preloadLink.as = 'image';
-                    preloadLink.href = `images/trips/${trip.folder}/1.jpg`;
-                    document.head.appendChild(preloadLink);
-                }, { once: true });
+                // --- ZOOM UPDATE HERE ---
+                // Changed zoom level from 6 to 12
+                map.flyTo(trip.coords, 12, { duration: 2.0 });
+            };
 
-                // --- THE FIX ---
-                // 1. Text Container (Bottom Div):
-                //    - changed 'bg-slate-900/0' to 'bg-slate-900' (SOLID COLOR).
-                //    - increased overlap to '-mt-2' (8px overlap).
-                //    - added 'pt-4' to push text down so it doesn't look squished.
-                //    - added 'relative z-10' to ensure it sits ON TOP of the image.
-                card.innerHTML = `
-                    <div class="h-40 overflow-hidden relative z-0">
-                        <img src="${trip.img}"
-                            loading="lazy"
-                            decoding="async"
-                            class="block w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100 transform-gpu"
-                            onerror="this.src='https://placehold.co/600x400/1e293b/475569?text=No+Image'">
+            // Preload logic
+            card.addEventListener('mouseenter', () => {
+                const preloadLink = document.createElement('link');
+                preloadLink.rel = 'preload';
+                preloadLink.as = 'image';
+                preloadLink.href = `images/trips/${trip.folder}/1.jpg`;
+                document.head.appendChild(preloadLink);
+            }, { once: true });
 
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
-
-                        <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur text-cyan-400 text-[10px] font-mono px-2 py-1 rounded border border-cyan-900/30">
-                            ID: ${trip.id.toString().padStart(2, '0')}
-                        </div>
+            card.innerHTML = `
+                <div class="h-40 overflow-hidden relative z-0">
+                    <img src="${trip.img}"
+                        loading="lazy"
+                        decoding="async"
+                        class="block w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100 transform-gpu"
+                        onerror="this.src='https://placehold.co/600x400/1e293b/475569?text=No+Image'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                    <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur text-cyan-400 text-[10px] font-mono px-2 py-1 rounded border border-cyan-900/30">
+                        ID: ${trip.id.toString().padStart(2, '0')}
                     </div>
+                </div>
 
-                    <div class="p-5 pt-4 flex-grow flex flex-col justify-end relative z-10 -mt-2 bg-slate-900">
-                        <p class="text-cyan-500 font-mono text-[10px] mb-1 tracking-[0.2em] uppercase">${trip.date}</p>
-                        <h3 class="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">${trip.title}</h3>
-                    </div>
-                `;
-                timelineContainer.appendChild(card);
-            });
-        }
-
+                <div class="p-5 pt-4 flex-grow flex flex-col justify-end relative z-10 -mt-2 bg-slate-900">
+                    <p class="text-cyan-500 font-mono text-[10px] mb-1 tracking-[0.2em] uppercase">${trip.date}</p>
+                    <h3 class="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">${trip.title}</h3>
+                </div>
+            `;
+            timelineContainer.appendChild(card);
+        });
+    }
     // --- 4. MODAL LOGIC ---
     const modal = document.getElementById('trip-modal');
     const modalContent = document.getElementById('modal-content');
