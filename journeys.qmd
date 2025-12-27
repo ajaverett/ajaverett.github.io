@@ -139,14 +139,6 @@ format:
                     folder: "2024_03_coron"
                 },
                 { 
-                    title: "Batangas, Philippines", 
-                    date: "MAR 2024", 
-                    coords: [13.7565, 121.0583], 
-                    img: "images/trips/2024_03_batangas/cover.jpg", 
-                    desc: "Met the other side of Audrey's family",
-                    folder: "2024_03_batangas"
-                },
-                { 
                     title: "Binangonan, Philippines", 
                     date: "MAR 2024", 
                     coords: [14.4842, 121.2163], 
@@ -323,12 +315,12 @@ format:
                     folder: "2025_06_manassas"
                 },
                 { 
-                    title: "Newport News, Virginia", 
-                    date: "NOV 2024", 
-                    coords: [37.0871, -76.4730], 
-                    img: "images/trips/2025_05_newport_news/cover.jpg", 
+                    title: "Peoria, illinois", 
+                    date: "JUL 2025", 
+                    "coords": [40.6936, -89.5890], 
+                    img: "images/trips/2025_06_peoria/cover.jpg", 
                     desc: "Spent a couple days in Quezon City",
-                    folder: "2025_05_newport_news"
+                    folder: "2025_06_peoria"
                 },
                 { 
                     title: "Park City, Utah", 
@@ -365,48 +357,31 @@ format:
 
             ];
 
-            // --- 1. INITIALIZATION (FETCH + FALLBACK + AUTO-ID) ---
+        // --- 1. INITIALIZATION ---
             async function init() {
                 let rawData = [];
-
                 try {
-                    // Attempt to fetch the JSON file
                     const response = await fetch('data/trips.json');
-                    
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    
-                    // Success: Parse the JSON
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                     rawData = await response.json();
-                    console.log("External data loaded successfully.");
-
                 } catch (error) {
-                    console.warn('Error loading data/trips.json. Switching to fallback data.', error);
-                    
-                    // FAILSAFE: Use the hardcoded fallback list
+                    console.warn('Error loading data/trips.json. Using fallback.', error);
                     rawData = fallbackData;
                 }
 
-                // --- AUTO-GENERATE IDs ---
-                // We run this on rawData (whether it came from JSON or Fallback)
-                trips = rawData.map((trip, index) => {
-                    return {
-                        ...trip,
-                        id: index + 1 // ID is based on order (1, 2, 3...)
-                    };
-                });
-                
-                console.log("Final data ready:", trips.length, "trips.");
+                // Auto-assign IDs based on order
+                trips = rawData.map((trip, index) => ({
+                    ...trip,
+                    id: index + 1
+                }));
 
-                // Build the page
                 setupMap();
                 renderTimeline();
             }
 
             // --- 2. MAP SETUP ---
             function setupMap() {
-                if (map) map.remove(); // Reset map if it already exists
+                if (map) map.remove();
                 map = L.map('map', { zoomControl: false }).setView([20, 0], 2);
                 
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -426,11 +401,7 @@ format:
 
                 trips.forEach(trip => {
                     const marker = L.marker(trip.coords, {icon: customIcon}).addTo(map);
-                    marker.bindTooltip(trip.title, { 
-                        permanent: false, 
-                        direction: 'top', 
-                        className: 'bg-slate-900 text-cyan-400 border border-cyan-900 font-mono text-xs px-2 py-1 rounded shadow-xl' 
-                    });
+                    marker.bindTooltip(trip.title, { permanent: false, direction: 'top', className: 'bg-slate-900 text-cyan-400 border border-cyan-900 font-mono text-xs px-2 py-1 rounded shadow-xl' });
                     marker.on('click', () => {
                         openModal(trip);
                         const card = document.getElementById(`card-${trip.id}`);
@@ -439,40 +410,62 @@ format:
                 });
             }
 
-            // --- 3. TIMELINE GENERATION (REVERSED) ---
-            function renderTimeline() {
-                const timelineContainer = document.getElementById('timeline-container');
-                timelineContainer.innerHTML = ''; 
+            // --- 3. TIMELINE GENERATION (Solid Overlap Fix) ---
+                function renderTimeline() {
+                    const timelineContainer = document.getElementById('timeline-container');
+                    timelineContainer.innerHTML = ''; 
 
-                // Reverse copy so the LAST item in data (Newest) shows FIRST
-                [...trips].reverse().forEach(trip => {
-                    const card = document.createElement('div');
-                    card.id = `card-${trip.id}`;
-                    card.className = "flex-shrink-0 w-80 h-64 bg-slate-900/40 border border-white/5 hover:border-cyan-500/50 rounded-2xl overflow-hidden cursor-pointer group transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] flex flex-col relative";
-                    
-                    card.onclick = () => {
-                        openModal(trip);
-                        map.flyTo(trip.coords, 6, { duration: 1.5 });
-                    };
-                    
-                    card.innerHTML = `
-                        <div class="h-40 overflow-hidden relative">
-                            <img src="${trip.img}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100" onerror="this.src='https://placehold.co/600x400/1e293b/475569?text=No+Image'">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
-                            <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur text-cyan-400 text-[10px] font-mono px-2 py-1 rounded border border-cyan-900/30">
-                                ID: ${trip.id.toString().padStart(2, '0')}
+                    [...trips].reverse().forEach(trip => {
+                        const card = document.createElement('div');
+                        card.id = `card-${trip.id}`;
+                        // Base card background
+                        card.className = "flex-shrink-0 w-80 h-64 bg-slate-900 border border-white/5 hover:border-cyan-500/50 rounded-2xl overflow-hidden cursor-pointer group transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] flex flex-col relative";
+                        
+                        card.onclick = () => {
+                            openModal(trip);
+                            map.flyTo(trip.coords, 6, { duration: 1.5 });
+                        };
+
+                        // Preload on hover
+                        card.addEventListener('mouseenter', () => {
+                            const preloadLink = document.createElement('link');
+                            preloadLink.rel = 'preload';
+                            preloadLink.as = 'image';
+                            preloadLink.href = `images/trips/${trip.folder}/1.jpg`;
+                            document.head.appendChild(preloadLink);
+                        }, { once: true });
+
+                        // --- THE FIX ---
+                        // 1. Text Container (Bottom Div):
+                        //    - changed 'bg-slate-900/0' to 'bg-slate-900' (SOLID COLOR).
+                        //    - increased overlap to '-mt-2' (8px overlap).
+                        //    - added 'pt-4' to push text down so it doesn't look squished.
+                        //    - added 'relative z-10' to ensure it sits ON TOP of the image.
+                        card.innerHTML = `
+                            <div class="h-40 overflow-hidden relative z-0">
+                                <img src="${trip.img}" 
+                                    loading="lazy" 
+                                    decoding="async"
+                                    class="block w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100 transform-gpu" 
+                                    onerror="this.src='https://placehold.co/600x400/1e293b/475569?text=No+Image'">
+                                
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                                
+                                <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur text-cyan-400 text-[10px] font-mono px-2 py-1 rounded border border-cyan-900/30">
+                                    ID: ${trip.id.toString().padStart(2, '0')}
+                                </div>
                             </div>
-                        </div>
-                        <div class="p-5 flex-grow flex flex-col justify-end">
-                            <p class="text-cyan-500 font-mono text-[10px] mb-1 tracking-[0.2em] uppercase">${trip.date}</p>
-                            <h3 class="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">${trip.title}</h3>
-                        </div>
-                    `;
-                    timelineContainer.appendChild(card);
-                });
-            }
+                            
+                            <div class="p-5 pt-4 flex-grow flex flex-col justify-end relative z-10 -mt-2 bg-slate-900">
+                                <p class="text-cyan-500 font-mono text-[10px] mb-1 tracking-[0.2em] uppercase">${trip.date}</p>
+                                <h3 class="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">${trip.title}</h3>
+                            </div>
+                        `;
+                        timelineContainer.appendChild(card);
+                    });
+                }
 
-            // --- 4. MODAL LOGIC (DAISY CHAIN) ---
+            // --- 4. MODAL LOGIC ---
             const modal = document.getElementById('trip-modal');
             const modalContent = document.getElementById('modal-content');
 
@@ -485,7 +478,8 @@ format:
                 const gallery = document.getElementById('modal-gallery');
                 gallery.innerHTML = ''; 
 
-                loadNextImage(trip, 1);
+                // Start loading images (Batch 1: Images 1, 2, 3)
+                loadImagesInBatch(trip, 1);
                 
                 modal.classList.remove('hidden');
                 modal.classList.add('flex');
@@ -501,47 +495,74 @@ format:
                     modal.classList.remove('flex');
                 }, 300);
             }
-
+            
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) closeModal();
             });
 
-            // --- 5. RECURSIVE IMAGE LOADER ---
-            function loadNextImage(trip, index) {
+            // --- 5. PARALLEL BATCH IMAGE LOADER (Optimized) ---
+            // Loads 3 images at a time. If all 3 fail, we assume gallery is done.
+            function loadImagesInBatch(trip, startIndex) {
                 const gallery = document.getElementById('modal-gallery');
-                const extensions = ['jpg', 'png', 'JPG', 'jpeg', 'webp'];
+                const BATCH_SIZE = 3; 
                 
-                tryLoadExtension(0);
+                let completedInBatch = 0; // Count requests finished (success or fail)
+                let foundInBatch = 0;     // Count successful images found
 
-                function tryLoadExtension(extIndex) {
-                    if (extIndex >= extensions.length) return; 
-
-                    const currentExt = extensions[extIndex];
-                    // If using fallback data, this path might not exist, which is fine (it just won't show photos)
-                    const imgPath = `images/trips/${trip.folder}/${index}.${currentExt}`;
+                for (let i = 0; i < BATCH_SIZE; i++) {
+                    const currentIndex = startIndex + i;
+                    const imgPath = `images/trips/${trip.folder}/${currentIndex}.jpg`;
 
                     const tempImg = new Image();
                     
+                    // SUCCESS HANDLER
                     tempImg.onload = function() {
                         const imgDiv = document.createElement('div');
                         imgDiv.className = "aspect-square rounded-xl overflow-hidden bg-slate-800 relative group cursor-pointer animate-fade-in-up";
+                        
+                        // Optimized Image Attributes
                         imgDiv.innerHTML = `
                             <img src="${imgPath}" 
+                                loading="lazy"
+                                decoding="async"
                                 class="w-full h-full object-cover transition duration-500 hover:scale-110 opacity-75 hover:opacity-100"
-                                alt="${trip.title} photo ${index}">
+                                alt="${trip.title} photo ${currentIndex}">
                         `;
+                        
+                        // Add to gallery (Simple append is fastest)
                         gallery.appendChild(imgDiv);
-                        loadNextImage(trip, index + 1);
+                        
+                        foundInBatch++;
+                        checkBatchCompletion();
                     };
 
+                    // ERROR HANDLER (File doesn't exist)
                     tempImg.onerror = function() {
-                        tryLoadExtension(extIndex + 1);
+                        checkBatchCompletion();
                     };
+
+                    // Trigger Fetch
                     tempImg.src = imgPath;
+                }
+
+                // Called every time an image request finishes
+                function checkBatchCompletion() {
+                    completedInBatch++;
+                    
+                    // When the entire batch of 3 has responded...
+                    if (completedInBatch === BATCH_SIZE) {
+                        // If we found at least 1 photo, try to load the NEXT batch
+                        if (foundInBatch > 0) {
+                            loadImagesInBatch(trip, startIndex + BATCH_SIZE);
+                        } else {
+                            // All 3 failed? We reached the end of the folder.
+                            console.log(`Gallery loaded for ${trip.title}.`);
+                        }
+                    }
                 }
             }
 
-            // --- 6. MENU TOGGLE LOGIC ---
+            // --- 6. MENU TOGGLE ---
             const btn = document.getElementById('menu-toggle');
             const overlay = document.getElementById('menu-overlay');
             const line1 = document.getElementById('line-1');
@@ -566,7 +587,7 @@ format:
                 }
             });
 
-            // --- 7. START APP ---
+            // Start App
             init();
 
         </script>
