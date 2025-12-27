@@ -22,5 +22,11 @@
   },
   "about.qmd": {
     "about.html": "9349dc4f"
+  },
+  "blocks.qmd": {
+    "blocks.html": "c7479f3b"
+  },
+  "posts.qmd": {
+    "posts.html": "7b8716c0"
   }
 }
