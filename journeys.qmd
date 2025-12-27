@@ -53,50 +53,360 @@ format:
         <script>
             // Global variable to hold data
             let trips = [];
-            
-            // Global Map Variable
             let map;
 
-            // --- 1. INITIALIZATION (FETCH & AUTO-ID) ---
+            // --- 0. FALLBACK DATA ---
+            // This is used if data/trips.json cannot be found
+            const fallbackData = [
+                { 
+                    title: "Rexburg, Idaho", 
+                    date: "SEP 2023", 
+                    coords: [43.81455094723061, -111.78427081920796], 
+                    img: "images/trips/2023_09_rexburg/cover.jpg", 
+                    desc: "Met my wife where we graduated in Rexburg, Idaho, United States.",
+                    folder: "2023_09_rexburg"
+                },
+                { 
+                    title: "San Antonio, Texas", 
+                    date: "SEP 2023", 
+                    coords: [29.4260, -98.4861],
+                    img: "images/trips/2023_09_san_antonio/cover.jpg", 
+                    desc: "Introduced Audrey to my family in San Antonio.",
+                    folder: "2023_09_san_antonio"
+                },
+                { 
+                    title: "Little Rock, Arkansas", 
+                    date: "NOV 2023", 
+                    coords: [34.7465, -92.2896], 
+                    img: "images/trips/2023_11_little_rock/cover.jpg", 
+                    desc: "Traveled to Arkansas for an interview and spent the day in Little Rock",
+                    folder: "2023_11_little_rock"
+                },
+                { 
+                    title: "El Dorado, Arkansas", 
+                    date: "NOV 2023", 
+                    coords: [33.2111, -92.6663], 
+                    img: "images/trips/2023_11_el_dorado/cover.jpg", 
+                    desc: "Rejected at my interview with MurphyUSA in El Dorado",
+                    folder: "2023_11_el_dorado"
+                },
+                { 
+                    title: "Thanksgiving Point, Utah", 
+                    date: "NOV 2023", 
+                    coords: [40.4313, -111.9026], 
+                    img: "images/trips/2023_11_thanksgiving_point/cover.jpg", 
+                    desc: "Rejected at my interview with MurphyUSA in El Dorado",
+                    folder: "2023_11_thanksgiving_point"
+                },
+                { 
+                    title: "Salt Lake City, Utah", 
+                    date: "DEC 2023", 
+                    coords: [40.7681, -111.8911], 
+                    img: "images/trips/2023_12_salt_lake_city/cover.jpg", 
+                    desc: "Spent the day at City Creek Mall. Have gone back for several dates.",
+                    folder: "2023_12_salt_lake_city"
+                },
+                { 
+                    title: "Changi, Singapore", 
+                    date: "FEB 2024", 
+                    coords: [1.3602, 103.9898], 
+                    img: "images/trips/2024_02_changi/cover.jpg", 
+                    desc: "Landed in the Jewel Changi Airport as a layover for our Asia trip",
+                    folder: "2024_02_changi"
+                },
+                { 
+                    title: "Davao City, Philippines", 
+                    date: "FEB 2024", 
+                    coords: [7.1907, 125.4553], 
+                    img: "images/trips/2024_03_davao_city/cover.jpg", 
+                    desc: "First stop in the Philippines to meet some of Audrey's family",
+                    folder: "2024_03_davao_city"
+                },
+                { 
+                    title: "Island Garden City of Samal, Philippines", 
+                    date: "MAR 2024", 
+                    coords: [7.0427, 125.7115], 
+                    img: "images/trips/2024_03_garden_city_samal/cover.jpg", 
+                    desc: "Spent a couple days on Samal Island",
+                    folder: "2024_03_garden_city_samal"
+                },
+                { 
+                    title: "Coron, Philippines", 
+                    date: "MAR 2024", 
+                    coords: [11.9994, 120.2241], 
+                    img: "images/trips/2024_03_coron/cover.jpg", 
+                    desc: "Island hopping on the prettiest beach in the world",
+                    folder: "2024_03_coron"
+                },
+                { 
+                    title: "Batangas, Philippines", 
+                    date: "MAR 2024", 
+                    coords: [13.7565, 121.0583], 
+                    img: "images/trips/2024_03_batangas/cover.jpg", 
+                    desc: "Met the other side of Audrey's family",
+                    folder: "2024_03_batangas"
+                },
+                { 
+                    title: "Binangonan, Philippines", 
+                    date: "MAR 2024", 
+                    coords: [14.4842, 121.2163], 
+                    img: "images/trips/2024_03_binangonan/cover.jpg", 
+                    desc: "Second place to stay in the Philippines",
+                    folder: "2024_03_binangonan"
+                },
+                { 
+                    title: "Batangas, Philippines", 
+                    date: "MAR 2024", 
+                    coords: [13.7565, 121.0583], 
+                    img: "images/trips/2024_03_batangas/cover.jpg", 
+                    desc: "Met the other side of Audrey's family",
+                    folder: "2024_03_batangas"
+                },
+                { 
+                    title: "Manila, Philippines", 
+                    date: "APR 2024", 
+                    coords: [14.5995, 120.9842], 
+                    img: "images/trips/2024_04_manila/cover.jpg", 
+                    desc: "Traveled to the Capital with Audrey's friends and family",
+                    folder: "2024_04_manila"
+                },
+                { 
+                    title: "Tokyo, Japan", 
+                    date: "APR 2024", 
+                    coords: [35.6619, 139.7037], 
+                    img: "images/trips/2024_04_tokyo/cover.jpg", 
+                    desc: "Traveled to the Capital with Audrey's friends and family",
+                    folder: "2024_04_tokyo"
+                },
+                { 
+                    title: "Virginia Beach, Virginia", 
+                    date: "JUN 2024", 
+                    coords: [36.8529, -75.9780], 
+                    img: "images/trips/2024_06_virginia_beach/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2024_06_virginia_beach"
+                },
+                { 
+                    title: "Alpine, Utah", 
+                    date: "JUL 2024", 
+                    coords: [40.4533, -111.7774], 
+                    img: "images/trips/2024_07_alpine/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2024_07_alpine"
+                },
+                { 
+                    title: "Burlington, Vermont", 
+                    date: "AUG 2024", 
+                    coords: [44.4759, -73.2121], 
+                    img: "images/trips/2024_08_burlington/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2024_08_burlington"
+                },
+                { 
+                    title: "Doswell, Virginia", 
+                    date: "APR 2024", 
+                    coords: [37.8400, -77.4450], 
+                    img: "images/trips/2024_09_doswell/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2024_09_doswell"
+                },
+                { 
+                    title: "New York City, New York", 
+                    date: "SEP 2024", 
+                    coords: [40.7128, -74.0060], 
+                    img: "images/trips/2024_09_new_york_city/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2024_09_new_york_city"
+                },
+                { 
+                    title: "Harpers Ferry, West Virginia", 
+                    date: "NOV 2024", 
+                    coords: [39.3253, -77.7436], 
+                    img: "images/trips/2024_11_harpers_ferry/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2024_11_harpers_ferry"
+                },
+                { 
+                    title: "Montréal, Quebec", 
+                    date: "NOV 2024", 
+                    coords: [45.5019, -73.5674], 
+                    img: "images/trips/2024_11_montreal/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2024_11_montreal"
+                },
+                { 
+                    title: "Fredericksburg, Texas", 
+                    date: "DEC 2024", 
+                    coords: [30.2752, -98.8720], 
+                    img: "images/trips/2024_12_fredericksburg/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2024_12_fredericksburg"
+                },
+                { 
+                    title: "Joshua Tree, California", 
+                    date: "JAN 2025", 
+                    coords: [33.8734, -115.9010], 
+                    img: "images/trips/2025_01_joshua_tree/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2025_01_joshua_tree"
+                },
+                { 
+                    title: "Hollywood, California", 
+                    date: "JAN 2025", 
+                    coords: [34.1381, -118.3534], 
+                    img: "images/trips/2025_01_hollywood/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2025_01_hollywood"
+                },
+                { 
+                    title: "Oahu, Hawaii", 
+                    date: "JAN 2025", 
+                    coords: [21.4389, -158.0001], 
+                    img: "images/trips/2025_01_oahu/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2025_01_oahu"
+                },
+                { 
+                    title: "Aguascalientes, Aguascalientes", 
+                    date: "FEB 2025", 
+                    coords: [21.8823, -102.2826], 
+                    img: "images/trips/2025_02_aguascalientes/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2025_02_aguascalientes"
+                },
+                { 
+                    title: "Washington, District of Columbia", 
+                    date: "MAR 2025", 
+                    coords: [38.8899, -77.0091], 
+                    img: "images/trips/2025_03_district_of_columbia/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2025_03_district_of_columbia"
+                },
+                { 
+                    title: "San Diego, California", 
+                    date: "APR 2025", 
+                    coords: [32.7157, -117.1611], 
+                    img: "images/trips/2025_04_san_diego/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2025_04_san_diego"
+                },
+                { 
+                    title: "Newport News, Virginia", 
+                    date: "MAY 2025", 
+                    coords: [37.0871, -76.4730], 
+                    img: "images/trips/2025_05_newport_news/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2025_05_newport_news"
+                },
+                { 
+                    title: "Norfolk, Virginia", 
+                    date: "MAY 2025", 
+                    coords: [36.8508, -76.2859], 
+                    img: "images/trips/2025_05_norfolk/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2025_05_norfolk"
+                },
+                { 
+                    title: "Richmond, Virginia", 
+                    date: "MAY 2025", 
+                    coords: [37.5407, -77.4360], 
+                    img: "images/trips/2025_05_richmond/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2025_05_richmond"
+                },
+                { 
+                    title: "Manassas, Virginia", 
+                    date: "JUN 2025", 
+                    coords: [38.7509, -77.4753], 
+                    img: "images/trips/2025_06_manassas/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2025_06_manassas"
+                },
+                { 
+                    title: "Newport News, Virginia", 
+                    date: "NOV 2024", 
+                    coords: [37.0871, -76.4730], 
+                    img: "images/trips/2025_05_newport_news/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2025_05_newport_news"
+                },
+                { 
+                    title: "Park City, Utah", 
+                    date: "JUL 2025", 
+                    coords: [40.6461, -111.4980], 
+                    img: "images/trips/2025_07_park_city/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2025_07_park_city"
+                },
+                { 
+                    title: "Spanish Fork, Utah", 
+                    date: "SEP 2025", 
+                    coords: [40.1150, -111.6549], 
+                    img: "images/trips/2025_09_spanish_fork/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2025_09_spanish_fork"
+                },
+                { 
+                    title: "Orem, Utah", 
+                    date: "OCT 2025", 
+                    coords: [40.2969, -111.6946], 
+                    img: "images/trips/2025_10_orem/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2025_10_orem"
+                },
+                { 
+                    title: "Las Vegas, Nevada", 
+                    date: "OCT 2025", 
+                    coords: [36.1716, -115.1391], 
+                    img: "images/trips/2025_12_las_vegas/cover.jpg", 
+                    desc: "Spent a couple days in Quezon City",
+                    folder: "2025_12_las_vegas"
+                }
+
+            ];
+
+            // --- 1. INITIALIZATION (FETCH + FALLBACK + AUTO-ID) ---
             async function init() {
+                let rawData = [];
+
                 try {
-                    // Fetch the JSON file
+                    // Attempt to fetch the JSON file
                     const response = await fetch('data/trips.json');
                     
                     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
                     }
                     
-                    // Assign data to global variable
-                    let rawData = await response.json();
-                    
-                    // --- AUTO-GENERATE IDs ---
-                    // This assigns ID 1 to the first item in the JSON, ID 2 to the second, etc.
-                    trips = rawData.map((trip, index) => {
-                        return {
-                            ...trip,
-                            id: index + 1 // ID is now based on file order (1-based)
-                        };
-                    });
-                    
-                    console.log("Data loaded:", trips.length, "trips found.");
-
-                    // Once data is ready, build the page
-                    setupMap();
-                    renderTimeline();
+                    // Success: Parse the JSON
+                    rawData = await response.json();
+                    console.log("External data loaded successfully.");
 
                 } catch (error) {
-                    console.error('Error loading trip data:', error);
-                    document.getElementById('timeline-container').innerHTML = `
-                        <div class="text-red-400 p-8 border border-red-900 bg-red-900/20 rounded-xl">
-                            Error loading data. Check console.
-                        </div>
-                    `;
+                    console.warn('Error loading data/trips.json. Switching to fallback data.', error);
+                    
+                    // FAILSAFE: Use the hardcoded fallback list
+                    rawData = fallbackData;
                 }
+
+                // --- AUTO-GENERATE IDs ---
+                // We run this on rawData (whether it came from JSON or Fallback)
+                trips = rawData.map((trip, index) => {
+                    return {
+                        ...trip,
+                        id: index + 1 // ID is based on order (1, 2, 3...)
+                    };
+                });
+                
+                console.log("Final data ready:", trips.length, "trips.");
+
+                // Build the page
+                setupMap();
+                renderTimeline();
             }
 
             // --- 2. MAP SETUP ---
             function setupMap() {
+                if (map) map.remove(); // Reset map if it already exists
                 map = L.map('map', { zoomControl: false }).setView([20, 0], 2);
                 
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -134,7 +444,7 @@ format:
                 const timelineContainer = document.getElementById('timeline-container');
                 timelineContainer.innerHTML = ''; 
 
-                // Reverse copy so the LAST item in JSON (Newest) shows FIRST in timeline
+                // Reverse copy so the LAST item in data (Newest) shows FIRST
                 [...trips].reverse().forEach(trip => {
                     const card = document.createElement('div');
                     card.id = `card-${trip.id}`;
@@ -207,6 +517,7 @@ format:
                     if (extIndex >= extensions.length) return; 
 
                     const currentExt = extensions[extIndex];
+                    // If using fallback data, this path might not exist, which is fine (it just won't show photos)
                     const imgPath = `images/trips/${trip.folder}/${index}.${currentExt}`;
 
                     const tempImg = new Image();
@@ -345,28 +656,33 @@ format:
         </div>
     </footer>
 
-    <div id="trip-modal" class="fixed inset-0 z-[1000] hidden items-center justify-center bg-slate-950/90 backdrop-blur-md p-4 md:p-10">
-        <button onclick="closeModal()" class="absolute top-6 right-6 z-[1010] text-slate-400 hover:text-white transition transform hover:rotate-90">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    <div id="trip-modal" class="fixed inset-0 z-[1000] hidden items-center justify-center bg-slate-950/90 backdrop-blur-md p-0 md:p-10">
+        
+        <button onclick="closeModal()" class="absolute top-4 right-4 md:top-6 md:right-6 z-[1020] bg-slate-950/50 rounded-full p-2 text-slate-400 hover:text-white transition transform hover:rotate-90 border border-white/10 backdrop-blur-md">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
 
-        <div id="modal-content" class="w-full h-full max-w-7xl bg-slate-900 border border-white/10 rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl relative opacity-0 scale-95 transition-all duration-300 ease-out">
+        <div id="modal-content" class="w-full h-full max-w-7xl bg-slate-900 border-x-0 border-y-0 md:border md:border-white/10 md:rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl relative opacity-0 scale-95 transition-all duration-300 ease-out">
             
-            <div class="w-full md:w-1/3 relative flex flex-col border-b md:border-b-0 md:border-r border-white/10">
-                <div class="h-1/2 relative">
+            <div class="w-full md:w-1/3 relative flex flex-col border-b border-white/10 md:border-b-0 md:border-r shrink-0 z-10 bg-slate-900">
+                
+                <div class="hidden md:block h-1/2 relative">
                     <img id="modal-hero-img" src="" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent"></div>
                 </div>
-                <div class="h-1/2 p-8 bg-slate-900 flex flex-col justify-center">
-                    <span id="modal-date" class="font-mono text-cyan-400 text-sm mb-2 border border-cyan-900 bg-cyan-900/20 px-2 py-1 rounded inline-block w-max"></span>
-                    <h2 id="modal-title" class="text-4xl font-bold text-white mb-4"></h2>
-                    <p id="modal-desc" class="text-slate-400 leading-relaxed font-light"></p>
+
+                <div class="h-auto md:h-1/2 p-6 md:p-8 bg-slate-900 flex flex-col justify-center shadow-xl md:shadow-none">
+                    <span id="modal-date" class="font-mono text-cyan-400 text-xs md:text-sm mb-2 border border-cyan-900 bg-cyan-900/20 px-2 py-1 rounded inline-block w-max"></span>
+                    <h2 id="modal-title" class="text-2xl md:text-4xl font-bold text-white mb-2 md:mb-4 pr-8"></h2>
+                    <p id="modal-desc" class="text-slate-400 leading-relaxed font-light text-sm md:text-base"></p>
                 </div>
             </div>
 
-            <div class="w-full md:w-2/3 bg-[#0b0f1a] p-8 overflow-y-auto">
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4" id="modal-gallery">
+            <div class="w-full md:w-2/3 bg-[#0b0f1a] p-4 md:p-8 overflow-y-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="modal-gallery">
                     </div>
+                
+                <div class="h-20 md:hidden"></div>
             </div>
         </div>
     </div>
