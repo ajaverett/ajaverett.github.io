@@ -1,3 +1,6 @@
+/* =========================================
+   1. GLOBAL & SCROLL BEHAVIOR
+   ========================================= */
 html {
   scroll-behavior: smooth;
 }
@@ -8,25 +11,49 @@ html {
   }
 }
 
-
 body {
   overflow-x: hidden;
   background-color: #020617; /* slate-950 match */
+  color: #e2e8f0;
 }
 
-/* Hide scrollbar for cleaner look */
+/* =========================================
+   2. CUSTOM SCROLLBARS (Unified)
+   ========================================= */
+/* Main Vertical Scrollbar */
 body::-webkit-scrollbar {
   width: 8px;
 }
 body::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: #0f172a; /* slate-900 */
 }
 body::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #334155; /* slate-700 */
   border-radius: 4px;
 }
+body::-webkit-scrollbar-thumb:hover {
+  background: #22d3ee; /* cyan-400 */
+}
 
-/* Step Card Animations */
+/* Horizontal Scrollbar (for Timeline/Travel) */
+.hide-scroll::-webkit-scrollbar {
+    height: 6px; /* Thinner for horizontal axis */
+}
+.hide-scroll::-webkit-scrollbar-track {
+    background: #020617; 
+}
+.hide-scroll::-webkit-scrollbar-thumb {
+    background: #334155; 
+    border-radius: 4px;
+}
+.hide-scroll::-webkit-scrollbar-thumb:hover {
+    background: #22d3ee; 
+}
+
+/* =========================================
+   3. ANIMATIONS & TRANSITIONS
+   ========================================= */
+/* Step Card Animations (Generic) */
 .step-card {
   transition: all 0.5s ease-out;
 }
@@ -44,7 +71,7 @@ body::-webkit-scrollbar-thumb {
   filter: grayscale(100%);
 }
 
-/* Custom Animations */
+/* Custom Keyframes */
 @keyframes spin-slow {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -61,33 +88,15 @@ body::-webkit-scrollbar-thumb {
   animation: bounce-slow 3s ease-in-out infinite;
 }
 
-/* --- TRAVEL PAGE SPECIFIC STYLES --- */
-
-/* 1. Dark Mode Map Filter 
-   This inverts standard white map tiles to match your Slate-950 theme. 
-   Without this, the map will be blindingly white. */
+/* =========================================
+   4. TRAVEL PAGE SPECIFIC
+   ========================================= */
+/* Dark Mode Map Filter */
 .map-tiles {
     filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
 }
 
-/* 2. Horizontal Timeline Scrollbar 
-   This overrides the default vertical scrollbar styles for the timeline container. */
-.hide-scroll::-webkit-scrollbar {
-    height: 6px; /* Thinner for horizontal axis */
-}
-.hide-scroll::-webkit-scrollbar-track {
-    background: #020617; /* Matches body bg */
-}
-.hide-scroll::-webkit-scrollbar-thumb {
-    background: #334155; 
-    border-radius: 4px;
-}
-.hide-scroll::-webkit-scrollbar-thumb:hover {
-    background: #22d3ee; /* Cyan hover effect */
-}
-
-/* 3. Glass Modal Transitions 
-   These handle the smooth pop-in/pop-out animation of the trip details. */
+/* Glass Modal Transitions */
 .modal-enter {
     opacity: 0;
     transform: scale(0.95);
@@ -105,4 +114,45 @@ body::-webkit-scrollbar-thumb {
     opacity: 0;
     transform: scale(0.95);
     transition: all 200ms ease-in;
+}
+
+/* =========================================
+   5. FILM STRIP / DATA THEME SPECIFIC
+   ========================================= */
+
+/* Sprocket Holes Pattern */
+.sprocket-holes {
+    background-image: radial-gradient(#1e293b 40%, transparent 45%);
+    background-size: 20px 40px; 
+    background-position: center;
+    background-repeat: repeat-y;
+    width: 20px;
+}
+
+/* Scanline Overlay */
+.scanline-overlay {
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 2px,
+        rgba(34, 211, 238, 0.05) 3px,
+        rgba(34, 211, 238, 0.05) 4px
+    );
+    pointer-events: none;
+}
+
+/* Digital Tape Effect */
+.digital-tape {
+    background: rgba(34, 211, 238, 0.15);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(34, 211, 238, 0.3);
+    box-shadow: 0 0 10px rgba(34, 211, 238, 0.1);
+}
+
+.span-style {
+  font-size: 1rem;       /* Reset font size to normal */
+  font-weight: normal;   /* Remove bolding */
+  margin: 0;             /* Remove the default heavy spacing */
+  display: inline-block; /* Makes it sit next to items (optional) */
+  /* or display: inline; to make it behave exactly like a span */
 }

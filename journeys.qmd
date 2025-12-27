@@ -682,18 +682,22 @@ format:
             </div>
     </div>
 
-    <footer class="bg-slate-950 border-t border-white/10 py-4 snap-start relative z-10 shrink-0">
-        <div class="max-w-7xl mx-auto px-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center">
-           <div>
-               <h3 class="text-lg font-bold text-white">AJ Averett</h3>
-               <p class="text-slate-500 text-xs">Built with Quarto, Tailwind, & Coffee.</p>
-           </div>
-           <div class="mt-2 md:mt-0 flex gap-6 text-sm">
-            <a href="/about.html" class="text-slate-400 hover:text-cyan-400 transition-colors">About</a>
-            <a href="/posts.html" class="text-slate-400 hover:text-cyan-400 transition-colors">Posts</a>
-            <a href="https://www.linkedin.com/in/ajaverett/" class="text-slate-400 hover:text-cyan-400 transition-colors"><i class="bi bi-linkedin"></i></a>
-            <a href="https://github.com/ajaverett/" class="text-slate-400 hover:text-cyan-400 transition-colors"><i class="bi bi-github"></i></a>
-           </div>
+    <footer class="bg-slate-950 border-t border-white/10 py-6 md:py-12 snap-start relative z-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-row justify-between items-center">
+            <div>
+                <h3 class="text-lg md:text-2xl font-bold text-white mb-0 md:mb-2">AJ Averett</h3>
+                <p class="text-slate-500 text-sm hidden md:block">Built with Quarto, Tailwind, & Coffee.</p>
+            </div>
+
+            <div class="flex gap-4 md:gap-6 items-center">
+                <a href="/about.html" class="hidden md:inline-block text-slate-400 hover:text-cyan-400 transition-colors">About</a>
+                <a href="/posts.html" class="hidden md:inline-block text-slate-400 hover:text-cyan-400 transition-colors">Posts</a>
+                <a href="/blocks.html" class="hidden md:inline-block text-slate-400 hover:text-cyan-400 transition-colors">Blocks</a>
+                
+                <a href="https://www.linkedin.com/in/ajaverett/" class="text-slate-400 hover:text-cyan-400 transition-colors"><i class="bi bi-linkedin"></i></a>
+                <a href="https://github.com/ajaverett/" class="text-slate-400 hover:text-cyan-400 transition-colors"><i class="bi bi-github"></i></a>
+                <a href="/resume.pdf" class="text-slate-400 hover:text-cyan-400 transition-colors"><i class="bi bi-file-earmark-person-fill"></i></a>
+            </div>
         </div>
     </footer>
 
