@@ -1,76 +1,26 @@
 {
-  "index.qmd": {
-    "index.html": "293bc8a9"
+  "blocks/housing.qmd": {
+    "housing.html": "af4b3540"
   },
-  "404.qmd": {
-    "404.html": "cd4a400e"
-  },
-  "about.qmd": {
-    "about.html": "128c4eea"
-  },
-  "blocks/test/test.qmd": {
-    "test.html": "22541f75"
-  },
-  "blocks.qmd": {
-    "blocks.html": "1f23be6a"
-  },
-  "posts/brainrot/main.qmd": {
-    "main.html": "b896dfc8"
-  },
-  "posts/hack1/index.qmd": {
-    "index.html": "88aed69c"
-  },
-  "posts/hack2/index.qmd": {
-    "index.html": "1c035bd8"
-  },
-  "posts/pca/pca.qmd": {
-    "pca.html": "ab53ddd6"
-  },
-  "posts/power_triangle/power_triangle.qmd": {
-    "power_triangle.html": "412a54b0"
-  },
-  "posts/spanish/index.qmd": {
-    "index.html": "577d529e"
-  },
-  "posts/tutor/index.qmd": {
-    "index.html": "d0aaf35b"
-  },
-  "posts/usa_christian/index.qmd": {
-    "index.html": "f0c6f752"
-  },
-  "posts.qmd": {
-    "posts.html": "63034fa7"
-  },
-  "resume.qmd": {
-    "resume.html": "dade105c",
-    "resume.tex": "586fe6cd"
-  },
-  "blocks/appliance_efficiency/appliance_efficiency.qmd": {
-    "appliance_efficiency.html": "812bd9af",
-    "appliance_efficiency.typ": "a79e6a8a"
-  },
-  "blocks/wages_productivity/wages_productivity.qmd": {
-    "wages_productivity.html": "32ba4267"
-  },
-  "blocks/appliance_efficiency.qmd": {
-    "appliance_efficiency.html": "cf4fccef"
-  },
-  "blocks/wages_productivity.qmd": {
-    "wages_productivity.html": "5a7aac97"
-  },
-  "blocks/planned_obsolecence.qmd": {
-    "planned_obsolecence.html": "ea240018"
-  },
-  "blocks/productivity_pay_gap.qmd": {
-    "productivity_pay_gap.html": "22e458ac"
+  "journeys.qmd": {
+    "journeys.html": "cd9f19dd"
   },
   "blocks/militia_originalism.qmd": {
-    "militia_originalism.html": "2101e2ab"
+    "militia_originalism.html": "22e73f77"
   },
-  "blocks/historytemp.qmd": {
-    "historytemp.html": "3d91208f"
+  "blocks/planned_obsolecence.qmd": {
+    "planned_obsolecence.html": "d803a0f1"
   },
-  "blocks/history_2ndamen.qmd": {
-    "history_2ndamen.html": "f3b08272"
+  "blocks/productivity_pay_gap.qmd": {
+    "productivity_pay_gap.html": "e2d310d3"
+  },
+  "blocks/revolution.qmd": {
+    "revolution.html": "e9f94904"
+  },
+  "index.qmd": {
+    "index.html": "f3759c33"
+  },
+  "about.qmd": {
+    "about.html": "9349dc4f"
   }
 }

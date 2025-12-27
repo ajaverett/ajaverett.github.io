@@ -60,3 +60,49 @@ body::-webkit-scrollbar-thumb {
 .animate-bounce-slow {
   animation: bounce-slow 3s ease-in-out infinite;
 }
+
+/* --- TRAVEL PAGE SPECIFIC STYLES --- */
+
+/* 1. Dark Mode Map Filter 
+   This inverts standard white map tiles to match your Slate-950 theme. 
+   Without this, the map will be blindingly white. */
+.map-tiles {
+    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+/* 2. Horizontal Timeline Scrollbar 
+   This overrides the default vertical scrollbar styles for the timeline container. */
+.hide-scroll::-webkit-scrollbar {
+    height: 6px; /* Thinner for horizontal axis */
+}
+.hide-scroll::-webkit-scrollbar-track {
+    background: #020617; /* Matches body bg */
+}
+.hide-scroll::-webkit-scrollbar-thumb {
+    background: #334155; 
+    border-radius: 4px;
+}
+.hide-scroll::-webkit-scrollbar-thumb:hover {
+    background: #22d3ee; /* Cyan hover effect */
+}
+
+/* 3. Glass Modal Transitions 
+   These handle the smooth pop-in/pop-out animation of the trip details. */
+.modal-enter {
+    opacity: 0;
+    transform: scale(0.95);
+}
+.modal-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 300ms ease-out;
+}
+.modal-exit {
+    opacity: 1;
+    transform: scale(1);
+}
+.modal-exit-active {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 200ms ease-in;
+}

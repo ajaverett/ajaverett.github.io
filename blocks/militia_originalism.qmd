@@ -5,8 +5,8 @@ image: "images/second_amendment.png"
 title-block-banner: ../images/banner.png
 title-block-banner-color: 'white'
 categories: ["constitution", "guns", "second amendment", "federalist papers", "history"]
-bibliography: _references.bib
-bibliographystyle: apa
+bibliography: references/_references.bib
+csl: references/apa-annotated-bibliography.csl
 ---
 
 > “A well-regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed”

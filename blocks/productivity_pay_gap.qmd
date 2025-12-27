@@ -5,8 +5,8 @@ image: "images/productivity_pay_gap.png"
 title-block-banner: ../images/banner.png
 title-block-banner-color: 'white'
 categories: ["economics", "good ol' days", "productivity", "wages", "late-stage capitalism"]
-bibliography: _references.bib
-bibliographystyle: apa
+bibliography: references/_references.bib
+csl: references/apa-annotated-bibliography.csl
 ---
 
 > quote.

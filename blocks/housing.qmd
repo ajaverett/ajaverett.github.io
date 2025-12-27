@@ -1,0 +1,117 @@
+---
+title: "Housing Primer?"
+subtitle: "Abundance is a supply-side issue"
+image: "images/house.png"
+title-block-banner: ../images/banner.png
+title-block-banner-color: 'white'
+categories: ["housing", "economics"]
+bibliography: references/_references.bib
+csl: references/apa-annotated-bibliography.csl
+---
+
+
+Debate help for later:
+
+# Restrictive Rental Housing Policies
+(Government stops rent from going up and keep people in their homes)
+
+## Rent Control
+(Government puts a cap on how much landlords can charge or how much they can raise the rent)
+
+> The most prominent effects of rent control are decline of rents for controlled dwellings, reduced residential mobility, lower construction, lower quality of housing, higher rents for uncontrolled dwellings, and lower property prices.
+<br>
+> [@kholodilin_2024, pp. 14]
+
+### 
+WIP
+
+
+Rent control works for the people currently living there—their rent stays low. But, it discourages builders from building new apartments (because they won't make as much money) and landlords stop fixing things (because they can't raise rents to cover costs), so the quality of housing drops. Ironically, rents for uncontrolled apartments often skyrocket because there are fewer places to live.
+
+## Eviction Protection
+(Government regulates how landlords can remove a tenant.)
+
+> By far the largest group of studies of eviction protection finds eviction-reducing effect. However, the number of studies on protection of tenants from evictions is very small.
+<br>
+> @kholodilin_2025
+
+
+Fewer people get evicted. Tenants stay in their homes longer and have more stability.
+
+## Housing Rationing
+(Government stops people from using homes for short-term vacation rentals or limits who can move to a city. e.g. Airbnb Bans)
+
+>  Likewise, the number of studies on housing rationing is small. They find a negative effect on property prices. Most of these studies refer to the recent policies prohibiting or restricting shortterm rentals on platforms like Airbnb, as authorities suspect that these remove dwellings from the long-term rental housing market.
+
+Housing rationing lowers property values. You might expect it to free up homes for locals, but the data mostly shows it just makes the homes worth less money.
+
+# Housing Subsidies
+(Give people money or tax breaks so they can afford a home.)
+
+## Housing Allowances
+(Government gives low-income families cash or vouchers to help pay rent. e.g. Vouchers)
+
+> The numbers of studies that find positive and negative effects [on employment] are comparable, while the largest group of studies did not find any statistically significant effects... This reflects the complex interplay of incentives. On the one hand... housing benefits could diminish incentives to work [because] housing allowances are reduced proportionally with earnings... [but on] the other hand, the subsidies could encourage employment because they increase stability, allowing [recipients] to allocate more resources toward expenses related to employment...
+<br>
+> @kholodilin_2025 
+
+## Social Housing
+(Government builds and runs apartments for low-income people. e.g. Public Housing)
+
+Social housing policies lower the rent burden for the people who get in. However, the study found a "employment reduction" effect—meaning people living there are less likely to work, possibly because they risk losing their subsidized apartment if they earn too much money
+
+## Mortgage Interest Deduction
+(Government lets homeowners subtract the interest they pay on their mortgage from their taxes)
+
+Mortgage interest deductions fail at its main goal: it doesn't actually increase the number of people who own homes. Instead, it just encourages people to buy bigger, more expensive houses, which drives up home prices for everyone.
+
+## Homeownership Subsidies
+(Government offers direct cash or help to buy a home)
+Homeownership subsidies increase home prices (sellers know buyers have more cash) and creates "urban sprawl" (cities spreading out further and further).
+
+# Quality & Environment Policies
+
+## Building Codes
+(Government regulates how thick walls must be, how safe wiring must be, and how energy-efficient the home must be)
+
+Homes definitely use less electricity and are safer. However, these rules make building expensive, so the final price of the house goes up
+
+##  Land Use Regulations
+(Government implements zoning)
+
+Land use regulations like zoning make neighborhoods "nicer" (less crowded, more consistent look), but it severely limits the number of new homes. Because supply is choked off, housing prices go up significantly
+
+# Taxes
+
+## Transfer Taxes (Stamp Duty)
+(Governments mandate a fee when you buy or sell a house)
+
+People move less often because it costs too much to sell and buy a new place. It slows down the whole housing market
+
+## Property Tax
+(Government taxes houses annually based on how much your home is worth)
+
+Property tax generally lowers home prices (because the tax makes owning the home more expensive month-to-month) and discourages new construction.
+
+## Vacancy Tax
+(Government taxes homes that are sitting empty)
+
+This actually increases construction. It pushes owners to either rent out the empty space or sell it to someone who will use it.
+
+# Macroeconomics
+
+## Making it Harder to Get a Loan
+(Government says "you can't borrow more than X% of the home's value.")
+
+It cools down the market. House prices drop and people borrow less money.
+
+## Printing Money / Low Interest Rates
+(Central Bank makes it cheap to borrow money)
+
+Builders build more homes because loans are cheap. But simultaneously, homebuyers can afford to bid more, so home prices and rents go up
+
+## Government Spending
+(Government spends a lot of money on public projects)
+
+It drives up prices (inflation), and because the government is using up resources and borrowing power, it actually makes it harder/more expensive for private companies to build homes (a "negative" effect on construction)
+

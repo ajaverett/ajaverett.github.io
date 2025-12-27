@@ -5,8 +5,8 @@ image: "images/appliance_efficiency.png"
 title-block-banner: ../images/banner.png
 title-block-banner-color: 'white'
 categories: ["economics", "planned obsolecence", "manufacturing", "cost of living", "good ol' days"]
-bibliography: _references.bib
-bibliographystyle: apa
+bibliography: references/_references.bib
+csl: references/apa-annotated-bibliography.csl
 ---
 
 > “It was never 30 years,” said Richard Zilka, a 40-year veteran of the appliance service industry who runs a local repair business near Miami. Even the more straightforward appliances made three or four decades ago lasted only 10 to 15 years, said Zilka. “That was the average lifespan,” he said.
