@@ -120,39 +120,51 @@ body::-webkit-scrollbar-thumb:hover {
    5. FILM STRIP / DATA THEME SPECIFIC
    ========================================= */
 
-/* Sprocket Holes Pattern */
 .sprocket-holes {
     background-image: radial-gradient(#1e293b 40%, transparent 45%);
     background-size: 20px 40px; 
     background-position: center;
     background-repeat: repeat-y;
-    width: 20px;
 }
-
-/* Scanline Overlay */
 .scanline-overlay {
-    background: repeating-linear-gradient(
-        to bottom,
-        transparent,
-        transparent 2px,
-        rgba(34, 211, 238, 0.05) 3px,
-        rgba(34, 211, 238, 0.05) 4px
-    );
+    background: repeating-linear-gradient(to bottom, transparent, transparent 2px, rgba(34, 211, 238, 0.05) 3px, rgba(34, 211, 238, 0.05) 4px);
     pointer-events: none;
 }
+/* The Ripped Effect - Top and Bottom */
+.film-rip {
+    clip-path: polygon(
+        /* TOP RIP (Left to Right) - Adjusted to hit edges */
+        0% 10px, 2% 20px, 4% 5px, 6% 22px, 8% 5px, 
+        10% 20px, 12% 5px, 14% 22px, 16% 5px, 18% 20px, 
+        20% 5px, 22% 25px, 24% 2px, 26% 20px, 28% 5px, 
+        30% 22px, 32% 5px, 34% 20px, 36% 2px, 38% 20px, 
+        40% 5px, 42% 25px, 44% 2px, 46% 20px, 48% 5px, 
+        50% 22px, 52% 5px, 54% 20px, 56% 2px, 58% 20px, 
+        60% 5px, 62% 25px, 64% 2px, 66% 20px, 68% 5px, 
+        70% 22px, 72% 5px, 74% 20px, 76% 2px, 78% 20px, 
+        80% 5px, 82% 25px, 84% 2px, 86% 20px, 88% 5px, 
+        90% 22px, 92% 5px, 94% 20px, 96% 2px, 98% 20px, 
+        100% 10px,
+        
+        /* RIGHT SIDE (Down) */
+        100% calc(100% - 10px),
 
-/* Digital Tape Effect */
-.digital-tape {
-    background: rgba(34, 211, 238, 0.15);
-    backdrop-filter: blur(2px);
-    border: 1px solid rgba(34, 211, 238, 0.3);
-    box-shadow: 0 0 10px rgba(34, 211, 238, 0.1);
-}
-
-.span-style {
-  font-size: 1rem;       /* Reset font size to normal */
-  font-weight: normal;   /* Remove bolding */
-  margin: 0;             /* Remove the default heavy spacing */
-  display: inline-block; /* Makes it sit next to items (optional) */
-  /* or display: inline; to make it behave exactly like a span */
+        /* BOTTOM RIP (Right to Left) */
+        98% calc(100% - 20px), 96% calc(100% - 2px), 94% calc(100% - 20px), 92% calc(100% - 5px),
+        90% calc(100% - 22px), 88% calc(100% - 5px), 86% calc(100% - 20px), 84% calc(100% - 2px),
+        82% calc(100% - 25px), 80% calc(100% - 5px), 78% calc(100% - 20px), 76% calc(100% - 2px),
+        74% calc(100% - 20px), 72% calc(100% - 5px), 70% calc(100% - 22px), 68% calc(100% - 5px),
+        66% calc(100% - 20px), 64% calc(100% - 2px), 62% calc(100% - 25px), 60% calc(100% - 5px),
+        58% calc(100% - 20px), 56% calc(100% - 2px), 54% calc(100% - 20px), 52% calc(100% - 5px),
+        50% calc(100% - 22px), 48% calc(100% - 5px), 46% calc(100% - 20px), 44% calc(100% - 2px),
+        42% calc(100% - 25px), 40% calc(100% - 5px), 38% calc(100% - 20px), 36% calc(100% - 2px),
+        34% calc(100% - 20px), 32% calc(100% - 5px), 30% calc(100% - 22px), 28% calc(100% - 5px),
+        26% calc(100% - 20px), 24% calc(100% - 2px), 22% calc(100% - 25px), 20% calc(100% - 5px),
+        18% calc(100% - 20px), 16% calc(100% - 5px), 14% calc(100% - 22px), 12% calc(100% - 5px),
+        10% calc(100% - 20px), 8% calc(100% - 5px), 6% calc(100% - 22px), 4% calc(100% - 5px),
+        2% calc(100% - 20px), 0% calc(100% - 10px),
+        
+        /* LEFT SIDE (Close Path) */
+        0% 10px
+    );
 }

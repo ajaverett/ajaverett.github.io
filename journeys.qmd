@@ -633,6 +633,7 @@ format:
             <a href="index.html" class="text-4xl md:text-5xl font-bold text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 transition-all transform hover:scale-110">Home</a>
             <a href="about.html" class="text-4xl md:text-5xl font-bold text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 transition-all transform hover:scale-110">About</a>
             <a href="posts.html" class="text-4xl md:text-5xl font-bold text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 transition-all transform hover:scale-110">Posts</a>
+            <a href="blocks.html" class="text-4xl md:text-5xl font-bold text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 transition-all transform hover:scale-110">Blocks</a>
             <a href="journeys.html" class="text-4xl md:text-5xl font-bold text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 transition-all transform hover:scale-110">Journeys</a>
         </nav>
         <div class="flex items-center gap-8 mt-4">
