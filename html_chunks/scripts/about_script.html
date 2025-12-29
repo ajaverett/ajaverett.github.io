@@ -1,0 +1,175 @@
+<script>
+    const storyData = [
+        { 
+            id: "01", 
+            year: "2000", 
+            sub: "Head of the Hanyang Koo Clan", 
+            desc: "AJ was born to the name '구민섭' (Koo, Min Sub) in South Korea. Raised in the foster care system, he was one of the last kids at the center to find a home. According to the Korean Family Registry, he is the head of the Hanyang Koo Clan.", 
+            img: "images/story/adoption.png", 
+            location: "SEOUL, KR", 
+            color: "cyan" 
+        },
+        { 
+            id: "02", 
+            year: "2001", 
+            sub: "Adopted to America", 
+            desc: "The Averetts adopted AJ to Phoenix, AZ, where he became the youngest of 5. His parents came from diverse backgrounds (Mexico/California and Wyoming). Before Arizona, his siblings were raised in the small town of Springfield, Ohio.", 
+            img: "images/story/family.png", 
+            location: "PHOENIX, USA", 
+            color: "purple" 
+        },
+        { 
+            id: "03", 
+            year: "2018", 
+            sub: "Eagle Scout in Texas", 
+            desc: "Growing up in Texas, AJ served as Scribe for his troop. In 2018, he earned the rank of Eagle Scout. His project involved partnering with the Pajama Program to run community service events for disadvantaged youth in Austin.", 
+            img: "images/story/eagle.png", 
+            location: "TEXAS, USA", 
+            color: "cyan" 
+        },
+        { 
+            id: "04", 
+            year: "2018", 
+            sub: "The Marching Band", 
+            desc: "AJ learned piano by ear via YouTube. In high school, he joined the marching band playing keyboard and percussion, sang tenor/bass in the varsity choir, and briefly played drums in a band.", 
+            img: "images/story/band.png", 
+            location: "TEXAS, USA", 
+            color: "purple" 
+        },
+        { 
+            id: "05", 
+            year: "2019", 
+            sub: "DECA Competition", 
+            desc: "Competing in DECA, AJ helped run a PR campaign partnering with TerraCycle, a global leader in recycling. His team won regional and state awards, eventually competing at the international level in Atlanta, Georgia.", 
+            img: "images/story/deca.png", 
+            location: "ATLANTA, USA", 
+            color: "cyan" 
+        },
+        { 
+            id: "06", 
+            year: "2019", 
+            sub: "Taekwondo to Tire Repair", 
+            desc: "Always eager to work, AJ took on a variety of jobs in Texas including working as a dishwasher at a bakery, an instructor at a martial arts studio, and a technician fixing tires.", 
+            img: "images/story/tkd.png", 
+            location: "TEXAS, USA", 
+            color: "purple" 
+        },
+        { 
+            id: "07", 
+            year: "2020", 
+            sub: "Volunteer work in Maryland", 
+            desc: "AJ spent a year volunteering full-time as a technology consultant and humanitarian aid worker for his Church. He learned to solve complex problems and became fluent in Spanish while helping those in need.", 
+            img: "images/story/mission.png", 
+            location: "MARYLAND, USA", 
+            color: "cyan" 
+        },
+        { 
+            id: "08", 
+            year: "2021", 
+            sub: "Data Science & Stats", 
+            desc: "AJ studied data science, combining statistics and programming. He served as President of the Data Science Society, was a TA for five math courses, ran the data science lab, and won several hackathons.", 
+            img: "images/story/hackathon.png", 
+            location: "REXBURG, ID", 
+            color: "purple" 
+        },
+        { 
+            id: "09", 
+            year: "2021", 
+            sub: "Hispanic Scholarship", 
+            desc: "A founding member of SHPE, AJ connected with his mother's Hispanic heritage. He was a full Pell Grant recipient and was awarded the SHPE BYUI National Convention Scholarship from the Si Se Puede Foundation.", 
+            img: "images/story/mexico.png", 
+            location: "REXBURG, ID", 
+            color: "cyan" 
+        },
+        { 
+            id: "10", 
+            year: "2022", 
+            sub: "Pollster in DC", 
+            desc: "Hired as a Data Science Intern on Capitol Hill, AJ helped garner info for the 2022 midterms. He analyzed voter data trends and applied them to machine learning models.", 
+            img: "images/story/wpai.png", 
+            location: "D.C., USA", 
+            color: "purple" 
+        },
+        { 
+            id: "11", 
+            year: "2022", 
+            sub: "Youth in Policy", 
+            desc: "As a Visiting Fellow at the Youth in Policy Institute, AJ worked with a team to research and write policy papers on critical issues affecting youth in the United States.", 
+            img: "images/story/yip.png", 
+            location: "D.C., USA", 
+            color: "cyan" 
+        },
+        { 
+            id: "12", 
+            year: "2023", 
+            sub: "The Best Decision", 
+            desc: "AJ met Audrey Mae in a data engineering class. He proposed to her in Tokyo, Japan, and they married in Salt Lake City. Audrey is currently a data engineer for a health company in Utah.", 
+            img: "images/story/audreymae.png", 
+            location: "UTAH, USA", 
+            color: "purple" 
+        },
+        { 
+            id: "13", 
+            year: "2025", 
+            sub: "Full-time with Navy", 
+            desc: "AJ was hired as a Data Scientist at Booz Allen Hamilton in Norfolk. He currently helps the Navy gauge readiness for Nuclear-powered Aircraft Carriers.", 
+            img: "images/story/bah.png", 
+            location: "VIRGINIA, USA", 
+            color: "cyan" 
+        }
+    ];
+
+    // --- RENDER ---
+    const container = document.getElementById('film-strip-container');
+    if(container) {
+        storyData.forEach((item, index) => {
+            const html = `
+                <div class="strip-frame group relative mb-24 transition-all duration-700 opacity-50 blur-[2px] hover:blur-0 hover:opacity-100">
+                    <div class="bg-slate-950/80 backdrop-blur-md p-3 pb-8 border border-slate-700/50 relative overflow-hidden">
+                        
+                        <div class="relative aspect-[4/5] bg-slate-900 overflow-hidden mb-5 border border-slate-800 transition-colors">
+                            <div class="scanline-overlay absolute inset-0 z-10"></div>
+                            <img src="${item.img}" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        </div>
+
+                        <div class="px-1 relative flex flex-col items-start">
+                            
+                            <h2 class="font-mono font-bold text-xl uppercase tracking-widest text-white leading-none mb-2">
+                                ${item.sub}
+                            </h2>
+
+                            <div class="flex items-center gap-3 text-cyan-400/80 font-mono text-[11px] font-bold uppercase tracking-wider mb-4">
+                                <span>${item.year}</span>
+                                <span class="w-1 h-1 bg-slate-600 rounded-full"></span>
+                                <span>${item.location}</span>
+                            </div>
+
+                            <p class="font-sans font-light text-slate-300 text-sm leading-relaxed">
+                                ${item.desc}
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>`;
+            container.innerHTML += html;
+        });
+    }
+
+    // --- SCROLL EFFECT ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-50', 'blur-[2px]');
+                    entry.target.classList.add('opacity-100', 'blur-0');
+                } else {
+                    entry.target.classList.add('opacity-50', 'blur-[2px]');
+                    entry.target.classList.remove('opacity-100', 'blur-0');
+                }
+            });
+        }, { root: null, threshold: 0.55, rootMargin: "-10% 0px -10% 0px" }); 
+        document.querySelectorAll('.strip-frame').forEach(f => observer.observe(f));
+    });
+
+</script>

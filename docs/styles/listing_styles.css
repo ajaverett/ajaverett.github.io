@@ -117,7 +117,149 @@ p.card-img-top {
     color: #22d3ee !important;
 }
 
-/* 7. CLEANUP */
 .card-text, .card-attribution, .card-img-top::after {
     display: none !important;
+}
+
+@keyframes force-fade-ping {
+    0% { transform: scale(1); opacity: 0.75; }
+    75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+
+
+/* Listing info */
+/* =========================================
+   DARK MODE SIDEBAR / CATEGORIES (UPDATED)
+   ========================================= */
+
+/* 1. The Title "Categories" */
+.quarto-listing-category-title {
+    color: #ffffff !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem !important;   
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 0.5rem;
+}
+
+/* 2. The Container */
+.quarto-listing-category {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem; 
+}
+
+/* 3. The Individual Category Tags (The Bubbles) */
+.quarto-listing-category .category {
+    /* Use Flexbox to force perfect centering */
+    display: inline-flex !important; 
+    align-items: center !important;
+    justify-content: center !important;
+    
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    
+    /* Exact even padding */
+    padding: 0.35rem 0.85rem !important; 
+    
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    /* Text Styles */
+    color: #94a3b8; 
+    font-size: 0.75rem; 
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    text-transform: lowercase;
+    line-height: 1 !important; /* Resets weird line heights */
+}
+
+/* 4. Fix the text inside the bubble */
+/* Quarto sometimes adds margins to the span, which creates the uneven look */
+.quarto-listing-category .category span {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 5. Hover Effects */
+.quarto-listing-category .category:hover {
+    background-color: rgba(34, 211, 238, 0.1);
+    border-color: rgba(34, 211, 238, 0.5);
+    color: #22d3ee; 
+    transform: translateY(-1px);
+}
+
+/* =========================================
+   DARK MODE TOOLBAR (SORT & FILTER)
+   ========================================= */
+
+/* 1. Container Spacing */
+.listing-actions-group {
+    margin-bottom: 2rem !important;
+    gap: 1rem;
+}
+
+/* 2. Common Styles for Inputs & Icons */
+/* This ensures BOTH the dropdown and the search box use the exact same color */
+.input-group-text, 
+.form-select, 
+.form-control {
+    background-color: rgba(255, 255, 255, 0.05) !important; /* Dark glassy bg */
+    border-color: rgba(255, 255, 255, 0.1) !important;      /* Subtle border */
+    color: #cbd5e1 !important;                              /* Light slate text */
+    font-family: 'Lato', sans-serif;
+    font-size: 0.875rem;
+}
+
+/* 3. The Icons (Search/Sort) */
+.input-group-text {
+    border-right: none !important; 
+    color: #94a3b8 !important;     
+    transition: color 0.3s ease;
+}
+
+/* 4. The Input Fields */
+.form-select, 
+.form-control {
+    border-left: none !important; 
+    padding-left: 0.5rem;         
+}
+
+/* 5. Placeholder Text */
+.search::placeholder {
+    color: #475569 !important;    
+    opacity: 1;
+}
+
+/* 6. FOCUS STATE (Cyan Glow) */
+.form-control:focus, 
+.form-select:focus {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(34, 211, 238, 0.5) !important; 
+    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.1) !important;
+    color: #ffffff !important;
+}
+
+/* 7. Hover Effects */
+.input-group:hover .input-group-text {
+    color: #22d3ee !important; 
+}
+
+/* 8. FIX THE DROPDOWN ARROW (The Clean Way) */
+/* Instead of inverting colors, we inject a real White SVG arrow */
+.form-select {
+    filter: none !important; /* Disable previous invert hack */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat !important;
+    background-position: right .75rem center !important;
+    background-size: 16px 12px !important;
+}
+
+/* 9. Fix the Dropdown Menu Options */
+.form-select option {
+    background-color: #0f172a; /* Dark Slate background for the list */
+    color: #cbd5e1;            /* Normal text */
 }

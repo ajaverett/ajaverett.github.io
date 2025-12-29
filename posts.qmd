@@ -1,12 +1,97 @@
 ---
-title: "My Posts"
-# https://quarto.org/docs/websites/website-listings.html
+title: "Posts"
+description: "Small projects AJ has worked on"
 listing:
+  id: guide-listing
   contents: posts
   sort: "date desc"
   type: grid
   categories: cloud 
   feed: true
+  sort-ui: true
+  filter-ui: true
+  image-placeholder: images/coffee.png
+format:
+  html:
+    css: styles/listing_styles.css
+    backgroundcolor: "#030616"
+    page-layout: custom
+    toc: false
+    include-in-header: 
+        - html_chunks/scripts/style_script.html
+    include-before-body:
+        - html_chunks/hero/hero_float.html
+        - html_chunks/menu.html
+    include-after-body:
+        - html_chunks/footer.html
+        - html_chunks/scripts/hero_script.html
+        - html_chunks/scripts/menu_script.html
+        - html_chunks/scripts/style_script.html
 ---
 
-Below are some small projects that AJ has worked on
+<!-- header info -->
+<div id="hero-settings" data-title="Posts" data-subtitle="Small projects AJ has worked on" hidden></div>
+
+<div class="max-w-6xl mx-auto px-6 pb-12 pt-6">
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-7 .g-start-md-2}
+
+<!-- Content before the listing -->
+
+```{=html}
+
+<div style="box-sizing: border-box; max-width: 64rem; width: 100%; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; padding-top: 3rem; padding-bottom: 3rem; text-align: center; overflow-wrap: break-word;">
+    
+    <p style="font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; color: #22d3ee; margin-bottom: 0.75rem; margin-top: 0; font-size: 0.75rem;">
+        /// PHILOSOPHY
+    </p>
+    
+    <h2 style="box-sizing: border-box; font-size: clamp(1rem, 2vw, 1.125rem); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 300; line-height: 1.5; color: #cbd5e1; margin: 0;">
+        After all, it is a common weakness of young authors to put
+        
+        <span style="box-sizing: border-box; color: #ffffff; font-weight: 700; text-decoration: underline; text-decoration-color: #c084fc; text-decoration-thickness: 2px; text-underline-offset: 2px;">
+            too much into their papers
+        </span>.”
+    </h2>
+    
+    <div style="box-sizing: border-box; margin-top: 1rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.25rem; color: #94a3b8; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.75rem;">
+        <span>— Ronald Fisher</span>
+        
+        <span style="color: #475569;">|</span>
+        
+        <a href="https://www.google.com/books/edition/Contributions_to_Mathematical_Statistics/zBnvAAAAMAAJ?hl=en&gbpv=1&printsec=frontcover&bsq=After%20all%2C%20it%20is%20a%20common%20weakness%20of%20young%20authors%20to%20put%20too%20much%20into%20their%20papers" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 0.25rem; text-decoration: none; color: inherit; border-bottom: 1px solid transparent; transition: color 0.2s;">
+            (1950) 
+            <svg style="width: 0.65rem; height: 0.65rem; opacity: 0.7;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
+        </a>
+    </div>
+
+</div>
+```
+
+
+:::{#guide-listing}
+:::
+
+<!-- Content after the listing -->
+
+:::
+
+
+::: {.g-col-12 .g-col-md-3 .g-start-md-10}
+
+<div class="sticky top-24"> 
+
+:::{#quarto-margin-sidebar}
+:::
+
+</div>
+
+:::
+
+::: 
+
+</div>

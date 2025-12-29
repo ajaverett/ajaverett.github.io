@@ -1,89 +1,80 @@
 ---
-title: ""
-listing:
-  id: guide-listing
-  contents: blocks
-  sort: "date desc"
-  type: grid
-  categories: cloud 
-  feed: true
-  sort-ui: true
-  filter-ui: true
-  image-placeholder: images/coffee.png
+title: "404"
+description: "Page not found!"
 format:
   html:
-    css: styles/listing_styles.css
-    # backgroundcolor: "#030616"
+    css: styles/404.css
+    backgroundcolor: "#030616"
     page-layout: custom
     toc: false
-    include-in-header: 
-        - html_chunks/style_load.html
     include-before-body:
-        # 1. HERO SECTION (Map + Title + Subtitle)
-        # We put this all in one text block to prevent broken tags.
-        - text: |
-            <div class="h-[55vh] relative w-full z-0 bg-slate-950">
-                <div id="map" class="h-full w-full z-0 bg-slate-950"></div> 
-                
-                <div class="absolute top-8 left-8 z-[50] pointer-events-none">
-                    
-                    <h1 class="font-sans text-3xl md:text-5xl font-bold text-white tracking-tighter drop-shadow-lg m-0 p-0 leading-tight">
-                    HEADER NAME
-                    </h1>
-                    
-                    <div class="mt-2 flex items-center gap-2">
-                        <span class="relative !flex !flex-none !w-2 !h-2 !relative items-center justify-center">
-                            <span style="animation: force-fade-ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;" class="!absolute !inline-flex !h-full !w-full rounded-full bg-cyan-400"></span>
-                            <span class="!relative !inline-flex rounded-full !h-1.5 !w-1.5 bg-cyan-500"></span>
-                        </span>
-                        
-                        <p class="font-mono text-xs text-cyan-400 tracking-widest uppercase m-0 leading-none">
-                        SUBTITLE NAME
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <style>
-                @keyframes force-fade-ping {
-                    0% { transform: scale(1); opacity: 0.75; }
-                    75%, 100% { transform: scale(2); opacity: 0; }
-                }
-            </style>
-
-        # 2. MENU OVERLAY (Keep this separate as it is self-contained)
-        - html_chunks/menu/menu.html
-
+        - html_chunks/hero/hero_fixed.html
+        - html_chunks/menu.html
     include-after-body:
-        - html_chunks/menu/menu_script.html
+        - html_chunks/footer.html
+        - html_chunks/scripts/hero_script.html
+        - html_chunks/scripts/menu_script.html
+        - html_chunks/scripts/style_script.html
 ---
 
-<div class="max-w-6xl mx-auto px-6 py-12">
-
-::: {.grid}
-
-::: {.g-col-12 .g-col-md-9}
-
-# This is a second test
-Dont you notice how all the something something laufey.
-
-:::{#guide-listing}
-:::
+<div id="hero-settings" data-title="404" data-subtitle="Page not found!" hidden></div>
 
 ```{=html}
-<br>
-<p class="text-slate-500">This is a test block footer area...</p>
+<div class="techno-banner-wrapper">
+    <div class="techno-banner-track">
+        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
+        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
+        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
+        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
+        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
+        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
+        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
+        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
+    </div>
+</div>
 ```
-:::
 
+```{=html}
+<div class="text-center flex flex-col items-center gap-6 mt-4 mb-12">
+    
+    <h2 class="text-2xl md:text-4xl font-bold text-white tracking-tight m-0">
+        Whoops, it looks like we lost that page...
+    </h2>
+    
+    <div class="flex flex-col items-center gap-2">
+        <p class="text-slate-400 font-mono text-xs md:text-sm uppercase tracking-widest m-0">
+            Go back home here
+        </p>
+        
+        <i class="bi bi-arrow-down text-cyan-400 text-2xl animate-bounce"></i>
+    </div>
 
-::: {.g-col-12 .g-col-md-3}
+    <a href="/" class="inline-block border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-950 font-mono text-sm font-bold py-3 px-8 rounded-full transition-all duration-300 uppercase tracking-widest shadow-[0_0_10px_rgba(34,211,238,0.2)] hover:shadow-[0_0_20px_rgba(34,211,238,0.6)] no-underline">
+        Return Home
+    </a>
 
-<div class="sticky top-24"> 
-  :::{#quarto-margin-sidebar}
-  :::
+</div>
+```
+
+<div class="max-w-6xl mx-auto px-6 pb-12 pt-6 flex justify-center">
+```{=html}
+    <div class="spin-stage my-12">
+        <img src="/images/404/404.png" alt="404 Page Not Found" class="spinner-3d" style="max-width: 400px;">
+    </div>
+```
 </div>
 
-:::
-
-::: </div>
+```{=html}
+<div class="techno-banner-wrapper">
+    <div class="techno-banner-track">
+        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
+        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
+        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
+        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
+        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
+        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
+        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
+        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
+    </div>
+</div>
+```

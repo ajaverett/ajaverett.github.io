@@ -1,0 +1,69 @@
+.techno-banner-wrapper {
+    width: 100%;
+    overflow: hidden;
+    background: rgba(15, 23, 42, 0.8);
+    border-top: 1px solid rgba(34, 211, 238, 0.3);
+    border-bottom: 1px solid rgba(34, 211, 238, 0.3);
+    padding: 0.5rem 0;
+    margin-bottom: 2rem;
+    
+    background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(34, 211, 238, 0.05) 10px,
+        rgba(34, 211, 238, 0.05) 20px
+    );
+}
+
+.techno-banner-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 10s linear infinite;
+}
+
+.techno-text {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 2.5rem;
+    font-weight: 900;
+    padding-right: 2rem; 
+    white-space: nowrap;
+    color: transparent; 
+    -webkit-text-stroke: 1px #22d3ee;
+    text-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.spin-stage {
+    perspective: 1000px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.spinner-3d {
+    width: 100%;
+    height: auto;
+    transform-style: preserve-3d;
+    animation: spin-y-axis 12s linear infinite;
+    filter: drop-shadow(0 20px 20px rgba(0,0,0,0.5));
+}
+
+@keyframes spin-y-axis {
+    from {
+        transform: rotateY(0deg) rotateX(15deg);
+    }
+    to {
+        transform: rotateY(360deg) rotateX(15deg);
+    }
+}

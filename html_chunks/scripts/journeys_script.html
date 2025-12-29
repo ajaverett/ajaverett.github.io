@@ -1,0 +1,541 @@
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<script>
+    // Global variable to hold data
+    let trips = [];
+    let map;
+
+    // --- 0. FALLBACK DATA ---
+    // This is used if data/trips.json cannot be found
+    const fallbackData = [
+        { 
+            title: "Ashton, Idaho", 
+            date: "JUL 2023", 
+            coords: [44.1878, -111.3300],
+            img: "images/trips/2023_07_ashton/cover.jpg", 
+            desc: "First journey with Audrey",
+            folder: "2023_07_ashton"
+        },
+        { 
+            title: "Rexburg, Idaho", 
+            date: "SEP 2023", 
+            coords: [43.81455094723061, -111.78427081920796], 
+            img: "images/trips/2023_09_rexburg/cover.jpg", 
+            desc: "Photoshoot in the parking lot. Graduation",
+            folder: "2023_09_rexburg"
+        },
+        { 
+            title: "San Antonio, Texas", 
+            date: "SEP 2023", 
+            coords: [29.4260, -98.4861],
+            img: "images/trips/2023_09_san_antonio/cover.jpg", 
+            desc: "Introduced Audrey to my family",
+            folder: "2023_09_san_antonio"
+        },
+        { 
+            title: "Little Rock, Arkansas", 
+            date: "NOV 2023", 
+            coords: [34.7465, -92.2896], 
+            img: "images/trips/2023_11_little_rock/cover.jpg", 
+            desc: "Traveled to Arkansas for an interview and spent the day in Little Rock",
+            folder: "2023_11_little_rock"
+        },
+        { 
+            title: "El Dorado, Arkansas", 
+            date: "NOV 2023", 
+            coords: [33.2111, -92.6663], 
+            img: "images/trips/2023_11_el_dorado/cover.jpg", 
+            desc: "Rejected at my interview with MurphyUSA in El Dorado",
+            folder: "2023_11_el_dorado"
+        },
+        { 
+            title: "Thanksgiving Point, Utah", 
+            date: "NOV 2023", 
+            coords: [40.4313, -111.9026], 
+            img: "images/trips/2023_11_thanksgiving_point/cover.jpg", 
+            desc: "Enjoying Christmas decorations with Audrey",
+            folder: "2023_11_thanksgiving_point"
+        },
+        { 
+            title: "Salt Lake City, Utah", 
+            date: "DEC 2023", 
+            coords: [40.7681, -111.8911], 
+            img: "images/trips/2023_12_salt_lake_city/cover.jpg", 
+            desc: "Spent the day at City Creek Mall. Have gone back for several dates",
+            folder: "2023_12_salt_lake_city"
+        },
+        { 
+            title: "Changi, Singapore", 
+            date: "FEB 2024", 
+            coords: [1.3602, 103.9898], 
+            img: "images/trips/2024_02_changi/cover.jpg", 
+            desc: "Landed in the Jewel Changi Airport as a layover for our Asia trip",
+            folder: "2024_02_changi"
+        },
+        { 
+            title: "Davao City, Philippines", 
+            date: "FEB 2024", 
+            coords: [7.1907, 125.4553], 
+            img: "images/trips/2024_03_davao_city/cover.jpg", 
+            desc: "First stop in the Philippines to meet some of Audrey's family",
+            folder: "2024_03_davao_city"
+        },
+        { 
+            title: "Island Garden City of Samal, Philippines", 
+            date: "MAR 2024", 
+            coords: [7.0427, 125.7115], 
+            img: "images/trips/2024_03_garden_city_samal/cover.jpg", 
+            desc: "Spent a couple days on Samal Island",
+            folder: "2024_03_garden_city_samal"
+        },
+        { 
+            title: "Coron, Philippines", 
+            date: "MAR 2024", 
+            coords: [11.9994, 120.2241], 
+            img: "images/trips/2024_03_coron/cover.jpg", 
+            desc: "Island hopping on the prettiest beach in the world",
+            folder: "2024_03_coron"
+        },
+        { 
+            title: "Binangonan, Philippines", 
+            date: "MAR 2024", 
+            coords: [14.4842, 121.2163], 
+            img: "images/trips/2024_03_binangonan/cover.jpg", 
+            desc: "Second place to stay in the Philippines. Audrey's mom's house",
+            folder: "2024_03_binangonan"
+        },
+        { 
+            title: "Batangas, Philippines", 
+            date: "MAR 2024", 
+            coords: [13.7565, 121.0583], 
+            img: "images/trips/2024_03_batangas/cover.jpg", 
+            desc: "Met the other side of Audrey's family",
+            folder: "2024_03_batangas"
+        },
+        { 
+            title: "Manila, Philippines", 
+            date: "APR 2024", 
+            coords: [14.5995, 120.9842], 
+            img: "images/trips/2024_04_manila/cover.jpg", 
+            desc: "Traveled to the Capital with Audrey's friends and family",
+            folder: "2024_04_manila"
+        },
+        { 
+            title: "Tokyo, Japan", 
+            date: "APR 2024", 
+            coords: [35.6619, 139.7037], 
+            img: "images/trips/2024_04_tokyo/cover.jpg", 
+            desc: "Proposed to Audrey in Shibuya",
+            folder: "2024_04_tokyo"
+        },
+        { 
+            title: "Virginia Beach, Virginia", 
+            date: "JUN 2024", 
+            coords: [36.8529, -75.9780], 
+            img: "images/trips/2024_06_virginia_beach/cover.jpg", 
+            desc: "Moved to Virginia Beach for the Navy",
+            folder: "2024_06_virginia_beach"
+        },
+        { 
+            title: "Alpine, Utah", 
+            date: "JUL 2024", 
+            coords: [40.4533, -111.7774], 
+            img: "images/trips/2024_07_alpine/cover.jpg", 
+            desc: "Photoshoot in Alpine",
+            folder: "2024_07_alpine"
+        },
+        { 
+            title: "Burlington, Vermont", 
+            date: "AUG 2024", 
+            coords: [44.4759, -73.2121], 
+            img: "images/trips/2024_08_burlington/cover.jpg", 
+            desc: "Visting family in Burlington",
+            folder: "2024_08_burlington"
+        },
+        { 
+            title: "Doswell, Virginia", 
+            date: "APR 2024", 
+            coords: [37.8400, -77.4450], 
+            img: "images/trips/2024_09_doswell/cover.jpg", 
+            desc: "King's Dominion with Audrey",
+            folder: "2024_09_doswell"
+        },
+        { 
+            title: "New York City, New York", 
+            date: "SEP 2024", 
+            coords: [40.7128, -74.0060], 
+            img: "images/trips/2024_09_new_york_city/cover.jpg", 
+            desc: "Wandering all throughout NYC",
+            folder: "2024_09_new_york_city"
+        },
+        { 
+            title: "Harpers Ferry, West Virginia", 
+            date: "NOV 2024", 
+            coords: [39.3253, -77.7436], 
+            img: "images/trips/2024_11_harpers_ferry/cover.jpg", 
+            desc: "Visiting Audrey's family",
+            folder: "2024_11_harpers_ferry"
+        },
+        { 
+            title: "Montréal, Quebec", 
+            date: "NOV 2024", 
+            coords: [45.5019, -73.5674], 
+            img: "images/trips/2024_11_montreal/cover.jpg", 
+            desc: "Enoying time with my siblings",
+            folder: "2024_11_montreal"
+        },
+        { 
+            title: "Fredericksburg, Texas", 
+            date: "DEC 2024", 
+            coords: [30.2752, -98.8720], 
+            img: "images/trips/2024_12_fredericksburg/cover.jpg", 
+            desc: "Trip to Texas for my parents",
+            folder: "2024_12_fredericksburg"
+        },
+        { 
+            title: "Joshua Tree, California", 
+            date: "JAN 2025", 
+            coords: [33.8734, -115.9010], 
+            img: "images/trips/2025_01_joshua_tree/cover.jpg", 
+            desc: "Meeting Audrey's mom",
+            folder: "2025_01_joshua_tree"
+        },
+        { 
+            title: "Hollywood, California", 
+            date: "JAN 2025", 
+            coords: [34.1381, -118.3534], 
+            img: "images/trips/2025_01_hollywood/cover.jpg", 
+            desc: "Universal Studios with Audrey",
+            folder: "2025_01_hollywood"
+        },
+        { 
+            title: "Oahu, Hawaii", 
+            date: "JAN 2025", 
+            coords: [21.4389, -158.0001], 
+            img: "images/trips/2025_01_oahu/cover.jpg", 
+            desc: "Attending a wedding in Oahu",
+            folder: "2025_01_oahu"
+        },
+        { 
+            title: "City of Aguascalientes, Aguascalientes", 
+            date: "FEB 2025", 
+            coords: [21.8823, -102.2826], 
+            img: "images/trips/2025_02_aguascalientes/cover.jpg", 
+            desc: "Visiting my family in Mexico",
+            folder: "2025_02_aguascalientes"
+        },
+        { 
+            title: "Washington, District of Columbia", 
+            date: "MAR 2025", 
+            coords: [38.8899, -77.0091], 
+            img: "images/trips/2025_03_district_of_columbia/cover.jpg", 
+            desc: "Spending time with Audrey's family and my friend in DC",
+            folder: "2025_03_district_of_columbia"
+        },
+        { 
+            title: "San Diego, California", 
+            date: "APR 2025", 
+            coords: [32.7157, -117.1611], 
+            img: "images/trips/2025_04_san_diego/cover.jpg", 
+            desc: "Spending time with Audrey's family",
+            folder: "2025_04_san_diego"
+        },
+        { 
+            title: "Newport News, Virginia", 
+            date: "MAY 2025", 
+            coords: [37.0871, -76.4730], 
+            img: "images/trips/2025_05_newport_news/cover.jpg", 
+            desc: "Attending a Korean church in Newport News with Audrey",
+            folder: "2025_05_newport_news"
+        },
+        { 
+            title: "Norfolk, Virginia", 
+            date: "MAY 2025", 
+            coords: [36.8508, -76.2859], 
+            img: "images/trips/2025_05_norfolk/cover.jpg", 
+            desc: "Visiting the USS Wisconsin with Audrey",
+            folder: "2025_05_norfolk"
+        },
+        { 
+            title: "Richmond, Virginia", 
+            date: "MAY 2025", 
+            coords: [37.5407, -77.4360], 
+            img: "images/trips/2025_05_richmond/cover.jpg", 
+            desc: "Meeting up with a friend for minigolf with Audrey",
+            folder: "2025_05_richmond"
+        },
+        { 
+            title: "Manassas, Virginia", 
+            date: "JUN 2025", 
+            coords: [38.7509, -77.4753], 
+            img: "images/trips/2025_06_manassas/cover.jpg", 
+            desc: "Meeting Audrey's friend",
+            folder: "2025_06_manassas"
+        },
+        { 
+            title: "Peoria, illinois", 
+            date: "JUL 2025", 
+            "coords": [40.6936, -89.5890], 
+            img: "images/trips/2025_06_peoria/cover.jpg", 
+            desc: "Meeting my friend from Illinois",
+            folder: "2025_06_peoria"
+        },
+        { 
+            title: "Park City, Utah", 
+            date: "JUL 2025", 
+            coords: [40.6461, -111.4980], 
+            img: "images/trips/2025_07_park_city/cover.jpg", 
+            desc: "Spending time doing the ski lifts with some friends",
+            folder: "2025_07_park_city"
+        },
+        { 
+            title: "Spanish Fork, Utah", 
+            date: "SEP 2025", 
+            coords: [40.1150, -111.6549], 
+            img: "images/trips/2025_09_spanish_fork/cover.jpg", 
+            desc: "Spending time with my uncle, aunt and cousins",
+            folder: "2025_09_spanish_fork"
+        },
+        { 
+            title: "Orem, Utah", 
+            date: "OCT 2025", 
+            coords: [40.439944, -111.62453], 
+            img: "images/trips/2025_10_orem/cover.jpg", 
+            desc: "Photoshoot with some friends",
+            folder: "2025_10_orem"
+        },
+        { 
+            title: "Las Vegas, Nevada", 
+            date: "OCT 2025", 
+            coords: [36.1716, -115.1391], 
+            img: "images/trips/2025_12_las_vegas/cover.jpg", 
+            desc: "Passing through Las Vegas",
+            folder: "2025_12_las_vegas"
+        }
+
+    ];
+
+// --- 1. INITIALIZATION ---
+    async function init() {
+        let rawData = [];
+        try {
+            const response = await fetch('data/trips.json');
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            rawData = await response.json();
+        } catch (error) {
+            console.warn('Error loading data/trips.json. Using fallback.', error);
+            rawData = fallbackData;
+        }
+
+        // Auto-assign IDs based on order
+        trips = rawData.map((trip, index) => ({
+            ...trip,
+            id: index + 1
+        }));
+
+        setupMap();
+        renderTimeline();
+    }
+
+    // --- 2. MAP SETUP (Mobile Zoom Fix + Resize Fix) ---
+    function setupMap() {
+        if (map) map.remove();
+
+        // 1. Check if we are on mobile (width < 768px)
+        const isMobile = window.innerWidth < 768;
+        
+        // 2. Set default zoom: 1.5 for Mobile (Zoomed out), 2.0 for Desktop
+        const startZoom = isMobile ? 0.85 : 2;
+
+        map = L.map('map', { 
+            zoomControl: false,
+            zoomSnap: 0.5 // ALLOWS FRACTIONAL ZOOM (Critical for 1.5)
+        }).setView([20, 0], startZoom);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            className: 'map-tiles',
+            attribution: '&copy; OpenStreetMap'
+        }).addTo(map);
+
+        const customIcon = L.divIcon({
+            className: 'custom-div-icon',
+            html: `<div class="relative flex items-center justify-center w-4 h-4">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-cyan-500 border border-white"></span>
+                </div>`,
+            iconSize: [16, 16],
+            iconAnchor: [8, 8]
+        });
+
+        trips.forEach(trip => {
+            const marker = L.marker(trip.coords, {icon: customIcon}).addTo(map);
+            marker.bindTooltip(trip.title, { permanent: false, direction: 'top', className: 'bg-slate-900 text-cyan-400 border border-cyan-900 font-mono text-xs px-2 py-1 rounded shadow-xl' });
+            marker.on('click', () => {
+                openModal(trip);
+                const card = document.getElementById(`card-${trip.id}`);
+                if(card) card.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+            });
+        });
+
+        // --- RESIZE / ROTATION LISTENER ---
+        window.addEventListener('resize', () => {
+            setTimeout(() => {
+                map.invalidateSize();
+                
+                // Optional: Re-center map on resize if user hasn't clicked anything
+                // const newIsMobile = window.innerWidth < 768;
+                // map.setZoom(newIsMobile ? 1.5 : 2);
+                
+            }, 200); 
+        });
+    }
+
+    // --- 3. TIMELINE GENERATION ---
+    function renderTimeline() {
+        const timelineContainer = document.getElementById('timeline-container');
+        timelineContainer.innerHTML = ''; 
+
+        [...trips].reverse().forEach(trip => {
+            const card = document.createElement('div');
+            card.id = `card-${trip.id}`;
+            card.className = "flex-shrink-0 w-80 h-64 bg-slate-900 border border-white/5 hover:border-cyan-500/50 rounded-2xl overflow-hidden cursor-pointer group transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] flex flex-col relative";
+            
+            card.onclick = () => {
+                openModal(trip);
+                
+                // --- ZOOM UPDATE HERE ---
+                // Changed zoom level from 6 to 12
+                map.flyTo(trip.coords, 12, { duration: 2.0 }); 
+            };
+
+            // Preload logic
+            card.addEventListener('mouseenter', () => {
+                const preloadLink = document.createElement('link');
+                preloadLink.rel = 'preload';
+                preloadLink.as = 'image';
+                preloadLink.href = `images/trips/${trip.folder}/1.jpg`;
+                document.head.appendChild(preloadLink);
+            }, { once: true });
+
+            card.innerHTML = `
+                <div class="h-40 overflow-hidden relative z-0">
+                    <img src="${trip.img}" 
+                        loading="lazy" 
+                        decoding="async"
+                        class="block w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100 transform-gpu" 
+                        onerror="this.src='https://placehold.co/600x400/1e293b/475569?text=No+Image'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                    <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur text-cyan-400 text-[10px] font-mono px-2 py-1 rounded border border-cyan-900/30">
+                        ID: ${trip.id.toString().padStart(2, '0')}
+                    </div>
+                </div>
+                
+                <div class="p-5 pt-4 flex-grow flex flex-col justify-end relative z-10 -mt-2 bg-slate-900">
+                    <p class="text-cyan-500 font-mono text-[10px] mb-1 tracking-[0.2em] uppercase">${trip.date}</p>
+                    <h3 class="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">${trip.title}</h3>
+                </div>
+            `;
+            timelineContainer.appendChild(card);
+        });
+    }
+    // --- 4. MODAL LOGIC ---
+    const modal = document.getElementById('trip-modal');
+    const modalContent = document.getElementById('modal-content');
+
+    function openModal(trip) {
+        document.getElementById('modal-title').innerText = trip.title;
+        document.getElementById('modal-date').innerText = trip.date;
+        document.getElementById('modal-desc').innerText = trip.desc;
+        document.getElementById('modal-hero-img').src = trip.img;
+
+        const gallery = document.getElementById('modal-gallery');
+        gallery.innerHTML = ''; 
+
+        // Start loading images (Batch 1: Images 1, 2, 3)
+        loadImagesInBatch(trip, 1);
+        
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        setTimeout(() => {
+            modalContent.classList.remove('scale-95', 'opacity-0');
+        }, 10);
+    }
+
+    function closeModal() {
+        modalContent.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }, 300);
+    }
+    
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    // --- 5. PARALLEL BATCH IMAGE LOADER (Optimized) ---
+    // Loads 3 images at a time. If all 3 fail, we assume gallery is done.
+    function loadImagesInBatch(trip, startIndex) {
+        const gallery = document.getElementById('modal-gallery');
+        const BATCH_SIZE = 3; 
+        
+        let completedInBatch = 0; // Count requests finished (success or fail)
+        let foundInBatch = 0;     // Count successful images found
+
+        for (let i = 0; i < BATCH_SIZE; i++) {
+            const currentIndex = startIndex + i;
+            const imgPath = `images/trips/${trip.folder}/${currentIndex}.jpg`;
+
+            const tempImg = new Image();
+            
+            // SUCCESS HANDLER
+            tempImg.onload = function() {
+                const imgDiv = document.createElement('div');
+                imgDiv.className = "aspect-square rounded-xl overflow-hidden bg-slate-800 relative group cursor-pointer animate-fade-in-up";
+                
+                // Optimized Image Attributes
+                imgDiv.innerHTML = `
+                    <img src="${imgPath}" 
+                        loading="lazy"
+                        decoding="async"
+                        class="w-full h-full object-cover transition duration-500 hover:scale-110 opacity-75 hover:opacity-100"
+                        alt="${trip.title} photo ${currentIndex}">
+                `;
+                
+                // Add to gallery (Simple append is fastest)
+                gallery.appendChild(imgDiv);
+                
+                foundInBatch++;
+                checkBatchCompletion();
+            };
+
+            // ERROR HANDLER (File doesn't exist)
+            tempImg.onerror = function() {
+                checkBatchCompletion();
+            };
+
+            // Trigger Fetch
+            tempImg.src = imgPath;
+        }
+
+        // Called every time an image request finishes
+        function checkBatchCompletion() {
+            completedInBatch++;
+            
+            // When the entire batch of 3 has responded...
+            if (completedInBatch === BATCH_SIZE) {
+                // If we found at least 1 photo, try to load the NEXT batch
+                if (foundInBatch > 0) {
+                    loadImagesInBatch(trip, startIndex + BATCH_SIZE);
+                } else {
+                    // All 3 failed? We reached the end of the folder.
+                    console.log(`Gallery loaded for ${trip.title}.`);
+                }
+            }
+        }
+    }
+
+    // Start App
+    init();
+
+</script>

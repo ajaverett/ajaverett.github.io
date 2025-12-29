@@ -1,0 +1,24 @@
+<style>
+#title-block-header {
+        display: none !important;
+    }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const settings = document.getElementById('hero-settings');
+    
+    if (settings) {
+        const titleText = settings.getAttribute('data-title');
+        const subtitleText = settings.getAttribute('data-subtitle');
+        
+        const titleEl = document.getElementById('hero-title');
+        const subtitleEl = document.getElementById('hero-subtitle');
+        
+        if (titleEl && titleText) titleEl.innerText = titleText;
+        if (subtitleEl && subtitleText) subtitleEl.innerText = subtitleText;
+        
+        settings.remove();
+    }
+});
+</script>
