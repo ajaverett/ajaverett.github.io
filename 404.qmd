@@ -13,7 +13,7 @@ listing:
 format:
   html:
     css: styles/listing_styles.css
-    backgroundcolor: "#030616"
+    # backgroundcolor: "#030616"
     page-layout: custom
     toc: false
     include-in-header: 
