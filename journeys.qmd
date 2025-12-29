@@ -10,10 +10,13 @@ format:
     toc: false
     include-in-header:
         - html_chunks/scripts/map_script.html
+    include-before-body: 
+        - html_chunks/menu.html
     include-after-body:
         - html_chunks/scripts/hero_script.html
         - html_chunks/scripts/style_script.html
         - html_chunks/scripts/journeys_script.html
+        - html_chunks/scripts/menu_script.html
 ---
 <div id="hero-settings" data-title="Journeys" data-subtitle="Adventures across the world" hidden></div>
 
