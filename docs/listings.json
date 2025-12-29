@@ -21,5 +21,15 @@
       "/posts/tutor/index.html",
       "/posts/usa_christian/index.html"
     ]
+  },
+  {
+    "listing": "/blocks_test.html",
+    "items": [
+      "/blocks/housing.html",
+      "/blocks/militia_originalism.html",
+      "/blocks/planned_obsolecence.html",
+      "/blocks/productivity_pay_gap.html",
+      "/blocks/revolution.html"
+    ]
   }
 ]

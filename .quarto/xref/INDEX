@@ -34,5 +34,11 @@
   },
   "404.qmd": {
     "404.html": "4217fdfd"
+  },
+  "blocks_test.qmd": {
+    "blocks_test.html": "e90c6022"
+  },
+  "test.qmd": {
+    "test.html": "ee94fd2e"
   }
 }

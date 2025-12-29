@@ -1,0 +1,123 @@
+/* 1. RESET THE CARD CONTAINER */
+.quarto-grid-item.card {
+    background-color: #0f172a; /* bg-slate-900 */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 2. HOVER EFFECTS */
+.quarto-grid-link:hover .quarto-grid-item.card {
+    transform: translateY(-0.25rem);
+    border-color: rgba(6, 182, 212, 0.5);
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.15);
+}
+
+/* 3. IMAGE CONTAINER - CRITICAL FIXES */
+/* We target 'p.card-img-top' specifically to kill the browser margin */
+p.card-img-top {
+    margin: 0 !important; /* Kills the weird gap */
+    padding: 0 !important;
+    height: 8rem; /* Fixed height */
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    border: none;
+    z-index: 0;
+    flex-shrink: 0; /* Prevents image from getting squished */
+}
+
+.card-img-top img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; /* Ensures the middle of the image is seen */
+    opacity: 0.9; /* Slight boost to visibility */
+    transition: all 0.7s ease;
+    transform: scale(1);
+}
+
+.quarto-grid-link:hover .card-img-top img {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+/* 4. CARD BODY - TIGHTER PADDING */
+.card-body {
+    background-color: #0f172a;
+    
+    /* Reduced padding to bring text closer to image */
+    padding: 0.75rem 1rem 1rem 1rem; 
+    
+    /* Ensure z-index doesn't oddly overlap image unless negative margin is used */
+    z-index: 10;
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0 !important; /* Ensures body doesn't ride up over image */
+}
+
+/* 5. TAGS (CATEGORIES) - REORDERED & STYLED */
+.listing-categories {
+    order: 1; /* Moves above title */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem; /* Tighter gap between tags */
+    
+    /* Tighter gap between tags and title */
+    margin-bottom: 0.25rem !important; 
+    margin-top: 0 !important;
+}
+
+.listing-category {
+    background: transparent !important;
+    border: 1px solid rgba(6, 182, 212, 0.3) !important; /* Subtle blue outline */
+    border-radius: 4px;
+    color: #06b6d4 !important;
+    
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.45rem; /* Tiny font */
+    font-weight: 700;   /* Bolder to make tiny text readable */
+    line-height: 1;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    
+    padding: 3px 6px; /* Adjusted for visual balance */
+    margin: 0;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.listing-category:hover {
+    color: #22d3ee !important; 
+    border-color: #22d3ee !important;
+    background: rgba(6, 182, 212, 0.1) !important;
+}
+
+/* 6. TITLE STYLING */
+.card-title {
+    order: 2;
+    color: white !important;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem; /* Slightly smaller to match compact card */
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 0;
+    transition: color 0.3s ease;
+}
+
+.quarto-grid-link:hover .card-title {
+    color: #22d3ee !important;
+}
+
+/* 7. CLEANUP */
+.card-text, .card-attribution, .card-img-top::after {
+    display: none !important;
+}

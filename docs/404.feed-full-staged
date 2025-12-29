@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>AJ Averett</title>
+<link>https://ajaverett.com/404.html</link>
+<atom:link href="https://ajaverett.com/404.xml" rel="self" type="application/rss+xml"/>
+<description>Senior Consultant at Booz Allen &amp; Adjunct Faculty at MTECH</description>
+<generator>quarto-1.6.40</generator>
+<lastBuildDate>Mon, 29 Dec 2025 00:45:28 GMT</lastBuildDate>
+<item>
+  <title>{B4F502887207:/blocks/housing.html}</title>
+  <link>https://ajaverett.com/blocks/housing.html</link>
+  <description>{B4F502887207:/blocks/housing.html}</description>
+  <category>housing</category>
+  <category>economics</category>
+  <guid>https://ajaverett.com/blocks/housing.html</guid>
+  <pubDate>Mon, 29 Dec 2025 00:45:28 GMT</pubDate>
+  <media:content url="https://ajaverett.com/blocks/images/house.png" medium="image" type="image/png" height="95" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/blocks/militia_originalism.html}</title>
+  <link>https://ajaverett.com/blocks/militia_originalism.html</link>
+  <description>{B4F502887207:/blocks/militia_originalism.html}</description>
+  <category>constitution</category>
+  <category>guns</category>
+  <category>second amendment</category>
+  <category>federalist papers</category>
+  <category>history</category>
+  <guid>https://ajaverett.com/blocks/militia_originalism.html</guid>
+  <pubDate>Mon, 29 Dec 2025 00:45:28 GMT</pubDate>
+  <media:content url="https://ajaverett.com/blocks/images/second_amendment.png" medium="image" type="image/png" height="132" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/blocks/planned_obsolecence.html}</title>
+  <link>https://ajaverett.com/blocks/planned_obsolecence.html</link>
+  <description>{B4F502887207:/blocks/planned_obsolecence.html}</description>
+  <category>economics</category>
+  <category>planned obsolecence</category>
+  <category>manufacturing</category>
+  <category>cost of living</category>
+  <category>good ol&#39; days</category>
+  <guid>https://ajaverett.com/blocks/planned_obsolecence.html</guid>
+  <pubDate>Mon, 29 Dec 2025 00:45:28 GMT</pubDate>
+  <media:content url="https://ajaverett.com/blocks/images/appliance_efficiency.png" medium="image" type="image/png" height="78" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/blocks/productivity_pay_gap.html}</title>
+  <link>https://ajaverett.com/blocks/productivity_pay_gap.html</link>
+  <description>{B4F502887207:/blocks/productivity_pay_gap.html}</description>
+  <category>economics</category>
+  <category>good ol&#39; days</category>
+  <category>productivity</category>
+  <category>wages</category>
+  <category>late-stage capitalism</category>
+  <guid>https://ajaverett.com/blocks/productivity_pay_gap.html</guid>
+  <pubDate>Mon, 29 Dec 2025 00:45:28 GMT</pubDate>
+  <media:content url="https://ajaverett.com/blocks/images/productivity_pay_gap.png" medium="image" type="image/png" height="98" width="144"/>
+</item>
+<item>
+  <title>{B4F502887207:/blocks/revolution.html}</title>
+  <link>https://ajaverett.com/blocks/revolution.html</link>
+  <description>{B4F502887207:/blocks/revolution.html}</description>
+  <category>guns</category>
+  <category>second amendment</category>
+  <category>interactive</category>
+  <category>history</category>
+  <guid>https://ajaverett.com/blocks/revolution.html</guid>
+  <pubDate>Mon, 29 Dec 2025 00:45:28 GMT</pubDate>
+  <media:content url="https://ajaverett.com/blocks/images/washington.png" medium="image" type="image/png" height="120" width="144"/>
+</item>
+</channel>
+</rss>

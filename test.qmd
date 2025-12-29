@@ -1,0 +1,74 @@
+---
+title: ""
+format:
+  html:
+    anchor-sections: false
+    page-layout: custom
+    toc: false
+    include-in-header:
+      text: |
+        <script src="https://cdn.tailwindcss.com"></script>
+        
+        <style>
+            /* 1. DEFINE THE FADE ANIMATION MANUALLY */
+            @keyframes force-fade-ping {
+                0% {
+                    transform: scale(1);
+                    opacity: 0.75; /* Start visible */
+                }
+                75%, 100% {
+                    transform: scale(2);
+                    opacity: 0; /* Fade to nothing */
+                }
+            }
+
+            /* 2. CLASS TO KILL BOOTSTRAP TRANSITIONS */
+            .no-transition {
+                transition: none !important;
+                -webkit-transition: none !important;
+            }
+        </style>
+---
+
+::: {.column-screen}
+
+```{=html}
+<div class="bg-slate-950 min-h-screen w-full flex items-center justify-center">
+    
+    <div class="p-12 border border-white/10 rounded-xl bg-slate-900/50 backdrop-blur-md">
+        <h2 class="text-white font-mono mb-8 text-xl">FADE TEST CASES</h2>
+        
+        <div class="flex gap-12">
+            
+            <div class="flex flex-col items-center gap-4">
+                <span class="text-cyan-400 font-mono text-xs">1. Kill Transitions</span>
+                
+                <span class="relative !flex !flex-none !w-4 !h-4 items-center justify-center">
+                    <span class="animate-ping no-transition !absolute !inline-flex !h-full !w-full rounded-full bg-cyan-400 opacity-75"></span>
+                    <span class="!relative !inline-flex rounded-full !h-2 !w-2 bg-cyan-500"></span>
+                </span>
+            </div>
+
+            <div class="flex flex-col items-center gap-4">
+                <span class="text-cyan-400 font-mono text-xs">2. Manual Keyframe</span>
+                
+                <span class="relative !flex !flex-none !w-4 !h-4 items-center justify-center">
+                    <span style="animation: force-fade-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;" class="no-transition !absolute !inline-flex !h-full !w-full rounded-full bg-purple-400"></span>
+                    <span class="!relative !inline-flex rounded-full !h-2 !w-2 bg-purple-500"></span>
+                </span>
+            </div>
+
+            <div class="flex flex-col items-center gap-4">
+                <span class="text-cyan-400 font-mono text-xs">3. No Opacity Class</span>
+                
+                <span class="relative !flex !flex-none !w-4 !h-4 items-center justify-center">
+                    <span class="animate-ping no-transition !absolute !inline-flex !h-full !w-full rounded-full bg-green-400"></span>
+                    <span class="!relative !inline-flex rounded-full !h-2 !w-2 bg-green-500"></span>
+                </span>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+```

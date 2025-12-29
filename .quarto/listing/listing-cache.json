@@ -5,6 +5,12 @@
     ],
     "posts.qmd": [
       "posts"
+    ],
+    "blocks_test.qmd": [
+      "blocks"
+    ],
+    "404.qmd": [
+      "blocks"
     ]
   }
 }

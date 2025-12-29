@@ -2,6 +2,9 @@ project:
   resources: ["images"]
   type: website
   output-dir: docs
+  preview:
+    port: 0666
+
 
 website:
   title: "AJ Averett"
@@ -11,35 +14,15 @@ website:
   open-graph: true
   twitter-card: true
 
-  navbar:
-    background: "#0f172a"
-    foreground: light
-    pinned: true
-    collapse: true
-
-    left:
-      - text: "Home"
-        href: index.qmd
-      - href: "about.qmd"
-        text: About
-      - href: "posts.qmd"
-        text: Posts
-      - href: "blocks.qmd"
-        text: Blocks
-
-    # RIGHT SIDE: Icons & Search
-    right:
-      - icon: linkedin
-        href: https://www.linkedin.com/in/ajaverett
-        aria-label: "LinkedIn"
-      - icon: github
-        href: https://github.com/ajaverett
-        aria-label: "GitHub"
-      - icon: bi-file-earmark-person-fill      
-        href: resume.pdf
-        aria-label: "Resume"
+  # navbar:
+  #   background: "#0f172a"
+  #   foreground: light
+  #   pinned: true
+  #   collapse: true
 
 format:
   html:
     theme: cosmo
     # css: styles.css
+
+
