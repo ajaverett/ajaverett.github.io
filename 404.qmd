@@ -20,21 +20,6 @@ format:
 <div id="hero-settings" data-title="404" data-subtitle="Page not found!" hidden></div>
 
 ```{=html}
-<div class="techno-banner-wrapper">
-    <div class="techno-banner-track">
-        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
-        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
-        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
-        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
-        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
-        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
-        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
-        <span class="techno-text">SOWWY, PAGE NOT FOUND 🥺👉👈 ///&nbsp;</span>
-    </div>
-</div>
-```
-
-```{=html}
 <div class="text-center flex flex-col items-center gap-6 mt-4 mb-12">
     
     <h2 class="text-2xl md:text-4xl font-bold text-white tracking-tight m-0">

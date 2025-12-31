@@ -73,13 +73,13 @@ format:
                   <div class="relative w-full h-full bg-slate-900 rounded-full overflow-hidden border-4 border-slate-800 shadow-2xl transform-gpu translate-z-0 isolate transition-transform duration-300 group-hover:-rotate-2">
                       
                       <img 
-                          src="images/aj_pfp.jpg" 
+                          src="images/index/aj_pfp.jpg" 
                           alt="AJ" 
                           class="absolute inset-0 w-full h-full object-cover z-0"
                       >
                       
                       <img 
-                          src="images/aj_pfp_wink.png" 
+                          src="images/index/aj_pfp_wink.png" 
                           alt="AJ Wink" 
                           class="absolute inset-0 w-full h-full object-cover z-10 opacity-0 group-active:opacity-100 transition-opacity duration-150 ease-in-out will-change-opacity transform-gpu"
                       >

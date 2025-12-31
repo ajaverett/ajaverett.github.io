@@ -194,7 +194,7 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
 <!-- main -->
-<div class="w-full pt-6 pb-2 px-8 overflow-hidden">
+<div class="w-full !pt-6 !pb-2 !px-8 !z-[-50] overflow-hidden">
 
     
 
@@ -229,15 +229,15 @@ window.Quarto = {
 
     <nav class="flex flex-col items-center gap-8 mb-12 text-center">
 
-        <a href="index.html" class="text-4xl md:text-5xl font-bold text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 transition-all transform hover:scale-110">Home</a>
+        <a href="index.html" class="text-4xl md:text-5xl font-bold text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 transition-transform duration-300 transform hover:scale-110">Home</a>
 
-        <a href="about.html" class="text-4xl md:text-5xl font-bold text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 transition-all transform hover:scale-110">About</a>
+        <a href="about.html" class="text-4xl md:text-5xl font-bold text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 transition-transform duration-300 transform hover:scale-110">About</a>
 
-        <a href="posts.html" class="text-4xl md:text-5xl font-bold text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 transition-all transform hover:scale-110">Posts</a>
+        <a href="posts.html" class="text-4xl md:text-5xl font-bold text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 transition-transform duration-300 transform hover:scale-110">Posts</a>
 
-        <a href="blocks.html" class="text-4xl md:text-5xl font-bold text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 transition-all transform hover:scale-110">Blocks</a>
+        <a href="blocks.html" class="text-4xl md:text-5xl font-bold text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 transition-transform duration-300 transform hover:scale-110">Blocks</a>
 
-        <a href="journeys.html" class="text-4xl md:text-5xl font-bold text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 transition-all transform hover:scale-110">Journeys</a>
+        <a href="journeys.html" class="text-4xl md:text-5xl font-bold text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 transition-transform duration-300 transform hover:scale-110">Journeys</a>
 
     </nav>
 
@@ -429,7 +429,7 @@ window.Quarto = {
     </div>
 </div>
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="aG91c2luZyUyQ2Vjb25vbWljcw==" data-listing-file-modified-sort="1766475873845" data-listing-reading-time-sort="5" data-listing-word-count-sort="812">
+<div class="g-col-1" data-index="0" data-categories="aG91c2luZyUyQ2Vjb25vbWljcw==" data-listing-file-modified-sort="1767216897068" data-listing-reading-time-sort="16" data-listing-word-count-sort="3110">
 <a href="./blocks/housing.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -448,7 +448,7 @@ economics
 </div>
 </div>
 <div class="card-text listing-description">
-Debate help for later:
+ <sup>1</sup>
 </div>
 <div class="card-attribution card-text-small start">
 <div class="listing-author">
@@ -633,11 +633,13 @@ No matching items
 
 
 
-<footer class="bg-slate-950 border-t border-white/10 pt-24 pb-8 md:py-12 snap-start relative z-10">
+<footer class="bg-slate-950 border-t border-white/10 !py-3 md:!py-4 snap-start relative z-10">
+
+
 
     <div class="max-w-7xl mx-auto px-6 flex flex-row justify-between items-center">
 
-        
+
 
         <div class="text-left">
 
@@ -657,7 +659,7 @@ No matching items
 
             <a href="./blocks.html" class="max-md:hidden text-slate-400 hover:text-cyan-400 transition-colors">Blocks</a>
 
-            
+
 
             <a href="https://www.linkedin.com/in/ajaverett/" target="_blank" class="text-slate-400 hover:text-cyan-400 transition-colors"><i class="bi bi-linkedin"></i></a>
 
@@ -675,19 +677,27 @@ No matching items
 
 <style>
 
-    footer h3, footer p, footer a {
+    footer h3,
+
+    footer p,
+
+    footer a {
 
         font-family: 'Lato', sans-serif !important;
 
     }
 
+
+
     footer a {
 
-        color: #94a3b8 !important; 
+        color: #94a3b8 !important;
 
         text-decoration: none !important;
 
     }
+
+
 
     footer a:hover {
 
@@ -699,7 +709,13 @@ No matching items
 
     }
 
-    .bi { line-height: 1; }
+
+
+    .bi {
+
+        line-height: 1;
+
+    }
 
 </style>
 <style>
