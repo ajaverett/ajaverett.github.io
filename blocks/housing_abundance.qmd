@@ -1,0 +1,212 @@
+---
+title: "Housing Platform"
+subtitle: "A list of policies I support"
+image: "images/house.png"
+title-block-banner: ../images/banner.png
+title-block-banner-color: 'white'
+categories: ["housing", "economics"]
+---
+
+**A Vision for Housing in America**
+
+The founding fathers understood that political liberty depends on material independence. A self-governing people cannot exist where most families are economically captive and priced out of stable homes, forever dependent on landlords, or forced to treat shelter as a speculative gamble rather than a foundation for life.
+
+In 1776, Adams warned that
+
+> The only possible Way then of preserving the Ballance of Power on the side of equal Liberty and public Virtue, is to make the Acquisition of Land easy to every Member of Society.
+> <br>
+> John Adams (1776)
+
+In early America, land was the primary source of independence. Today, housing plays that same role. When access to housing is broad, secure, and attainable, families gain stability, workers gain mobility, and communities gain the confidence to say “yes” to the future
+
+That moral intuition did not fade with the Founding generation. A century later, John F. Kennedy captured the same truth in modern terms:
+
+> The right to a good home is one of the noblest motives in the American way of life – it is inherent in the heart and soul of every American and should be the cornerstone of all public policy.
+
+## The Freedom to Build:
+
+*Zoning & Land Use Reform*
+
+**The Problem**: Today, a property owner’s right to build is held hostage by arbitrary local bureaucracies and NIMBY obstructionism. We have allowed local councils to ban affordable starter homes to artificially inflate the value of existing mansions. This is not a free market; it is a shortage by design.
+
+**The Solution**: We will strip the power of exclusion from local fiefdoms and restore property rights through a centralized, simplified zoning framework.
+
+**Policy Commitments**:
+
+::: {.callout-note collapse="true"}
+# National Zoning Standardization (Japanese Model)
+We will incentivize states to adopt a centralized, nuisance-based zoning code similar to Japan’s. If a building does not pollute or create excessive noise, it should be legal. This moves zoning power from local obstructionists to state planners who prioritize regional growth.
+:::
+
+::: {.callout-note collapse="true"}
+# By-Right" Approvals
+If a project meets the written rules, it must be approved automatically. We will end the era of discretionary hearings where subjective aesthetics delay housing for years.
+:::
+
+::: {.callout-note collapse="true"}
+# Abolish Parking Minimums & Lot Size Mandates
+The government should not force citizens to buy land for cars they don’t own. We will legalize the construction of starter homes on modest lots, lowering the floor cost of entry for first-time buyers.
+:::
+
+::: {.callout-note collapse="true"}
+# Legalize "Point Access Blocks" (Single-Stair Reform)
+We will modernize building codes to allow single-stair buildings up to 6–8 stories, adopting safe European and Seattle-based standards. This eliminates the "double-loaded corridor" requirement, allowing for better ventilation, family-sized units, and light-filled apartments on smaller plots of land.
+:::
+
+## Affordable Building for the Future
+
+*Construction, Labor, & Costs*
+
+**The Problem**: Even if we could build, it costs too much. We are strangled by red tape, outdated labor monopolies, and protectionist trade wars that make a 2x4 piece of lumber a luxury good. We are essentially making it illegal to build efficiently.
+
+**The Solution**: We will unleash a construction boom by removing barriers to trade, technology, and talent.
+
+**Policy Commitments**:
+
+::: {.callout-note collapse="true"}
+# Harmonize Building Standards
+By adopting ISO/European safety standards (moving beyond the restrictive ASME code)
+:::
+
+::: {.callout-note collapse="true"}
+# Dismantle the Elevator Monopoly
+We will break the stranglehold of the elevator union and proprietary maintenance contracts. Banning software locks on elevator repair, we will make mid-rise housing viable and affordable again.
+:::
+
+::: {.callout-note collapse="true"}
+# Environmental Review Reform (NEPA)
+We will exempt infill housing and green transit projects from National Environmental Policy Act (NEPA) reviews. Environmental laws should stop polluters, not sustainable housing in city centers.
+:::
+
+::: {.callout-note collapse="true"}
+# Global Supply Chain Freedom
+We will eliminate all tariffs on construction materials (lumber, steel, aluminum). American housing should be built with the best materials at the best price, regardless of origin.
+:::
+
+::: {.callout-note collapse="true"}
+# Construction Visas & Credential Reform
+We face a massive labor shortage. We will introduce a dedicated visa class for skilled tradespeople and streamline credential recognition reform. We will review and reduce occupational licensing requirements that serve as barriers to entry rather than safety measures. If you are a certified electrician in a country with high standards, you should be able to wire homes in America without years of redundant retraining.
+:::
+
+## A Home is for Living, Not Speculating
+
+*Financial & Tax Reform*
+
+**The Problem**: This is the hard truth no one wants to say: Housing cannot be both affordable for the buyer and a high-yield investment for the seller. Current tax code bribes Americans to become "Homevoters"—people who vote against new housing to protect their asset values. This addiction to appreciation is destroying our economy.
+
+**The Solution**: We will decouple retirement security from home prices. We want homes to be affordable consumption, and we will help you build real wealth in the productive economy instead.
+
+**Policy Commitments**:
+
+::: {.callout-note collapse="true"}
+# Capital Gains Reform
+We will replace the Section 121 flat exclusion. Instead, home sellers will pay taxes on real gains (inflation-indexed basis) just like any other asset.
+:::
+
+::: {.callout-note collapse="true"}
+# Retirement Rollover (The Off-Ramp)
+To protect retirees, we will allow tax-free rollovers of home sale proceeds into diversified Mandatory Savings Programs or 401(k)s. You should rely on the stock market and bonds for retirement, not the scarcity of your neighbor’s housing.
+:::
+
+::: {.callout-note collapse="true"}
+# Abolish the Mortgage Interest Deduction (MID)
+This is a regressive subsidy that inflates prices and benefits the wealthy. We will eliminate it.
+:::
+
+::: {.callout-note collapse="true"}
+# Borrower-Based Macroprudential Limits
+
+We will restrict leverage to prevent housing bubbles, ensuring that price growth is driven by fundamentals, not easy debt.
+:::
+
+::: {.callout-note collapse="true"}
+# Split-Rate Taxation 
+We will incentivize states to tax land at a higher rate than improvements. Do not punish a landlord for fixing a roof; tax the speculator sitting on an empty dirt lot in downtown.
+:::
+
+::: {.callout-note collapse="true"}
+# Speculative Vacancy Tax
+
+**Objective:** To increase housing supply by disincentivizing the holding of residential property as a vacant investment vehicle, utilizing existing regulatory definitions to minimize administrative overhead.
+
+1. Definitions & Standards
+
+**Principal Residence (Owner-Occupied)**: A property is deemed "Occupied" if it currently qualifies for the *Homestead Exemption* (or local equivalent Principal Residence Exemption) under the \[State/County\] Revenue & Taxation Code.
+
+**Tenanted Occupancy (Non-Owner)**: For properties not claiming a Homestead Exemption, "Occupancy" requires the unit be leased to a "Permitted Occupant" for at least **180 days** of the tax year. \* **Arm's Length Requirement:** The lease must be for **Fair Market Rent** (as defined by HUD SAFMR, see Section 6.C) to a tenant who is not a "Related Person" as defined by **26 U.S. Code § 267**. \* **Exclusion:** Short-term rentals (periods of \<30 consecutive days) regulated under \[Local Transient Occupancy Tax Statutes\] do not count toward the 180-day threshold. \* **De Facto Vacancy**: Any property that does not meet the definition of Principal Residence or Tenanted Occupancy, and has not filed a valid Exemption, is classified as Vacant.
+
+2. Tax Structure
+
+The tax is levied on the property’s current Assessed Value (AV) on a progressive scale.
+
+-   **Year 1 Vacant:** 1% of AV
+-   **Year 2 Vacant:** 2% of AV
+-   **Year 3+ Vacant:** 3% of AV
+
+3. Property Attachment & Transfer Rules
+
+**Non-Arm’s Length Transfers**: Transfers between parties defined as "Related Persons" by the IRS (including spouses, lineal descendants, fiduciaries, and controlled corporations) do **not** reset the tax rate. (e.g. A transfer from an individual to their own LLC retains the Year 3 (3%) tax rate)
+
+**Arm’s Length Sales**: Transfers to an unrelated party reset the tax rate. \* **Grace Period:** The property is exempt for **12 months** following the recording date of the deed. \* **Reset Provision:** If the property remains vacant after the 12-month grace period, the tax clock starts at **Year 1 (1%)**.
+
+4. Administration & Auditing
+
+**Mandatory Annual Declaration**: Owners not currently claiming a Homestead Exemption must file an annual Occupancy Status Declaration. Failure to file results in automatic classification as "De Facto Vacant."
+
+**Risk-Based Auditing (Utility Benchmarking)**: Instead of arbitrary usage numbers, the City applies a "Low Usage Flag" based on peer data. \* **Threshold:** Average monthly consumption falling below the **10th percentile** of similarly sized units (bedroom count/sq ft) in the service area. \* **Verification:** Properties flagged for low usage receive a physical confirmation code via mail. Failure to input the code online within 14 days is prima facie evidence of vacancy.
+
+5. Exemptions
+
+*Exemptions must be claimed during the declaration phase and are strictly tied to external validations.*
+
+**Active Renovation by Capital Expenditure Threshold**: Valid for a maximum of one year per owner. To prevent minor or cosmetic work from justifying vacancy, the owner must prove substantial financial investment in the property.
+
+1.  **Monetary Threshold:** The owner must provide evidence of capital improvements totaling at least **\$50,000 OR 15% of the structure’s Assessed Value** (whichever is lower) incurred during the tax year.
+2.  **Qualifying Costs:**
+    -   **Hard Costs Only:** Only materials and third-party labor count toward the threshold.
+    -   **Exclusions:** "Sweat equity" (owner's own labor), furniture, window treatments, and easily reversible changes (e.g., removing fixtures without replacement) are explicitly excluded.
+3.  **Verification:**
+    -   **Permit Valuation:** The "Valuation of Work" listed on the issued building permit serves as prima facie evidence.
+    -   **Audit Trail:** If the permit value is below the threshold, the owner must submit paid invoices and receipts from licensed contractors or suppliers to bridge the gap.
+
+**Active Rental Listing ("Good Faith Effort")**: Valid for a maximum of 12 months. The property is actively listed for rent on a recognized public platform. \* **Rent Cap:** To qualify as a "good faith" listing, the asking rent must not exceed **120% of the HUD Small Area Fair Market Rent (SAFMR)** for the property’s specific ZIP Code and unit size.
+
+**Medical Confinement**: The owner provides a signed attestation from a medical professional that the owner has been admitted to a facility for **"Skilled Nursing Care"** or **"Long-Term Care"** (as defined by \[State\] Dept of Health or CMS).
+
+**Legal Transfer Restrictions**: Occupancy or sale is prohibited by an active court order (e.g., lis pendens, probate freezes, or foreclosure redemption periods).
+
+:::
+
+## Security for All
+
+*A Modern Safety Net*
+
+**The Problem**: The "free market" alone cannot solve every crisis immediately. People fall through the cracks, and fear of displacement drives opposition to development. Furthermore, global capital flows can distort local markets, turning neighborhoods into deposit boxes for offshore wealth.
+
+**The Solution**: A robust safety net that focuses on people, not units, combined with a pragmatic approach to social housing.
+
+**Policy Commitments**:
+
+::: {.callout-note collapse="true"}
+# Remove Transaction Taxes and Homeownership Subsidies
+:::
+
+::: {.callout-note collapse="true"}
+# Public Rent Insurance
+Instead of rigid rent control (which kills supply), we will implement a public insurance scheme. If a tenant faces a sudden rent spike or income shock, this insurance bridges the gap, keeping them housed without distorting market prices.
+:::
+
+::: {.callout-note collapse="true"}
+# Housing First" (The Finland Model)
+We will adopt a unconditional housing model for the homeless. We fix the housing situation first, providing a stable foundation to address mental health and employment issues later.
+:::
+
+::: {.callout-note collapse="true"}
+# Singapore-Style Public Housing
+We will pilot high-quality, government-developed housing in major metros available to a broad range of incomes (not just the poor) on 99-year leases. This creates a public option that competes with private developers on quality and price.
+:::
+
+::: {.callout-note collapse="true"}
+# Protecting the Starter Home
+We will implement taxes on foreign non-resident buyers and heavily regulate institutional investors purchasing single-family starter homes, while expressly protecting and streamlining the 'Build-to-Rent' sector to ensure capital continues to flow into new housing supply. Neighborhoods are for families, not hedge funds.
+:::

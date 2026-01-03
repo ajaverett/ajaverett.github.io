@@ -45,7 +45,7 @@ format:
     {{< include html_chunks/footer.html >}}
 
     <div id="trip-modal" class="fixed inset-0 z-[1000] hidden items-center justify-center bg-slate-950/90 backdrop-blur-md p-0 md:p-10">
-        
+
         <button onclick="closeModal()" class="absolute top-4 left-4 md:left-auto md:right-6 md:top-6 z-[1020] bg-slate-950/50 rounded-full p-2 text-slate-400 hover:text-white transition transform hover:rotate-90 border border-white/10 backdrop-blur-md">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
