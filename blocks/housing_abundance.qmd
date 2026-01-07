@@ -7,59 +7,218 @@ title-block-banner-color: 'white'
 categories: ["housing", "economics"]
 ---
 
-**A Vision for Housing in America**
+# A Vision for Housing in America
 
-The founding fathers understood that political liberty depends on material independence. A self-governing people cannot exist where most families are economically captive and priced out of stable homes, forever dependent on landlords, or forced to treat shelter as a speculative gamble rather than a foundation for life.
+The American experiment rests on the belief that a free society requires independent citizens. To participate fully in our democracy, a family needs more than just a vote, they need a stake in their community and a shelter to raise their family.
 
-In 1776, Adams warned that
+John Adams recognized this necessity at the founding of our nation:
 
 > The only possible Way then of preserving the Ballance of Power on the side of equal Liberty and public Virtue, is to make the Acquisition of Land easy to every Member of Society.
 > <br>
-> John Adams (1776)
+> [John Adams (1776)](https://founders.archives.gov/documents/Adams/06-04-02-0091)
 
-In early America, land was the primary source of independence. Today, housing plays that same role. When access to housing is broad, secure, and attainable, families gain stability, workers gain mobility, and communities gain the confidence to say “yes” to the future
+Somewhere along the way, we lost this balance. We accepted a system where construction is blocked, costs are inflated, and homes are treated as financial assets leaving our most vulnerable neighbors with nowhere to turn.
 
-That moral intuition did not fade with the Founding generation. A century later, John F. Kennedy captured the same truth in modern terms:
+**We must choose a different path.**
+
+We envision an America where access to housing is broad, secure, and attainable. To achieve this, our platform rests on four pillars: 
+
+1. Restore the freedom to build by removing arbitrary barriers.
+2. Make housing affordable by fixing the approval systems that drive up costs.
+3. Treat homes as shelter, not financial assets.
+4. Ensure security for all through a modern safety net.
+
+When we lower the barrier to entry, families gain stability, workers gain mobility, and communities gain the confidence to say "yes" to the future.
+
+We are returning to the standard set by President Kennedy:
 
 > The right to a good home is one of the noblest motives in the American way of life – it is inherent in the heart and soul of every American and should be the cornerstone of all public policy.
+> <br>
+> [John F Kennedy (1946)](https://www.jfklibrary.org/archives/other-resources/john-f-kennedy-speeches/boston-ma-19460601)
 
-## The Freedom to Build:
+## Restoring The Freedom to Build:
 
 *Zoning & Land Use Reform*
 
-**The Problem**: Today, a property owner’s right to build is held hostage by arbitrary local bureaucracies and NIMBY obstructionism. We have allowed local councils to ban affordable starter homes to artificially inflate the value of existing mansions. This is not a free market; it is a shortage by design.
+**The Problem**: Today, the freedom to build is suffocated by bureaucratic red tape and exclusionary gatekeeping. We have enabled local councils to restrict, block, and ban affordable starter homes, effectively rigging the market to lock out working families. The current system tramples on property rights to protect the privileged. 
 
-**The Solution**: We will strip the power of exclusion from local fiefdoms and restore property rights through a centralized, simplified zoning framework.
+**The Solution**: We must restore the freedom to build through a centralized, simplified zoning framework.
 
 **Policy Commitments**:
 
 ::: {.callout-note collapse="true"}
-# National Zoning Standardization (Japanese Model)
-We will incentivize states to adopt a centralized, nuisance-based zoning code similar to Japan’s. If a building does not pollute or create excessive noise, it should be legal. This moves zoning power from local obstructionists to state planners who prioritize regional growth.
+
+# National Zoning Standardization
+
+## KAIZEN Act (Federal)
+
+Key Act for Improving Zoning Efficiency Nationwide (KAIZEN) Act, a voluntary federal "Model Code" designed to streamline construction and lower costs. Inspired by the highly successful, streamlined zoning frameworks used in Japan, this initiative moves from "Prohibit by Default" to "Permit by Default."
+
+### Universal Standardization:
+
+To replace the chaos of local codes, the KAIZEN Act introduces a standardized framework of 12 Universal Zones. This system relies on **Cumulative Zoning** (the "Nesting Doll" model) where lower-intensity uses are automatically permitted in higher-intensity zones.
+
+ * **Twelve Zones**:
+     * **Zones 1–3 (Low-Rise)**: Quiet living. Home businesses (offices/studios) are legal by-right.
+     * **Zones 4–7 (General)**: Walkable neighborhoods. Apartments, corner stores, and cafes are legal by-right.
+     * **Zones 8–10 (Commercial)**: Mixed density. Housing is *never* banned here.
+     * **Zones 11–12 (Industrial)**: Production. The *only* zones where housing is prohibited (to protect health).
+
+ * **Form and Physics Guardrails**: To prevent cities from adopting the names but keeping the restrictions, the Act enforces physical standards over arbitrary rules.
+     * **Sunlight Planes**: Replaces rigid height caps with slope requirements to preserve neighbor light.
+     * **Lot Size Preemption**: Prohibits minimum lot sizes greater than 1,500 sq ft in Zones 4–12.
+     * **Performance Standards**: Regulates noise (decibels) and light (lumens) rather than business categories, allowing clean manufacturing in mixed zones.
+
+ * **Predictability**: A "Category 2 Residential" zone will mean the exact same thing in Oregon as it does in Texas. Builders can work across state lines without navigating a maze of local bureaucracy.
+
+### Incentivizing Adoption:
+
+Adoption of the KAIZEN Act standard is voluntary, but highly encouraged through three powerful mechanisms designed to align incentives, lower risk, and ensure fiscal sustainability:
+
+* **Targeted Funding Prioritization**:
+     * To adhere to constitutional standards of germaneness, priority status is tied strictly to housing and transit-related funding.
+     * Adopters receive **Tier-1 Priority status** for discretionary grants with a direct link to density: **HUD (CDBG, HOME)** and **DOT (FTA, RAISE)**.
+     * Essential safety and maintenance funds (e.g., bridge repair) remain untouched to preserve federalist balance.*
+
+
+* **Infrastructure Growth Pays for Growth**:
+    * **Standardized Impact Fees**: Preempts state bans on impact fees, ensuring KAIZEN adopters can remain fiscally solvent by levying "per-unit" charges specifically for necessary hard infrastructure upgrades (water, sewer, roads, schools).
+    * **The "Marginal Cost" Mandate**:
+        * **Prohibition on Arbitrary Pricing**: Fees cannot be flat taxes, profit centers, or punitive measures. They must be calculated based on the *Marginal Cost of Service*.
+        * **The Formula**: $\left(\frac{\text{Total Cost of Capacity Expansion}}{\text{Number of New Units Served}}\right) = \text{Max Legal Fee}$.
+        * **Decentralized Verification**: Rather than relying on a centralized federal bureaucracy, fee schedules must be validated via a **Federally Accredited Third-Party Audit**.
+        * **Transparency**: Cities must publish a "Capital Improvement Plan" (CIP). The engineering reality of costs (e.g., claiming a water hookup costs $50,000) must be certified by a licensed, HUD-accredited independent engineering firm. The municipality bears the cost of the audit as a standard compliance expense.
+
+* **The "Eco-Capacity" Circuit Breaker (The "Reality Check")**:
+    * **Infrastructure Reality**: "By-Right" zoning does not mean "By-Magic." Even in KAIZEN zones, a project can be paused if the municipality demonstrates—via objective data certified by an **Independent Third-Party Auditor** that the *current* infrastructure (aquifers, treatment plants, grid) is at **Critical Failure Capacity**.
+    * **The "Pay-to-Play" Override**: If a project is paused due to valid, audited capacity limits, the developer retains the right to fund the necessary upgrade themselves (or via a Bond District) to immediately unlock the permit, bypassing political delays.
+
+* **The Legal Safe Harbor**:
+     * **NEPA Streamline ("Bio-Only" Review)**: Projects complying with KAIZEN codes are not exempt, but qualify for a **Restricted Scope EIS**.
+         * **Permissible Scope**: Environmental review is strictly limited to direct biological and chemical impacts (e.g., wetlands, endangered species, water toxicity).
+         * **Prohibited Scope**: Federal courts and agencies are statutorily barred from considering "socio-economic" or "aesthetic" impacts (e.g., traffic congestion, shadow studies, neighborhood character, population density) as grounds for a NEPA delay or denial.
+     * **Litigation Armor & Bond Requirement**:
+         * **Rebuttable Presumption**: Shifts the burden of proof to plaintiffs to prove imminent, objective physical harm.
+         * **The "Skin-in-the-Game" Bond**: Plaintiffs seeking an injunction or stay against a KAIZEN-compliant project must post a **cash bond equal to 10% of the project's value**. If the plaintiff loses, the bond is forfeited to the builder to cover inflation and delay costs.
+
 :::
 
 ::: {.callout-note collapse="true"}
-# By-Right" Approvals
-If a project meets the written rules, it must be approved automatically. We will end the era of discretionary hearings where subjective aesthetics delay housing for years.
+
+# National Approval Standardization
+
+## RAPID Act (Federal)
+
+Reforming Approval Procedures for Immediate Development (RAPID) Act, a federal procedural standard designed to eliminate bureaucratic bottlenecks and restore predictability to development. Inspired by the "Ministerial Review" processes standard in high-growth economies, this initiative moves housing approvals from "Discretionary & Political" to "Objective & Administrative."
+
+### The Federal Standard for Approval:
+
+To eliminate the "pocket veto" of endless delays, the RAPID Act establishes a federal definition for **Ministerial Review**. If a project meets the objective standards of the local code (specifically the KAIZEN Universal Zones), it *must* be approved administratively.
+
+ * **Ministerial vs. Discretionary**:
+     * **By-Right (Ministerial)**: Approvals are handled by staff based on a checklist (Safety, Engineering, KAIZEN Compliance). No public hearings. No legislative votes.
+     * **Objective Standards Only**: Localities cannot deny a KAIZEN-compliant project based on subjective criteria such as "neighborhood character," "architectural harmony," or "aesthetic value."
+
+ * **Shot Clock Mandate**: For any municipality, regardless of size, located within a Census-Designated Metropolitan Statistical Area, if the local authority fails to approve or deny (with specific written citation of objective code violation) within the timeframe, the project is automatically approved by federal statute.
+     * **60 Days**: For residential projects under 50 units.
+     * **90 Days**: For residential projects of 50+ units.
+
+
+* **Trusted Builder Standard**: To shift resources from gatekeeping to enforcement, the RAPID Act establishes a federal "Certified Reviewer" credential. Licensed Architects and Engineers with a clean disciplinary record can apply for this status to self-certify compliance.
+
+    * **The "Self-Certification" Workflow**:
+
+        * **Immediate Permitting**: Plans stamped and sealed by a Certified Reviewer bypass the municipal plan review queue entirely. The building permit is issued administratively within 5 business days upon payment of fees.
+        * **Bifurcated Review**: While Zoning and Building Code compliance is self-certified, Fire/Life-Safety elements may still undergo a maximum 14-day expedited municipal review to ensure integration with emergency services.
+
+    * **The "Trust but Verify" Audit Regime**:
+
+        * **IRS-Style Auditing**: Localities retain the right to audit any project during construction.
+        * **Warranted Compliance & Surety**: Certified Reviewers must post a **Project Compliance Bond** (or carry a specific rider).
+
+            * *Mechanism:* In the event of a code violation, the Bond pays out immediately to cover the "Cost of Rectification," removing the need for lengthy litigation to prove negligence.
+            * *Presumption of Fault:* Certification creates a rebuttable presumption that any objective code violation constitutes a breach of the Standard of Care.
+
+* **The "Three Strikes" Accountability Protocol**:
+        To ensure safety without making insurance coverage impossible, penalties are tiered based on severity and intent:
+
+    * **Strike 1: Administrative Error (The Warning)**
+         * *Definition:* Minor non-safety violations (e.g., labeling errors, minor dimensional technicalities that do not impact habitability).
+         * *Penalty:* Mandatory plan correction at reviewer's expense + Administrative Fine ($5,000) drawn from the Bond.
+         * *Status:* Reviewer placed on "Probationary Audit" list (100% of their next 3 projects are audited).
+
+    * **Strike 2: Substantive Violation (The Suspension)**
+         * *Definition:* Material breach of the Standard of Care impacting health, safety, or structural integrity (e.g., insufficient egress width, missing fire rating, ADA non-compliance).
+         * *Penalty:* Immediate Stop Work Order + Bond forfeiture for Cost of Rectification + **1-Year Suspension** of Certified Reviewer status.
+         * *Status:* Mandatory reporting of the incident to the State Licensing Board and Professional Liability Insurer.
+
+    * **Strike 3: Gross Negligence or Recidivism (The Ban)**
+         * *Definition:* Fraudulent certification, willful disregard of Life-Safety codes, or a repeat Strike 2 offense within 5 years.
+         * *Penalty:* Permanent Revocation of Certified status + Referral to DOJ for federal fraud charges + Lifetime Ban from all Federal Contracts.
+
+
+### Incentivizing Adoption:
+
+The RAPID Act harmonizes with KAIZEN to unlock the full potential of federal funding for states that adopt these procedural reforms.
+
+ * **The "Efficiency Multiplier"**:
+     * Jurisdictions that are both **KAIZEN Adopters** (Substance) and **By-Right Certified** (Process) receive a **20% Bonus Multiplier** on all formula grants (CDBG, STBG).
+     * **"Carrot & Stick"**: Access to the KAIZEN Act's "Tier-1 Priority" grants is contingent on certifying that no discretionary "Special Use Permits" are required for housing in Zones 4–12.
+
+ * **The Legal Shield**:
+     * **Anti-Nuisance Safe Harbor**: Codifies that a KAIZEN-compliant project approved By-Right cannot be sued for "anticipatory nuisance" or "diminution of property value" in state or federal court.
+     * **Fair Housing Integration**: Establishes that discretionary denial of a KAIZEN-compliant project constitutes a prima facie case of Disparate Impact under the Fair Housing Act.
+     * **Mandatory Litigation Bond**: To prevent "death by delay," any plaintiff seeking a preliminary injunction or temporary restraining order against a KAIZEN-compliant project must post a cash bond equal to 10% of the total project valuation. This bond is forfeited to the builder to cover inflationary and carrying costs if the plaintiff loses
+    * **The Federal Arbitration Mandate**:
+            * **Bypassing the Courts**: To prevent "death by delay" in overburdened Federal District Courts, the RAPID Act mandates that all disputes regarding KAIZEN compliance or Ministerial Review denials be resolved via **Binding Arbitration**.
+            * **The "Shot Clock" Arbitration**:
+                * Disputes must be filed with a federally recognized arbitration body (e.g., American Arbitration Association) and adjudicated by a qualified Construction Attorney or retired Judge.
+                * **Strict 60-Day Ruling**: The arbitrator must issue a binding ruling within 60 days of filing.
+                * **"Loser Pays" Rule**: To discourage frivolous denials by cities and frivolous appeals by developers, the losing party is strictly liable for 100% of the arbitration fees and the opposing legal costs.
 :::
 
 ::: {.callout-note collapse="true"}
-# Abolish Parking Minimums & Lot Size Mandates
-The government should not force citizens to buy land for cars they don’t own. We will legalize the construction of starter homes on modest lots, lowering the floor cost of entry for first-time buyers.
+
+# National Construction Standard Modernization
+
+## CORRIDOR Act (Federal)
+
+Code Overhaul Reforming Residential Interiors, Design, and Occupancy Rules (CORRIDOR) Act, a modernized construction overlay designed to unlock efficient, family-sized housing on small lots. Inspired by the "Point Access Block" standards successfully utilized in Seattle and Europe, this initiative moves building codes from "Geometry-Restricted" to "Performance-Optimized."
+
+### The Problem:
+Current U.S. building codes (IBC) mandate two staircases for buildings over three stories. This forces a "double-loaded corridor" design (a long dark hallway with apartments on both sides). This geometry wastes 20–30% of the floor area on hallways and forces apartments to be long, skinny "shoeboxes" with windows on only one side, making family-sized units geometrically impossible on small lots.
+
+### The Federal Standard for Construction:
+The CORRIDOR Act preempts outdated code restrictions to legalize **Point Access Blocks** (Single-Stair Buildings).
+
+ * **The "Point Access" Mandate**:
+     * **Up to 8 Stories**: Legalizes single-staircase residential buildings up to 75 feet (approx. 8 stories) provided they meet enhanced safety features (sprinklers, pressurized stairwells, non-combustible materials). Adopts the proven safety frameworks used in Seattle, Switzerland, and Germany.
+     * To neutralize fire risks, these buildings must upgrade from standard residential sprinklers (NFPA 13R) to full commercial-grade suppression systems (NFPA 13) and utilize positive-pressure stairwells to prevent smoke intrusion during egress.
+
+ * **Better Buildings**:
+     * **Cross-Ventilation**: By eliminating the central hallway, units can span the width of the building, allowing for windows on opposite sides (passive cooling).
+     * **Family-Sized Units**: Enables 3- and 4-bedroom layouts on small plots (50' wide) that currently can only support luxury studios.
+     * **Efficiency**: Increases rentable square footage by removing non-revenue-generating corridors, lowering the cost per unit.
+
+ * **Mass Timber & Prefab Preemption**:
+     * **Federal Modular Approval**: Creates a federal inspection seal for modular/manufactured housing. A factory-built module certified federally cannot be rejected by local inspectors.
+     * **Mass Timber**: Categorically approves Mass Timber (CLT) construction for Zones 4–10, bypassing local moratoriums on wood construction.
+
+### Incentivizing Adoption:
+
+ * **FEMA & Insurance Alignment**:
+     * **Insurance Backstop**: The federal government provides a reinsurance backstop for buildings built to CORRIDOR Act standards, preventing private insurers from charging penalty premiums for "non-standard" (single-stair) buildings.
+     * **Fire Department Grants**: Federal funding for local fire departments (ladder trucks, training) is contingent on adopting the CORRIDOR code overlay to service these efficient buildings.
+
 :::
 
-::: {.callout-note collapse="true"}
-# Legalize "Point Access Blocks" (Single-Stair Reform)
-We will modernize building codes to allow single-stair buildings up to 6–8 stories, adopting safe European and Seattle-based standards. This eliminates the "double-loaded corridor" requirement, allowing for better ventilation, family-sized units, and light-filled apartments on smaller plots of land.
-:::
-
-## Affordable Building for the Future
+## Making Housing Affordable
 
 *Construction, Labor, & Costs*
 
-**The Problem**: Even if we could build, it costs too much. We are strangled by red tape, outdated labor monopolies, and protectionist trade wars that make a 2x4 piece of lumber a luxury good. We are essentially making it illegal to build efficiently.
+**The Problem**: While every other industry has become faster and cheaper, construction has become slower and more expensive. We are building 21st-century homes with 20th-century rules, suffocated by outdated mandates and protectionist barriers that block new technology. We have allowed restriction to strangle the American ability to build.
 
-**The Solution**: We will unleash a construction boom by removing barriers to trade, technology, and talent.
+**The Solution**: We nust unleash a construction boom by removing barriers to trade, technology, and talent.
 
 **Policy Commitments**:
 
@@ -125,55 +284,58 @@ We will incentivize states to tax land at a higher rate than improvements. Do no
 :::
 
 ::: {.callout-note collapse="true"}
-# Speculative Vacancy Tax
 
-**Objective:** To increase housing supply by disincentivizing the holding of residential property as a vacant investment vehicle, utilizing existing regulatory definitions to minimize administrative overhead.
+# Housing Supply Optimization
 
-1. Definitions & Standards
+## G.H.O.S.T. Act
 
-**Principal Residence (Owner-Occupied)**: A property is deemed "Occupied" if it currently qualifies for the *Homestead Exemption* (or local equivalent Principal Residence Exemption) under the \[State/County\] Revenue & Taxation Code.
+Generating Housing Opportunities via Speculation Tax (GHOST) Act, a data-driven framework designed to remove shadow inventory by disincentivizing the holding of residential property as a vacant investment vehicle through a.
 
-**Tenanted Occupancy (Non-Owner)**: For properties not claiming a Homestead Exemption, "Occupancy" requires the unit be leased to a "Permitted Occupant" for at least **180 days** of the tax year. \* **Arm's Length Requirement:** The lease must be for **Fair Market Rent** (as defined by HUD SAFMR, see Section 6.C) to a tenant who is not a "Related Person" as defined by **26 U.S. Code § 267**. \* **Exclusion:** Short-term rentals (periods of \<30 consecutive days) regulated under \[Local Transient Occupancy Tax Statutes\] do not count toward the 180-day threshold. \* **De Facto Vacancy**: Any property that does not meet the definition of Principal Residence or Tenanted Occupancy, and has not filed a valid Exemption, is classified as Vacant.
+### **1. The "Phantom" Standard (Definitions)**:
 
-2. Tax Structure
+To eliminate subjective loopholes, the Act replaces vague definitions with a binary **Universal Occupancy Standard**.
 
-The tax is levied on the property’s current Assessed Value (AV) on a progressive scale.
+ * **Occupied Status (The Living Home)**:
+     * **Owner-Occupied**: Automatically verified via existing *Homestead* or *Principal Residence Exemptions*.
+     * **Tenanted**: Requires a lease of 180+ days to a "Permitted Occupant."
+         * **Arm's Length**: Tenant cannot be a "Related Person" (IRS § 267).
+         * **Fair Market**: Lease must be at Fair Market Rent (HUD SAFMR).
+     * **De Facto Vacancy**: Any property not meeting the above definitions is automatically classified as a "Ghost Unit" (Vacant).
 
--   **Year 1 Vacant:** 1% of AV
--   **Year 2 Vacant:** 2% of AV
--   **Year 3+ Vacant:** 3% of AV
+ * **The Escalating Levy**: To force "dead capital" back into the market, the tax on Assessed Value (AV) rises the longer the unit remains empty:
+     * **Year 1**: 1% of AV
+     * **Year 2**: 2% of AV
+     * **Year 3+**: 3% of AV
 
-3. Property Attachment & Transfer Rules
+### **2. Anti-Evasion Guardrails**:
 
-**Non-Arm’s Length Transfers**: Transfers between parties defined as "Related Persons" by the IRS (including spouses, lineal descendants, fiduciaries, and controlled corporations) do **not** reset the tax rate. (e.g. A transfer from an individual to their own LLC retains the Year 3 (3%) tax rate)
+To prevent owners from resetting the tax clock through shell transfers ("shapeshifting"), the Act enforces strict continuity rules.
 
-**Arm’s Length Sales**: Transfers to an unrelated party reset the tax rate. \* **Grace Period:** The property is exempt for **12 months** following the recording date of the deed. \* **Reset Provision:** If the property remains vacant after the 12-month grace period, the tax clock starts at **Year 1 (1%)**.
+ * **Related Person Transfers**: Transfers to spouses, descendants, or controlled LLCs do **not** reset the tax rate. The liability attaches to the *beneficial owner*.
+ * **Arm's Length Reset**: Only sales to unrelated parties trigger a reset.
+     * **Grace Period**: 12 months tax-free post-sale.
+     * **Reversion**: If vacant after 12 months, the tax restarts immediately at Year 1.
 
-4. Administration & Auditing
+### **3. Data-Driven Detection (Ghost Busting)**:
 
-**Mandatory Annual Declaration**: Owners not currently claiming a Homestead Exemption must file an annual Occupancy Status Declaration. Failure to file results in automatic classification as "De Facto Vacant."
+Instead of relying on easy-to-fake paper declarations, the Act uses **Utility Benchmarking** to detect physical vacancy.
 
-**Risk-Based Auditing (Utility Benchmarking)**: Instead of arbitrary usage numbers, the City applies a "Low Usage Flag" based on peer data. \* **Threshold:** Average monthly consumption falling below the **10th percentile** of similarly sized units (bedroom count/sq ft) in the service area. \* **Verification:** Properties flagged for low usage receive a physical confirmation code via mail. Failure to input the code online within 14 days is prima facie evidence of vacancy.
+ * **The "Low Usage" Flag**: Properties are flagged if monthly consumption falls below the **10th percentile** of similarly sized units in the service area.
+ * **Verification**: Flagged units receive a physical confirmation code via mail. Failure to input the code within 14 days is *prima facie* evidence of vacancy.
 
-5. Exemptions
+### **4. Validated Exemptions**:
 
-*Exemptions must be claimed during the declaration phase and are strictly tied to external validations.*
+Exemptions are permitted but strictly tied to external financial validations to prevent "fake renovations" or "phantom listings."
 
-**Active Renovation by Capital Expenditure Threshold**: Valid for a maximum of one year per owner. To prevent minor or cosmetic work from justifying vacancy, the owner must prove substantial financial investment in the property.
+ * **The Capital Expenditure Threshold (Renovation)**: To claim a renovation exemption (1-year max), owners must prove substantial investment.
+     * **The Standard**: Hard costs (materials/labor) must exceed **$50,000 OR 15% of Assessed Value**.
+     * **Exclusions**: "Sweat equity" and furniture are strictly excluded.
+     * **Proof**: Validated via Building Permit Valuation or paid contractor invoices.
 
-1.  **Monetary Threshold:** The owner must provide evidence of capital improvements totaling at least **\$50,000 OR 15% of the structure’s Assessed Value** (whichever is lower) incurred during the tax year.
-2.  **Qualifying Costs:**
-    -   **Hard Costs Only:** Only materials and third-party labor count toward the threshold.
-    -   **Exclusions:** "Sweat equity" (owner's own labor), furniture, window treatments, and easily reversible changes (e.g., removing fixtures without replacement) are explicitly excluded.
-3.  **Verification:**
-    -   **Permit Valuation:** The "Valuation of Work" listed on the issued building permit serves as prima facie evidence.
-    -   **Audit Trail:** If the permit value is below the threshold, the owner must submit paid invoices and receipts from licensed contractors or suppliers to bridge the gap.
+ * **The "Good Faith" Listing Cap**:
+     * **Rent Cap**: A property is only considered "Actively Listed" if the asking rent is **≤120% of HUD Small Area Fair Market Rent**. This prevents owners from listing units at artificial prices to keep them empty.
 
-**Active Rental Listing ("Good Faith Effort")**: Valid for a maximum of 12 months. The property is actively listed for rent on a recognized public platform. \* **Rent Cap:** To qualify as a "good faith" listing, the asking rent must not exceed **120% of the HUD Small Area Fair Market Rent (SAFMR)** for the property’s specific ZIP Code and unit size.
-
-**Medical Confinement**: The owner provides a signed attestation from a medical professional that the owner has been admitted to a facility for **"Skilled Nursing Care"** or **"Long-Term Care"** (as defined by \[State\] Dept of Health or CMS).
-
-**Legal Transfer Restrictions**: Occupancy or sale is prohibited by an active court order (e.g., lis pendens, probate freezes, or foreclosure redemption periods).
+ * **Medical Confinement**: Valid with attestation of admission to Skilled Nursing or Long-Term Care facilities.
 
 :::
 

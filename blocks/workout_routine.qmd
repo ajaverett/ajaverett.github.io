@@ -1,0 +1,131 @@
+---
+title: "Excercise Plan"
+subtitle: "Minimal 6 Workout"
+image: "images/house.png"
+title-block-banner: ../images/banner.png
+title-block-banner-color: 'white'
+categories: ["science", "practical"]
+bibliography: references/_references.bib
+csl: references/apa-annotated-bibliography.csl
+---
+
+# Full Body Workout Routine (3-Day Split)
+
+**Overview:** This routine targets every major muscle group with six exercises per session. @carneiro_2024 suggests full-body workouts enhance fat loss by activating more total muscle per workout and ensure balanced growth.
+
+**Schedule:** Perform these workouts on non-consecutive days (e.g., Mon/Wed/Fri).
+
+---
+
+## 📅 Workout A
+**Focus:** Upper Chest, Squat Pattern, Mid-Back, Hamstring Curl
+
+| Exercise | Sets | Reps | Notes |
+| :--- | :--- | :--- | :--- |
+| **1. Incline Dumbbell Press** | 3 | 8-12 | Targets upper chest. |
+| **2. Barbell Squat** | 3 | 6-8 | Targets quads, adductors, glutes. |
+| **3. Chest-Supported DB Row** | 3 | 8-12 | Targets mid/upper back. |
+| **4. Seated Leg Curl** | 3 | 10-15 | Targets hamstrings (knee flexion). |
+| **5. Bicep Curl** (Superset) | 3 | 8-12 | See options below. |
+| **6. Tricep Extension** (Superset) | 3 | 8-12 | See options below. |
+
+
+
+### 💡 Form & Technique Tips
+
+* **Incline Dumbbell Press:**
+    * **Bench Angle:** If you have a flat sternum, use a slight incline (1-2 notches). If you have a steep sternal angle, use a steeper incline. [@chaves_2020]
+    * **Elbows:** Tuck elbows into an arrow shape; press up and back towards the collarbone.
+    * **Warm-up:** 1 light set (8-10 reps), 1 medium (3-5 reps), 1 heavy (1-2 reps).
+* **Squats:**
+    * Squats will grow glutes as effectively as other glute focused exercises (hip thrust) but also grow the quads, adductors, and lower back. [@plotkin_2023]
+    * **Modifications:** If you struggle to squat deep (long femurs/poor ankle mobility), elevate your heels on plates to target quads more effectively.
+    * 
+* **Chest-Supported Row:**
+    * **Setup:** Set bench to 45°. Keep elbows angled out like an arrow shape. Make sure to not let the biceps take over by squeezing the back keeping forearms perpendicular to the ground.
+    * **Intensity Technique:** On the last set, after hitting failure, perform 3–5 partial reps in the bottom (stretched) position.
+* **Leg Curl:**
+    * **Seated vs. Lying:** Seated is preferred for greater stretch/growth.
+    * **Tip:** Stop just short of fully straightening legs to keep tension on hamstrings, not calves.
+
+### 💪 Arms Superset Options
+* **Option 1 (Dumbbells):** Lying Incline DB Curls + DB Overhead Extensions.
+* **Option 2 (Cables):** Behind-the-body Cable Curls + Overhead Rope Extensions.
+
+---
+
+## 📅 Workout B
+**Focus:** Flat Press, Hinge Pattern, Vertical Pull, Glutes
+
+| Exercise | Sets | Reps | Notes |
+| :--- | :--- | :--- | :--- |
+| **1. Barbell Bench Press** | 3 | 4-6 | Targets mid/lower chest & strength. |
+| **2. Romanian Deadlift (RDL)** | 3 | 6-8 | Targets hamstrings (hip extension). |
+| **3. Lat Pulldowns** | 3 | 8-12 | Targets lats/upper back width. |
+| **4. Walking Lunges** | 3 | 6-10 | Reps are *per leg*. Glute focus. |
+| **5. Cable Lateral Raise** (Superset) | 3 | 10-15 | Side delts. |
+| **6. Reverse Crunches** (Superset) | 3 | 10-15 | Abdominal focus. |
+
+
+
+### 💡 Form & Technique Tips
+
+* **Bench Press:**
+    * Heavier weight (lower reps) to boost strength.
+    * *Alternative:* Flat Dumbbell Press if the barbell bothers your shoulders.
+* **Romanian Deadlift:**
+    * **Cue:** Imagine a band around your hips pulling you back. Let the bar slide down your thighs.
+    * **Depth:** Stop when your hips stop moving back to avoid rounding the lower back.
+* **Lat Pulldowns:**
+    * **Grip:** Fairly wide grip, lean back slightly.
+    * **Intensity Technique:** On the last set, extend the set with 3–5 partial reps in the stretched position after failure.
+* **Walking Lunges:**
+    * **Glute Focus:** Take a wide step and lean your torso forward slightly while keeping the back straight.
+* **Superset:**
+    * **Lateral Raise:** Set cable 3-4 notches up from the bottom for a better resistance profile. Perform behind the back.
+    * **Reverse Crunches:** Curl pelvis up towards chest; control the descent.
+
+---
+
+## 📅 Workout C
+**Focus:** Vertical Press, Horizontal Pull (Lats), Quads/Glutes Isolation
+
+| Exercise | Sets | Reps | Notes |
+| :--- | :--- | :--- | :--- |
+| **1. Seated DB Shoulder Press** | 3 | 8-12 | Targets front delts. |
+| **2. Single-Arm DB Row** | 3 | 8-12 | Targets lats. |
+| **3. Hip Thrusts** | 3 | 10-15 | Targets glutes (shortened position). |
+| **4. Leg Extensions** | 3 | 10-15 | Targets Rectus Femoris (quad). |
+| **5. Cable Flyes** | 3 | 10-15 | Chest isolation/stretch. |
+| **6. Standing Calf Raise** (Superset) | 3 | 10-15 | Targets calves. |
+| **7. Reverse Cable Flyes** (Superset) | 3 | 10-15 | Targets rear delts. |
+
+
+
+[Image of seated dumbbell shoulder press]
+
+
+### 💡 Form & Technique Tips
+
+* **Shoulder Press:**
+    * Set bench 1-2 notches down from fully upright (better for joints).
+    * Flare elbows slightly on the way up, tuck slightly in front on the way down.
+* **DB Row:**
+    * **Lat Focus:** Keep elbow tight to the side. drive the elbow back towards the hip in an arcing motion.
+    * **Intensity Technique:** 3–5 partial reps in the stretched position on the final set.
+    * 
+* **Hip Thrusts:**
+    * *Alternative:* Dumbbell Step-ups (lean forward for glutes).
+* **Leg Extensions:**
+    * Lean back in the seat (if possible) to stretch the rectus femoris for more growth.
+* **Cable Flyes:**
+    * Place a foam roller behind your back for a deeper stretch.
+    * *Alternative:* Pec Deck (add partial reps at the end if using Pec Deck).
+* **Superset:**
+    * **Calf Raise:** Pause at the bottom for a deep stretch.
+    * **Rear Delt Fly:** Set cables slightly above shoulder height; cross arms at the start.
+
+---
+
+**Progressive Overload:**
+Aim to increase weight or reps slightly every week. Ensure you are training close to failure, especially on the final sets.

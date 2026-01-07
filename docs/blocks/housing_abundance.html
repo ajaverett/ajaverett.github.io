@@ -85,6 +85,35 @@ background-size: cover;
       }
 </style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta property="og:title" content="Housing Platform – AJ Averett">
 <meta property="og:description" content="A list of policies I support">
@@ -136,22 +165,32 @@ background-size: cover;
 
 
 
-<p><strong>A Vision for Housing in America</strong></p>
-<p>The founding fathers understood that political liberty depends on material independence. A self-governing people cannot exist where most families are economically captive and priced out of stable homes, forever dependent on landlords, or forced to treat shelter as a speculative gamble rather than a foundation for life.</p>
-<p>In 1776, Adams warned that</p>
+<section id="a-vision-for-housing-in-america" class="level1">
+<h1>A Vision for Housing in America</h1>
+<p>The American experiment rests on the belief that a free society requires independent citizens. To participate fully in our democracy, a family needs more than just a vote, they need a stake in their community and a shelter to raise their family.</p>
+<p>John Adams recognized this necessity at the founding of our nation:</p>
 <blockquote class="blockquote">
-<p>The only possible Way then of preserving the Ballance of Power on the side of equal Liberty and public Virtue, is to make the Acquisition of Land easy to every Member of Society. <br> John Adams (1776)</p>
+<p>The only possible Way then of preserving the Ballance of Power on the side of equal Liberty and public Virtue, is to make the Acquisition of Land easy to every Member of Society. <br> <a href="https://founders.archives.gov/documents/Adams/06-04-02-0091">John Adams (1776)</a></p>
 </blockquote>
-<p>In early America, land was the primary source of independence. Today, housing plays that same role. When access to housing is broad, secure, and attainable, families gain stability, workers gain mobility, and communities gain the confidence to say “yes” to the future</p>
-<p>That moral intuition did not fade with the Founding generation. A century later, John F. Kennedy captured the same truth in modern terms:</p>
+<p>Somewhere along the way, we lost this balance. We accepted a system where construction is blocked, costs are inflated, and homes are treated as financial assets leaving our most vulnerable neighbors with nowhere to turn.</p>
+<p><strong>We must choose a different path.</strong></p>
+<p>We envision an America where access to housing is broad, secure, and attainable. To achieve this, our platform rests on four pillars:</p>
+<ol type="1">
+<li>Restore the freedom to build by removing arbitrary barriers.</li>
+<li>Make housing affordable by fixing the approval systems that drive up costs.</li>
+<li>Treat homes as shelter, not financial assets.</li>
+<li>Ensure security for all through a modern safety net.</li>
+</ol>
+<p>When we lower the barrier to entry, families gain stability, workers gain mobility, and communities gain the confidence to say “yes” to the future.</p>
+<p>We are returning to the standard set by President Kennedy:</p>
 <blockquote class="blockquote">
-<p>The right to a good home is one of the noblest motives in the American way of life – it is inherent in the heart and soul of every American and should be the cornerstone of all public policy.</p>
+<p>The right to a good home is one of the noblest motives in the American way of life – it is inherent in the heart and soul of every American and should be the cornerstone of all public policy. <br> <a href="https://www.jfklibrary.org/archives/other-resources/john-f-kennedy-speeches/boston-ma-19460601">John F Kennedy (1946)</a></p>
 </blockquote>
-<section id="the-freedom-to-build" class="level2">
-<h2 class="anchored" data-anchor-id="the-freedom-to-build">The Freedom to Build:</h2>
+<section id="restoring-the-freedom-to-build" class="level2">
+<h2 class="anchored" data-anchor-id="restoring-the-freedom-to-build">Restoring The Freedom to Build:</h2>
 <p><em>Zoning &amp; Land Use Reform</em></p>
-<p><strong>The Problem</strong>: Today, a property owner’s right to build is held hostage by arbitrary local bureaucracies and NIMBY obstructionism. We have allowed local councils to ban affordable starter homes to artificially inflate the value of existing mansions. This is not a free market; it is a shortage by design.</p>
-<p><strong>The Solution</strong>: We will strip the power of exclusion from local fiefdoms and restore property rights through a centralized, simplified zoning framework.</p>
+<p><strong>The Problem</strong>: Today, the freedom to build is suffocated by bureaucratic red tape and exclusionary gatekeeping. We have enabled local councils to restrict, block, and ban affordable starter homes, effectively rigging the market to lock out working families. The current system tramples on property rights to protect the privileged.</p>
+<p><strong>The Solution</strong>: We must restore the freedom to build through a centralized, simplified zoning framework.</p>
 <p><strong>Policy Commitments</strong>:</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -159,14 +198,76 @@ background-size: cover;
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-National Zoning Standardization (Japanese Model)
+National Zoning Standardization
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>We will incentivize states to adopt a centralized, nuisance-based zoning code similar to Japan’s. If a building does not pollute or create excessive noise, it should be legal. This moves zoning power from local obstructionists to state planners who prioritize regional growth.</p>
-</div>
+<section id="kaizen-act-federal" class="level2 callout-body-container callout-body">
+<h2 class="anchored" data-anchor-id="kaizen-act-federal">KAIZEN Act (Federal)</h2>
+<p>Key Act for Improving Zoning Efficiency Nationwide (KAIZEN) Act, a voluntary federal “Model Code” designed to streamline construction and lower costs. Inspired by the highly successful, streamlined zoning frameworks used in Japan, this initiative moves from “Prohibit by Default” to “Permit by Default.”</p>
+<section id="universal-standardization" class="level3">
+<h3 class="anchored" data-anchor-id="universal-standardization">Universal Standardization:</h3>
+<p>To replace the chaos of local codes, the KAIZEN Act introduces a standardized framework of 12 Universal Zones. This system relies on <strong>Cumulative Zoning</strong> (the “Nesting Doll” model) where lower-intensity uses are automatically permitted in higher-intensity zones.</p>
+<ul>
+<li><strong>Twelve Zones</strong>:
+<ul>
+<li><strong>Zones 1–3 (Low-Rise)</strong>: Quiet living. Home businesses (offices/studios) are legal by-right.</li>
+<li><strong>Zones 4–7 (General)</strong>: Walkable neighborhoods. Apartments, corner stores, and cafes are legal by-right.</li>
+<li><strong>Zones 8–10 (Commercial)</strong>: Mixed density. Housing is <em>never</em> banned here.</li>
+<li><strong>Zones 11–12 (Industrial)</strong>: Production. The <em>only</em> zones where housing is prohibited (to protect health).</li>
+</ul></li>
+<li><strong>Form and Physics Guardrails</strong>: To prevent cities from adopting the names but keeping the restrictions, the Act enforces physical standards over arbitrary rules.
+<ul>
+<li><strong>Sunlight Planes</strong>: Replaces rigid height caps with slope requirements to preserve neighbor light.</li>
+<li><strong>Lot Size Preemption</strong>: Prohibits minimum lot sizes greater than 1,500 sq ft in Zones 4–12.</li>
+<li><strong>Performance Standards</strong>: Regulates noise (decibels) and light (lumens) rather than business categories, allowing clean manufacturing in mixed zones.</li>
+</ul></li>
+<li><strong>Predictability</strong>: A “Category 2 Residential” zone will mean the exact same thing in Oregon as it does in Texas. Builders can work across state lines without navigating a maze of local bureaucracy.</li>
+</ul>
+</section>
+<section id="incentivizing-adoption" class="level3">
+<h3 class="anchored" data-anchor-id="incentivizing-adoption">Incentivizing Adoption:</h3>
+<p>Adoption of the KAIZEN Act standard is voluntary, but highly encouraged through three powerful mechanisms designed to align incentives, lower risk, and ensure fiscal sustainability:</p>
+<ul>
+<li><strong>Targeted Funding Prioritization</strong>:
+<ul>
+<li>To adhere to constitutional standards of germaneness, priority status is tied strictly to housing and transit-related funding.</li>
+<li>Adopters receive <strong>Tier-1 Priority status</strong> for discretionary grants with a direct link to density: <strong>HUD (CDBG, HOME)</strong> and <strong>DOT (FTA, RAISE)</strong>.</li>
+<li>Essential safety and maintenance funds (e.g., bridge repair) remain untouched to preserve federalist balance.*</li>
+</ul></li>
+<li><strong>Infrastructure Growth Pays for Growth</strong>:
+<ul>
+<li><strong>Standardized Impact Fees</strong>: Preempts state bans on impact fees, ensuring KAIZEN adopters can remain fiscally solvent by levying “per-unit” charges specifically for necessary hard infrastructure upgrades (water, sewer, roads, schools).</li>
+<li><strong>The “Marginal Cost” Mandate</strong>:
+<ul>
+<li><strong>Prohibition on Arbitrary Pricing</strong>: Fees cannot be flat taxes, profit centers, or punitive measures. They must be calculated based on the <em>Marginal Cost of Service</em>.</li>
+<li><strong>The Formula</strong>: <span class="math inline">\(\left(\frac{\text{Total Cost of Capacity Expansion}}{\text{Number of New Units Served}}\right) = \text{Max Legal Fee}\)</span>.</li>
+<li><strong>Decentralized Verification</strong>: Rather than relying on a centralized federal bureaucracy, fee schedules must be validated via a <strong>Federally Accredited Third-Party Audit</strong>.</li>
+<li><strong>Transparency</strong>: Cities must publish a “Capital Improvement Plan” (CIP). The engineering reality of costs (e.g., claiming a water hookup costs $50,000) must be certified by a licensed, HUD-accredited independent engineering firm. The municipality bears the cost of the audit as a standard compliance expense.</li>
+</ul></li>
+</ul></li>
+<li><strong>The “Eco-Capacity” Circuit Breaker (The “Reality Check”)</strong>:
+<ul>
+<li><strong>Infrastructure Reality</strong>: “By-Right” zoning does not mean “By-Magic.” Even in KAIZEN zones, a project can be paused if the municipality demonstrates—via objective data certified by an <strong>Independent Third-Party Auditor</strong> that the <em>current</em> infrastructure (aquifers, treatment plants, grid) is at <strong>Critical Failure Capacity</strong>.</li>
+<li><strong>The “Pay-to-Play” Override</strong>: If a project is paused due to valid, audited capacity limits, the developer retains the right to fund the necessary upgrade themselves (or via a Bond District) to immediately unlock the permit, bypassing political delays.</li>
+</ul></li>
+<li><strong>The Legal Safe Harbor</strong>:
+<ul>
+<li><strong>NEPA Streamline (“Bio-Only” Review)</strong>: Projects complying with KAIZEN codes are not exempt, but qualify for a <strong>Restricted Scope EIS</strong>.
+<ul>
+<li><strong>Permissible Scope</strong>: Environmental review is strictly limited to direct biological and chemical impacts (e.g., wetlands, endangered species, water toxicity).</li>
+<li><strong>Prohibited Scope</strong>: Federal courts and agencies are statutorily barred from considering “socio-economic” or “aesthetic” impacts (e.g., traffic congestion, shadow studies, neighborhood character, population density) as grounds for a NEPA delay or denial.</li>
+</ul></li>
+<li><strong>Litigation Armor &amp; Bond Requirement</strong>:
+<ul>
+<li><strong>Rebuttable Presumption</strong>: Shifts the burden of proof to plaintiffs to prove imminent, objective physical harm.</li>
+<li><strong>The “Skin-in-the-Game” Bond</strong>: Plaintiffs seeking an injunction or stay against a KAIZEN-compliant project must post a <strong>cash bond equal to 10% of the project’s value</strong>. If the plaintiff loses, the bond is forfeited to the builder to cover inflation and delay costs.</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+</section>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -175,14 +276,86 @@ National Zoning Standardization (Japanese Model)
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-By-Right” Approvals
+National Approval Standardization
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>If a project meets the written rules, it must be approved automatically. We will end the era of discretionary hearings where subjective aesthetics delay housing for years.</p>
-</div>
+<section id="rapid-act-federal" class="level2 callout-body-container callout-body">
+<h2 class="anchored" data-anchor-id="rapid-act-federal">RAPID Act (Federal)</h2>
+<p>Reforming Approval Procedures for Immediate Development (RAPID) Act, a federal procedural standard designed to eliminate bureaucratic bottlenecks and restore predictability to development. Inspired by the “Ministerial Review” processes standard in high-growth economies, this initiative moves housing approvals from “Discretionary &amp; Political” to “Objective &amp; Administrative.”</p>
+<section id="the-federal-standard-for-approval" class="level3">
+<h3 class="anchored" data-anchor-id="the-federal-standard-for-approval">The Federal Standard for Approval:</h3>
+<p>To eliminate the “pocket veto” of endless delays, the RAPID Act establishes a federal definition for <strong>Ministerial Review</strong>. If a project meets the objective standards of the local code (specifically the KAIZEN Universal Zones), it <em>must</em> be approved administratively.</p>
+<ul>
+<li><p><strong>Ministerial vs.&nbsp;Discretionary</strong>:</p>
+<ul>
+<li><strong>By-Right (Ministerial)</strong>: Approvals are handled by staff based on a checklist (Safety, Engineering, KAIZEN Compliance). No public hearings. No legislative votes.</li>
+<li><strong>Objective Standards Only</strong>: Localities cannot deny a KAIZEN-compliant project based on subjective criteria such as “neighborhood character,” “architectural harmony,” or “aesthetic value.”</li>
+</ul></li>
+<li><p><strong>Shot Clock Mandate</strong>: For any municipality, regardless of size, located within a Census-Designated Metropolitan Statistical Area, if the local authority fails to approve or deny (with specific written citation of objective code violation) within the timeframe, the project is automatically approved by federal statute.</p>
+<ul>
+<li><strong>60 Days</strong>: For residential projects under 50 units.</li>
+<li><strong>90 Days</strong>: For residential projects of 50+ units.</li>
+</ul></li>
+<li><p><strong>Trusted Builder Standard</strong>: To shift resources from gatekeeping to enforcement, the RAPID Act establishes a federal “Certified Reviewer” credential. Licensed Architects and Engineers with a clean disciplinary record can apply for this status to self-certify compliance.</p>
+<ul>
+<li><p><strong>The “Self-Certification” Workflow</strong>:</p>
+<ul>
+<li><strong>Immediate Permitting</strong>: Plans stamped and sealed by a Certified Reviewer bypass the municipal plan review queue entirely. The building permit is issued administratively within 5 business days upon payment of fees.</li>
+<li><strong>Bifurcated Review</strong>: While Zoning and Building Code compliance is self-certified, Fire/Life-Safety elements may still undergo a maximum 14-day expedited municipal review to ensure integration with emergency services.</li>
+</ul></li>
+<li><p><strong>The “Trust but Verify” Audit Regime</strong>:</p>
+<ul>
+<li><p><strong>IRS-Style Auditing</strong>: Localities retain the right to audit any project during construction.</p></li>
+<li><p><strong>Warranted Compliance &amp; Surety</strong>: Certified Reviewers must post a <strong>Project Compliance Bond</strong> (or carry a specific rider).</p>
+<ul>
+<li><em>Mechanism:</em> In the event of a code violation, the Bond pays out immediately to cover the “Cost of Rectification,” removing the need for lengthy litigation to prove negligence.</li>
+<li><em>Presumption of Fault:</em> Certification creates a rebuttable presumption that any objective code violation constitutes a breach of the Standard of Care.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><strong>The “Three Strikes” Accountability Protocol</strong>: To ensure safety without making insurance coverage impossible, penalties are tiered based on severity and intent:</p>
+<ul>
+<li><strong>Strike 1: Administrative Error (The Warning)</strong>
+<ul>
+<li><em>Definition:</em> Minor non-safety violations (e.g., labeling errors, minor dimensional technicalities that do not impact habitability).</li>
+<li><em>Penalty:</em> Mandatory plan correction at reviewer’s expense + Administrative Fine ($5,000) drawn from the Bond.</li>
+<li><em>Status:</em> Reviewer placed on “Probationary Audit” list (100% of their next 3 projects are audited).</li>
+</ul></li>
+<li><strong>Strike 2: Substantive Violation (The Suspension)</strong>
+<ul>
+<li><em>Definition:</em> Material breach of the Standard of Care impacting health, safety, or structural integrity (e.g., insufficient egress width, missing fire rating, ADA non-compliance).</li>
+<li><em>Penalty:</em> Immediate Stop Work Order + Bond forfeiture for Cost of Rectification + <strong>1-Year Suspension</strong> of Certified Reviewer status.</li>
+<li><em>Status:</em> Mandatory reporting of the incident to the State Licensing Board and Professional Liability Insurer.</li>
+</ul></li>
+<li><strong>Strike 3: Gross Negligence or Recidivism (The Ban)</strong>
+<ul>
+<li><em>Definition:</em> Fraudulent certification, willful disregard of Life-Safety codes, or a repeat Strike 2 offense within 5 years.</li>
+<li><em>Penalty:</em> Permanent Revocation of Certified status + Referral to DOJ for federal fraud charges + Lifetime Ban from all Federal Contracts.</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="incentivizing-adoption-1" class="level3">
+<h3 class="anchored" data-anchor-id="incentivizing-adoption-1">Incentivizing Adoption:</h3>
+<p>The RAPID Act harmonizes with KAIZEN to unlock the full potential of federal funding for states that adopt these procedural reforms.</p>
+<ul>
+<li><strong>The “Efficiency Multiplier”</strong>:
+<ul>
+<li>Jurisdictions that are both <strong>KAIZEN Adopters</strong> (Substance) and <strong>By-Right Certified</strong> (Process) receive a <strong>20% Bonus Multiplier</strong> on all formula grants (CDBG, STBG).</li>
+<li><strong>“Carrot &amp; Stick”</strong>: Access to the KAIZEN Act’s “Tier-1 Priority” grants is contingent on certifying that no discretionary “Special Use Permits” are required for housing in Zones 4–12.</li>
+</ul></li>
+<li><strong>The Legal Shield</strong>:
+<ul>
+<li><strong>Anti-Nuisance Safe Harbor</strong>: Codifies that a KAIZEN-compliant project approved By-Right cannot be sued for “anticipatory nuisance” or “diminution of property value” in state or federal court.</li>
+<li><strong>Fair Housing Integration</strong>: Establishes that discretionary denial of a KAIZEN-compliant project constitutes a prima facie case of Disparate Impact under the Fair Housing Act.</li>
+<li><strong>Mandatory Litigation Bond</strong>: To prevent “death by delay,” any plaintiff seeking a preliminary injunction or temporary restraining order against a KAIZEN-compliant project must post a cash bond equal to 10% of the total project valuation. This bond is forfeited to the builder to cover inflationary and carrying costs if the plaintiff loses</li>
+<li><strong>The Federal Arbitration Mandate</strong>: * <strong>Bypassing the Courts</strong>: To prevent “death by delay” in overburdened Federal District Courts, the RAPID Act mandates that all disputes regarding KAIZEN compliance or Ministerial Review denials be resolved via <strong>Binding Arbitration</strong>. * <strong>The “Shot Clock” Arbitration</strong>: * Disputes must be filed with a federally recognized arbitration body (e.g., American Arbitration Association) and adjudicated by a qualified Construction Attorney or retired Judge. * <strong>Strict 60-Day Ruling</strong>: The arbitrator must issue a binding ruling within 60 days of filing. * <strong>“Loser Pays” Rule</strong>: To discourage frivolous denials by cities and frivolous appeals by developers, the losing party is strictly liable for 100% of the arbitration fees and the opposing legal costs.</li>
+</ul></li>
+</ul>
+</section>
+</section>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -191,41 +364,62 @@ By-Right” Approvals
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Abolish Parking Minimums &amp; Lot Size Mandates
+National Construction Standard Modernization
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The government should not force citizens to buy land for cars they don’t own. We will legalize the construction of starter homes on modest lots, lowering the floor cost of entry for first-time buyers.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Legalize “Point Access Blocks” (Single-Stair Reform)
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>We will modernize building codes to allow single-stair buildings up to 6–8 stories, adopting safe European and Seattle-based standards. This eliminates the “double-loaded corridor” requirement, allowing for better ventilation, family-sized units, and light-filled apartments on smaller plots of land.</p>
-</div>
+<section id="corridor-act-federal" class="level2 callout-body-container callout-body">
+<h2 class="anchored" data-anchor-id="corridor-act-federal">CORRIDOR Act (Federal)</h2>
+<p>Code Overhaul Reforming Residential Interiors, Design, and Occupancy Rules (CORRIDOR) Act, a modernized construction overlay designed to unlock efficient, family-sized housing on small lots. Inspired by the “Point Access Block” standards successfully utilized in Seattle and Europe, this initiative moves building codes from “Geometry-Restricted” to “Performance-Optimized.”</p>
+<section id="the-problem" class="level3">
+<h3 class="anchored" data-anchor-id="the-problem">The Problem:</h3>
+<p>Current U.S. building codes (IBC) mandate two staircases for buildings over three stories. This forces a “double-loaded corridor” design (a long dark hallway with apartments on both sides). This geometry wastes 20–30% of the floor area on hallways and forces apartments to be long, skinny “shoeboxes” with windows on only one side, making family-sized units geometrically impossible on small lots.</p>
+</section>
+<section id="the-federal-standard-for-construction" class="level3">
+<h3 class="anchored" data-anchor-id="the-federal-standard-for-construction">The Federal Standard for Construction:</h3>
+<p>The CORRIDOR Act preempts outdated code restrictions to legalize <strong>Point Access Blocks</strong> (Single-Stair Buildings).</p>
+<ul>
+<li><strong>The “Point Access” Mandate</strong>:
+<ul>
+<li><strong>Up to 8 Stories</strong>: Legalizes single-staircase residential buildings up to 75 feet (approx. 8 stories) provided they meet enhanced safety features (sprinklers, pressurized stairwells, non-combustible materials). Adopts the proven safety frameworks used in Seattle, Switzerland, and Germany.</li>
+<li>To neutralize fire risks, these buildings must upgrade from standard residential sprinklers (NFPA 13R) to full commercial-grade suppression systems (NFPA 13) and utilize positive-pressure stairwells to prevent smoke intrusion during egress.</li>
+</ul></li>
+<li><strong>Better Buildings</strong>:
+<ul>
+<li><strong>Cross-Ventilation</strong>: By eliminating the central hallway, units can span the width of the building, allowing for windows on opposite sides (passive cooling).</li>
+<li><strong>Family-Sized Units</strong>: Enables 3- and 4-bedroom layouts on small plots (50’ wide) that currently can only support luxury studios.</li>
+<li><strong>Efficiency</strong>: Increases rentable square footage by removing non-revenue-generating corridors, lowering the cost per unit.</li>
+</ul></li>
+<li><strong>Mass Timber &amp; Prefab Preemption</strong>:
+<ul>
+<li><strong>Federal Modular Approval</strong>: Creates a federal inspection seal for modular/manufactured housing. A factory-built module certified federally cannot be rejected by local inspectors.</li>
+<li><strong>Mass Timber</strong>: Categorically approves Mass Timber (CLT) construction for Zones 4–10, bypassing local moratoriums on wood construction.</li>
+</ul></li>
+</ul>
+</section>
+<section id="incentivizing-adoption-2" class="level3">
+<h3 class="anchored" data-anchor-id="incentivizing-adoption-2">Incentivizing Adoption:</h3>
+<ul>
+<li><strong>FEMA &amp; Insurance Alignment</strong>:
+<ul>
+<li><strong>Insurance Backstop</strong>: The federal government provides a reinsurance backstop for buildings built to CORRIDOR Act standards, preventing private insurers from charging penalty premiums for “non-standard” (single-stair) buildings.</li>
+<li><strong>Fire Department Grants</strong>: Federal funding for local fire departments (ladder trucks, training) is contingent on adopting the CORRIDOR code overlay to service these efficient buildings.</li>
+</ul></li>
+</ul>
+</section>
+</section>
 </div>
 </div>
 </section>
-<section id="affordable-building-for-the-future" class="level2">
-<h2 class="anchored" data-anchor-id="affordable-building-for-the-future">Affordable Building for the Future</h2>
+<section id="making-housing-affordable" class="level2">
+<h2 class="anchored" data-anchor-id="making-housing-affordable">Making Housing Affordable</h2>
 <p><em>Construction, Labor, &amp; Costs</em></p>
-<p><strong>The Problem</strong>: Even if we could build, it costs too much. We are strangled by red tape, outdated labor monopolies, and protectionist trade wars that make a 2x4 piece of lumber a luxury good. We are essentially making it illegal to build efficiently.</p>
-<p><strong>The Solution</strong>: We will unleash a construction boom by removing barriers to trade, technology, and talent.</p>
+<p><strong>The Problem</strong>: While every other industry has become faster and cheaper, construction has become slower and more expensive. We are building 21st-century homes with 20th-century rules, suffocated by outdated mandates and protectionist barriers that block new technology. We have allowed restriction to strangle the American ability to build.</p>
+<p><strong>The Solution</strong>: We nust unleash a construction boom by removing barriers to trade, technology, and talent.</p>
 <p><strong>Policy Commitments</strong>:</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -234,9 +428,25 @@ Harmonize Building Standards
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>By adopting ISO/European safety standards (moving beyond the restrictive ASME code)</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Dismantle the Elevator Monopoly
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We will break the stranglehold of the elevator union and proprietary maintenance contracts. Banning software locks on elevator repair, we will make mid-rise housing viable and affordable again.</p>
 </div>
 </div>
 </div>
@@ -246,13 +456,13 @@ Harmonize Building Standards
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Dismantle the Elevator Monopoly
+Environmental Review Reform (NEPA)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>We will break the stranglehold of the elevator union and proprietary maintenance contracts. Banning software locks on elevator repair, we will make mid-rise housing viable and affordable again.</p>
+<p>We will exempt infill housing and green transit projects from National Environmental Policy Act (NEPA) reviews. Environmental laws should stop polluters, not sustainable housing in city centers.</p>
 </div>
 </div>
 </div>
@@ -262,13 +472,13 @@ Dismantle the Elevator Monopoly
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Environmental Review Reform (NEPA)
+Global Supply Chain Freedom
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>We will exempt infill housing and green transit projects from National Environmental Policy Act (NEPA) reviews. Environmental laws should stop polluters, not sustainable housing in city centers.</p>
+<p>We will eliminate all tariffs on construction materials (lumber, steel, aluminum). American housing should be built with the best materials at the best price, regardless of origin.</p>
 </div>
 </div>
 </div>
@@ -278,27 +488,11 @@ Environmental Review Reform (NEPA)
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Global Supply Chain Freedom
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>We will eliminate all tariffs on construction materials (lumber, steel, aluminum). American housing should be built with the best materials at the best price, regardless of origin.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
 Construction Visas &amp; Credential Reform
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>We face a massive labor shortage. We will introduce a dedicated visa class for skilled tradespeople and streamline credential recognition reform. We will review and reduce occupational licensing requirements that serve as barriers to entry rather than safety measures. If you are a certified electrician in a country with high standards, you should be able to wire homes in America without years of redundant retraining.</p>
 </div>
@@ -312,7 +506,7 @@ Construction Visas &amp; Credential Reform
 <p><strong>The Solution</strong>: We will decouple retirement security from home prices. We want homes to be affordable consumption, and we will help you build real wealth in the productive economy instead.</p>
 <p><strong>Policy Commitments</strong>:</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -321,9 +515,25 @@ Capital Gains Reform
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>We will replace the Section 121 flat exclusion. Instead, home sellers will pay taxes on real gains (inflation-indexed basis) just like any other asset.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Retirement Rollover (The Off-Ramp)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To protect retirees, we will allow tax-free rollovers of home sale proceeds into diversified Mandatory Savings Programs or 401(k)s. You should rely on the stock market and bonds for retirement, not the scarcity of your neighbor’s housing.</p>
 </div>
 </div>
 </div>
@@ -333,13 +543,13 @@ Capital Gains Reform
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Retirement Rollover (The Off-Ramp)
+Abolish the Mortgage Interest Deduction (MID)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>To protect retirees, we will allow tax-free rollovers of home sale proceeds into diversified Mandatory Savings Programs or 401(k)s. You should rely on the stock market and bonds for retirement, not the scarcity of your neighbor’s housing.</p>
+<p>This is a regressive subsidy that inflates prices and benefits the wealthy. We will eliminate it.</p>
 </div>
 </div>
 </div>
@@ -349,13 +559,13 @@ Retirement Rollover (The Off-Ramp)
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Abolish the Mortgage Interest Deduction (MID)
+Borrower-Based Macroprudential Limits
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>This is a regressive subsidy that inflates prices and benefits the wealthy. We will eliminate it.</p>
+<p>We will restrict leverage to prevent housing bubbles, ensuring that price growth is driven by fundamentals, not easy debt.</p>
 </div>
 </div>
 </div>
@@ -365,13 +575,13 @@ Abolish the Mortgage Interest Deduction (MID)
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Borrower-Based Macroprudential Limits
+Split-Rate Taxation
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>We will restrict leverage to prevent housing bubbles, ensuring that price growth is driven by fundamentals, not easy debt.</p>
+<p>We will incentivize states to tax land at a higher rate than improvements. Do not punish a landlord for fixing a roof; tax the speculator sitting on an empty dirt lot in downtown.</p>
 </div>
 </div>
 </div>
@@ -381,75 +591,74 @@ Borrower-Based Macroprudential Limits
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Split-Rate Taxation
+Housing Supply Optimization
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-14" class="callout-14-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>We will incentivize states to tax land at a higher rate than improvements. Do not punish a landlord for fixing a roof; tax the speculator sitting on an empty dirt lot in downtown.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Speculative Vacancy Tax
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p><strong>Objective:</strong> To increase housing supply by disincentivizing the holding of residential property as a vacant investment vehicle, utilizing existing regulatory definitions to minimize administrative overhead.</p>
-<ol type="1">
-<li>Definitions &amp; Standards</li>
-</ol>
-<p><strong>Principal Residence (Owner-Occupied)</strong>: A property is deemed “Occupied” if it currently qualifies for the <em>Homestead Exemption</em> (or local equivalent Principal Residence Exemption) under the [State/County] Revenue &amp; Taxation Code.</p>
-<p><strong>Tenanted Occupancy (Non-Owner)</strong>: For properties not claiming a Homestead Exemption, “Occupancy” requires the unit be leased to a “Permitted Occupant” for at least <strong>180 days</strong> of the tax year. * <strong>Arm’s Length Requirement:</strong> The lease must be for <strong>Fair Market Rent</strong> (as defined by HUD SAFMR, see Section 6.C) to a tenant who is not a “Related Person” as defined by <strong>26 U.S. Code § 267</strong>. * <strong>Exclusion:</strong> Short-term rentals (periods of &lt;30 consecutive days) regulated under [Local Transient Occupancy Tax Statutes] do not count toward the 180-day threshold. * <strong>De Facto Vacancy</strong>: Any property that does not meet the definition of Principal Residence or Tenanted Occupancy, and has not filed a valid Exemption, is classified as Vacant.</p>
-<ol start="2" type="1">
-<li>Tax Structure</li>
-</ol>
-<p>The tax is levied on the property’s current Assessed Value (AV) on a progressive scale.</p>
+<section id="g.h.o.s.t.-act" class="level2 callout-body-container callout-body">
+<h2 class="anchored" data-anchor-id="g.h.o.s.t.-act">G.H.O.S.T. Act</h2>
+<p>Generating Housing Opportunities via Speculation Tax (GHOST) Act, a data-driven framework designed to remove shadow inventory by disincentivizing the holding of residential property as a vacant investment vehicle through a.</p>
+<section id="the-phantom-standard-definitions" class="level3">
+<h3 class="anchored" data-anchor-id="the-phantom-standard-definitions"><strong>1. The “Phantom” Standard (Definitions)</strong>:</h3>
+<p>To eliminate subjective loopholes, the Act replaces vague definitions with a binary <strong>Universal Occupancy Standard</strong>.</p>
 <ul>
-<li><strong>Year 1 Vacant:</strong> 1% of AV</li>
-<li><strong>Year 2 Vacant:</strong> 2% of AV</li>
-<li><strong>Year 3+ Vacant:</strong> 3% of AV</li>
+<li><strong>Occupied Status (The Living Home)</strong>:
+<ul>
+<li><strong>Owner-Occupied</strong>: Automatically verified via existing <em>Homestead</em> or <em>Principal Residence Exemptions</em>.</li>
+<li><strong>Tenanted</strong>: Requires a lease of 180+ days to a “Permitted Occupant.”
+<ul>
+<li><strong>Arm’s Length</strong>: Tenant cannot be a “Related Person” (IRS § 267).</li>
+<li><strong>Fair Market</strong>: Lease must be at Fair Market Rent (HUD SAFMR).</li>
+</ul></li>
+<li><strong>De Facto Vacancy</strong>: Any property not meeting the above definitions is automatically classified as a “Ghost Unit” (Vacant).</li>
+</ul></li>
+<li><strong>The Escalating Levy</strong>: To force “dead capital” back into the market, the tax on Assessed Value (AV) rises the longer the unit remains empty:
+<ul>
+<li><strong>Year 1</strong>: 1% of AV</li>
+<li><strong>Year 2</strong>: 2% of AV</li>
+<li><strong>Year 3+</strong>: 3% of AV</li>
+</ul></li>
 </ul>
-<ol start="3" type="1">
-<li>Property Attachment &amp; Transfer Rules</li>
-</ol>
-<p><strong>Non-Arm’s Length Transfers</strong>: Transfers between parties defined as “Related Persons” by the IRS (including spouses, lineal descendants, fiduciaries, and controlled corporations) do <strong>not</strong> reset the tax rate. (e.g.&nbsp;A transfer from an individual to their own LLC retains the Year 3 (3%) tax rate)</p>
-<p><strong>Arm’s Length Sales</strong>: Transfers to an unrelated party reset the tax rate. * <strong>Grace Period:</strong> The property is exempt for <strong>12 months</strong> following the recording date of the deed. * <strong>Reset Provision:</strong> If the property remains vacant after the 12-month grace period, the tax clock starts at <strong>Year 1 (1%)</strong>.</p>
-<ol start="4" type="1">
-<li>Administration &amp; Auditing</li>
-</ol>
-<p><strong>Mandatory Annual Declaration</strong>: Owners not currently claiming a Homestead Exemption must file an annual Occupancy Status Declaration. Failure to file results in automatic classification as “De Facto Vacant.”</p>
-<p><strong>Risk-Based Auditing (Utility Benchmarking)</strong>: Instead of arbitrary usage numbers, the City applies a “Low Usage Flag” based on peer data. * <strong>Threshold:</strong> Average monthly consumption falling below the <strong>10th percentile</strong> of similarly sized units (bedroom count/sq ft) in the service area. * <strong>Verification:</strong> Properties flagged for low usage receive a physical confirmation code via mail. Failure to input the code online within 14 days is prima facie evidence of vacancy.</p>
-<ol start="5" type="1">
-<li>Exemptions</li>
-</ol>
-<p><em>Exemptions must be claimed during the declaration phase and are strictly tied to external validations.</em></p>
-<p><strong>Active Renovation by Capital Expenditure Threshold</strong>: Valid for a maximum of one year per owner. To prevent minor or cosmetic work from justifying vacancy, the owner must prove substantial financial investment in the property.</p>
-<ol type="1">
-<li><strong>Monetary Threshold:</strong> The owner must provide evidence of capital improvements totaling at least <strong>$50,000 OR 15% of the structure’s Assessed Value</strong> (whichever is lower) incurred during the tax year.</li>
-<li><strong>Qualifying Costs:</strong>
+</section>
+<section id="anti-evasion-guardrails" class="level3">
+<h3 class="anchored" data-anchor-id="anti-evasion-guardrails"><strong>2. Anti-Evasion Guardrails</strong>:</h3>
+<p>To prevent owners from resetting the tax clock through shell transfers (“shapeshifting”), the Act enforces strict continuity rules.</p>
 <ul>
-<li><strong>Hard Costs Only:</strong> Only materials and third-party labor count toward the threshold.</li>
-<li><strong>Exclusions:</strong> “Sweat equity” (owner’s own labor), furniture, window treatments, and easily reversible changes (e.g., removing fixtures without replacement) are explicitly excluded.</li>
-</ul></li>
-<li><strong>Verification:</strong>
+<li><strong>Related Person Transfers</strong>: Transfers to spouses, descendants, or controlled LLCs do <strong>not</strong> reset the tax rate. The liability attaches to the <em>beneficial owner</em>.</li>
+<li><strong>Arm’s Length Reset</strong>: Only sales to unrelated parties trigger a reset.
 <ul>
-<li><strong>Permit Valuation:</strong> The “Valuation of Work” listed on the issued building permit serves as prima facie evidence.</li>
-<li><strong>Audit Trail:</strong> If the permit value is below the threshold, the owner must submit paid invoices and receipts from licensed contractors or suppliers to bridge the gap.</li>
+<li><strong>Grace Period</strong>: 12 months tax-free post-sale.</li>
+<li><strong>Reversion</strong>: If vacant after 12 months, the tax restarts immediately at Year 1.</li>
 </ul></li>
-</ol>
-<p><strong>Active Rental Listing (“Good Faith Effort”)</strong>: Valid for a maximum of 12 months. The property is actively listed for rent on a recognized public platform. * <strong>Rent Cap:</strong> To qualify as a “good faith” listing, the asking rent must not exceed <strong>120% of the HUD Small Area Fair Market Rent (SAFMR)</strong> for the property’s specific ZIP Code and unit size.</p>
-<p><strong>Medical Confinement</strong>: The owner provides a signed attestation from a medical professional that the owner has been admitted to a facility for <strong>“Skilled Nursing Care”</strong> or <strong>“Long-Term Care”</strong> (as defined by [State] Dept of Health or CMS).</p>
-<p><strong>Legal Transfer Restrictions</strong>: Occupancy or sale is prohibited by an active court order (e.g., lis pendens, probate freezes, or foreclosure redemption periods).</p>
-</div>
+</ul>
+</section>
+<section id="data-driven-detection-ghost-busting" class="level3">
+<h3 class="anchored" data-anchor-id="data-driven-detection-ghost-busting"><strong>3. Data-Driven Detection (Ghost Busting)</strong>:</h3>
+<p>Instead of relying on easy-to-fake paper declarations, the Act uses <strong>Utility Benchmarking</strong> to detect physical vacancy.</p>
+<ul>
+<li><strong>The “Low Usage” Flag</strong>: Properties are flagged if monthly consumption falls below the <strong>10th percentile</strong> of similarly sized units in the service area.</li>
+<li><strong>Verification</strong>: Flagged units receive a physical confirmation code via mail. Failure to input the code within 14 days is <em>prima facie</em> evidence of vacancy.</li>
+</ul>
+</section>
+<section id="validated-exemptions" class="level3">
+<h3 class="anchored" data-anchor-id="validated-exemptions"><strong>4. Validated Exemptions</strong>:</h3>
+<p>Exemptions are permitted but strictly tied to external financial validations to prevent “fake renovations” or “phantom listings.”</p>
+<ul>
+<li><strong>The Capital Expenditure Threshold (Renovation)</strong>: To claim a renovation exemption (1-year max), owners must prove substantial investment.
+<ul>
+<li><strong>The Standard</strong>: Hard costs (materials/labor) must exceed <strong>$50,000 OR 15% of Assessed Value</strong>.</li>
+<li><strong>Exclusions</strong>: “Sweat equity” and furniture are strictly excluded.</li>
+<li><strong>Proof</strong>: Validated via Building Permit Valuation or paid contractor invoices.</li>
+</ul></li>
+<li><strong>The “Good Faith” Listing Cap</strong>:
+<ul>
+<li><strong>Rent Cap</strong>: A property is only considered “Actively Listed” if the asking rent is <strong>≤120% of HUD Small Area Fair Market Rent</strong>. This prevents owners from listing units at artificial prices to keep them empty.</li>
+</ul></li>
+<li><strong>Medical Confinement</strong>: Valid with attestation of admission to Skilled Nursing or Long-Term Care facilities.</li>
+</ul>
+</section>
+</section>
 </div>
 </div>
 </section>
@@ -460,7 +669,7 @@ Speculative Vacancy Tax
 <p><strong>The Solution</strong>: A robust safety net that focuses on people, not units, combined with a pragmatic approach to social housing.</p>
 <p><strong>Policy Commitments</strong>:</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -469,9 +678,25 @@ Remove Transaction Taxes and Homeownership Subsidies
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Public Rent Insurance
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Instead of rigid rent control (which kills supply), we will implement a public insurance scheme. If a tenant faces a sudden rent spike or income shock, this insurance bridges the gap, keeping them housed without distorting market prices.</p>
 </div>
 </div>
 </div>
@@ -481,13 +706,13 @@ Remove Transaction Taxes and Homeownership Subsidies
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Public Rent Insurance
+Housing First” (The Finland Model)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Instead of rigid rent control (which kills supply), we will implement a public insurance scheme. If a tenant faces a sudden rent spike or income shock, this insurance bridges the gap, keeping them housed without distorting market prices.</p>
+<p>We will adopt a unconditional housing model for the homeless. We fix the housing situation first, providing a stable foundation to address mental health and employment issues later.</p>
 </div>
 </div>
 </div>
@@ -497,13 +722,13 @@ Public Rent Insurance
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Housing First” (The Finland Model)
+Singapore-Style Public Housing
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-18" class="callout-18-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>We will adopt a unconditional housing model for the homeless. We fix the housing situation first, providing a stable foundation to address mental health and employment issues later.</p>
+<p>We will pilot high-quality, government-developed housing in major metros available to a broad range of incomes (not just the poor) on 99-year leases. This creates a public option that competes with private developers on quality and price.</p>
 </div>
 </div>
 </div>
@@ -513,27 +738,11 @@ Housing First” (The Finland Model)
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Singapore-Style Public Housing
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-19" class="callout-19-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>We will pilot high-quality, government-developed housing in major metros available to a broad range of incomes (not just the poor) on 99-year leases. This creates a public option that competes with private developers on quality and price.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
 Protecting the Starter Home
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>We will implement taxes on foreign non-resident buyers and heavily regulate institutional investors purchasing single-family starter homes, while expressly protecting and streamlining the ‘Build-to-Rent’ sector to ensure capital continues to flow into new housing supply. Neighborhoods are for families, not hedge funds.</p>
 </div>
@@ -541,6 +750,7 @@ Protecting the Starter Home
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
