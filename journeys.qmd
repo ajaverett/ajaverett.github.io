@@ -3,8 +3,13 @@ title: ""
 resources: [data/trips.json, images/trips/*/*]
 format:
   html:
+    lightbox: 
+        match: auto
+        effect: zoom
+        loop: true
+        css-class: glightbox
     minimal: true
-    css: styles/styles.css
+    css: [styles/styles.css]
     anchor-sections: true
     page-layout: full   
     toc: false
@@ -15,7 +20,7 @@ format:
     include-after-body:
         - html_chunks/scripts/hero_script.html
         - html_chunks/scripts/style_script.html
-        - html_chunks/scripts/journeys_script.html
+        - html_chunks/scripts/journeys_script2.html
         - html_chunks/scripts/menu_script.html
 ---
 <div id="hero-settings" data-title="Journeys" data-subtitle="Adventures across the world" hidden></div>
@@ -46,8 +51,8 @@ format:
 
     <div id="trip-modal" class="fixed inset-0 z-[1000] hidden items-center justify-center bg-slate-950/90 backdrop-blur-md p-0 md:p-10">
 
-        <button onclick="closeModal()" class="absolute top-4 left-4 md:left-auto md:right-6 md:top-6 z-[1020] bg-slate-950/50 rounded-full p-2 text-slate-400 hover:text-white transition transform hover:rotate-90 border border-white/10 backdrop-blur-md">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        <button onclick="closeModal()" class="fixed top-6 right-6 z-[2000] w-12 h-12 flex items-center justify-center bg-slate-950/50 backdrop-blur-md border border-white/10 rounded-full text-slate-400 hover:text-white hover:bg-slate-900 transition-all duration-300 group shadow-2xl">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:rotate-90"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
 
         <div id="modal-content" class="w-full h-full max-w-7xl bg-slate-900 border-x-0 border-y-0 md:border md:border-white/10 md:rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl relative opacity-0 scale-95 transition-all duration-300 ease-out">
@@ -68,7 +73,7 @@ format:
 
             <div class="w-full md:w-2/3 bg-[#0b0f1a] p-4 md:p-8 overflow-y-auto">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="modal-gallery">
-                    </div>
+                </div>
                 
                 <div class="h-20 md:hidden"></div>
             </div>

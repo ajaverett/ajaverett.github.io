@@ -1,1660 +1,547 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>journeys – AJ Averett</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-.display.math{display: block; text-align: center; margin: 0.5rem auto;}
-</style>
-
-
-<link href="./images/favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<script src="https://cdn.tailwindcss.com"></script>
-
-
-
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-
-
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Lato:wght@300;400;700;900&amp;display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-
-
-<script>
-
-    tailwind.config = {
-
-        theme: {
-
-            extend: {
-
-                fontFamily: {
-
-                    sans: ['Lato', 'sans-serif'],
-
-                    mono: ['JetBrains Mono', 'monospace'],
-
-                },
-
-                colors: {
-
-                    'glass': 'rgba(255, 255, 255, 0.05)',
-
-                    'glass-border': 'rgba(255, 255, 255, 0.1)',
-
-                },
-
-                animation: {
-
-                    'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-
-                    'spin-slow': 'spin 10s linear infinite',
-
-                    'bounce-slow': 'bounce 3s infinite',
-
-                },
-
-                keyframes: {
-
-                    fadeInUp: {
-
-                        '0%': { opacity: '0', transform: 'translateY(20px)' },
-
-                        '100%': { opacity: '1', transform: 'translateY(0)' },
-
-                    }
-
-                }
-
-            }
-
-        }
-
-    }
-
-</script>
-
-
-<link rel="stylesheet" href="styles/styles.css">
-<meta property="og:title" content="– AJ Averett">
-<meta property="og:site_name" content="AJ Averett">
-<meta name="twitter:title" content="– AJ Averett">
-<meta name="twitter:card" content="summary">
-</head>
-
-<body>
-
-
-
-<div id="menu-overlay" class="fixed inset-0 z-[100] bg-slate-950/95 backdrop-blur-xl flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-500 ease-in-out">
-
-    <nav class="flex flex-col items-center gap-8 mb-12 text-center">
-
-        <a href="index.html" class="text-4xl md:text-5xl font-bold text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 transition-transform duration-300 transform hover:scale-110">Home</a>
-
-        <a href="about.html" class="text-4xl md:text-5xl font-bold text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 transition-transform duration-300 transform hover:scale-110">About</a>
-
-        <a href="posts.html" class="text-4xl md:text-5xl font-bold text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 transition-transform duration-300 transform hover:scale-110">Posts</a>
-
-        <a href="blocks.html" class="text-4xl md:text-5xl font-bold text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 transition-transform duration-300 transform hover:scale-110">Blocks</a>
-
-        <a href="journeys.html" class="text-4xl md:text-5xl font-bold text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 transition-transform duration-300 transform hover:scale-110">Journeys</a>
-
-    </nav>
-
-    <div class="flex items-center gap-8 mt-4">
-
-            <a href="https://www.linkedin.com/in/ajaverett/" target="_blank" class="group relative p-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all hover:-translate-y-1 hover:border-cyan-500/50">
-
-                <svg class="w-6 h-6 fill-slate-300 group-hover:fill-cyan-400 transition-colors" viewbox="0 0 24 24" aria-hidden="true">
-
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
-
-                </svg>
-
-            </a>
-
-
-
-            <a href="https://github.com/ajaverett/" target="_blank" class="group relative p-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all hover:-translate-y-1 hover:border-purple-500/50">
-
-                <svg class="w-6 h-6 fill-slate-300 group-hover:fill-purple-400 transition-colors" viewbox="0 0 24 24" aria-hidden="true">
-
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
-
-                </svg>
-
-            </a>
-
-
-
-            <a href="resume.pdf" target="_blank" class="group relative p-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all hover:-translate-y-1 hover:border-cyan-500/50">
-
-                <svg class="w-6 h-6 fill-slate-300 group-hover:fill-cyan-400 transition-colors" viewbox="0 0 16 16">
-
-                    <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0m2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755"></path>
-
-                </svg>
-
-            </a>
-
-    </div>
-
-</div>
-
-
-
-<button id="menu-toggle" class="fixed top-6 right-6 z-[9999] group w-12 h-12 rounded-full bg-white/5 border border-white/10 backdrop-blur-md flex flex-col justify-center items-center gap-1.5 transition-all hover:bg-white/10 hover:scale-105 focus:outline-none cursor-pointer">
-
-    <span id="line-1" class="w-6 h-0.5 bg-cyan-400 rounded-full transition-all duration-300 origin-center pointer-events-none"></span>
-
-    <span id="line-2" class="w-6 h-0.5 bg-cyan-400 rounded-full transition-all duration-300 origin-center pointer-events-none"></span>
-
-    <span id="line-3" class="w-6 h-0.5 bg-cyan-400 rounded-full transition-all duration-300 origin-center pointer-events-none"></span>
-
-</button>
-
-
-
-<style>
-
-
-
-    #menu-toggle {
-
-        box-sizing: border-box;
-
-        line-height: 1;
-
-        padding: 0;
-
-        border: none;
-
-        cursor: pointer;
-
-    }
-
-    
-
-    #menu-overlay, #menu-overlay * {
-
-        font-family: 'Lato', sans-serif !important;
-
-    }
-
-
-
-    #menu-overlay nav a {
-
-        color: white; 
-
-        text-decoration: none !important;
-
-    }
-
-    
-
-    #menu-overlay nav a:hover {
-
-        color: transparent !important;
-
-        -webkit-background-clip: text !important;
-
-        background-clip: text !important;
-
-        background-image: linear-gradient(to right, #22d3ee, #c084fc);
-
-    }
-
-</style>
-
-
-
-
-<div id="hero-settings" data-title="Journeys" data-subtitle="Adventures across the world" hidden="">
-
-</div>
-<div class="column-screen">
-
-<div class="bg-slate-950 text-slate-200 font-sans selection:bg-cyan-500 selection:text-white overflow-hidden h-[100dvh] flex flex-col">
-    
-    <div class="h-[55%] relative w-full z-0 bg-slate-950 border-b border-white/10">
-        
-        <div id="map" class="h-full w-full z-0 bg-slate-950"></div>
-        
-        <div class="absolute top-8 left-8 z-[400] pointer-events-none">
-<div class="fixed top-0 left-0 w-full !pt-6 !pb-2 !px-8 overflow-hidden !z-[-50] pointer-events-none">
-    
-    <h1 id="hero-title" class="font-sans text-2xl md:text-4xl font-bold text-white tracking-tighter drop-shadow-lg m-0 p-0 leading-tight">
-    </h1>
-    
-    <div class="mt-2 flex items-center gap-2">
-        <span class="relative !flex !flex-none !w-2 !h-2 !relative items-center justify-center">
-            <span style="animation: force-fade-ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;" class="!absolute !inline-flex !h-full !w-full rounded-full bg-cyan-400"></span>
-            <span class="!relative !inline-flex rounded-full !h-1.5 !w-1.5 bg-cyan-500"></span>
-        </span>
-        
-        <p id="hero-subtitle" class="font-mono text-xs text-cyan-400 tracking-widest uppercase m-0 leading-none">
-        </p>
-    </div>
-</div>
-
-<div class="w-full h-32 pointer-events-none" aria-hidden="true"></div>
-
-        </div>
-    </div>
-
-    <div class="flex-grow bg-slate-900/50 backdrop-blur-sm relative z-10 flex flex-col justify-center pt-4">
-            <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent"></div>
-            
-            <div class="flex-grow overflow-x-auto hide-scroll px-6 pb-6 flex items-center gap-6" id="timeline-container">
-            </div>
-    </div>
-
-<footer class="bg-slate-950 border-t border-white/10 !py-3 md:!py-4 snap-start relative z-10">
-
-    <div class="max-w-7xl mx-auto px-6 flex flex-row justify-between items-center">
-
-        <div class="text-left">
-            <h3 class="text-lg md:text-2xl font-bold text-white mb-0 md:mb-2 anchored">AJ Averett</h3>
-            <p class="text-slate-500 text-sm max-md:hidden">Built with Quarto, Tailwind, &amp; Coffee.</p>
-        </div>
-
-        <div class="flex gap-4 md:gap-6 items-center">
-            <a href="./about.html" class="max-md:hidden text-slate-400 hover:text-cyan-400 transition-colors">About</a>
-            <a href="./posts.html" class="max-md:hidden text-slate-400 hover:text-cyan-400 transition-colors">Posts</a>
-            <a href="./blocks.html" class="max-md:hidden text-slate-400 hover:text-cyan-400 transition-colors">Blocks</a>
-
-            <a href="https://www.linkedin.com/in/ajaverett/" target="_blank" class="text-slate-400 hover:text-cyan-400 transition-colors"><i class="bi bi-linkedin"></i></a>
-            <a href="https://github.com/ajaverett/" target="_blank" class="text-slate-400 hover:text-cyan-400 transition-colors"><i class="bi bi-github"></i></a>
-            <a href="resume.pdf" target="_blank" class="text-slate-400 hover:text-cyan-400 transition-colors"><i class="bi bi-file-earmark-person-fill"></i></a>
-        </div>
-    </div>
-</footer>
-
-<style>
-    footer h3,
-    footer p,
-    footer a {
-        font-family: 'Lato', sans-serif !important;
-    }
-
-    footer a {
-        color: #94a3b8 !important;
-        text-decoration: none !important;
-    }
-
-    footer a:hover {
-        color: #22d3ee !important;
-        text-decoration: none !important;
-        transition: color 0.3s ease;
-    }
-
-    .bi {
-        line-height: 1;
-    }
-</style>
-
-
-    <div id="trip-modal" class="fixed inset-0 z-[1000] hidden items-center justify-center bg-slate-950/90 backdrop-blur-md p-0 md:p-10">
-
-        <button onclick="closeModal()" class="fixed top-6 right-6 z-[2000] w-12 h-12 flex items-center justify-center bg-slate-950/50 backdrop-blur-md border border-white/10 rounded-full text-slate-400 hover:text-white hover:bg-slate-900 transition-all duration-300 group shadow-2xl">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:rotate-90"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-        </button>
-
-        <div id="modal-content" class="w-full h-full max-w-7xl bg-slate-900 border-x-0 border-y-0 md:border md:border-white/10 md:rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl relative opacity-0 scale-95 transition-all duration-300 ease-out">
-            
-            <div class="w-full md:w-1/3 relative flex flex-col border-b border-white/10 md:border-b-0 md:border-r shrink-0 z-10 bg-slate-900">
-                
-                <div class="hidden md:block h-1/2 relative">
-                    <img id="modal-hero-img" src="" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent"></div>
-                </div>
-
-                <div class="h-auto md:h-1/2 p-6 md:p-8 bg-slate-900 flex flex-col justify-center shadow-xl md:shadow-none">
-                    <span id="modal-date" class="font-mono text-cyan-400 text-xs md:text-sm mb-2 border border-cyan-900 bg-cyan-900/20 px-2 py-1 rounded inline-block w-max"></span>
-                    <h2 id="modal-title" class="text-2xl md:text-4xl font-bold text-white mb-2 md:mb-4 pr-8 anchored"></h2>
-                    <p id="modal-desc" class="text-slate-400 leading-relaxed font-light text-sm md:text-base"></p>
-                </div>
-            </div>
-
-            <div class="w-full md:w-2/3 bg-[#0b0f1a] p-4 md:p-8 overflow-y-auto">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="modal-gallery">
-                </div>
-                
-                <div class="h-20 md:hidden"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-</div>
-
-
-<style>
-
-#title-block-header {
-
-        display: none !important;
-
-    }
-
-</style>
-
-
-
-<script>
-
-document.addEventListener("DOMContentLoaded", function() {
-
-    const settings = document.getElementById('hero-settings');
-
-    
-
-    if (settings) {
-
-        const titleText = settings.getAttribute('data-title');
-
-        const subtitleText = settings.getAttribute('data-subtitle');
-
-        
-
-        const titleEl = document.getElementById('hero-title');
-
-        const subtitleEl = document.getElementById('hero-subtitle');
-
-        
-
-        if (titleEl && titleText) titleEl.innerText = titleText;
-
-        if (subtitleEl && subtitleText) subtitleEl.innerText = subtitleText;
-
-        
-
-        settings.remove();
-
-    }
-
-});
-
-</script>
-<script src="https://cdn.tailwindcss.com"></script>
-
-
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Lato:wght@300;400;700;900&amp;display=swap" rel="stylesheet">
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-
-
-<script>
-
-    tailwind.config = {
-
-        theme: {
-
-            extend: {
-
-                fontFamily: {
-
-                    sans: ['Lato', 'sans-serif'],
-
-                    mono: ['JetBrains Mono', 'monospace'],
-
-                },
-
-                colors: {
-
-                    'glass': 'rgba(66, 46, 46, 0.05)',
-
-                }
-
-            }
-
-        }
-
-    }
-
-</script>
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
 <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
-
-
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-
-
 <script>
-
     // Global variable to hold data
-
     let trips = [];
-
     let map;
-
     
-
     // Global Lightbox Instance
-
     let lightboxInstance = null;
-
-
 
     // --- 0. FALLBACK DATA ---
 
-
-
     const fallbackData = [
-
         { 
-
             title: "Ashton, Idaho", 
-
             date: "JUL 2023", 
-
             coords: [44.1878, -111.3300],
-
             img: "images/trips/2023_07_ashton/cover.jpg", 
-
             desc: "First journey with Audrey",
-
             folder: "2023_07_ashton"
-
         },
-
         { 
-
             title: "Rexburg, Idaho", 
-
             date: "SEP 2023", 
-
             coords: [43.81455094723061, -111.78427081920796], 
-
             img: "images/trips/2023_09_rexburg/cover.jpg", 
-
             desc: "Photoshoot in the parking lot. Graduation",
-
             folder: "2023_09_rexburg"
-
         },
-
         { 
-
             title: "San Antonio, Texas", 
-
             date: "SEP 2023", 
-
             coords: [29.4260, -98.4861],
-
             img: "images/trips/2023_09_san_antonio/cover.jpg", 
-
             desc: "Introduced Audrey to my family",
-
             folder: "2023_09_san_antonio"
-
         },
-
         { 
-
             title: "Little Rock, Arkansas", 
-
             date: "NOV 2023", 
-
             coords: [34.7465, -92.2896], 
-
             img: "images/trips/2023_11_little_rock/cover.jpg", 
-
             desc: "Traveled to Arkansas for an interview and spent the day in Little Rock",
-
             folder: "2023_11_little_rock"
-
         },
-
         { 
-
             title: "El Dorado, Arkansas", 
-
             date: "NOV 2023", 
-
             coords: [33.2111, -92.6663], 
-
             img: "images/trips/2023_11_el_dorado/cover.jpg", 
-
             desc: "Rejected at my interview with MurphyUSA in El Dorado",
-
             folder: "2023_11_el_dorado"
-
         },
-
         { 
-
             title: "Thanksgiving Point, Utah", 
-
             date: "NOV 2023", 
-
             coords: [40.4313, -111.9026], 
-
             img: "images/trips/2023_11_thanksgiving_point/cover.jpg", 
-
             desc: "Enjoying Christmas decorations with Audrey",
-
             folder: "2023_11_thanksgiving_point"
-
         },
-
         { 
-
             title: "Salt Lake City, Utah", 
-
             date: "DEC 2023", 
-
             coords: [40.7681, -111.8911], 
-
             img: "images/trips/2023_12_salt_lake_city/cover.jpg", 
-
             desc: "Spent the day at City Creek Mall. Have gone back for several dates",
-
             folder: "2023_12_salt_lake_city"
-
         },
-
         { 
-
             title: "Changi, Singapore", 
-
             date: "FEB 2024", 
-
             coords: [1.3602, 103.9898], 
-
             img: "images/trips/2024_02_changi/cover.jpg", 
-
             desc: "Landed in the Jewel Changi Airport as a layover for our Asia trip",
-
             folder: "2024_02_changi"
-
         },
-
         { 
-
             title: "Davao City, Philippines", 
-
             date: "FEB 2024", 
-
             coords: [7.1907, 125.4553], 
-
             img: "images/trips/2024_03_davao_city/cover.jpg", 
-
             desc: "First stop in the Philippines to meet some of Audrey's family",
-
             folder: "2024_03_davao_city"
-
         },
-
         { 
-
             title: "Island Garden City of Samal, Philippines", 
-
             date: "MAR 2024", 
-
             coords: [7.0427, 125.7115], 
-
             img: "images/trips/2024_03_garden_city_samal/cover.jpg", 
-
             desc: "Spent a couple days on Samal Island",
-
             folder: "2024_03_garden_city_samal"
-
         },
-
         { 
-
             title: "Coron, Philippines", 
-
             date: "MAR 2024", 
-
             coords: [11.9994, 120.2241], 
-
             img: "images/trips/2024_03_coron/cover.jpg", 
-
             desc: "Island hopping on the prettiest beach in the world",
-
             folder: "2024_03_coron"
-
         },
-
         { 
-
             title: "Binangonan, Philippines", 
-
             date: "MAR 2024", 
-
             coords: [14.4842, 121.2163], 
-
             img: "images/trips/2024_03_binangonan/cover.jpg", 
-
             desc: "Second place to stay in the Philippines. Audrey's mom's house",
-
             folder: "2024_03_binangonan"
-
         },
-
         { 
-
             title: "Batangas, Philippines", 
-
             date: "MAR 2024", 
-
             coords: [13.7565, 121.0583], 
-
             img: "images/trips/2024_03_batangas/cover.jpg", 
-
             desc: "Met the other side of Audrey's family",
-
             folder: "2024_03_batangas"
-
         },
-
         { 
-
             title: "Manila, Philippines", 
-
             date: "APR 2024", 
-
             coords: [14.5995, 120.9842], 
-
             img: "images/trips/2024_04_manila/cover.jpg", 
-
             desc: "Traveled to the Capital with Audrey's friends and family",
-
             folder: "2024_04_manila"
-
         },
-
         { 
-
             title: "Tokyo, Japan", 
-
             date: "APR 2024", 
-
             coords: [35.6619, 139.7037], 
-
             img: "images/trips/2024_04_tokyo/cover.jpg", 
-
             desc: "Proposed to Audrey in Shibuya",
-
             folder: "2024_04_tokyo"
-
         },
-
         { 
-
             title: "Virginia Beach, Virginia", 
-
             date: "JUN 2024", 
-
             coords: [36.8529, -75.9780], 
-
             img: "images/trips/2024_06_virginia_beach/cover.jpg", 
-
             desc: "Moved to Virginia Beach for the Navy",
-
             folder: "2024_06_virginia_beach"
-
         },
-
         { 
-
             title: "Alpine, Utah", 
-
             date: "JUL 2024", 
-
             coords: [40.4533, -111.7774], 
-
             img: "images/trips/2024_07_alpine/cover.jpg", 
-
             desc: "Photoshoot in Alpine",
-
             folder: "2024_07_alpine"
-
         },
-
         { 
-
             title: "Burlington, Vermont", 
-
             date: "AUG 2024", 
-
             coords: [44.4759, -73.2121], 
-
             img: "images/trips/2024_08_burlington/cover.jpg", 
-
             desc: "Visting family in Burlington",
-
             folder: "2024_08_burlington"
-
         },
-
         { 
-
             title: "Doswell, Virginia", 
-
             date: "APR 2024", 
-
             coords: [37.8400, -77.4450], 
-
             img: "images/trips/2024_09_doswell/cover.jpg", 
-
             desc: "King's Dominion with Audrey",
-
             folder: "2024_09_doswell"
-
         },
-
         { 
-
             title: "New York City, New York", 
-
             date: "SEP 2024", 
-
             coords: [40.7128, -74.0060], 
-
             img: "images/trips/2024_09_new_york_city/cover.jpg", 
-
             desc: "Wandering all throughout NYC",
-
             folder: "2024_09_new_york_city"
-
         },
-
         { 
-
             title: "Harpers Ferry, West Virginia", 
-
             date: "NOV 2024", 
-
             coords: [39.3253, -77.7436], 
-
             img: "images/trips/2024_11_harpers_ferry/cover.jpg", 
-
             desc: "Visiting Audrey's family",
-
             folder: "2024_11_harpers_ferry"
-
         },
-
         { 
-
             title: "Montréal, Quebec", 
-
             date: "NOV 2024", 
-
             coords: [45.5019, -73.5674], 
-
             img: "images/trips/2024_11_montreal/cover.jpg", 
-
             desc: "Enoying time with my siblings",
-
             folder: "2024_11_montreal"
-
         },
-
         { 
-
             title: "Fredericksburg, Texas", 
-
             date: "DEC 2024", 
-
             coords: [30.2752, -98.8720], 
-
             img: "images/trips/2024_12_fredericksburg/cover.jpg", 
-
             desc: "Trip to Texas for my parents",
-
             folder: "2024_12_fredericksburg"
-
         },
-
         { 
-
             title: "Joshua Tree, California", 
-
             date: "JAN 2025", 
-
             coords: [33.8734, -115.9010], 
-
             img: "images/trips/2025_01_joshua_tree/cover.jpg", 
-
             desc: "Meeting Audrey's mom",
-
             folder: "2025_01_joshua_tree"
-
         },
-
         { 
-
             title: "San Diego, California", 
-
             date: "JAN 2025", 
-
             coords: [32.7157, -117.1611], 
-
             img: "images/trips/2025_01_san_diego/cover.jpg", 
-
             desc: "Spending time with Audrey's family",
-
             folder: "2025_01_san_diego"
-
         },
-
         { 
-
             title: "Hollywood, California", 
-
             date: "JAN 2025", 
-
             coords: [34.1381, -118.3534], 
-
             img: "images/trips/2025_01_hollywood/cover.jpg", 
-
             desc: "Universal Studios with Audrey",
-
             folder: "2025_01_hollywood"
-
         },
-
         { 
-
             title: "Oahu, Hawaii", 
-
             date: "JAN 2025", 
-
             coords: [21.4389, -158.0001], 
-
             img: "images/trips/2025_01_oahu/cover.jpg", 
-
             desc: "Attending a wedding in Oahu",
-
             folder: "2025_01_oahu"
-
         },
-
         { 
-
             title: "City of Aguascalientes, Aguascalientes", 
-
             date: "FEB 2025", 
-
             coords: [21.8823, -102.2826], 
-
             img: "images/trips/2025_02_aguascalientes/cover.jpg", 
-
             desc: "Visiting my family in Mexico",
-
             folder: "2025_02_aguascalientes"
-
         },
-
         { 
-
             title: "Washington, District of Columbia", 
-
             date: "MAR 2025", 
-
             coords: [38.8899, -77.0091], 
-
             img: "images/trips/2025_03_district_of_columbia/cover.jpg", 
-
             desc: "Spending time with Audrey's family and my friend in DC",
-
             folder: "2025_03_district_of_columbia"
-
         },
-
         { 
-
             title: "Newport News, Virginia", 
-
             date: "MAY 2025", 
-
             coords: [37.0871, -76.4730], 
-
             img: "images/trips/2025_05_newport_news/cover.jpg", 
-
             desc: "Attending a Korean church in Newport News with Audrey",
-
             folder: "2025_05_newport_news"
-
         },
-
         { 
-
             title: "Norfolk, Virginia", 
-
             date: "MAY 2025", 
-
             coords: [36.8508, -76.2859], 
-
             img: "images/trips/2025_05_norfolk/cover.jpg", 
-
             desc: "Visiting the USS Wisconsin with Audrey",
-
             folder: "2025_05_norfolk"
-
         },
-
         { 
-
             title: "Richmond, Virginia", 
-
             date: "MAY 2025", 
-
             coords: [37.5407, -77.4360], 
-
             img: "images/trips/2025_05_richmond/cover.jpg", 
-
             desc: "Meeting up with a friend for minigolf with Audrey",
-
             folder: "2025_05_richmond"
-
         },
-
         { 
-
             title: "Manassas, Virginia", 
-
             date: "JUN 2025", 
-
             coords: [38.7509, -77.4753], 
-
             img: "images/trips/2025_06_manassas/cover.jpg", 
-
             desc: "Meeting Audrey's friend",
-
             folder: "2025_06_manassas"
-
         },
-
         { 
-
             title: "Peoria, illinois", 
-
             date: "JUL 2025", 
-
             "coords": [40.6936, -89.5890], 
-
             img: "images/trips/2025_06_peoria/cover.jpg", 
-
             desc: "Meeting my friend from Illinois",
-
             folder: "2025_06_peoria"
-
         },
-
         { 
-
             title: "Park City, Utah", 
-
             date: "JUL 2025", 
-
             coords: [40.6461, -111.4980], 
-
             img: "images/trips/2025_07_park_city/cover.jpg", 
-
             desc: "Spending time doing the ski lifts with some friends",
-
             folder: "2025_07_park_city"
-
         },
-
         { 
-
             title: "Spanish Fork, Utah", 
-
             date: "SEP 2025", 
-
             coords: [40.1150, -111.6549], 
-
             img: "images/trips/2025_09_spanish_fork/cover.jpg", 
-
             desc: "Spending time with my uncle, aunt and cousins",
-
             folder: "2025_09_spanish_fork"
-
         },
-
         { 
-
             title: "Orem, Utah", 
-
             date: "OCT 2025", 
-
             coords: [40.439944, -111.62453], 
-
             img: "images/trips/2025_10_orem/cover.jpg", 
-
             desc: "Photoshoot with some friends",
-
             folder: "2025_10_orem"
-
         },
-
         { 
-
             title: "Las Vegas, Nevada", 
-
             date: "OCT 2025", 
-
             coords: [36.1716, -115.1391], 
-
             img: "images/trips/2025_12_las_vegas/cover.jpg", 
-
             desc: "Passing through Las Vegas",
-
             folder: "2025_12_las_vegas"
-
         }
-
-
 
     ];
 
-
-
 // --- 1. INITIALIZATION ---
-
     async function init() {
-
         let rawData = [];
-
         try {
-
             const response = await fetch('data/trips.json');
-
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
             rawData = await response.json();
-
         } catch (error) {
-
             console.warn('Error loading data/trips.json. Using fallback.', error);
-
             rawData = fallbackData;
-
         }
-
-
 
         trips = rawData.map((trip, index) => ({
-
             ...trip,
-
             id: index + 1
-
         }));
 
-
-
         setupMap();
-
         renderTimeline();
-
     }
-
-
 
     // --- 2. MAP SETUP ---
-
     function setupMap() {
-
         if (map) map.remove();
-
         const isMobile = window.innerWidth < 768;
-
         const startZoom = isMobile ? 0.85 : 2;
 
-
-
         map = L.map('map', { 
-
             zoomControl: false,
-
             zoomSnap: 0.5 
-
         }).setView([20, 0], startZoom);
-
         
-
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-
             className: 'map-tiles',
-
             attribution: '&copy; OpenStreetMap'
-
         }).addTo(map);
 
-
-
         const customIcon = L.divIcon({
-
             className: 'custom-div-icon',
-
             html: `<div class="relative flex items-center justify-center w-4 h-4">
-
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-
                     <span class="relative inline-flex rounded-full h-3 w-3 bg-cyan-500 border border-white"></span>
-
                 </div>`,
-
             iconSize: [16, 16],
-
             iconAnchor: [8, 8]
-
         });
-
-
 
         trips.forEach(trip => {
-
             const marker = L.marker(trip.coords, {icon: customIcon}).addTo(map);
-
             marker.bindTooltip(trip.title, { permanent: false, direction: 'top', className: 'bg-slate-900 text-cyan-400 border border-cyan-900 font-mono text-xs px-2 py-1 rounded shadow-xl' });
-
             marker.on('click', () => {
-
                 openModal(trip);
-
                 const card = document.getElementById(`card-${trip.id}`);
-
                 if(card) card.scrollIntoView({ behavior: 'smooth', inline: 'center' });
-
             });
-
         });
-
-
 
         window.addEventListener('resize', () => {
-
             setTimeout(() => { map.invalidateSize(); }, 200); 
-
         });
-
     }
-
-
 
     // --- 3. TIMELINE GENERATION ---
-
     function renderTimeline() {
-
         const timelineContainer = document.getElementById('timeline-container');
-
         timelineContainer.innerHTML = ''; 
 
-
-
         [...trips].reverse().forEach(trip => {
-
             const card = document.createElement('div');
-
             card.id = `card-${trip.id}`;
-
             card.className = "flex-shrink-0 w-80 h-64 bg-slate-900 border border-white/5 hover:border-cyan-500/50 rounded-2xl overflow-hidden cursor-pointer group transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] flex flex-col relative";
-
             
-
             card.onclick = () => {
-
                 openModal(trip);
-
                 map.flyTo(trip.coords, 12, { duration: 2.0 }); 
-
             };
-
-
 
             card.addEventListener('mouseenter', () => {
-
                 const preloadLink = document.createElement('link');
-
                 preloadLink.rel = 'preload';
-
                 preloadLink.as = 'image';
-
                 preloadLink.href = `images/trips/${trip.folder}/1.jpg`;
-
                 document.head.appendChild(preloadLink);
-
             }, { once: true });
 
-
-
             card.innerHTML = `
-
                 <div class="h-40 overflow-hidden relative z-0">
-
                     <img src="${trip.img}" 
-
                         loading="lazy" 
-
                         decoding="async"
-
                         class="block w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100 transform-gpu" 
-
                         onerror="this.src='https://placehold.co/600x400/1e293b/475569?text=No+Image'">
-
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
-
                     <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur text-cyan-400 text-[10px] font-mono px-2 py-1 rounded border border-cyan-900/30">
-
                         ID: ${trip.id.toString().padStart(2, '0')}
-
                     </div>
-
                 </div>
-
                 
-
                 <div class="p-5 pt-4 flex-grow flex flex-col justify-end relative z-10 -mt-2 bg-slate-900">
-
                     <p class="text-cyan-500 font-mono text-[10px] mb-1 tracking-[0.2em] uppercase">${trip.date}</p>
-
                     <h3 class="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">${trip.title}</h3>
-
                 </div>
-
             `;
-
             timelineContainer.appendChild(card);
-
         });
-
     }
-
-
 
     // --- 4. MODAL LOGIC (With Menu Hiding) ---
-
     const modal = document.getElementById('trip-modal');
-
     const modalContent = document.getElementById('modal-content');
 
-
-
     function openModal(trip) {
-
         // 1. Hide the Menu Button so the Close Button takes its place perfectly
-
         const menuBtn = document.getElementById('menu-toggle');
-
         if (menuBtn) {
-
             menuBtn.classList.add('opacity-0', 'pointer-events-none');
-
         }
-
-
 
         document.getElementById('modal-title').innerText = trip.title;
-
         document.getElementById('modal-date').innerText = trip.date;
-
         document.getElementById('modal-desc').innerText = trip.desc;
-
         document.getElementById('modal-hero-img').src = trip.img;
 
-
-
         const gallery = document.getElementById('modal-gallery');
-
         gallery.innerHTML = ''; 
 
-
-
         loadImagesInBatch(trip, 1);
-
         
-
         modal.classList.remove('hidden');
-
         modal.classList.add('flex');
-
         setTimeout(() => {
-
             modalContent.classList.remove('scale-95', 'opacity-0');
-
         }, 10);
-
     }
-
-
 
     function closeModal() {
-
         // 1. Bring back the Menu Button
-
         const menuBtn = document.getElementById('menu-toggle');
-
         if (menuBtn) {
-
             menuBtn.classList.remove('opacity-0', 'pointer-events-none');
-
         }
-
-
 
         modalContent.classList.add('scale-95', 'opacity-0');
-
         setTimeout(() => {
-
             modal.classList.add('hidden');
-
             modal.classList.remove('flex');
-
         }, 300);
-
     }
-
     
-
     modal.addEventListener('click', (e) => {
-
         if (e.target === modal) closeModal();
-
     });
 
-
-
     // --- 5. PARALLEL BATCH IMAGE LOADER ---
-
     function loadImagesInBatch(trip, startIndex) {
-
         const gallery = document.getElementById('modal-gallery');
-
         const BATCH_SIZE = 3; 
-
         
-
         let completedInBatch = 0; 
-
         let foundInBatch = 0;     
 
-
-
         for (let i = 0; i < BATCH_SIZE; i++) {
-
             const currentIndex = startIndex + i;
-
             const imgPath = `images/trips/${trip.folder}/${currentIndex}.jpg`;
 
-
-
             const tempImg = new Image();
-
             
-
             tempImg.onload = function() {
-
                 const imgDiv = document.createElement('div');
-
                 imgDiv.className = "aspect-square rounded-xl overflow-hidden bg-slate-800 relative group cursor-pointer animate-fade-in-up";
-
                 
-
                 // NO TITLE/DESC IN LIGHTBOX
-
                 imgDiv.innerHTML = `
-
                     <a href="${imgPath}" 
-
                        class="glightbox block w-full h-full" 
-
                        data-gallery="gallery-${trip.id}">
-
                         <img src="${imgPath}" 
-
                             loading="lazy"
-
                             decoding="async"
-
                             class="w-full h-full object-cover transition duration-500 hover:scale-110 opacity-75 hover:opacity-100"
-
                             alt="${trip.title} photo ${currentIndex}">
-
                     </a>
-
                 `;
-
                 
-
                 gallery.appendChild(imgDiv);
-
                 foundInBatch++;
-
                 checkBatchCompletion();
-
             };
-
-
 
             tempImg.onerror = function() {
-
                 checkBatchCompletion();
-
             };
 
-
-
             tempImg.src = imgPath;
-
         }
-
-
 
         function checkBatchCompletion() {
-
             completedInBatch++;
-
             
-
             if (completedInBatch === BATCH_SIZE) {
-
                 if (typeof GLightbox !== 'undefined') {
-
                     if (!lightboxInstance) {
-
                         lightboxInstance = GLightbox({
-
                             selector: '.glightbox',
-
                             touchNavigation: true,
-
                             loop: true,
-
                             zoomable: true
-
                         });
-
                     } else {
-
                         lightboxInstance.reload();
-
                     }
-
                 }
-
-
 
                 if (foundInBatch > 0) {
-
                     loadImagesInBatch(trip, startIndex + BATCH_SIZE);
-
                 } else {
-
                     console.log(`Gallery loaded for ${trip.title}.`);
-
                 }
-
             }
-
         }
-
     }
-
-
 
     init();
-
 </script>
-<script>
-
-  document.addEventListener('DOMContentLoaded', function() {
-
-    const btn = document.getElementById('menu-toggle');
-
-    const overlay = document.getElementById('menu-overlay');
-
-    const line1 = document.getElementById('line-1');
-
-    const line2 = document.getElementById('line-2');
-
-    const line3 = document.getElementById('line-3');
-
-    let isOpen = false;
-
-
-
-    if (btn && overlay) {
-
-      btn.addEventListener('click', (e) => {
-
-          e.stopPropagation(); 
-
-          isOpen = !isOpen;
-
-          if (isOpen) {
-
-              overlay.classList.remove('opacity-0', 'pointer-events-none');
-
-              overlay.classList.add('opacity-100', 'pointer-events-auto');
-
-              line1.classList.add('rotate-45', 'translate-y-2');
-
-              line2.classList.add('opacity-0');
-
-              line3.classList.add('-rotate-45', '-translate-y-2');
-
-          } else {
-
-              overlay.classList.add('opacity-0', 'pointer-events-none');
-
-              overlay.classList.remove('opacity-100', 'pointer-events-auto');
-
-              line1.classList.remove('rotate-45', 'translate-y-2');
-
-              line2.classList.remove('opacity-0');
-
-              line3.classList.remove('-rotate-45', '-translate-y-2');
-
-          }
-
-      });
-
-    }
-
-  });
-
-</script>
-
-
-
-<script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/ajaverett\.com");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-});
-</script>
-
-
-
-
-</body></html>

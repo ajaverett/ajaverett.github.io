@@ -49,5 +49,8 @@
   },
   "blocks/workout_routine.qmd": {
     "workout_routine.html": "ce3ad070"
+  },
+  "blocks/prescriptive_definitions.qmd": {
+    "prescriptive_definitions.html": "f886a62c"
   }
 }

@@ -1,0 +1,341 @@
+---
+title: "Definitions"
+subtitle: "Prescriptive definitions for linguistic compression"
+title-block-banner: ../images/banner.png
+title-block-banner-color: 'white'
+categories: ["linguistics", "philosophy", "reference"]
+glossary:
+  popup: hover
+  show: true
+---
+
+Kant classifies all {{< glossary judgement def="the basic assertions the mind makes about reality" >}} along two distinct and intersecting axes: the *epistemic* axis (concerning the source of justification) and the *semantic* axis (concerning the content of the relation).
+
+### **2.1 The Epistemic Axis: The Origin of Justification**
+
+The first distinction concerns the *source* of a judgment's validity. This is the battleground between Rationalism and Empiricism, a conflict Kant sought to resolve.2
+
+#### **2.1.1 A Priori Knowledge (The Necessary)**
+
+*A priori* knowledge is knowledge that is absolutely independent of all particular experience. It is not derived from sensory data, nor is it justified by it. Its hallmarks are **strict universality** and **necessity**.3 If a proposition is known *a priori*, it is true in all possible worlds and cannot be falsified by a stray observation.
+
+In a debate round, *a priori* arguments function as "trumps" over empirical data. If one can successfully frame a moral obligation or a logical truth as *a priori*, no amount of consequentialist calculus can dislodge it. For instance, if the prohibition against torture is *a priori*, a chart showing that torture saves lives is irrelevant; the prohibition operates on a plane of necessity that empirical contingency cannot touch.
+
+* **Example:** "A triangle must have three sides." We do not need to survey billions of triangles to know this; the necessity is internal to the concept and the spatial intuition.  
+* **Example:** "Time is the form of inner sense." This is not a generalization from observing clocks; it is the condition of observing anything at all.
+
+#### **2.1.2 A Posteriori Knowledge (The Contingent)**
+
+*A posteriori* knowledge is empirical knowledge—validity derived *from* experience. It is contingent, meaning it could have been otherwise. It possesses only "comparative universality" (true in most known cases), never strict universality.4
+
+Most "policy" arguments in debate—economic projections, political capital scenarios, utilitarian impacts—are *a posteriori*. They are probabilistic and vulnerable to new data (the "uniqueness" debate).
+
+* **Example:** "Water boils at 100 degrees Celsius." This is true only under specific atmospheric conditions found on Earth. It is a fact learned through observation, not pure reason.  
+* **Example:** "Democracies rarely go to war with one another." This is an inductive generalization, inherently vulnerable to a single counter-example.
+
+### **2.2 The Semantic Axis: The Content of Relation**
+
+The second distinction concerns the *internal structure* of the judgment—specifically, the relationship between the Subject (S) and the Predicate (P).5
+
+#### **2.2.1 Analytic Judgments (The Explicative)**
+
+An analytic judgment is one in which the predicate is "covertly contained" in the concept of the subject. The connection is thought through *identity*. To form such a judgment, one need only dissect (analyze) the subject concept.3
+
+Analytic judgments are the domain of definitions and formal logic. They are safe, necessary, but *empty*—they do not extend our knowledge of the world; they merely clarify what we already mean.
+
+* **Debate Utility:** Analytic judgments are useful for defining terms and trapping opponents in contradictions. If an opponent argues "Just war involves targeting civilians," an analytic response might be: "That is a contradiction in terms; the concept of 'Just War' analytically contains the distinction between combatant and non-combatant. To target civilians is to exit the concept of Just War."  
+* **Example:** "All bodies are extended." Kant argues that the concept of a "body" (a physical object) necessarily includes the concept of extension (taking up space). I do not need to look at a body to know this; I only need to unpack the definition.5
+
+#### **2.2.2 Synthetic Judgments (The Ampliative)**
+
+A synthetic judgment is one where the predicate lies *completely outside* the subject concept and is *added* to it. The connection is not one of identity but of synthesis—a bringing together of two distinct concepts.5
+
+Synthetic judgments are *ampliative*: they increase our knowledge. They tell us something new.
+
+* **Example:** "All bodies have weight." Kant argues that the concept of "body" implies extension, but "weight" is a gravitational property that must be added to the concept through experience (or a priori synthesis in physics). The predicate "weight" is not hidden inside the definition of "body" in the same way "extension" is.  
+* **Example:** "The sky is blue." The concept of "sky" does not contain "blueness" (it could be gray, black, or orange). We synthesize the visual data with the object.
+
+### **2.3 The Fourfold Permutation and the Critical Problem**
+
+Combining these axes yields four theoretical possibilities. Understanding why one of them is the "Holy Grail" of philosophy is essential for the debater.
+
+| Type | Definition | Status | Example |
+| :---- | :---- | :---- | :---- |
+| **Analytic A Priori** | Predicate in subject; known without experience. | **Logic & Tautology.** Universally accepted but explains only definitions. | "A bachelor is an unmarried man." "A red ball is colored." |
+| **Analytic A Posteriori** | Predicate in subject; known via experience. | **Impossible.** If the predicate is in the definition, experience is redundant. | N/A (Logical Absurdity). |
+| **Synthetic A Posteriori** | Predicate outside subject; known via experience. | **Empirical Science.** Informative but contingent. | "The cat is on the mat." "Inflation is 3%." |
+| **Synthetic A Priori** | **Predicate outside subject; known without experience.** | **Metaphysics.** Informative AND Necessary. | "7 \+ 5 \= 12." "Every event has a cause." |
+
+#### **The "Synthetic A Priori" Explained for Debate**
+
+This is the core of the *Critique of Pure Reason* and the most potent tool for Kantians in debate.
+
+* **The Conflict:** Pre-Kantian Rationalists (like Leibniz) believed metaphysical truths were Analytic A Priori (true by definition). Empiricists (like Hume) believed substantive truths were Synthetic A Posteriori (true by experience). Hume famously argued that because concepts like "Causality" aren't analytic (Cause doesn't *mean* Effect) and aren't observable (we don't see "power"), they are merely habits.6  
+* **The Kantian Solution:** Kant argues that **Synthetic A Priori** judgments exist. These are judgments that tell us something new about the world (Synthetic) yet are necessarily true (A Priori).  
+  * **Mathematics:** "7 \+ 5 \= 12." The concept "12" is not contained in "7," "5," or "+." We must use the intuition of time (counting) to synthesize them. Yet, the result is necessary.4  
+  * **Physics:** "The quantity of matter remains unchanged." This is not a definition of matter, but a necessary law of nature known a priori.2  
+  * **Metaphysics/Debate:** When you argue a deontological framework—e.g., "Human beings have an intrinsic dignity"—you are making a Synthetic A Priori claim. You are asserting a property (dignity) that isn't just a definition of biology, but a necessary moral truth derived from reason, not a poll.
+
+## ---
+
+**3\. The Transcendental Aesthetic: Space and Time as Frameworks**
+
+To understand *how* Synthetic A Priori judgments are possible, one must grasp Kant’s view of Space and Time. In debate, this often surfaces when discussing the "conditions of experience" or answering "external world skepticism."
+
+Kant argues in the *Transcendental Aesthetic* that Space and Time are not things-in-themselves (Newton) nor merely relations between things (Leibniz). They are **Pure Forms of Intuition**. They are the spectacles through which the human mind *must* view reality.
+
+* **Space:** The form of all *outer* sense. We cannot perceive an object outside of us without placing it in space.  
+* **Time:** The form of all *inner* sense. We cannot perceive thoughts, feelings, or succession without placing them in time.
+
+**Debate Application:** This is the bedrock of the "Internal Link" to the "External World."
+
+* **Argument:** "We can know mathematical truths (Geometry) about the world a priori because Geometry is just the science of Space, and Space is in our minds. Therefore, the world *as we experience it* must conform to geometry."  
+* This refutes skepticism: We don't need to check if the external world obeys Euclid; the external world is *constructed* by our spatial faculty, so it *must* obey Euclid.
+
+## ---
+
+**4\. The Metaphysical Deduction: Deriving the Categories**
+
+We now move to the "Logic" of the mind. If Space and Time are the *receptive* forms (how we get data), the **Categories** are the *active* concepts (how we think about data). Kant derives these Categories directly from the logical functions of judgment. This is the **Metaphysical Deduction**.7
+
+The argument is elegant: The understanding *is* the faculty of judging. Therefore, if we list every possible logical way the mind can form a judgment (The Table of Judgments), we will find the corresponding fundamental concepts of reality (The Table of Categories).
+
+### **4.1 The Table of Judgments (The Logic)**
+
+Kant identifies twelve functions of judgment, grouped into four headers.7
+
+#### **I. Quantity (Mathematical)**
+
+* **Universal:** "All S are P." (Refers to the whole class).  
+* **Particular:** "Some S are P." (Refers to a part of the class).  
+* **Singular:** "This S is P." (Refers to one specific individual).
+
+#### **II. Quality (Mathematical)**
+
+* **Affirmative:** "S is P." (Posits a reality).  
+* **Negative:** "S is not P." (Removes a reality).  
+* **Infinite:** "S is non-P." (Posits the subject in the infinite sphere of "not-P").
+
+#### **III. Relation (Dynamical)**
+
+* **Categorical:** "S is P." (Assertion of fact).  
+* **Hypothetical:** "If A, then B." (Assertion of consequence).  
+* **Disjunctive:** "A is either B or C." (Assertion of mutual exclusion/community).
+
+#### **IV. Modality (Dynamical)**
+
+* **Problematic:** "S might be P." (Possibility).  
+* **Assertoric:** "S is in fact P." (Actuality).  
+* **Apodictic:** "S must be P." (Necessity).
+
+## ---
+
+**5\. The Transcendental Analytic: The Categories of the Understanding**
+
+From the twelve judgments, Kant extracts the twelve **Categories**. These are not just "vocabulary words"; they are the **Pure Concepts of the Understanding**. They are the rules the mind imposes on the "manifold of intuition" (the chaotic stream of sense data) to turn it into a coherent "object."
+
+Without the Categories, we would see colors and hear noises, but we would never see a "chair" or hear a "melody." We would have sensation, but not experience.
+
+### **5.1 Group I: Quantity (Axioms of Intuition)**
+
+These categories allow us to cognize objects as having magnitude—as being "one" or "many." They correspond to the judgments of Quantity.9
+
+| Judgment (Logic) | Category (Ontology) | Explanation & Mechanism | Schema (Time) | Example |
+| :---- | :---- | :---- | :---- | :---- |
+| **Universal** ("All S are P") | **Unity** | The concept of an object as a single, unitary whole. We synthesize the manifold into *one* thing. | **Number (One)** | "The Supreme Court is a unitary institution." We view the nine justices as *one* body. |
+| **Particular** ("Some S are P") | **Plurality** | The concept of a multitude or a collection. We see the parts as distinct. | **Number (Many)** | "Justices debate." We view the court as a *plurality* of distinct voices. |
+| **Singular** ("This S is P") | **Totality** | The synthesis of Unity and Plurality. A plurality viewed as a single whole. | **Number (All)** | "This specific verdict." It is one decision made of many arguments. |
+
+**Debate Application:** When arguing for "Humanity" as a moral agent, you are using the category of **Unity** to treat a biological plurality as a moral singularity.
+
+### **5.2 Group II: Quality (Anticipations of Perception)**
+
+These categories allow us to determine whether a thing has content (reality) or lacks it. They allow for the measurement of intensity.8
+
+| Judgment (Logic) | Category (Ontology) | Explanation & Mechanism | Schema (Time) | Example |
+| :---- | :---- | :---- | :---- | :---- |
+| **Affirmative** ("S is P") | **Reality** | The concept of "thinghood" or positive presence. | **Filled Time** | "The economy has growth." (Positive attribute). |
+| **Negative** ("S is not P") | **Negation** | The concept of absence or void. | **Empty Time** | "The economy has zero growth." (Absence of attribute). |
+| **Infinite** ("S is non-P") | **Limitation** | The determination of reality by its limit. The boundary between X and non-X. | **Bounded Time** | "The economy is non-agrarian." (Defining by limiting the sphere). |
+
+#### **Deep Insight: Infinite Judgment vs. Negative Judgment**
+
+Kant’s distinction between Negative and Infinite judgment is subtle but vital for logical rigor.11
+
+* **Negative ("The soul is not mortal"):** This merely prevents the predicate "mortal" from attaching to the subject. It leaves the subject undefined.  
+* **Infinite ("The soul is non-mortal"):** This places the soul into a distinct class—the class of "non-mortal things." It affirms a *limit*. In debate, this distinguishes between merely rebutting an argument (Negative) and proposing a counter-model that occupies the remaining logical space (Infinite/Limitation).
+
+### **5.3 Group III: Relation (Analogies of Experience)**
+
+These are the most debated categories, governing how objects interact in time. They are the foundation of physics and the response to Humean skepticism.8
+
+| Judgment (Logic) | Category (Ontology) | Explanation & Mechanism | Schema (Time) | Example |
+| :---- | :---- | :---- | :---- | :---- |
+| **Categorical** ("S is P") | **Substance & Accident** | The concept of the permanent (Substance) underlying the changing (Accident). | **Persistence** | "The GDP fluctuates." (GDP is the underlying substance; the fluctuation is the accident). |
+| **Hypothetical** ("If A then B") | **Causality & Dependence** | The concept of necessary connection. A rule of succession. | **Succession** | "If interest rates rise, inflation falls." (Causal mechanism). |
+| **Disjunctive** ("A or B") | **Community (Reciprocity)** | The concept of mutual interaction. Simultaneous existence. | **Simultaneity** | "Supply and Demand." (They interact reciprocally; one determines the other simultaneously). |
+
+#### **Deep Insight: Community (Reciprocity)**
+
+The category of **Community** is often overlooked but is crucial for systems thinking.13
+
+* **Mechanism:** Kant argues (in the Third Analogy) that we can only perceive two things as existing *at the same time* (simultaneously) if they interact. If the Earth and Moon did not exert mutual gravity (or reflect light), we would see them as separate sequences, not a co-existing world.  
+* **Debate Application:** This is the metaphysical basis for "Ecology" or "Globalization" arguments. "Nations do not exist in isolation; they exist in a state of **Community**. The economic collapse of one *necessarily* impacts the other implies a disjunctive whole."
+
+### **5.4 Group IV: Modality (Postulates of Empirical Thought)**
+
+These categories do not add content to the object but define its relation to the knowing subject.15
+
+| Judgment (Logic) | Category (Ontology) | Explanation & Mechanism | Schema (Time) | Example |
+| :---- | :---- | :---- | :---- | :---- |
+| **Problematic** ("S might be P") | **Possibility** | Agreement with the formal conditions of experience (Logic). | **Any Time** | "A universal basic income is possible." (No logical contradiction). |
+| **Assertoric** ("S is P") | **Existence** | Connection with the material conditions of experience (Sensation). | **Definite Time** | "A UBI exists in Alaska." (Empirically verified). |
+| **Apodictic** ("S must be P") | **Necessity** | Connection with the universal conditions of experience (Law). | **All Times** | "Inflation *must* follow monetary expansion (ceteris paribus)." (Law-like). |
+
+## ---
+
+**6\. The Pivot of Epistemology: Judgments of Perception vs. Experience**
+
+This distinction, elaborated in the *Prolegomena*, is the mechanism by which Kant explains the transition from subjective feeling to objective science. It is the perfect defense against claims that "reality is subjective".17
+
+### **6.1 Judgment of Perception (Subjective Validity)**
+
+* **Definition:** A judgment based solely on the logical connection of perceptions in the individual subject's mind. It is valid only for *me*, right *now*.  
+* **Missing Component:** It **lacks** the application of a pure Category (like Causality).  
+* **Example:** "When the sun shines on the stone, I feel warmth."  
+  * This is a report of my sensory state. It makes no claim about the object (the stone) itself, only about my association of ideas (Humean habit). It is not "necessary."
+
+### **6.2 Judgment of Experience (Objective Validity)**
+
+* **Definition:** A judgment where the sensory perceptions are **subsumed** under a pure Category of the Understanding. This transforms the subjective association into an objective law valid for *everyone*.  
+* **Mechanism:** Perception \+ Category \= Experience.  
+* **Example:** "The sun warms the stone."  
+  * Here, the mind has taken the perception of the sun and the stone and linked them using the Category of **Causality**.  
+  * This implies: "Given the sun (Cause), the stone *must* become warm (Effect)." This is now a claim about the objects themselves. It is objectively valid.
+
+### **6.3 Debate Application: The Objectivity Defense**
+
+Scenario: Opponent runs a critique claiming your "Science" or "Impacts" are subjective social constructs.  
+Response: "You are confusing Judgments of Perception with Judgments of Experience. My impact scenario is not a report of subjective feelings ('I feel scared of climate change'). It is a Judgment of Experience that subsumes empirical data under the categories of Causality and Necessity. While the content may be revised, the form is objectively valid for any rational cognizer. To deny this is to deny the possibility of shared experience entirely, rendering debate impossible."
+
+## ---
+
+**7\. The Great Dialogue: Hume vs. Kant on Causality**
+
+The friction between David Hume and Kant is the engine of modern philosophy. Hume’s skepticism regarding the "necessary connection" between cause and effect prompted Kant’s critical turn. This dialogue illustrates the clash.6
+
+### **7.1 Script: The Tavern of Reason**
+
+**Setting:** A tavern in 18th Century Königsberg.
+
+**Hume:** Immanuel, observe this billiard table. The white ball strikes the red, and the red moves. You claim this is "Causality." I tell you, it is an illusion. I see the white ball move. I see the click. I see the red ball move. But I do *not* see a "cause." I see no "power" transferring between them. I simply *expect* the red ball to move because I have seen it a thousand times. It is habit, not necessity.
+
+**Kant:** Herr Hume, you conflate the *content* of the event with the *form* of the experience. You are correct that your eyes do not see the "power." Causality is not an object of sensation. But it is not a mere habit.
+
+**Hume:** If it is not in the sensation, where is it?
+
+**Kant:** It is in the mind that perceives the sensation. Consider a ship floating down a river versus your eyes scanning a house. When you scan the house, you can look at the roof then the basement, or the basement then the roof. The order of perception is reversible. But when the ship floats downstream, the position upstream *must* precede the position downstream. You cannot reverse it.
+
+**Hume:** True. The ship sequence feels fixed.
+
+**Kant:** Exactly. That "fixity"—that *irreversibility*—is not given by the water. It is imposed by your Understanding using the concept of **Cause**. To experience the ship moving as an "event" in time, you *must* presuppose that the state A (upstream) necessarily determines state B (downstream). Without this rule of Causality, you wouldn't see a "ship moving"; you would see a chaotic, reversible jumble of ship-images. Therefore, Causality is a condition of the possibility of experiencing time itself. It is not a habit; it is the law of the mind.
+
+**Hume:** So the law is in us, not the things-in-themselves?
+
+**Kant:** Precisely. We legislate nature. We do not discover its laws; we prescribe them to the phenomena.
+
+## ---
+
+**8\. Theoretical vs. Practical Reason: The Is-Ought Gap**
+
+In debate, the most common error is the "Naturalistic Fallacy"—deriving an "ought" from an "is." Kant’s distinction between Theoretical and Practical judgment provides the firewall.20
+
+### **8.1 Theoretical Reason (The Determinative)**
+
+* **Domain:** Nature, Science, Epistemology.  
+* **Question:** "What can I know?"  
+* **Mechanism:** Subsuming particulars under universal laws (Categories).  
+* **Constraint:** Bound by **Causality** and determinism. In the theoretical world, everything has a cause, so there is no freedom.  
+* **Debate Use:** Used for "Solvency" and "Inherency" arguments. "Will this plan work?" is a theoretical question.
+
+### **8.2 Practical Reason (The Moral)**
+
+* **Domain:** Ethics, Freedom, Action.  
+* **Question:** "What ought I to do?"  
+* **Mechanism:** Determination of the Will via the **Categorical Imperative**.  
+* **Constraint:** Postulates **Freedom**. To act morally, I must view myself *not* as a determined machine (Phenomenon) but as a free agent (Noumenon) capable of initiating a causal chain.  
+* **Debate Use:** Used for "Framework."  
+  * **The Move:** "My opponent argues that 'economic determinism' prevents us from acting. This is a category error. While theoretically (sociologically) we appear determined, *practically* (morally) we must act under the Idea of Freedom. We are obligated to follow the moral law regardless of empirical prediction."
+
+### **8.3 Reflective Judgment (The Aesthetic/Teleological)**
+
+From the *Critique of Judgment*.
+
+* **Determinative Judgment:** The universal (rule) is given; find the particular. (Science).  
+* **Reflective Judgment:** The particular is given; find the universal. (Art/Biology).  
+* **Debate Use:** Vital for "Kritiks" of narratives or symbols. When we judge a political movement as "coherent" or "beautiful," we are using Reflective Judgment. We are imputing a *purpose* (Teleology) to it, even if we can't prove it scientifically.
+
+## ---
+
+**9\. Debate Application Crash Course**
+
+### **9.1 The "Synthetic A Priori" Warrant**
+
+Scenario: You are establishing a Deontological Framework.  
+Argument: "Moral obligations are Synthetic A Priori. They are Synthetic because they add the concept of 'duty' to the human will (it's not just a definition). They are A Priori because they bind necessarily and universally, independent of cultural polls or utilitarian outcomes. Just as 7+5=12 is true in every culture, the Categorical Imperative is the necessary structure of practical reason. You cannot vote against math; you cannot vote against the moral law."
+
+### **9.2 The "Category Error" Defense**
+
+Scenario: Opponent runs a Disad: "Respecting rights hurts the economy (Util)."  
+Argument: "This commits a Category Error between Theoretical and Practical Reason. Economic collapse is a theoretical prediction about phenomena (happiness/money). Rights are practical constraints derived from the noumenal status of free agents. You cannot use a theoretical contingency (GDP) to override a practical necessity (Rights). That is like trying to disprove a geometric theorem by showing that drawing it is expensive."
+
+### **9.3 The "Transcendental Deduction" of Policy**
+
+Scenario: You need to prove that International Law is binding.  
+Argument: "International Law is a Transcendental Condition of statehood. Just as the Categories are necessary for experience, the recognition of mutual sovereignty (Community) is necessary for the concept of a 'State' to exist. A state that violates international law denies the very framework that grants it sovereignty. The violation is not just illegal; it is a pragmatic contradiction."
+
+### **9.4 Answering Relativism (The Prolegomena Move)**
+
+Scenario: "Justice is just a social construct."  
+Argument: "Distinguish between Judgments of Perception and Experience. 'I feel this law is unjust' is perception. 'This law violates the Categorical Imperative' is a Judgment of Experience—it applies the a priori category of Universality to the maxim. It is objectively valid. Relativism collapses into solipsism; Kantianism rescues objective political discourse."
+
+## ---
+
+**10\. Conclusion**
+
+Immanuel Kant’s architectonic is more than a history lesson; it is a structural blueprint for valid argumentation. By distinguishing the *origin* of a claim (A Priori/Posteriori) and its *structure* (Analytic/Synthetic), the debater can dissect opponent arguments with surgical precision. By deploying the **Categories**, one can insist that the debate adhere to the necessary rules of reason, ruling out skepticism and relativism as structurally incoherent.
+
+To debate as a Kantian is to be the Legislator of the Round. You do not merely argue within the world; you define the conditions under which a world can exist. Use these tools to elevate the debate from the empirical mud to the transcendental highlands.
+
+**(End of Report)**
+
+---
+
+Note on Sources: This report integrates concepts from the Critique of Pure Reason (A/B Editions), Prolegomena to Any Future Metaphysics, and Critique of Practical Reason. Specific attention has been paid to the Tables of Judgment and Categories as outlined in the Metaphysical Deduction.7
+
+#### **Works cited**
+
+1. Critique of Pure Reason \- Wikipedia, accessed January 8, 2026, [https://en.wikipedia.org/wiki/Critique\_of\_Pure\_Reason](https://en.wikipedia.org/wiki/Critique_of_Pure_Reason)  
+2. Kant on the Synthetic A Priori \- PHIL 871, accessed January 8, 2026, [https://phil871.colinmclear.net/notes/kant-on-synthetic-a-priori/](https://phil871.colinmclear.net/notes/kant-on-synthetic-a-priori/)  
+3. A priori and a posteriori \- Wikipedia, accessed January 8, 2026, [https://en.wikipedia.org/wiki/A\_priori\_and\_a\_posteriori](https://en.wikipedia.org/wiki/A_priori_and_a_posteriori)  
+4. Epistemology: A Priori vs. A posteriori; Analytic vs. Synthetic, Necessary vs. Contingent, accessed January 8, 2026, [https://lucidphilosophy.com/1019-2/](https://lucidphilosophy.com/1019-2/)  
+5. The Analytic/Synthetic Distinction \- Stanford Encyclopedia of Philosophy, accessed January 8, 2026, [https://plato.stanford.edu/entries/analytic-synthetic/](https://plato.stanford.edu/entries/analytic-synthetic/)  
+6. Kant and Hume on Causality \- Stanford Encyclopedia of Philosophy, accessed January 8, 2026, [https://plato.stanford.edu/entries/kant-hume-causality/](https://plato.stanford.edu/entries/kant-hume-causality/)  
+7. Kant's Theory of Judgment \- Stanford Encyclopedia of Philosophy, accessed January 8, 2026, [https://plato.stanford.edu/entries/kant-judgment/](https://plato.stanford.edu/entries/kant-judgment/)  
+8. Category (Kant) \- Wikipedia, accessed January 8, 2026, [https://en.wikipedia.org/wiki/Category\_(Kant)](https://en.wikipedia.org/wiki/Category_\(Kant\))  
+9. Kant's Tables of Judgments and Categories \- Equivalent Exchange, accessed January 8, 2026, [https://equivalentexchange.blog/2020/09/21/kants-tables-of-judgments-and-categories/](https://equivalentexchange.blog/2020/09/21/kants-tables-of-judgments-and-categories/)  
+10. Categories \- Stanford Encyclopedia of Philosophy, accessed January 8, 2026, [https://plato.stanford.edu/entries/categories/](https://plato.stanford.edu/entries/categories/)  
+11. Willem van der Kuijlen. Infinite judgment in Kant's «Critique of pure reason», accessed January 8, 2026, [https://kant-online.ru/en/willem-van-der-kuijlen-infinite-judgment-in-kants-critique-of-pure-reason/](https://kant-online.ru/en/willem-van-der-kuijlen-infinite-judgment-in-kants-critique-of-pure-reason/)  
+12. kant \- What's the difference between negative and indefinite judgment?, accessed January 8, 2026, [https://philosophy.stackexchange.com/questions/22380/whats-the-difference-between-negative-and-indefinite-judgment](https://philosophy.stackexchange.com/questions/22380/whats-the-difference-between-negative-and-indefinite-judgment)  
+13. Immanuel Kant, Experience, and Reality – Philosophy-A Short History3, accessed January 8, 2026, [https://pressbooks.cuny.edu/philosophyashorthistory3/chapter/immanuel-kant-experience-and-reality/](https://pressbooks.cuny.edu/philosophyashorthistory3/chapter/immanuel-kant-experience-and-reality/)  
+14. Kant, Mereology, and the Hegemonic Fallacy | Larval Subjects . \- WordPress.com, accessed January 8, 2026, [https://larvalsubjects.wordpress.com/2010/03/25/kant-mereology-and-the-hegemonic-fallacy/](https://larvalsubjects.wordpress.com/2010/03/25/kant-mereology-and-the-hegemonic-fallacy/)  
+15. Immanuel Kant: Logic \- Internet Encyclopedia of Philosophy, accessed January 8, 2026, [https://iep.utm.edu/k-logic/](https://iep.utm.edu/k-logic/)  
+16. Kant and the Categories of Freedom, accessed January 8, 2026, [https://homeweb.unifr.ch/BaderR/Pub/Categories%20of%20freedom%20%28R.%20Bader%29.pdf](https://homeweb.unifr.ch/BaderR/Pub/Categories%20of%20freedom%20%28R.%20Bader%29.pdf)  
+17. Kant on Perception, Experience and Judgements Thereof | Kantian Review | Cambridge Core, accessed January 8, 2026, [https://www.cambridge.org/core/journals/kantian-review/article/kant-on-perception-experience-and-judgements-thereof/51641FBC3F4F396631AA987BB85CA971](https://www.cambridge.org/core/journals/kantian-review/article/kant-on-perception-experience-and-judgements-thereof/51641FBC3F4F396631AA987BB85CA971)  
+18. Understanding necessity of a judgement of experience in Kant : r/askphilosophy \- Reddit, accessed January 8, 2026, [https://www.reddit.com/r/askphilosophy/comments/r5ei9l/understanding\_necessity\_of\_a\_judgement\_of/](https://www.reddit.com/r/askphilosophy/comments/r5ei9l/understanding_necessity_of_a_judgement_of/)  
+19. Kant's Model of Causality: Causal Powers, Laws, and Kant's Reply to Hume \- University of California San Diego, accessed January 8, 2026, [http://philosophyfaculty.ucsd.edu/faculty/ewatkins/Papers/JHP05.pdf](http://philosophyfaculty.ucsd.edu/faculty/ewatkins/Papers/JHP05.pdf)  
+20. Kant's Theory of Judgment \> Kinds of Use (Stanford Encyclopedia of Philosophy/Winter 2017 Edition), accessed January 8, 2026, [https://plato.stanford.edu/archives/win2017/entries/kant-judgment/supplement4.html](https://plato.stanford.edu/archives/win2017/entries/kant-judgment/supplement4.html)  
+21. Reflections of Reason: Kant on Practical Judgement | Kantian Review | Cambridge Core, accessed January 8, 2026, [https://www.cambridge.org/core/journals/kantian-review/article/reflections-of-reason-kant-on-practical-judgement/A8E9B2340B3035E5C279445C2A0B70CD](https://www.cambridge.org/core/journals/kantian-review/article/reflections-of-reason-kant-on-practical-judgement/A8E9B2340B3035E5C279445C2A0B70CD)  
+22. Kant's Moral Philosophy, accessed January 8, 2026, [https://plato.stanford.edu/entries/kant-moral/](https://plato.stanford.edu/entries/kant-moral/)
+
+

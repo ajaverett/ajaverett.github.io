@@ -10,7 +10,7 @@
 <atom:link href="https://ajaverett.com/blocks.xml" rel="self" type="application/rss+xml"/>
 <description>Blocks of Evidence</description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Wed, 07 Jan 2026 04:16:58 GMT</lastBuildDate>
+<lastBuildDate>Fri, 09 Jan 2026 03:27:33 GMT</lastBuildDate>
 <item>
   <title>Housing Primer?</title>
   <link>https://ajaverett.com/blocks/housing.html</link>
@@ -638,7 +638,7 @@ Zhao, C., &amp; Liu, F. (2023). Impact of housing policies on the real estate ma
   <category>housing</category>
   <category>economics</category>
   <guid>https://ajaverett.com/blocks/housing.html</guid>
-  <pubDate>Wed, 07 Jan 2026 04:16:58 GMT</pubDate>
+  <pubDate>Fri, 09 Jan 2026 03:27:33 GMT</pubDate>
   <media:content url="https://ajaverett.com/blocks/images/house.png" medium="image" type="image/png" height="95" width="144"/>
 </item>
 <item>
@@ -1242,7 +1242,7 @@ Protecting the Starter Home
   <category>housing</category>
   <category>economics</category>
   <guid>https://ajaverett.com/blocks/housing_abundance.html</guid>
-  <pubDate>Wed, 07 Jan 2026 04:16:58 GMT</pubDate>
+  <pubDate>Fri, 09 Jan 2026 03:27:33 GMT</pubDate>
   <media:content url="https://ajaverett.com/blocks/images/house.png" medium="image" type="image/png" height="95" width="144"/>
 </item>
 <item>
@@ -1451,7 +1451,7 @@ Wells, W. V. (1865). <em>The life and public services of samuel adams</em> (Vol.
   <category>federalist papers</category>
   <category>history</category>
   <guid>https://ajaverett.com/blocks/militia_originalism.html</guid>
-  <pubDate>Wed, 07 Jan 2026 04:16:58 GMT</pubDate>
+  <pubDate>Fri, 09 Jan 2026 03:27:33 GMT</pubDate>
   <media:content url="https://ajaverett.com/blocks/images/second_amendment.png" medium="image" type="image/png" height="132" width="144"/>
 </item>
 <item>
@@ -1594,8 +1594,593 @@ Wharton, R. (2024b, June 24). <em><span>The Real Reasons Your Appliances Die You
   <category>cost of living</category>
   <category>good ol&#39; days</category>
   <guid>https://ajaverett.com/blocks/planned_obsolecence.html</guid>
-  <pubDate>Wed, 07 Jan 2026 04:16:58 GMT</pubDate>
+  <pubDate>Fri, 09 Jan 2026 03:27:33 GMT</pubDate>
   <media:content url="https://ajaverett.com/blocks/images/appliance_efficiency.png" medium="image" type="image/png" height="78" width="144"/>
+</item>
+<item>
+  <title>Definitions</title>
+  <link>https://ajaverett.com/blocks/prescriptive_definitions.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Kant classifies all <button class="glossary" title="the basic assertions the mind makes about reality">judgement</button> along two distinct and intersecting axes: the <em>epistemic</em> axis (concerning the source of justification) and the <em>semantic</em> axis (concerning the content of the relation).</p>
+<section id="the-epistemic-axis-the-origin-of-justification" class="level3">
+<h3 class="anchored" data-anchor-id="the-epistemic-axis-the-origin-of-justification"><strong>2.1 The Epistemic Axis: The Origin of Justification</strong></h3>
+<p>The first distinction concerns the <em>source</em> of a judgment’s validity. This is the battleground between Rationalism and Empiricism, a conflict Kant sought to resolve.2</p>
+<section id="a-priori-knowledge-the-necessary" class="level4">
+<h4 class="anchored" data-anchor-id="a-priori-knowledge-the-necessary"><strong>2.1.1 A Priori Knowledge (The Necessary)</strong></h4>
+<p><em>A priori</em> knowledge is knowledge that is absolutely independent of all particular experience. It is not derived from sensory data, nor is it justified by it. Its hallmarks are <strong>strict universality</strong> and <strong>necessity</strong>.3 If a proposition is known <em>a priori</em>, it is true in all possible worlds and cannot be falsified by a stray observation.</p>
+<p>In a debate round, <em>a priori</em> arguments function as “trumps” over empirical data. If one can successfully frame a moral obligation or a logical truth as <em>a priori</em>, no amount of consequentialist calculus can dislodge it. For instance, if the prohibition against torture is <em>a priori</em>, a chart showing that torture saves lives is irrelevant; the prohibition operates on a plane of necessity that empirical contingency cannot touch.</p>
+<ul>
+<li><strong>Example:</strong> “A triangle must have three sides.” We do not need to survey billions of triangles to know this; the necessity is internal to the concept and the spatial intuition.<br>
+</li>
+<li><strong>Example:</strong> “Time is the form of inner sense.” This is not a generalization from observing clocks; it is the condition of observing anything at all.</li>
+</ul>
+</section>
+<section id="a-posteriori-knowledge-the-contingent" class="level4">
+<h4 class="anchored" data-anchor-id="a-posteriori-knowledge-the-contingent"><strong>2.1.2 A Posteriori Knowledge (The Contingent)</strong></h4>
+<p><em>A posteriori</em> knowledge is empirical knowledge—validity derived <em>from</em> experience. It is contingent, meaning it could have been otherwise. It possesses only “comparative universality” (true in most known cases), never strict universality.4</p>
+<p>Most “policy” arguments in debate—economic projections, political capital scenarios, utilitarian impacts—are <em>a posteriori</em>. They are probabilistic and vulnerable to new data (the “uniqueness” debate).</p>
+<ul>
+<li><strong>Example:</strong> “Water boils at 100 degrees Celsius.” This is true only under specific atmospheric conditions found on Earth. It is a fact learned through observation, not pure reason.<br>
+</li>
+<li><strong>Example:</strong> “Democracies rarely go to war with one another.” This is an inductive generalization, inherently vulnerable to a single counter-example.</li>
+</ul>
+</section>
+</section>
+<section id="the-semantic-axis-the-content-of-relation" class="level3">
+<h3 class="anchored" data-anchor-id="the-semantic-axis-the-content-of-relation"><strong>2.2 The Semantic Axis: The Content of Relation</strong></h3>
+<p>The second distinction concerns the <em>internal structure</em> of the judgment—specifically, the relationship between the Subject (S) and the Predicate (P).5</p>
+<section id="analytic-judgments-the-explicative" class="level4">
+<h4 class="anchored" data-anchor-id="analytic-judgments-the-explicative"><strong>2.2.1 Analytic Judgments (The Explicative)</strong></h4>
+<p>An analytic judgment is one in which the predicate is “covertly contained” in the concept of the subject. The connection is thought through <em>identity</em>. To form such a judgment, one need only dissect (analyze) the subject concept.3</p>
+<p>Analytic judgments are the domain of definitions and formal logic. They are safe, necessary, but <em>empty</em>—they do not extend our knowledge of the world; they merely clarify what we already mean.</p>
+<ul>
+<li><strong>Debate Utility:</strong> Analytic judgments are useful for defining terms and trapping opponents in contradictions. If an opponent argues “Just war involves targeting civilians,” an analytic response might be: “That is a contradiction in terms; the concept of ‘Just War’ analytically contains the distinction between combatant and non-combatant. To target civilians is to exit the concept of Just War.”<br>
+</li>
+<li><strong>Example:</strong> “All bodies are extended.” Kant argues that the concept of a “body” (a physical object) necessarily includes the concept of extension (taking up space). I do not need to look at a body to know this; I only need to unpack the definition.5</li>
+</ul>
+</section>
+<section id="synthetic-judgments-the-ampliative" class="level4">
+<h4 class="anchored" data-anchor-id="synthetic-judgments-the-ampliative"><strong>2.2.2 Synthetic Judgments (The Ampliative)</strong></h4>
+<p>A synthetic judgment is one where the predicate lies <em>completely outside</em> the subject concept and is <em>added</em> to it. The connection is not one of identity but of synthesis—a bringing together of two distinct concepts.5</p>
+<p>Synthetic judgments are <em>ampliative</em>: they increase our knowledge. They tell us something new.</p>
+<ul>
+<li><strong>Example:</strong> “All bodies have weight.” Kant argues that the concept of “body” implies extension, but “weight” is a gravitational property that must be added to the concept through experience (or a priori synthesis in physics). The predicate “weight” is not hidden inside the definition of “body” in the same way “extension” is.<br>
+</li>
+<li><strong>Example:</strong> “The sky is blue.” The concept of “sky” does not contain “blueness” (it could be gray, black, or orange). We synthesize the visual data with the object.</li>
+</ul>
+</section>
+</section>
+<section id="the-fourfold-permutation-and-the-critical-problem" class="level3">
+<h3 class="anchored" data-anchor-id="the-fourfold-permutation-and-the-critical-problem"><strong>2.3 The Fourfold Permutation and the Critical Problem</strong></h3>
+<p>Combining these axes yields four theoretical possibilities. Understanding why one of them is the “Holy Grail” of philosophy is essential for the debater.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Definition</th>
+<th style="text-align: left;">Status</th>
+<th style="text-align: left;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Analytic A Priori</strong></td>
+<td style="text-align: left;">Predicate in subject; known without experience.</td>
+<td style="text-align: left;"><strong>Logic &amp; Tautology.</strong> Universally accepted but explains only definitions.</td>
+<td style="text-align: left;">“A bachelor is an unmarried man.” “A red ball is colored.”</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Analytic A Posteriori</strong></td>
+<td style="text-align: left;">Predicate in subject; known via experience.</td>
+<td style="text-align: left;"><strong>Impossible.</strong> If the predicate is in the definition, experience is redundant.</td>
+<td style="text-align: left;">N/A (Logical Absurdity).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Synthetic A Posteriori</strong></td>
+<td style="text-align: left;">Predicate outside subject; known via experience.</td>
+<td style="text-align: left;"><strong>Empirical Science.</strong> Informative but contingent.</td>
+<td style="text-align: left;">“The cat is on the mat.” “Inflation is 3%.”</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Synthetic A Priori</strong></td>
+<td style="text-align: left;"><strong>Predicate outside subject; known without experience.</strong></td>
+<td style="text-align: left;"><strong>Metaphysics.</strong> Informative AND Necessary.</td>
+<td style="text-align: left;">“7 + 5 = 12.” “Every event has a cause.”</td>
+</tr>
+</tbody>
+</table>
+<section id="the-synthetic-a-priori-explained-for-debate" class="level4">
+<h4 class="anchored" data-anchor-id="the-synthetic-a-priori-explained-for-debate"><strong>The “Synthetic A Priori” Explained for Debate</strong></h4>
+<p>This is the core of the <em>Critique of Pure Reason</em> and the most potent tool for Kantians in debate.</p>
+<ul>
+<li><strong>The Conflict:</strong> Pre-Kantian Rationalists (like Leibniz) believed metaphysical truths were Analytic A Priori (true by definition). Empiricists (like Hume) believed substantive truths were Synthetic A Posteriori (true by experience). Hume famously argued that because concepts like “Causality” aren’t analytic (Cause doesn’t <em>mean</em> Effect) and aren’t observable (we don’t see “power”), they are merely habits.6<br>
+</li>
+<li><strong>The Kantian Solution:</strong> Kant argues that <strong>Synthetic A Priori</strong> judgments exist. These are judgments that tell us something new about the world (Synthetic) yet are necessarily true (A Priori).
+<ul>
+<li><strong>Mathematics:</strong> “7 + 5 = 12.” The concept “12” is not contained in “7,” “5,” or “+.” We must use the intuition of time (counting) to synthesize them. Yet, the result is necessary.4<br>
+</li>
+<li><strong>Physics:</strong> “The quantity of matter remains unchanged.” This is not a definition of matter, but a necessary law of nature known a priori.2<br>
+</li>
+<li><strong>Metaphysics/Debate:</strong> When you argue a deontological framework—e.g., “Human beings have an intrinsic dignity”—you are making a Synthetic A Priori claim. You are asserting a property (dignity) that isn’t just a definition of biology, but a necessary moral truth derived from reason, not a poll.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section">—</h2>
+<p><strong>3. The Transcendental Aesthetic: Space and Time as Frameworks</strong></p>
+<p>To understand <em>how</em> Synthetic A Priori judgments are possible, one must grasp Kant’s view of Space and Time. In debate, this often surfaces when discussing the “conditions of experience” or answering “external world skepticism.”</p>
+<p>Kant argues in the <em>Transcendental Aesthetic</em> that Space and Time are not things-in-themselves (Newton) nor merely relations between things (Leibniz). They are <strong>Pure Forms of Intuition</strong>. They are the spectacles through which the human mind <em>must</em> view reality.</p>
+<ul>
+<li><strong>Space:</strong> The form of all <em>outer</em> sense. We cannot perceive an object outside of us without placing it in space.<br>
+</li>
+<li><strong>Time:</strong> The form of all <em>inner</em> sense. We cannot perceive thoughts, feelings, or succession without placing them in time.</li>
+</ul>
+<p><strong>Debate Application:</strong> This is the bedrock of the “Internal Link” to the “External World.”</p>
+<ul>
+<li><strong>Argument:</strong> “We can know mathematical truths (Geometry) about the world a priori because Geometry is just the science of Space, and Space is in our minds. Therefore, the world <em>as we experience it</em> must conform to geometry.”<br>
+</li>
+<li>This refutes skepticism: We don’t need to check if the external world obeys Euclid; the external world is <em>constructed</em> by our spatial faculty, so it <em>must</em> obey Euclid.</li>
+</ul>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1">—</h2>
+<p><strong>4. The Metaphysical Deduction: Deriving the Categories</strong></p>
+<p>We now move to the “Logic” of the mind. If Space and Time are the <em>receptive</em> forms (how we get data), the <strong>Categories</strong> are the <em>active</em> concepts (how we think about data). Kant derives these Categories directly from the logical functions of judgment. This is the <strong>Metaphysical Deduction</strong>.7</p>
+<p>The argument is elegant: The understanding <em>is</em> the faculty of judging. Therefore, if we list every possible logical way the mind can form a judgment (The Table of Judgments), we will find the corresponding fundamental concepts of reality (The Table of Categories).</p>
+<section id="the-table-of-judgments-the-logic" class="level3">
+<h3 class="anchored" data-anchor-id="the-table-of-judgments-the-logic"><strong>4.1 The Table of Judgments (The Logic)</strong></h3>
+<p>Kant identifies twelve functions of judgment, grouped into four headers.7</p>
+<section id="i.-quantity-mathematical" class="level4">
+<h4 class="anchored" data-anchor-id="i.-quantity-mathematical"><strong>I. Quantity (Mathematical)</strong></h4>
+<ul>
+<li><strong>Universal:</strong> “All S are P.” (Refers to the whole class).<br>
+</li>
+<li><strong>Particular:</strong> “Some S are P.” (Refers to a part of the class).<br>
+</li>
+<li><strong>Singular:</strong> “This S is P.” (Refers to one specific individual).</li>
+</ul>
+</section>
+<section id="ii.-quality-mathematical" class="level4">
+<h4 class="anchored" data-anchor-id="ii.-quality-mathematical"><strong>II. Quality (Mathematical)</strong></h4>
+<ul>
+<li><strong>Affirmative:</strong> “S is P.” (Posits a reality).<br>
+</li>
+<li><strong>Negative:</strong> “S is not P.” (Removes a reality).<br>
+</li>
+<li><strong>Infinite:</strong> “S is non-P.” (Posits the subject in the infinite sphere of “not-P”).</li>
+</ul>
+</section>
+<section id="iii.-relation-dynamical" class="level4">
+<h4 class="anchored" data-anchor-id="iii.-relation-dynamical"><strong>III. Relation (Dynamical)</strong></h4>
+<ul>
+<li><strong>Categorical:</strong> “S is P.” (Assertion of fact).<br>
+</li>
+<li><strong>Hypothetical:</strong> “If A, then B.” (Assertion of consequence).<br>
+</li>
+<li><strong>Disjunctive:</strong> “A is either B or C.” (Assertion of mutual exclusion/community).</li>
+</ul>
+</section>
+<section id="iv.-modality-dynamical" class="level4">
+<h4 class="anchored" data-anchor-id="iv.-modality-dynamical"><strong>IV. Modality (Dynamical)</strong></h4>
+<ul>
+<li><strong>Problematic:</strong> “S might be P.” (Possibility).<br>
+</li>
+<li><strong>Assertoric:</strong> “S is in fact P.” (Actuality).<br>
+</li>
+<li><strong>Apodictic:</strong> “S must be P.” (Necessity).</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2">—</h2>
+<p><strong>5. The Transcendental Analytic: The Categories of the Understanding</strong></p>
+<p>From the twelve judgments, Kant extracts the twelve <strong>Categories</strong>. These are not just “vocabulary words”; they are the <strong>Pure Concepts of the Understanding</strong>. They are the rules the mind imposes on the “manifold of intuition” (the chaotic stream of sense data) to turn it into a coherent “object.”</p>
+<p>Without the Categories, we would see colors and hear noises, but we would never see a “chair” or hear a “melody.” We would have sensation, but not experience.</p>
+<section id="group-i-quantity-axioms-of-intuition" class="level3">
+<h3 class="anchored" data-anchor-id="group-i-quantity-axioms-of-intuition"><strong>5.1 Group I: Quantity (Axioms of Intuition)</strong></h3>
+<p>These categories allow us to cognize objects as having magnitude—as being “one” or “many.” They correspond to the judgments of Quantity.9</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Judgment (Logic)</th>
+<th style="text-align: left;">Category (Ontology)</th>
+<th style="text-align: left;">Explanation &amp; Mechanism</th>
+<th style="text-align: left;">Schema (Time)</th>
+<th style="text-align: left;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Universal</strong> (“All S are P”)</td>
+<td style="text-align: left;"><strong>Unity</strong></td>
+<td style="text-align: left;">The concept of an object as a single, unitary whole. We synthesize the manifold into <em>one</em> thing.</td>
+<td style="text-align: left;"><strong>Number (One)</strong></td>
+<td style="text-align: left;">“The Supreme Court is a unitary institution.” We view the nine justices as <em>one</em> body.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Particular</strong> (“Some S are P”)</td>
+<td style="text-align: left;"><strong>Plurality</strong></td>
+<td style="text-align: left;">The concept of a multitude or a collection. We see the parts as distinct.</td>
+<td style="text-align: left;"><strong>Number (Many)</strong></td>
+<td style="text-align: left;">“Justices debate.” We view the court as a <em>plurality</em> of distinct voices.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Singular</strong> (“This S is P”)</td>
+<td style="text-align: left;"><strong>Totality</strong></td>
+<td style="text-align: left;">The synthesis of Unity and Plurality. A plurality viewed as a single whole.</td>
+<td style="text-align: left;"><strong>Number (All)</strong></td>
+<td style="text-align: left;">“This specific verdict.” It is one decision made of many arguments.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Debate Application:</strong> When arguing for “Humanity” as a moral agent, you are using the category of <strong>Unity</strong> to treat a biological plurality as a moral singularity.</p>
+</section>
+<section id="group-ii-quality-anticipations-of-perception" class="level3">
+<h3 class="anchored" data-anchor-id="group-ii-quality-anticipations-of-perception"><strong>5.2 Group II: Quality (Anticipations of Perception)</strong></h3>
+<p>These categories allow us to determine whether a thing has content (reality) or lacks it. They allow for the measurement of intensity.8</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Judgment (Logic)</th>
+<th style="text-align: left;">Category (Ontology)</th>
+<th style="text-align: left;">Explanation &amp; Mechanism</th>
+<th style="text-align: left;">Schema (Time)</th>
+<th style="text-align: left;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Affirmative</strong> (“S is P”)</td>
+<td style="text-align: left;"><strong>Reality</strong></td>
+<td style="text-align: left;">The concept of “thinghood” or positive presence.</td>
+<td style="text-align: left;"><strong>Filled Time</strong></td>
+<td style="text-align: left;">“The economy has growth.” (Positive attribute).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Negative</strong> (“S is not P”)</td>
+<td style="text-align: left;"><strong>Negation</strong></td>
+<td style="text-align: left;">The concept of absence or void.</td>
+<td style="text-align: left;"><strong>Empty Time</strong></td>
+<td style="text-align: left;">“The economy has zero growth.” (Absence of attribute).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Infinite</strong> (“S is non-P”)</td>
+<td style="text-align: left;"><strong>Limitation</strong></td>
+<td style="text-align: left;">The determination of reality by its limit. The boundary between X and non-X.</td>
+<td style="text-align: left;"><strong>Bounded Time</strong></td>
+<td style="text-align: left;">“The economy is non-agrarian.” (Defining by limiting the sphere).</td>
+</tr>
+</tbody>
+</table>
+<section id="deep-insight-infinite-judgment-vs.-negative-judgment" class="level4">
+<h4 class="anchored" data-anchor-id="deep-insight-infinite-judgment-vs.-negative-judgment"><strong>Deep Insight: Infinite Judgment vs.&nbsp;Negative Judgment</strong></h4>
+<p>Kant’s distinction between Negative and Infinite judgment is subtle but vital for logical rigor.11</p>
+<ul>
+<li><strong>Negative (“The soul is not mortal”):</strong> This merely prevents the predicate “mortal” from attaching to the subject. It leaves the subject undefined.<br>
+</li>
+<li><strong>Infinite (“The soul is non-mortal”):</strong> This places the soul into a distinct class—the class of “non-mortal things.” It affirms a <em>limit</em>. In debate, this distinguishes between merely rebutting an argument (Negative) and proposing a counter-model that occupies the remaining logical space (Infinite/Limitation).</li>
+</ul>
+</section>
+</section>
+<section id="group-iii-relation-analogies-of-experience" class="level3">
+<h3 class="anchored" data-anchor-id="group-iii-relation-analogies-of-experience"><strong>5.3 Group III: Relation (Analogies of Experience)</strong></h3>
+<p>These are the most debated categories, governing how objects interact in time. They are the foundation of physics and the response to Humean skepticism.8</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Judgment (Logic)</th>
+<th style="text-align: left;">Category (Ontology)</th>
+<th style="text-align: left;">Explanation &amp; Mechanism</th>
+<th style="text-align: left;">Schema (Time)</th>
+<th style="text-align: left;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Categorical</strong> (“S is P”)</td>
+<td style="text-align: left;"><strong>Substance &amp; Accident</strong></td>
+<td style="text-align: left;">The concept of the permanent (Substance) underlying the changing (Accident).</td>
+<td style="text-align: left;"><strong>Persistence</strong></td>
+<td style="text-align: left;">“The GDP fluctuates.” (GDP is the underlying substance; the fluctuation is the accident).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Hypothetical</strong> (“If A then B”)</td>
+<td style="text-align: left;"><strong>Causality &amp; Dependence</strong></td>
+<td style="text-align: left;">The concept of necessary connection. A rule of succession.</td>
+<td style="text-align: left;"><strong>Succession</strong></td>
+<td style="text-align: left;">“If interest rates rise, inflation falls.” (Causal mechanism).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Disjunctive</strong> (“A or B”)</td>
+<td style="text-align: left;"><strong>Community (Reciprocity)</strong></td>
+<td style="text-align: left;">The concept of mutual interaction. Simultaneous existence.</td>
+<td style="text-align: left;"><strong>Simultaneity</strong></td>
+<td style="text-align: left;">“Supply and Demand.” (They interact reciprocally; one determines the other simultaneously).</td>
+</tr>
+</tbody>
+</table>
+<section id="deep-insight-community-reciprocity" class="level4">
+<h4 class="anchored" data-anchor-id="deep-insight-community-reciprocity"><strong>Deep Insight: Community (Reciprocity)</strong></h4>
+<p>The category of <strong>Community</strong> is often overlooked but is crucial for systems thinking.13</p>
+<ul>
+<li><strong>Mechanism:</strong> Kant argues (in the Third Analogy) that we can only perceive two things as existing <em>at the same time</em> (simultaneously) if they interact. If the Earth and Moon did not exert mutual gravity (or reflect light), we would see them as separate sequences, not a co-existing world.<br>
+</li>
+<li><strong>Debate Application:</strong> This is the metaphysical basis for “Ecology” or “Globalization” arguments. “Nations do not exist in isolation; they exist in a state of <strong>Community</strong>. The economic collapse of one <em>necessarily</em> impacts the other implies a disjunctive whole.”</li>
+</ul>
+</section>
+</section>
+<section id="group-iv-modality-postulates-of-empirical-thought" class="level3">
+<h3 class="anchored" data-anchor-id="group-iv-modality-postulates-of-empirical-thought"><strong>5.4 Group IV: Modality (Postulates of Empirical Thought)</strong></h3>
+<p>These categories do not add content to the object but define its relation to the knowing subject.15</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Judgment (Logic)</th>
+<th style="text-align: left;">Category (Ontology)</th>
+<th style="text-align: left;">Explanation &amp; Mechanism</th>
+<th style="text-align: left;">Schema (Time)</th>
+<th style="text-align: left;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Problematic</strong> (“S might be P”)</td>
+<td style="text-align: left;"><strong>Possibility</strong></td>
+<td style="text-align: left;">Agreement with the formal conditions of experience (Logic).</td>
+<td style="text-align: left;"><strong>Any Time</strong></td>
+<td style="text-align: left;">“A universal basic income is possible.” (No logical contradiction).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Assertoric</strong> (“S is P”)</td>
+<td style="text-align: left;"><strong>Existence</strong></td>
+<td style="text-align: left;">Connection with the material conditions of experience (Sensation).</td>
+<td style="text-align: left;"><strong>Definite Time</strong></td>
+<td style="text-align: left;">“A UBI exists in Alaska.” (Empirically verified).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Apodictic</strong> (“S must be P”)</td>
+<td style="text-align: left;"><strong>Necessity</strong></td>
+<td style="text-align: left;">Connection with the universal conditions of experience (Law).</td>
+<td style="text-align: left;"><strong>All Times</strong></td>
+<td style="text-align: left;">“Inflation <em>must</em> follow monetary expansion (ceteris paribus).” (Law-like).</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="section-3" class="level2">
+<h2 class="anchored" data-anchor-id="section-3">—</h2>
+<p><strong>6. The Pivot of Epistemology: Judgments of Perception vs.&nbsp;Experience</strong></p>
+<p>This distinction, elaborated in the <em>Prolegomena</em>, is the mechanism by which Kant explains the transition from subjective feeling to objective science. It is the perfect defense against claims that “reality is subjective”.17</p>
+<section id="judgment-of-perception-subjective-validity" class="level3">
+<h3 class="anchored" data-anchor-id="judgment-of-perception-subjective-validity"><strong>6.1 Judgment of Perception (Subjective Validity)</strong></h3>
+<ul>
+<li><strong>Definition:</strong> A judgment based solely on the logical connection of perceptions in the individual subject’s mind. It is valid only for <em>me</em>, right <em>now</em>.<br>
+</li>
+<li><strong>Missing Component:</strong> It <strong>lacks</strong> the application of a pure Category (like Causality).<br>
+</li>
+<li><strong>Example:</strong> “When the sun shines on the stone, I feel warmth.”
+<ul>
+<li>This is a report of my sensory state. It makes no claim about the object (the stone) itself, only about my association of ideas (Humean habit). It is not “necessary.”</li>
+</ul></li>
+</ul>
+</section>
+<section id="judgment-of-experience-objective-validity" class="level3">
+<h3 class="anchored" data-anchor-id="judgment-of-experience-objective-validity"><strong>6.2 Judgment of Experience (Objective Validity)</strong></h3>
+<ul>
+<li><strong>Definition:</strong> A judgment where the sensory perceptions are <strong>subsumed</strong> under a pure Category of the Understanding. This transforms the subjective association into an objective law valid for <em>everyone</em>.<br>
+</li>
+<li><strong>Mechanism:</strong> Perception + Category = Experience.<br>
+</li>
+<li><strong>Example:</strong> “The sun warms the stone.”
+<ul>
+<li>Here, the mind has taken the perception of the sun and the stone and linked them using the Category of <strong>Causality</strong>.<br>
+</li>
+<li>This implies: “Given the sun (Cause), the stone <em>must</em> become warm (Effect).” This is now a claim about the objects themselves. It is objectively valid.</li>
+</ul></li>
+</ul>
+</section>
+<section id="debate-application-the-objectivity-defense" class="level3">
+<h3 class="anchored" data-anchor-id="debate-application-the-objectivity-defense"><strong>6.3 Debate Application: The Objectivity Defense</strong></h3>
+<p>Scenario: Opponent runs a critique claiming your “Science” or “Impacts” are subjective social constructs.<br>
+Response: “You are confusing Judgments of Perception with Judgments of Experience. My impact scenario is not a report of subjective feelings (‘I feel scared of climate change’). It is a Judgment of Experience that subsumes empirical data under the categories of Causality and Necessity. While the content may be revised, the form is objectively valid for any rational cognizer. To deny this is to deny the possibility of shared experience entirely, rendering debate impossible.”</p>
+</section>
+</section>
+<section id="section-4" class="level2">
+<h2 class="anchored" data-anchor-id="section-4">—</h2>
+<p><strong>7. The Great Dialogue: Hume vs.&nbsp;Kant on Causality</strong></p>
+<p>The friction between David Hume and Kant is the engine of modern philosophy. Hume’s skepticism regarding the “necessary connection” between cause and effect prompted Kant’s critical turn. This dialogue illustrates the clash.6</p>
+<section id="script-the-tavern-of-reason" class="level3">
+<h3 class="anchored" data-anchor-id="script-the-tavern-of-reason"><strong>7.1 Script: The Tavern of Reason</strong></h3>
+<p><strong>Setting:</strong> A tavern in 18th Century Königsberg.</p>
+<p><strong>Hume:</strong> Immanuel, observe this billiard table. The white ball strikes the red, and the red moves. You claim this is “Causality.” I tell you, it is an illusion. I see the white ball move. I see the click. I see the red ball move. But I do <em>not</em> see a “cause.” I see no “power” transferring between them. I simply <em>expect</em> the red ball to move because I have seen it a thousand times. It is habit, not necessity.</p>
+<p><strong>Kant:</strong> Herr Hume, you conflate the <em>content</em> of the event with the <em>form</em> of the experience. You are correct that your eyes do not see the “power.” Causality is not an object of sensation. But it is not a mere habit.</p>
+<p><strong>Hume:</strong> If it is not in the sensation, where is it?</p>
+<p><strong>Kant:</strong> It is in the mind that perceives the sensation. Consider a ship floating down a river versus your eyes scanning a house. When you scan the house, you can look at the roof then the basement, or the basement then the roof. The order of perception is reversible. But when the ship floats downstream, the position upstream <em>must</em> precede the position downstream. You cannot reverse it.</p>
+<p><strong>Hume:</strong> True. The ship sequence feels fixed.</p>
+<p><strong>Kant:</strong> Exactly. That “fixity”—that <em>irreversibility</em>—is not given by the water. It is imposed by your Understanding using the concept of <strong>Cause</strong>. To experience the ship moving as an “event” in time, you <em>must</em> presuppose that the state A (upstream) necessarily determines state B (downstream). Without this rule of Causality, you wouldn’t see a “ship moving”; you would see a chaotic, reversible jumble of ship-images. Therefore, Causality is a condition of the possibility of experiencing time itself. It is not a habit; it is the law of the mind.</p>
+<p><strong>Hume:</strong> So the law is in us, not the things-in-themselves?</p>
+<p><strong>Kant:</strong> Precisely. We legislate nature. We do not discover its laws; we prescribe them to the phenomena.</p>
+</section>
+</section>
+<section id="section-5" class="level2">
+<h2 class="anchored" data-anchor-id="section-5">—</h2>
+<p><strong>8. Theoretical vs.&nbsp;Practical Reason: The Is-Ought Gap</strong></p>
+<p>In debate, the most common error is the “Naturalistic Fallacy”—deriving an “ought” from an “is.” Kant’s distinction between Theoretical and Practical judgment provides the firewall.20</p>
+<section id="theoretical-reason-the-determinative" class="level3">
+<h3 class="anchored" data-anchor-id="theoretical-reason-the-determinative"><strong>8.1 Theoretical Reason (The Determinative)</strong></h3>
+<ul>
+<li><strong>Domain:</strong> Nature, Science, Epistemology.<br>
+</li>
+<li><strong>Question:</strong> “What can I know?”<br>
+</li>
+<li><strong>Mechanism:</strong> Subsuming particulars under universal laws (Categories).<br>
+</li>
+<li><strong>Constraint:</strong> Bound by <strong>Causality</strong> and determinism. In the theoretical world, everything has a cause, so there is no freedom.<br>
+</li>
+<li><strong>Debate Use:</strong> Used for “Solvency” and “Inherency” arguments. “Will this plan work?” is a theoretical question.</li>
+</ul>
+</section>
+<section id="practical-reason-the-moral" class="level3">
+<h3 class="anchored" data-anchor-id="practical-reason-the-moral"><strong>8.2 Practical Reason (The Moral)</strong></h3>
+<ul>
+<li><strong>Domain:</strong> Ethics, Freedom, Action.<br>
+</li>
+<li><strong>Question:</strong> “What ought I to do?”<br>
+</li>
+<li><strong>Mechanism:</strong> Determination of the Will via the <strong>Categorical Imperative</strong>.<br>
+</li>
+<li><strong>Constraint:</strong> Postulates <strong>Freedom</strong>. To act morally, I must view myself <em>not</em> as a determined machine (Phenomenon) but as a free agent (Noumenon) capable of initiating a causal chain.<br>
+</li>
+<li><strong>Debate Use:</strong> Used for “Framework.”
+<ul>
+<li><strong>The Move:</strong> “My opponent argues that ‘economic determinism’ prevents us from acting. This is a category error. While theoretically (sociologically) we appear determined, <em>practically</em> (morally) we must act under the Idea of Freedom. We are obligated to follow the moral law regardless of empirical prediction.”</li>
+</ul></li>
+</ul>
+</section>
+<section id="reflective-judgment-the-aestheticteleological" class="level3">
+<h3 class="anchored" data-anchor-id="reflective-judgment-the-aestheticteleological"><strong>8.3 Reflective Judgment (The Aesthetic/Teleological)</strong></h3>
+<p>From the <em>Critique of Judgment</em>.</p>
+<ul>
+<li><strong>Determinative Judgment:</strong> The universal (rule) is given; find the particular. (Science).<br>
+</li>
+<li><strong>Reflective Judgment:</strong> The particular is given; find the universal. (Art/Biology).<br>
+</li>
+<li><strong>Debate Use:</strong> Vital for “Kritiks” of narratives or symbols. When we judge a political movement as “coherent” or “beautiful,” we are using Reflective Judgment. We are imputing a <em>purpose</em> (Teleology) to it, even if we can’t prove it scientifically.</li>
+</ul>
+</section>
+</section>
+<section id="section-6" class="level2">
+<h2 class="anchored" data-anchor-id="section-6">—</h2>
+<p><strong>9. Debate Application Crash Course</strong></p>
+<section id="the-synthetic-a-priori-warrant" class="level3">
+<h3 class="anchored" data-anchor-id="the-synthetic-a-priori-warrant"><strong>9.1 The “Synthetic A Priori” Warrant</strong></h3>
+<p>Scenario: You are establishing a Deontological Framework.<br>
+Argument: “Moral obligations are Synthetic A Priori. They are Synthetic because they add the concept of ‘duty’ to the human will (it’s not just a definition). They are A Priori because they bind necessarily and universally, independent of cultural polls or utilitarian outcomes. Just as 7+5=12 is true in every culture, the Categorical Imperative is the necessary structure of practical reason. You cannot vote against math; you cannot vote against the moral law.”</p>
+</section>
+<section id="the-category-error-defense" class="level3">
+<h3 class="anchored" data-anchor-id="the-category-error-defense"><strong>9.2 The “Category Error” Defense</strong></h3>
+<p>Scenario: Opponent runs a Disad: “Respecting rights hurts the economy (Util).”<br>
+Argument: “This commits a Category Error between Theoretical and Practical Reason. Economic collapse is a theoretical prediction about phenomena (happiness/money). Rights are practical constraints derived from the noumenal status of free agents. You cannot use a theoretical contingency (GDP) to override a practical necessity (Rights). That is like trying to disprove a geometric theorem by showing that drawing it is expensive.”</p>
+</section>
+<section id="the-transcendental-deduction-of-policy" class="level3">
+<h3 class="anchored" data-anchor-id="the-transcendental-deduction-of-policy"><strong>9.3 The “Transcendental Deduction” of Policy</strong></h3>
+<p>Scenario: You need to prove that International Law is binding.<br>
+Argument: “International Law is a Transcendental Condition of statehood. Just as the Categories are necessary for experience, the recognition of mutual sovereignty (Community) is necessary for the concept of a ‘State’ to exist. A state that violates international law denies the very framework that grants it sovereignty. The violation is not just illegal; it is a pragmatic contradiction.”</p>
+</section>
+<section id="answering-relativism-the-prolegomena-move" class="level3">
+<h3 class="anchored" data-anchor-id="answering-relativism-the-prolegomena-move"><strong>9.4 Answering Relativism (The Prolegomena Move)</strong></h3>
+<p>Scenario: “Justice is just a social construct.”<br>
+Argument: “Distinguish between Judgments of Perception and Experience. ‘I feel this law is unjust’ is perception. ‘This law violates the Categorical Imperative’ is a Judgment of Experience—it applies the a priori category of Universality to the maxim. It is objectively valid. Relativism collapses into solipsism; Kantianism rescues objective political discourse.”</p>
+</section>
+</section>
+<section id="section-7" class="level2">
+<h2 class="anchored" data-anchor-id="section-7">—</h2>
+<p><strong>10. Conclusion</strong></p>
+<p>Immanuel Kant’s architectonic is more than a history lesson; it is a structural blueprint for valid argumentation. By distinguishing the <em>origin</em> of a claim (A Priori/Posteriori) and its <em>structure</em> (Analytic/Synthetic), the debater can dissect opponent arguments with surgical precision. By deploying the <strong>Categories</strong>, one can insist that the debate adhere to the necessary rules of reason, ruling out skepticism and relativism as structurally incoherent.</p>
+<p>To debate as a Kantian is to be the Legislator of the Round. You do not merely argue within the world; you define the conditions under which a world can exist. Use these tools to elevate the debate from the empirical mud to the transcendental highlands.</p>
+<p><strong>(End of Report)</strong></p>
+<hr>
+<p>Note on Sources: This report integrates concepts from the Critique of Pure Reason (A/B Editions), Prolegomena to Any Future Metaphysics, and Critique of Practical Reason. Specific attention has been paid to the Tables of Judgment and Categories as outlined in the Metaphysical Deduction.7</p>
+<section id="works-cited" class="level4">
+<h4 class="anchored" data-anchor-id="works-cited"><strong>Works cited</strong></h4>
+<ol type="1">
+<li>Critique of Pure Reason - Wikipedia, accessed January 8, 2026, <a href="https://en.wikipedia.org/wiki/Critique_of_Pure_Reason">https://en.wikipedia.org/wiki/Critique_of_Pure_Reason</a><br>
+</li>
+<li>Kant on the Synthetic A Priori - PHIL 871, accessed January 8, 2026, <a href="https://phil871.colinmclear.net/notes/kant-on-synthetic-a-priori/">https://phil871.colinmclear.net/notes/kant-on-synthetic-a-priori/</a><br>
+</li>
+<li>A priori and a posteriori - Wikipedia, accessed January 8, 2026, <a href="https://en.wikipedia.org/wiki/A_priori_and_a_posteriori">https://en.wikipedia.org/wiki/A_priori_and_a_posteriori</a><br>
+</li>
+<li>Epistemology: A Priori vs.&nbsp;A posteriori; Analytic vs.&nbsp;Synthetic, Necessary vs.&nbsp;Contingent, accessed January 8, 2026, <a href="https://lucidphilosophy.com/1019-2/">https://lucidphilosophy.com/1019-2/</a><br>
+</li>
+<li>The Analytic/Synthetic Distinction - Stanford Encyclopedia of Philosophy, accessed January 8, 2026, <a href="https://plato.stanford.edu/entries/analytic-synthetic/">https://plato.stanford.edu/entries/analytic-synthetic/</a><br>
+</li>
+<li>Kant and Hume on Causality - Stanford Encyclopedia of Philosophy, accessed January 8, 2026, <a href="https://plato.stanford.edu/entries/kant-hume-causality/">https://plato.stanford.edu/entries/kant-hume-causality/</a><br>
+</li>
+<li>Kant’s Theory of Judgment - Stanford Encyclopedia of Philosophy, accessed January 8, 2026, <a href="https://plato.stanford.edu/entries/kant-judgment/">https://plato.stanford.edu/entries/kant-judgment/</a><br>
+</li>
+<li>Category (Kant) - Wikipedia, accessed January 8, 2026, <a href="https://en.wikipedia.org/wiki/Category_(Kant)">https://en.wikipedia.org/wiki/Category_(Kant)</a><br>
+</li>
+<li>Kant’s Tables of Judgments and Categories - Equivalent Exchange, accessed January 8, 2026, <a href="https://equivalentexchange.blog/2020/09/21/kants-tables-of-judgments-and-categories/">https://equivalentexchange.blog/2020/09/21/kants-tables-of-judgments-and-categories/</a><br>
+</li>
+<li>Categories - Stanford Encyclopedia of Philosophy, accessed January 8, 2026, <a href="https://plato.stanford.edu/entries/categories/">https://plato.stanford.edu/entries/categories/</a><br>
+</li>
+<li>Willem van der Kuijlen. Infinite judgment in Kant’s «Critique of pure reason», accessed January 8, 2026, <a href="https://kant-online.ru/en/willem-van-der-kuijlen-infinite-judgment-in-kants-critique-of-pure-reason/">https://kant-online.ru/en/willem-van-der-kuijlen-infinite-judgment-in-kants-critique-of-pure-reason/</a><br>
+</li>
+<li>kant - What’s the difference between negative and indefinite judgment?, accessed January 8, 2026, <a href="https://philosophy.stackexchange.com/questions/22380/whats-the-difference-between-negative-and-indefinite-judgment">https://philosophy.stackexchange.com/questions/22380/whats-the-difference-between-negative-and-indefinite-judgment</a><br>
+</li>
+<li>Immanuel Kant, Experience, and Reality – Philosophy-A Short History3, accessed January 8, 2026, <a href="https://pressbooks.cuny.edu/philosophyashorthistory3/chapter/immanuel-kant-experience-and-reality/">https://pressbooks.cuny.edu/philosophyashorthistory3/chapter/immanuel-kant-experience-and-reality/</a><br>
+</li>
+<li>Kant, Mereology, and the Hegemonic Fallacy | Larval Subjects . - WordPress.com, accessed January 8, 2026, <a href="https://larvalsubjects.wordpress.com/2010/03/25/kant-mereology-and-the-hegemonic-fallacy/">https://larvalsubjects.wordpress.com/2010/03/25/kant-mereology-and-the-hegemonic-fallacy/</a><br>
+</li>
+<li>Immanuel Kant: Logic - Internet Encyclopedia of Philosophy, accessed January 8, 2026, <a href="https://iep.utm.edu/k-logic/">https://iep.utm.edu/k-logic/</a><br>
+</li>
+<li>Kant and the Categories of Freedom, accessed January 8, 2026, <a href="https://homeweb.unifr.ch/BaderR/Pub/Categories%20of%20freedom%20%28R.%20Bader%29.pdf">https://homeweb.unifr.ch/BaderR/Pub/Categories%20of%20freedom%20%28R.%20Bader%29.pdf</a><br>
+</li>
+<li>Kant on Perception, Experience and Judgements Thereof | Kantian Review | Cambridge Core, accessed January 8, 2026, <a href="https://www.cambridge.org/core/journals/kantian-review/article/kant-on-perception-experience-and-judgements-thereof/51641FBC3F4F396631AA987BB85CA971">https://www.cambridge.org/core/journals/kantian-review/article/kant-on-perception-experience-and-judgements-thereof/51641FBC3F4F396631AA987BB85CA971</a><br>
+</li>
+<li>Understanding necessity of a judgement of experience in Kant : r/askphilosophy - Reddit, accessed January 8, 2026, <a href="https://www.reddit.com/r/askphilosophy/comments/r5ei9l/understanding_necessity_of_a_judgement_of/">https://www.reddit.com/r/askphilosophy/comments/r5ei9l/understanding_necessity_of_a_judgement_of/</a><br>
+</li>
+<li>Kant’s Model of Causality: Causal Powers, Laws, and Kant’s Reply to Hume - University of California San Diego, accessed January 8, 2026, <a href="http://philosophyfaculty.ucsd.edu/faculty/ewatkins/Papers/JHP05.pdf">http://philosophyfaculty.ucsd.edu/faculty/ewatkins/Papers/JHP05.pdf</a><br>
+</li>
+<li>Kant’s Theory of Judgment &gt; Kinds of Use (Stanford Encyclopedia of Philosophy/Winter 2017 Edition), accessed January 8, 2026, <a href="https://plato.stanford.edu/archives/win2017/entries/kant-judgment/supplement4.html">https://plato.stanford.edu/archives/win2017/entries/kant-judgment/supplement4.html</a><br>
+</li>
+<li>Reflections of Reason: Kant on Practical Judgement | Kantian Review | Cambridge Core, accessed January 8, 2026, <a href="https://www.cambridge.org/core/journals/kantian-review/article/reflections-of-reason-kant-on-practical-judgement/A8E9B2340B3035E5C279445C2A0B70CD">https://www.cambridge.org/core/journals/kantian-review/article/reflections-of-reason-kant-on-practical-judgement/A8E9B2340B3035E5C279445C2A0B70CD</a><br>
+</li>
+<li>Kant’s Moral Philosophy, accessed January 8, 2026, <a href="https://plato.stanford.edu/entries/kant-moral/">https://plato.stanford.edu/entries/kant-moral/</a></li>
+</ol>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>linguistics</category>
+  <category>philosophy</category>
+  <category>reference</category>
+  <guid>https://ajaverett.com/blocks/prescriptive_definitions.html</guid>
+  <pubDate>Fri, 09 Jan 2026 03:27:33 GMT</pubDate>
 </item>
 <item>
   <title>The Productivity-Pay Gap Notion</title>
@@ -1630,7 +2215,7 @@ Wharton, R. (2024, June 24). <em>The real reasons your appliances die young</em>
   <category>wages</category>
   <category>late-stage capitalism</category>
   <guid>https://ajaverett.com/blocks/productivity_pay_gap.html</guid>
-  <pubDate>Wed, 07 Jan 2026 04:16:58 GMT</pubDate>
+  <pubDate>Fri, 09 Jan 2026 03:27:33 GMT</pubDate>
   <media:content url="https://ajaverett.com/blocks/images/productivity_pay_gap.png" medium="image" type="image/png" height="98" width="144"/>
 </item>
 <item>
@@ -1642,7 +2227,7 @@ Wharton, R. (2024, June 24). <em>The real reasons your appliances die young</em>
   <category>interactive</category>
   <category>history</category>
   <guid>https://ajaverett.com/blocks/revolution.html</guid>
-  <pubDate>Wed, 07 Jan 2026 04:16:58 GMT</pubDate>
+  <pubDate>Fri, 09 Jan 2026 03:27:33 GMT</pubDate>
   <media:content url="https://ajaverett.com/blocks/images/washington.png" medium="image" type="image/png" height="120" width="144"/>
 </item>
 <item>
@@ -1960,7 +2545,7 @@ Plotkin, D. L., Rodas, M. A., Vigotsky, A. D., McIntosh, M. C., Breeze, E., Ubri
   <category>science</category>
   <category>practical</category>
   <guid>https://ajaverett.com/blocks/workout_routine.html</guid>
-  <pubDate>Wed, 07 Jan 2026 04:16:58 GMT</pubDate>
+  <pubDate>Fri, 09 Jan 2026 03:27:33 GMT</pubDate>
   <media:content url="https://ajaverett.com/blocks/images/house.png" medium="image" type="image/png" height="95" width="144"/>
 </item>
 </channel>
