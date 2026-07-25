@@ -41,9 +41,9 @@ const experiences: Experience[] = [
   {
     slug: "booz-allen",
     company: "Booz Allen Hamilton",
-    role: "Data Scientist II · Senior Consultant",
+    role: "Data Scientist II (Senior Consultant)",
     location: "Salt Lake City, UT",
-    dates: "May 2024 — Present",
+    dates: "May 2024 - Present",
     eyebrow: "Fleet intelligence · Data systems",
     headline: "Turning fragmented signals into fleet-ready decisions.",
     summary:
@@ -51,9 +51,9 @@ const experiences: Experience[] = [
     accent: "#ff6a3d",
     accentSoft: "#ffd8c9",
     metrics: [
-      { value: "76+", label: "stakeholders served" },
-      { value: "E2E", label: "pipeline ownership" },
-      { value: "24/7", label: "mission-critical context" },
+      { value: "~76", label: "stakeholders" },
+      { value: "CI/CD", label: "client deliverables" },
+      { value: "Active", label: "Secret Clearance" },
     ],
     chapters: [
       {
@@ -75,28 +75,28 @@ const experiences: Experience[] = [
         copy: "I delivered KPI-driven QlikSense dashboards and predictive-maintenance estimates that help fleet stakeholders understand risk and act on average time-to-failure signals.",
       },
     ],
-    pipeline: ["Sources", "Bronze", "Silver", "Models", "Qlik"],
+    pipeline: ["Multi-source data", "Databricks", "Spark SQL", "QlikSense", "CI/CD"],
     tools: [
-      "PySpark",
-      "Spark SQL",
-      "Python",
       "Databricks",
+      "Spark SQL",
+      "PySpark (Python)",
+      "Databricks Jobs/Workflows",
       "QlikSense",
       "CI/CD",
     ],
     resumeBullets: [
-      "Led end-to-end ETL processes for multi-source naval time-series data, implementing a medallion architecture in Databricks and orchestrating pipelines with Spark SQL, PySpark, Python, and Databricks Jobs.",
-      "Built and maintained KPI-driven, mission-critical QlikSense dashboards for approximately 76 stakeholders across several naval commands.",
-      "Developed time-series predictive-maintenance pipelines that estimate average time-to-failure for ship parts.",
-      "Operated in Scrum and Agile development cycles for CI/CD on client deliverables; Active Secret Clearance.",
+      "Led end-to-end ETL processes for multi-source naval time-series data, implementing a medallion architecture in Databricks and orchestrating data pipelines using Spark SQL, PySpark (Python), and Databricks Jobs/Workflows",
+      "Built, delivered, and maintained robust, KPI-driven, mission-critical dashboards in QlikSense compliant with QPAS technical standards to ~76 stakeholders across several naval commands to inform about fleet-wide warfighting readiness",
+      "Developed time-series predictive maintenance pipelines, enabling the estimation of average time-to-failure for ship parts",
+      "Operated in Scrum and Agile development cycles for CI/CD on client deliverables, Active Secret Clearance",
     ],
   },
   {
     slug: "mountainland",
     company: "Mountainland Technical College",
-    role: "Adjunct Faculty Instructor · Part-time",
+    role: "Adjunct Faculty Instructor; Part-time",
     location: "Lehi, UT",
-    dates: "Jul 2025 — Present",
+    dates: "Jul 2025 - Present",
     eyebrow: "Teaching · Curriculum design",
     headline: "Teaching the whole data lifecycle—not just the tools.",
     summary:
@@ -104,9 +104,9 @@ const experiences: Experience[] = [
     accent: "#8c7bff",
     accentSoft: "#ded8ff",
     metrics: [
-      { value: "7+", label: "core tools taught" },
-      { value: "E2E", label: "data lifecycle" },
-      { value: "1:1", label: "practice to feedback" },
+      { value: "MTECH", label: "Data Technology course" },
+      { value: "Full", label: "data lifecycle" },
+      { value: "02", label: "résumé bullets" },
     ],
     chapters: [
       {
@@ -128,11 +128,21 @@ const experiences: Experience[] = [
         copy: "I use student performance to refine the material, aligning exercises and evaluation with the habits learners will need in real data teams.",
       },
     ],
-    pipeline: ["Acquire", "Clean", "Analyze", "Model", "Explain"],
-    tools: ["Excel", "Python", "R", "SQL", "Power BI", "Tableau", "Scikit-learn"],
+    pipeline: ["Acquisition", "Python / R", "SQL", "Power BI", "Visualization"],
+    tools: [
+      "Excel",
+      "Python",
+      "Pandas",
+      "Scikit-learn",
+      "R",
+      "Tidyverse",
+      "SQL",
+      "Power BI",
+      "Tableau",
+    ],
     resumeBullets: [
-      "Deliver competency-based analytics instruction using Excel, Python, R, SQL, Power BI, and Tableau across the full data lifecycle.",
-      "Develop and refine curriculum to align with industry practice, using student performance to improve evaluation and instruction.",
+      "Delivered competency-based analytics instruction using Excel, Python (Pandas, Scikit-learn), R (Tidyverse), SQL, Power BI, and Tableau, covering the full data lifecycle from acquisition to visualization for the MTECH Data Technology course",
+      "Developed and refined curriculum to align with industry practices with use of student performance evaluation",
     ],
   },
   {
@@ -140,7 +150,7 @@ const experiences: Experience[] = [
     company: "Corecodec",
     role: "Data Engineer Intern",
     location: "San Antonio, TX",
-    dates: "Dec 2023 — Apr 2024",
+    dates: "Dec 2023 - Apr 2024",
     eyebrow: "Automation · Evidence pipelines",
     headline: "Building an evidence engine for hard-to-see patterns.",
     summary:
@@ -148,9 +158,9 @@ const experiences: Experience[] = [
     accent: "#25c2a0",
     accentSoft: "#bcefe4",
     metrics: [
-      { value: "Auto", label: "repeatable extraction" },
-      { value: "Pandas", label: "transformation layer" },
-      { value: "XLSX", label: "decision output" },
+      { value: "Python", label: "with Selenium" },
+      { value: "Pandas", label: "transformation workflows" },
+      { value: "openpyxl", label: "Excel reports" },
     ],
     chapters: [
       {
@@ -172,11 +182,11 @@ const experiences: Experience[] = [
         copy: "Pandas transformations and automated openpyxl reporting converted raw records into practical Excel outputs for copyright-infringement review.",
       },
     ],
-    pipeline: ["Apps", "Selenium", "Python", "Pandas", "Reports"],
-    tools: ["Python", "Selenium", "Pandas", "openpyxl", "Excel"],
+    pipeline: ["App repositories", "Python", "Selenium", "Pandas", "Excel reports"],
+    tools: ["Python", "Selenium", "Pandas", "Excel", "openpyxl"],
     resumeBullets: [
-      "Designed an ETL pipeline architecture using Python and Selenium to regularly extract large-scale unstructured app-repository data for copyright-infringement analysis.",
-      "Built Pandas-based transformation workflows and automated Excel reports with openpyxl to surface actionable infringement patterns.",
+      "Designed ETL pipeline architecture using Python and Selenium to regularly extract large-scale unstructured data from app repositories for copyright infringement analysis",
+      "Built Pandas-based transformation workflows and automated Excel reports using openpyxl to surface actionable infringement patterns",
     ],
   },
   {
@@ -184,7 +194,7 @@ const experiences: Experience[] = [
     company: "Research & Business Development Center",
     role: "Data Consulting Intern",
     location: "Idaho Falls, ID",
-    dates: "Sep 2023 — Dec 2023",
+    dates: "Sep 2023 - Dec 2023",
     eyebrow: "Anomaly detection · Research",
     headline: "Finding quality signals inside 200,000 human stories.",
     summary:
@@ -192,9 +202,9 @@ const experiences: Experience[] = [
     accent: "#e4b23c",
     accentSoft: "#f8e6af",
     metrics: [
-      { value: "200k+", label: "submissions analyzed" },
-      { value: "2", label: "interactive apps" },
-      { value: "NLP", label: "text research layer" },
+      { value: "200k", label: "submissions" },
+      { value: "Python", label: "anomaly detection" },
+      { value: "Plotly", label: "with Streamlit" },
     ],
     chapters: [
       {
@@ -216,11 +226,11 @@ const experiences: Experience[] = [
         copy: "Plotly and Streamlit dashboards cross-referenced first-party content, while vectorized text search opened a new research path for the Wildford Woodruff Papers Foundation.",
       },
     ],
-    pipeline: ["Stories", "Vectors", "Anomalies", "Review", "Research"],
-    tools: ["Python", "Plotly", "Streamlit", "NLP", "Vectorization"],
+    pipeline: ["Submissions", "Python", "Anomaly detection", "Plotly / Streamlit", "Public records"],
+    tools: ["Python", "Plotly", "Streamlit", "text vectorization"],
     resumeBullets: [
-      "Collaborated with FamilySearch leadership to deploy in-house anomaly-detection algorithms in Python across more than 200,000 unstructured submissions.",
-      "Built Plotly and Streamlit quality-assurance dashboards and developed vectorized text-search research capabilities.",
+      "Collaborated with FamilySearch executive leadership to deploy several in-house tuned anomaly detection algorithms in Python, analyzing over 200k submissions of unstructured, participant-submitted information for quality assurance",
+      "Developed dashboards using Plotly and Streamlit that cross-referenced firm-owned content repositories with public records using text vectorization in Python, improving research capabilities for the Wilford Woodruff Papers Foundation",
     ],
   },
   {
@@ -228,7 +238,7 @@ const experiences: Experience[] = [
     company: "WPA Intelligence",
     role: "Machine Learning Intern",
     location: "SE Washington, DC",
-    dates: "Jul 2022 — Nov 2022",
+    dates: "Jul 2022 - Nov 2022",
     eyebrow: "Geospatial ML · Civic analytics",
     headline: "Adding geographic context to 100 million voter records.",
     summary:
@@ -236,9 +246,9 @@ const experiences: Experience[] = [
     accent: "#4ba6ff",
     accentSoft: "#c9e4ff",
     metrics: [
-      { value: "100M+", label: "voter records" },
-      { value: "12", label: "spatial levels" },
-      { value: "1–3%", label: "accuracy & AUC lift" },
+      { value: "100M", label: "voter records" },
+      { value: "12", label: "population density granularities" },
+      { value: "1-3%", label: "accuracy and AUC" },
     ],
     chapters: [
       {
@@ -260,38 +270,38 @@ const experiences: Experience[] = [
         copy: "The spatial features improved accuracy and AUC by 1–3%, becoming reusable inputs for models of ideological disposition and turnout.",
       },
     ],
-    pipeline: ["Records", "Census GIS", "12 Levels", "Models", "Reports"],
-    tools: ["R", "SQL", "sf", "Tidyverse", "GIS", "Machine Learning"],
+    pipeline: ["Voter records", "SQL / R", "GIS data", "12 granularities", "ML models"],
+    tools: ["SQL", "R", "tidyverse", "GIS", "US Census Bureau", "sf"],
     resumeBullets: [
-      "Analyzed national voter and demographic trends using SQL and R, producing reports and machine-learning inputs for civic campaigns.",
-      "Improved model accuracy and AUC by 1–3% by engineering GIS features that classified more than 100 million voter records across 12 population-density levels.",
+      "Analyzed and visualized voter demographic trends using SQL and R’s tidyverse to create digestible reports for hundreds of civic campaigns, training and deploying machine learning models to predict ideological disposition and voter turnout,",
+      "Improved accuracy and AUC of all future ML models by 1-3% by feature engineering GIS data to classify over 100 million voter records into 12 population density granularities using US Census Bureau’s geographic spatial data and R’s sf library",
     ],
   },
 ];
 
 const education = {
-  school: "Brigham Young University—Idaho",
+  school: "Brigham Young University–Idaho",
   degree: "B.Sc. Data Science, Statistics",
-  dates: "Apr 2020 — Dec 2023",
-  note: "President, Data Science Society · Chief Lab Manager",
+  dates: "Apr 2020 - Dec 2023",
+  note: "Soc of Hispanic Professional Engineer Scholarship, President of Data Science Society, Chief Lab Manager",
 };
 
 const skillGroups = [
   {
-    label: "Languages",
-    items: "Python, R, SQL, Spark SQL",
-  },
-  {
-    label: "Data systems",
-    items: "Databricks, Spark, Azure, Docker",
+    label: "Python/R",
+    items: "pandas, PySpark, numpy, polars, sklearn, TensorFlow/Keras, xgboost, statsmodels, spaCy, selenium, tidyverse",
   },
   {
     label: "Visualization",
-    items: "QlikSense, Plotly, Power BI, Tableau",
+    items: "ggplot2, matplotlib, seaborn, plotly, altair, Streamlit, QlikSense, R Shiny, Power BI, Tableau, Mermaid",
   },
   {
-    label: "Modeling",
-    items: "Scikit-learn, TensorFlow, XGBoost, spaCy",
+    label: "Other Technical Skills",
+    items: "SQL, Spark SQL, Excel, Quarto, LaTeX, regex, Agile Workflow (Scrum), Confluence",
+  },
+  {
+    label: "Development",
+    items: "Databricks, Jupyter, Spark, Git, GitHub, Docker, Azure",
   },
 ];
 
@@ -490,7 +500,12 @@ function Resume({
                   </button>
                   <ul>
                     {experience.resumeBullets.map((bullet) => (
-                      <li key={bullet}>{bullet}</li>
+                      <li key={bullet}>
+                        <span className="pdf-list-bullet" aria-hidden="true">
+                          •
+                        </span>
+                        <span>{bullet}</span>
+                      </li>
                     ))}
                   </ul>
                 </article>
@@ -557,7 +572,7 @@ function CaseStudy({
       <article className="case-shell">
         <section className="case-hero">
           <div className="case-hero-copy">
-            <p className="case-eyebrow">{experience.eyebrow}</p>
+            <p className="case-eyebrow">Original résumé wording</p>
             <h1
               ref={titleRef}
               tabIndex={-1}
@@ -565,9 +580,8 @@ function CaseStudy({
             >
               {experience.company}
             </h1>
-            <p className="case-role">{experience.role}</p>
-            <h2>{experience.headline}</h2>
-            <p className="case-summary">{experience.summary}</p>
+            <h2>{experience.role}</h2>
+            <p className="case-summary">{experience.resumeBullets[0]}</p>
           </div>
 
           <div className="signal-card" aria-label="Data signal illustration">
@@ -622,21 +636,25 @@ function CaseStudy({
               <span>{metric.label}</span>
             </div>
           ))}
-          <p>Selected signals—not vanity metrics.</p>
+          <p>Context from the original résumé.</p>
         </section>
 
         <section className="story-section" aria-labelledby="story-heading">
           <div className="story-intro">
-            <p>Under the bullet points</p>
-            <h2 id="story-heading">How the work moved.</h2>
+            <p>Source of truth</p>
+            <h2 id="story-heading">Original résumé wording.</h2>
           </div>
           <div className="chapter-list">
-            {experience.chapters.map((chapter) => (
-              <article className="chapter" key={chapter.number}>
-                <div className="chapter-number">{chapter.number}</div>
-                <p className="chapter-label">{chapter.label}</p>
-                <h3>{chapter.title}</h3>
-                <p className="chapter-copy">{chapter.copy}</p>
+            {experience.resumeBullets.map((bullet, index) => (
+              <article className="chapter chapter--resume" key={bullet}>
+                <div className="chapter-number">
+                  {String(index + 1).padStart(2, "0")}
+                </div>
+                <p className="chapter-label">Résumé bullet</p>
+                <p className="chapter-copy chapter-bullet-copy">
+                  <span aria-hidden="true">•</span>
+                  <span>{bullet}</span>
+                </p>
               </article>
             ))}
           </div>
@@ -644,11 +662,11 @@ function CaseStudy({
 
         <section className="system-section" aria-labelledby="system-heading">
           <div className="system-copy">
-            <p>System view</p>
-            <h2 id="system-heading">From input to impact.</h2>
+            <p>Tools and workflow</p>
+            <h2 id="system-heading">Referenced in the résumé.</h2>
             <p>
-              The architecture changes by role. The pattern stays consistent:
-              understand the signal, build the path, make the result legible.
+              This view organizes the technologies and workflow terms used in
+              the original résumé.
             </p>
             <div className="tool-list" aria-label="Tools used">
               {experience.tools.map((tool) => (

@@ -811,6 +811,21 @@ a {
   padding-left: 2px;
 }
 
+.pdf-experience ul {
+  margin-left: 18px;
+  list-style: none;
+}
+
+.pdf-experience li {
+  display: grid;
+  grid-template-columns: 10px minmax(0, 1fr);
+  padding-left: 0;
+}
+
+.pdf-list-bullet {
+  text-align: center;
+}
+
 .pdf-experience li + li,
 .pdf-skills-section li + li {
   margin-top: 2px;
@@ -1229,6 +1244,16 @@ a {
   gap: 22px;
   padding: 34px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.chapter--resume {
+  grid-template-columns: 48px minmax(110px, 0.35fr) minmax(260px, 2.1fr);
+}
+
+.chapter-bullet-copy {
+  display: grid;
+  grid-template-columns: 14px minmax(0, 1fr);
+  gap: 4px;
 }
 
 .chapter:last-child {

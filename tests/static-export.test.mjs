@@ -12,6 +12,12 @@ test("exports a complete static resume", async () => {
   assert.match(html, /Booz Allen Hamilton/);
   assert.match(html, /Click a blue employer to open its project story/);
   assert.match(html, /class="pdf-page"/);
+  assert.match(html, /class="pdf-list-bullet"/);
+  assert.match(html, /Soc of Hispanic Professional Engineer Scholarship/);
+  assert.match(html, /QPAS technical standards to ~76 stakeholders/);
+  assert.match(html, /Wilford Woodruff Papers Foundation/);
+  assert.match(html, /R’s tidyverse/);
+  assert.match(html, /Python\/R/);
   assert.match(html, /https:\/\/ajaverett\.github\.io\/og\.png/);
   assert.doesNotMatch(html, /chatgpt\.site|codex-preview/i);
 });
