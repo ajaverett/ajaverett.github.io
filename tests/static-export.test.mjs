@@ -10,7 +10,8 @@ test("exports a complete static resume", async () => {
 
   assert.match(html, /Alan J\. Averett/);
   assert.match(html, /Booz Allen Hamilton/);
-  assert.match(html, /Select a role to go beneath the bullet points/);
+  assert.match(html, /Click a blue employer to open its project story/);
+  assert.match(html, /class="pdf-page"/);
   assert.match(html, /https:\/\/ajaverett\.github\.io\/og\.png/);
   assert.doesNotMatch(html, /chatgpt\.site|codex-preview/i);
 });

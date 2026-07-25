@@ -2,7 +2,6 @@
 
 import {
   type CSSProperties,
-  type MouseEvent,
   useCallback,
   useEffect,
   useRef,
@@ -86,9 +85,10 @@ const experiences: Experience[] = [
       "CI/CD",
     ],
     resumeBullets: [
-      "Led multi-source naval ETL and medallion architecture in Databricks.",
-      "Delivered KPI dashboards for 76+ stakeholders across naval commands.",
-      "Developed predictive-maintenance estimates for ship-part failure.",
+      "Led end-to-end ETL processes for multi-source naval time-series data, implementing a medallion architecture in Databricks and orchestrating pipelines with Spark SQL, PySpark, Python, and Databricks Jobs.",
+      "Built and maintained KPI-driven, mission-critical QlikSense dashboards for approximately 76 stakeholders across several naval commands.",
+      "Developed time-series predictive-maintenance pipelines that estimate average time-to-failure for ship parts.",
+      "Operated in Scrum and Agile development cycles for CI/CD on client deliverables; Active Secret Clearance.",
     ],
   },
   {
@@ -131,9 +131,8 @@ const experiences: Experience[] = [
     pipeline: ["Acquire", "Clean", "Analyze", "Model", "Explain"],
     tools: ["Excel", "Python", "R", "SQL", "Power BI", "Tableau", "Scikit-learn"],
     resumeBullets: [
-      "Deliver competency-based analytics instruction across the data lifecycle.",
-      "Teach Excel, Python, R, SQL, Power BI, Tableau, and modeling workflows.",
-      "Refine curriculum using student performance and industry practice.",
+      "Deliver competency-based analytics instruction using Excel, Python, R, SQL, Power BI, and Tableau across the full data lifecycle.",
+      "Develop and refine curriculum to align with industry practice, using student performance to improve evaluation and instruction.",
     ],
   },
   {
@@ -176,9 +175,8 @@ const experiences: Experience[] = [
     pipeline: ["Apps", "Selenium", "Python", "Pandas", "Reports"],
     tools: ["Python", "Selenium", "Pandas", "openpyxl", "Excel"],
     resumeBullets: [
-      "Designed an automated Python and Selenium extraction architecture.",
-      "Processed large-scale unstructured app-repository data.",
-      "Built Pandas transformations and automated Excel reports.",
+      "Designed an ETL pipeline architecture using Python and Selenium to regularly extract large-scale unstructured app-repository data for copyright-infringement analysis.",
+      "Built Pandas-based transformation workflows and automated Excel reports with openpyxl to surface actionable infringement patterns.",
     ],
   },
   {
@@ -221,9 +219,8 @@ const experiences: Experience[] = [
     pipeline: ["Stories", "Vectors", "Anomalies", "Review", "Research"],
     tools: ["Python", "Plotly", "Streamlit", "NLP", "Vectorization"],
     resumeBullets: [
-      "Analyzed 200k+ unstructured submissions with anomaly-detection models.",
-      "Built Plotly and Streamlit quality-assurance dashboards.",
-      "Developed vectorized text-search research capabilities.",
+      "Collaborated with FamilySearch leadership to deploy in-house anomaly-detection algorithms in Python across more than 200,000 unstructured submissions.",
+      "Built Plotly and Streamlit quality-assurance dashboards and developed vectorized text-search research capabilities.",
     ],
   },
   {
@@ -266,9 +263,8 @@ const experiences: Experience[] = [
     pipeline: ["Records", "Census GIS", "12 Levels", "Models", "Reports"],
     tools: ["R", "SQL", "sf", "Tidyverse", "GIS", "Machine Learning"],
     resumeBullets: [
-      "Analyzed and visualized demographic trends across civic campaigns.",
-      "Engineered GIS features for more than 100 million voter records.",
-      "Improved future model accuracy and AUC by 1–3%.",
+      "Analyzed national voter and demographic trends using SQL and R, producing reports and machine-learning inputs for civic campaigns.",
+      "Improved model accuracy and AUC by 1–3% by engineering GIS features that classified more than 100 million voter records across 12 population-density levels.",
     ],
   },
 ];
@@ -348,6 +344,8 @@ export default function Home() {
 
   useEffect(() => {
     const initialSlug = slugFromHash();
+    // Hydrate direct hash links only after the browser owns the URL.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (initialSlug) setSelectedSlug(initialSlug);
 
     const handlePopState = () => changeView(slugFromHash());
@@ -395,146 +393,127 @@ function Resume({
   onSelect: (slug: string) => void;
 }) {
   return (
-    <main className="resume-stage">
-      <div className="ambient ambient-one" aria-hidden="true" />
-      <div className="ambient ambient-two" aria-hidden="true" />
-
-      <nav className="utility-bar" aria-label="Résumé actions">
-        <a className="brand-lockup" href="#" aria-label="Alan Averett, home">
-          <span className="brand-mark">AJ</span>
-          <span>
-            <strong>Alan Averett</strong>
-            <small>Interactive résumé</small>
+    <main className="pdf-viewer">
+      <nav className="pdf-toolbar" aria-label="Résumé document controls">
+        <div className="pdf-file">
+          <span className="pdf-file-icon" aria-hidden="true">
+            PDF
           </span>
-        </a>
-        <p className="explore-hint">
-          <span className="hint-pulse" aria-hidden="true" />
-          Select a role to go beneath the bullet points
-        </p>
+          <span className="pdf-file-copy">
+            <strong>alan-averett-resume.pdf</strong>
+            <small>Click a blue employer to open its project story</small>
+          </span>
+        </div>
+        <span className="pdf-page-count" aria-label="Page 1 of 1">
+          1 / 1
+        </span>
         <a
-          className="download-link"
+          className="pdf-download"
           href="/alan-averett-resume.pdf"
           target="_blank"
           rel="noreferrer"
+          aria-label="Open the original résumé PDF"
         >
-          PDF
-          <span aria-hidden="true">↗</span>
+          <span>Original PDF</span>
+          <b aria-hidden="true">↗</b>
         </a>
       </nav>
 
-      <article className="resume-paper" aria-labelledby="resume-name">
-        <header className="resume-header">
-          <p className="resume-kicker">Data scientist · Builder · Educator</p>
-          <div className="resume-name-row">
-            <h1 id="resume-name">Alan J. Averett</h1>
-            <p>
-              I build data systems that make complex signals useful—from naval
-              readiness to classrooms and national-scale civic data.
+      <div className="pdf-canvas">
+        <article className="pdf-page" aria-labelledby="resume-name">
+          <header className="pdf-header">
+            <h1 id="resume-name">Alan J Averett</h1>
+            <p className="pdf-contact">
+              <a href="tel:+18328564666">832.856.4666</a>
+              <span aria-hidden="true">|</span>
+              <a href="mailto:ajaverett0@gmail.com">ajaverett0@gmail.com</a>
+              <span aria-hidden="true">|</span>
+              <a
+                href="https://www.linkedin.com/in/ajaverett"
+                target="_blank"
+                rel="noreferrer"
+              >
+                linkedin.com/in/ajaverett
+              </a>
+              <span aria-hidden="true">|</span>
+              <a href="https://ajaverett.github.io">ajaverett.github.io</a>
             </p>
-          </div>
-          <div className="contact-row">
-            <a href="mailto:ajaverett0@gmail.com">ajaverett0@gmail.com</a>
-            <a href="tel:+18328564666">832.856.4666</a>
-            <a
-              href="https://www.linkedin.com/in/ajaverett"
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn
-            </a>
-            <span>Salt Lake City, UT</span>
-          </div>
-        </header>
+          </header>
 
-        <div className="resume-grid">
-          <section className="experience-section" aria-labelledby="experience">
-            <div className="section-heading">
-              <h2 id="experience">Experience</h2>
-              <span>05 selected roles</span>
+          <section className="pdf-section" aria-labelledby="education">
+            <h2 id="education">Education</h2>
+            <div className="pdf-two-column">
+              <div>
+                <h3>{education.school}</h3>
+                <p>{education.degree}</p>
+              </div>
+              <div className="pdf-align-right">
+                <p>Rexburg, ID</p>
+                <p>{education.dates}</p>
+              </div>
             </div>
-            <div className="experience-list">
-              {experiences.map((experience, index) => (
-                <button
-                  className="experience-row"
-                  key={experience.slug}
-                  type="button"
-                  onClick={() => onSelect(experience.slug)}
-                  aria-label={`Explore ${experience.role} at ${experience.company}`}
-                  style={
-                    {
-                      "--role-accent": experience.accent,
-                      "--role-accent-soft": experience.accentSoft,
-                    } as CSSProperties
-                  }
-                >
-                  <span className="experience-index">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span className="experience-main">
+            <p className="pdf-achievement">
+              <span aria-hidden="true">•</span>
+              <strong>Achievements:</strong> {education.note}
+            </p>
+          </section>
+
+          <section className="pdf-section pdf-experience-section" aria-labelledby="experience">
+            <h2 id="experience">Experience</h2>
+            <div className="pdf-experience-list">
+              {experiences.map((experience) => (
+                <article className="pdf-experience" key={experience.slug}>
+                  <button
+                    className="pdf-role-trigger"
+                    type="button"
+                    onClick={() => onSelect(experience.slug)}
+                    aria-label={`Open the project story for ${experience.role} at ${experience.company}`}
+                    title={`Open the ${experience.company} project story`}
+                  >
                     <span
-                      className="experience-company"
+                      className="pdf-company"
                       style={transitionName(`company-${experience.slug}`)}
                     >
                       {experience.company}
                     </span>
-                    <span className="experience-role">{experience.role}</span>
-                    <span className="experience-bullet">
-                      {experience.resumeBullets[0]}
-                    </span>
-                  </span>
-                  <span className="experience-meta">
-                    <span style={transitionName(`dates-${experience.slug}`)}>
+                    <span className="pdf-location">{experience.location}</span>
+                    <span className="pdf-role">{experience.role}</span>
+                    <span
+                      className="pdf-dates"
+                      style={transitionName(`dates-${experience.slug}`)}
+                    >
                       {experience.dates}
                     </span>
-                    <span>{experience.location}</span>
-                    <span className="open-label">
-                      Open story <b aria-hidden="true">↗</b>
+                    <span className="pdf-open-cue" aria-hidden="true">
+                      Open story ↗
                     </span>
-                  </span>
-                </button>
+                  </button>
+                  <ul>
+                    {experience.resumeBullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                </article>
               ))}
             </div>
           </section>
 
-          <aside className="resume-sidebar">
-            <section aria-labelledby="education">
-              <div className="section-heading">
-                <h2 id="education">Education</h2>
-              </div>
-              <h3>{education.school}</h3>
-              <p>{education.degree}</p>
-              <p className="muted">{education.dates}</p>
-              <p className="sidebar-note">{education.note}</p>
-            </section>
+          <section className="pdf-section pdf-skills-section" aria-labelledby="skills">
+            <h2 id="skills">Skills</h2>
+            <ul>
+              {skillGroups.map((group) => (
+                <li key={group.label}>
+                  <strong>{group.label}:</strong> {group.items}
+                </li>
+              ))}
+            </ul>
+          </section>
 
-            <section aria-labelledby="skills">
-              <div className="section-heading">
-                <h2 id="skills">Toolbox</h2>
-              </div>
-              <div className="skills-list">
-                {skillGroups.map((group) => (
-                  <div key={group.label}>
-                    <h3>{group.label}</h3>
-                    <p>{group.items}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section className="resume-footnote" aria-label="Résumé note">
-              <span className="footnote-mark">*</span>
-              <p>
-                The concise version is here. The interesting version is one
-                click deeper.
-              </p>
-            </section>
-          </aside>
-        </div>
-      </article>
-
-      <p className="stage-caption">
-        Designed as a résumé. Built to be explored.
-      </p>
+          <footer className="pdf-page-footer">
+            Interactive document · Blue employer names open the work behind the résumé
+          </footer>
+        </article>
+      </div>
     </main>
   );
 }
