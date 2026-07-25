@@ -78,11 +78,6 @@ type HoverPreviewContent = {
   effect: OrganicEffect;
 };
 
-type HoverPreviewState = HoverPreviewContent & {
-  x: number;
-  y: number;
-};
-
 const experiences: Experience[] = [
   {
     slug: "booz-allen",
@@ -560,36 +555,18 @@ function Resume({
   onOpenInfo: (slug: InfoSlug) => void;
 }) {
   const [hoverPreview, setHoverPreview] =
-    useState<HoverPreviewState | null>(null);
+    useState<HoverPreviewContent | null>(null);
 
   const previewProps = (preview: HoverPreviewContent) => {
-    const show = (target: HTMLElement) => {
-      const rect = target.getBoundingClientRect();
-      const cardWidth = 340;
-      const cardHeight = 240;
-      const gap = 8;
-      const preferredX = rect.right + gap;
-      const x =
-        preferredX + cardWidth <= window.innerWidth - 14
-          ? preferredX
-          : Math.max(14, rect.left - cardWidth - gap);
-      const y = Math.min(
-        Math.max(66, rect.top + rect.height / 2 - cardHeight / 2),
-        window.innerHeight - cardHeight - 14,
-      );
-
-      setHoverPreview({ ...preview, x, y });
-    };
+    const show = () => setHoverPreview(preview);
 
     const hide = () =>
       setHoverPreview((current) => (current?.id === preview.id ? null : current));
 
     return {
-      onMouseEnter: (event: React.MouseEvent<HTMLElement>) =>
-        show(event.currentTarget),
+      onMouseEnter: show,
       onMouseLeave: hide,
-      onFocus: (event: React.FocusEvent<HTMLElement>) =>
-        show(event.currentTarget),
+      onFocus: show,
       onBlur: hide,
     };
   };
@@ -625,7 +602,9 @@ function Resume({
   };
 
   return (
-    <main className="pdf-viewer">
+    <main
+      className={`pdf-viewer${hoverPreview ? " pdf-viewer--previewing" : ""}`}
+    >
       <nav className="pdf-toolbar" aria-label="Résumé document controls">
         <div className="pdf-file">
           <span className="pdf-file-icon" aria-hidden="true">
@@ -633,7 +612,7 @@ function Resume({
           </span>
           <span className="pdf-file-copy">
             <strong>alan-averett-resume.pdf</strong>
-            <small>Hover the résumé to discover interactive stories</small>
+            <small>Hover a blue name and watch the page come alive</small>
           </span>
         </div>
         <span className="pdf-page-count" aria-label="Page 1 of 1">
@@ -804,11 +783,11 @@ function Resume({
           </section>
 
           <footer className="pdf-page-footer">
-            Interactive document · Hover highlighted entities for a preview
+            Interactive document · Hover highlighted entities to open a world
           </footer>
         </article>
       </div>
-      {hoverPreview && <OrganicPreview preview={hoverPreview} />}
+      {hoverPreview && <ImmersivePreview preview={hoverPreview} />}
     </main>
   );
 }
@@ -859,38 +838,59 @@ const organicParticles: Record<OrganicEffect, string[]> = {
   scholarship: ["⭐", "🏅", "✦", "🎉", "★", "✨"],
 };
 
-function OrganicPreview({ preview }: { preview: HoverPreviewState }) {
+function ImmersivePreview({ preview }: { preview: HoverPreviewContent }) {
+  const particles = Array.from(
+    { length: 18 },
+    (_, index) => organicParticles[preview.effect][index % 6],
+  );
+
   return (
-    <aside
-      className={`organic-preview organic-preview--${preview.effect}`}
+    <div
+      className={`immersive-preview immersive-preview--${preview.effect}`}
       style={
         {
           "--preview-accent": preview.accent,
-          left: `${preview.x}px`,
-          top: `${preview.y}px`,
         } as CSSProperties
       }
-      aria-label={`${preview.title} preview`}
+      aria-hidden="true"
     >
-      <div className="organic-particles" aria-hidden="true">
-        {organicParticles[preview.effect].map((particle, index) => (
+      <div className="immersive-glow" />
+      <div className="immersive-marquee">
+        <span>
+          {preview.title} · {preview.title} · {preview.title} ·
+        </span>
+      </div>
+      <div className="immersive-route" />
+      <div className="immersive-particles">
+        {particles.map((particle, index) => (
           <span
             key={`${particle}-${index}`}
-            style={{ "--particle-index": index } as CSSProperties}
+            style={
+              {
+                "--particle-index": index,
+                "--particle-x": `${((index * 37) % 94) + 3}%`,
+                "--particle-y": `${((index * 53) % 78) + 8}%`,
+                "--particle-size": `${34 + ((index * 11) % 34)}px`,
+              } as CSSProperties
+            }
           >
             {particle}
           </span>
         ))}
       </div>
-      <div className="organic-caption">
-        <p>{preview.eyebrow}</p>
+      <div className="immersive-copy">
+        <div className="immersive-kicker">
+          <span>{preview.flag}</span>
+          <p>{preview.eyebrow}</p>
+        </div>
         <strong>{preview.title}</strong>
-        <span>{preview.copy}</span>
+        <p>{preview.copy}</p>
         <small>
-          Click to explore <b aria-hidden="true">→</b>
+          Click or press Enter to explore <b>↗</b>
         </small>
       </div>
-    </aside>
+      <span className="immersive-corner-mark">{preview.flag}</span>
+    </div>
   );
 }
 

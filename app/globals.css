@@ -1426,6 +1426,443 @@ a {
   }
 }
 
+/* Full-screen hover worlds */
+
+.immersive-preview {
+  position: fixed;
+  z-index: 110;
+  inset: 0;
+  overflow: hidden;
+  color: #fff;
+  background: rgba(5, 7, 12, 0.84);
+  font-family: var(--sans);
+  pointer-events: none;
+  isolation: isolate;
+  backdrop-filter: blur(2px) grayscale(0.82) brightness(0.52);
+  animation: immersive-enter 380ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.immersive-preview::before,
+.immersive-preview::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+}
+
+.immersive-preview::before {
+  top: 12%;
+  left: -12vw;
+  width: 75vw;
+  height: 72vh;
+  border-radius: 63% 37% 56% 44% / 48% 62% 38% 52%;
+  background: color-mix(in srgb, var(--preview-accent) 58%, #111827);
+  opacity: 0.56;
+  filter: blur(1px);
+  rotate: -9deg;
+  animation: immersive-blob 5.5s ease-in-out infinite alternate;
+}
+
+.immersive-preview::after {
+  top: -12vh;
+  right: -13vw;
+  width: 58vw;
+  height: 58vw;
+  border: 2px solid color-mix(in srgb, var(--preview-accent) 65%, transparent);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 5vw color-mix(in srgb, var(--preview-accent) 7%, transparent),
+    0 0 0 12vw color-mix(in srgb, var(--preview-accent) 5%, transparent);
+  opacity: 0.68;
+  animation: immersive-orbit 12s linear infinite;
+}
+
+@keyframes immersive-enter {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes immersive-blob {
+  to {
+    border-radius: 38% 62% 42% 58% / 61% 39% 61% 39%;
+    translate: 7vw -2vh;
+    rotate: -4deg;
+    scale: 1.08;
+  }
+}
+
+@keyframes immersive-orbit {
+  to {
+    rotate: 1turn;
+  }
+}
+
+.immersive-glow {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 78% 72%,
+      color-mix(in srgb, var(--preview-accent) 36%, transparent),
+      transparent 31%
+    ),
+    linear-gradient(115deg, transparent 0 47%, rgba(255, 255, 255, 0.045) 47% 48%, transparent 48%);
+  animation: immersive-glow-shift 4s ease-in-out infinite alternate;
+}
+
+@keyframes immersive-glow-shift {
+  to {
+    translate: -3vw 2vh;
+    scale: 1.06;
+  }
+}
+
+.immersive-marquee {
+  position: absolute;
+  z-index: 1;
+  top: 2vh;
+  left: -10vw;
+  width: 120vw;
+  overflow: hidden;
+  color: transparent;
+  font-family: var(--serif);
+  font-size: clamp(72px, 10vw, 168px);
+  font-weight: 800;
+  line-height: 0.8;
+  white-space: nowrap;
+  opacity: 0.16;
+  -webkit-text-stroke: 1px #fff;
+  rotate: -3deg;
+}
+
+.immersive-marquee span {
+  display: block;
+  width: max-content;
+  animation: immersive-marquee 16s linear infinite;
+}
+
+@keyframes immersive-marquee {
+  to {
+    translate: -35% 0;
+  }
+}
+
+.immersive-particles,
+.immersive-particles span {
+  position: absolute;
+}
+
+.immersive-particles {
+  z-index: 3;
+  inset: 0;
+}
+
+.immersive-particles span {
+  top: var(--particle-y);
+  left: var(--particle-x);
+  display: grid;
+  min-width: 1em;
+  min-height: 1em;
+  place-items: center;
+  color: #fff;
+  font-family: var(--mono);
+  font-size: var(--particle-size);
+  font-weight: 900;
+  line-height: 1;
+  text-shadow:
+    0 3px 0 color-mix(in srgb, var(--preview-accent) 80%, #17181c),
+    0 12px 22px rgba(0, 0, 0, 0.35);
+  animation: immersive-float 3.2s ease-in-out infinite;
+  animation-delay: calc(var(--particle-index) * -0.17s);
+}
+
+@keyframes immersive-float {
+  50% {
+    translate: 0 -18px;
+    rotate: 9deg;
+    scale: 1.12;
+  }
+}
+
+.immersive-copy {
+  position: absolute;
+  z-index: 6;
+  right: 5vw;
+  bottom: 8vh;
+  left: 5vw;
+  display: grid;
+  gap: clamp(12px, 1.6vh, 22px);
+  max-width: 1320px;
+  margin: 0 auto;
+  text-wrap: balance;
+  animation: immersive-copy-rise 460ms 70ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.immersive-copy::before {
+  position: absolute;
+  z-index: -1;
+  right: -14vw;
+  bottom: 42%;
+  left: -14vw;
+  height: clamp(70px, 11vw, 170px);
+  content: "";
+  border-top: 2px solid color-mix(in srgb, var(--preview-accent) 80%, #fff);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--preview-accent) 20%, transparent) 20% 78%,
+    transparent
+  );
+  rotate: -2deg;
+  transform: skewY(-1deg);
+}
+
+@keyframes immersive-copy-rise {
+  from {
+    opacity: 0;
+    translate: 0 55px;
+    scale: 0.96;
+  }
+}
+
+.immersive-kicker {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.immersive-kicker span {
+  display: grid;
+  min-width: 43px;
+  height: 43px;
+  padding: 0 11px;
+  place-items: center;
+  color: #111318;
+  border-radius: 52% 48% 61% 39% / 40% 56% 44% 60%;
+  background: var(--preview-accent);
+  box-shadow: 3px 4px 0 #fff;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 950;
+  rotate: -6deg;
+}
+
+.immersive-kicker p,
+.immersive-copy > p,
+.immersive-copy strong,
+.immersive-copy small {
+  margin: 0;
+}
+
+.immersive-kicker p {
+  font-family: var(--mono);
+  font-size: clamp(10px, 1.1vw, 15px);
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.immersive-copy strong {
+  max-width: 1200px;
+  color: #fff;
+  font-family: var(--serif);
+  font-size: clamp(52px, 8.4vw, 132px);
+  font-weight: 800;
+  line-height: 0.84;
+  letter-spacing: -0.055em;
+  text-shadow:
+    4px 4px 0 color-mix(in srgb, var(--preview-accent) 88%, #12151d),
+    0 18px 48px rgba(0, 0, 0, 0.4);
+}
+
+.immersive-copy > p {
+  max-width: 870px;
+  color: #f4f0e7;
+  font-family: var(--serif);
+  font-size: clamp(17px, 1.7vw, 25px);
+  line-height: 1.24;
+}
+
+.immersive-copy small {
+  width: max-content;
+  padding-bottom: 4px;
+  color: #fff;
+  border-bottom: 2px solid var(--preview-accent);
+  font-family: var(--mono);
+  font-size: clamp(9px, 0.85vw, 12px);
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.immersive-copy small b {
+  color: var(--preview-accent);
+  font-size: 1.3em;
+}
+
+.immersive-corner-mark {
+  position: absolute;
+  z-index: 2;
+  top: 17vh;
+  right: 4vw;
+  color: transparent;
+  font-family: var(--mono);
+  font-size: clamp(110px, 20vw, 330px);
+  font-weight: 950;
+  line-height: 0.8;
+  opacity: 0.14;
+  -webkit-text-stroke: 2px var(--preview-accent);
+  rotate: 8deg;
+}
+
+.immersive-route {
+  position: absolute;
+  z-index: 2;
+  opacity: 0;
+}
+
+.immersive-preview--books .immersive-particles span {
+  top: -18vh;
+  left: var(--particle-x);
+  animation: immersive-book-rain 2.5s cubic-bezier(0.2, 0.65, 0.35, 1) infinite;
+  animation-delay: calc(var(--particle-index) * -0.18s);
+}
+
+@keyframes immersive-book-rain {
+  0% {
+    opacity: 0;
+    translate: 0 -14vh;
+    rotate: -25deg;
+  }
+  12% {
+    opacity: 1;
+  }
+  86% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    translate: 4vw 130vh;
+    rotate: 55deg;
+  }
+}
+
+.immersive-preview--boats .immersive-route {
+  right: -8vw;
+  bottom: -13vh;
+  left: -8vw;
+  height: 45vh;
+  border-radius: 50% 50% 0 0 / 30% 30% 0 0;
+  background:
+    repeating-radial-gradient(ellipse at 50% 0, transparent 0 22px, rgba(255, 255, 255, 0.18) 23px 26px),
+    linear-gradient(180deg, #3dc7ed, #075f93);
+  opacity: 0.88;
+  animation: immersive-tide 2.8s ease-in-out infinite alternate;
+}
+
+.immersive-preview--boats .immersive-particles span:nth-child(6n + 1),
+.immersive-preview--boats .immersive-particles span:nth-child(6n + 6) {
+  font-size: clamp(58px, 7vw, 104px);
+  animation-name: immersive-sail;
+}
+
+@keyframes immersive-tide {
+  to {
+    translate: 0 3vh;
+    scale: 1.04 0.9;
+  }
+}
+
+@keyframes immersive-sail {
+  50% {
+    translate: 4vw -2vh;
+    rotate: -6deg;
+  }
+}
+
+.immersive-preview--code .immersive-particles span {
+  padding: 0.45em 0.6em;
+  color: #b9ffe9;
+  border: 1px solid rgba(185, 255, 233, 0.75);
+  border-radius: 999px;
+  background: rgba(5, 40, 34, 0.84);
+  font-size: calc(var(--particle-size) * 0.52);
+  box-shadow: 0 0 25px rgba(80, 255, 199, 0.23);
+  animation-name: immersive-code-orbit;
+}
+
+@keyframes immersive-code-orbit {
+  50% {
+    translate: 3vw -2vh;
+    rotate: 12deg;
+  }
+}
+
+.immersive-preview--research .immersive-particles span {
+  padding: 0.45em;
+  color: #372700;
+  border-radius: 6px 17px 8px 14px;
+  background: #fff4c7;
+  text-shadow: none;
+  animation-name: immersive-paper-drift;
+}
+
+@keyframes immersive-paper-drift {
+  50% {
+    translate: -2vw -3vh;
+    rotate: -11deg;
+  }
+}
+
+.immersive-preview--map .immersive-route {
+  top: 19%;
+  right: 7%;
+  width: 64vw;
+  height: 46vh;
+  border: 5px dashed color-mix(in srgb, var(--preview-accent) 76%, #fff);
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-radius: 50%;
+  opacity: 0.65;
+  rotate: -12deg;
+  animation: immersive-route-draw 2.8s ease-in-out infinite alternate;
+}
+
+@keyframes immersive-route-draw {
+  to {
+    translate: -4vw 2vh;
+    rotate: -3deg;
+    scale: 0.94;
+  }
+}
+
+.immersive-preview--graduation .immersive-particles span {
+  animation-name: immersive-cap-toss;
+}
+
+@keyframes immersive-cap-toss {
+  50% {
+    translate: 3vw -7vh;
+    rotate: 25deg;
+  }
+}
+
+.immersive-preview--scholarship .immersive-particles span,
+.immersive-preview--about .immersive-particles span {
+  animation-name: immersive-sparkle;
+}
+
+@keyframes immersive-sparkle {
+  50% {
+    opacity: 0.55;
+    translate: 0 -3vh;
+    rotate: 30deg;
+    scale: 1.42;
+  }
+}
+
 /* Small profile destinations */
 
 .info-stage {
@@ -1621,6 +2058,52 @@ a {
     top: auto !important;
     width: min(340px, calc(100vw - 8px));
     transform: translateX(-50%);
+  }
+
+  .immersive-preview::before {
+    top: 18%;
+    left: -38vw;
+    width: 126vw;
+    height: 62vh;
+  }
+
+  .immersive-preview::after {
+    top: -5vh;
+    right: -45vw;
+    width: 110vw;
+    height: 110vw;
+  }
+
+  .immersive-marquee {
+    top: 7vh;
+    font-size: clamp(64px, 20vw, 104px);
+  }
+
+  .immersive-copy {
+    right: 22px;
+    bottom: 7vh;
+    left: 22px;
+    gap: 12px;
+  }
+
+  .immersive-copy strong {
+    font-size: clamp(46px, 15vw, 82px);
+    line-height: 0.88;
+  }
+
+  .immersive-copy > p {
+    max-width: 92%;
+    font-size: 16px;
+  }
+
+  .immersive-corner-mark {
+    top: 22vh;
+    right: -4vw;
+    font-size: 34vw;
+  }
+
+  .immersive-particles span {
+    font-size: calc(var(--particle-size) * 0.78);
   }
 
   .info-shell,
@@ -2583,7 +3066,8 @@ a {
   .pdf-toolbar,
   .pdf-open-cue,
   .pdf-page-footer,
-  .organic-preview {
+  .organic-preview,
+  .immersive-preview {
     display: none;
   }
 
