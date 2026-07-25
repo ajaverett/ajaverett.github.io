@@ -37,6 +37,52 @@ type Experience = {
   resumeBullets: string[];
 };
 
+type InfoSlug = "about" | "education" | "scholarship";
+
+type DetailRoute =
+  | { kind: "work"; slug: string }
+  | { kind: "info"; slug: InfoSlug }
+  | null;
+
+type InfoDetail = {
+  slug: InfoSlug;
+  hash: string;
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  summary: string;
+  accent: string;
+  accentSoft: string;
+  flag: string;
+  facts: { label: string; value: string }[];
+  tags: string[];
+};
+
+type OrganicEffect =
+  | "about"
+  | "boats"
+  | "books"
+  | "code"
+  | "research"
+  | "map"
+  | "graduation"
+  | "scholarship";
+
+type HoverPreviewContent = {
+  id: string;
+  eyebrow: string;
+  title: string;
+  copy: string;
+  accent: string;
+  flag: string;
+  effect: OrganicEffect;
+};
+
+type HoverPreviewState = HoverPreviewContent & {
+  x: number;
+  y: number;
+};
+
 const experiences: Experience[] = [
   {
     slug: "booz-allen",
@@ -305,24 +351,112 @@ const skillGroups = [
   },
 ];
 
+const infoDetails: Record<InfoSlug, InfoDetail> = {
+  about: {
+    slug: "about",
+    hash: "#about",
+    eyebrow: "About me",
+    title: "Alan J Averett",
+    subtitle: "Data Scientist II (Senior Consultant)",
+    summary:
+      "My résumé spans naval time-series data, analytics instruction, data engineering, anomaly detection, and machine learning.",
+    accent: "#ff6a3d",
+    accentSoft: "#ffd8c9",
+    flag: "AJ",
+    facts: [
+      { label: "Current role", value: "Booz Allen Hamilton" },
+      { label: "Education", value: "B.Sc. Data Science, Statistics" },
+      { label: "Based near", value: "Salt Lake City, UT" },
+    ],
+    tags: ["Python", "R", "SQL", "Spark", "Databricks", "Machine Learning"],
+  },
+  education: {
+    slug: "education",
+    hash: "#education/byu-idaho",
+    eyebrow: "Education",
+    title: "Brigham Young University–Idaho",
+    subtitle: "B.Sc. Data Science, Statistics",
+    summary:
+      "Brigham Young University–Idaho · Rexburg, ID · Apr 2020 - Dec 2023",
+    accent: "#8c7bff",
+    accentSoft: "#ded8ff",
+    flag: "BYU-I",
+    facts: [
+      { label: "Location", value: "Rexburg, ID" },
+      { label: "Dates", value: "Apr 2020 - Dec 2023" },
+      {
+        label: "Activities",
+        value: "President of Data Science Society, Chief Lab Manager",
+      },
+    ],
+    tags: ["Data Science", "Statistics", "Data Science Society", "Lab Manager"],
+  },
+  scholarship: {
+    slug: "scholarship",
+    hash: "#recognition/shpe-scholarship",
+    eyebrow: "Recognition",
+    title: "Soc of Hispanic Professional Engineer Scholarship",
+    subtitle: "Education achievement",
+    summary:
+      "Listed among the achievements earned while completing a B.Sc. in Data Science, Statistics at Brigham Young University–Idaho.",
+    accent: "#e4b23c",
+    accentSoft: "#f8e6af",
+    flag: "★",
+    facts: [
+      {
+        label: "Achievement",
+        value: "Soc of Hispanic Professional Engineer Scholarship",
+      },
+      { label: "School", value: "Brigham Young University–Idaho" },
+      { label: "Degree", value: "B.Sc. Data Science, Statistics" },
+    ],
+    tags: ["Scholarship", "Data Science", "Statistics", "Achievement"],
+  },
+};
+
+const experienceEffects: Record<string, OrganicEffect> = {
+  "booz-allen": "boats",
+  mountainland: "books",
+  corecodec: "code",
+  rbdc: "research",
+  wpa: "map",
+};
+
+const experiencePreviewCopy: Record<string, string> = {
+  "booz-allen":
+    "Multi-source naval time-series data · QlikSense · predictive maintenance",
+  mountainland:
+    "Full data lifecycle · MTECH Data Technology course · student performance evaluation",
+  corecodec:
+    "Python and Selenium · copyright infringement analysis · automated Excel reports",
+  rbdc:
+    "200k submissions · anomaly detection · Plotly and Streamlit dashboards",
+  wpa: "100 million voter records · GIS data · 1-3% accuracy and AUC",
+};
+
 function transitionName(name: string): CSSProperties {
   return { viewTransitionName: name } as CSSProperties;
 }
 
-function slugFromHash() {
+function routeFromHash(): DetailRoute {
   if (typeof window === "undefined") return null;
-  const slug = window.location.hash.replace(/^#work\//, "");
-  return experiences.some((experience) => experience.slug === slug)
-    ? slug
-    : null;
+  const hash = window.location.hash;
+  const workSlug = hash.replace(/^#work\//, "");
+
+  if (experiences.some((experience) => experience.slug === workSlug)) {
+    return { kind: "work", slug: workSlug };
+  }
+
+  const detail = Object.values(infoDetails).find((item) => item.hash === hash);
+  return detail ? { kind: "info", slug: detail.slug } : null;
 }
 
 export default function Home() {
-  const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
+  const [activeRoute, setActiveRoute] = useState<DetailRoute>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
 
-  const changeView = useCallback((slug: string | null) => {
-    const update = () => flushSync(() => setSelectedSlug(slug));
+  const changeView = useCallback((route: DetailRoute) => {
+    const update = () => flushSync(() => setActiveRoute(route));
 
     if (
       "startViewTransition" in document &&
@@ -337,15 +471,25 @@ export default function Home() {
 
   const openExperience = useCallback(
     (slug: string) => {
-      if (slug === selectedSlug) return;
+      if (activeRoute?.kind === "work" && slug === activeRoute.slug) return;
       window.history.pushState({ work: slug }, "", `#work/${slug}`);
-      changeView(slug);
+      changeView({ kind: "work", slug });
     },
-    [changeView, selectedSlug],
+    [activeRoute, changeView],
   );
 
-  const closeExperience = useCallback(() => {
-    if (slugFromHash()) {
+  const openInfo = useCallback(
+    (slug: InfoSlug) => {
+      if (activeRoute?.kind === "info" && slug === activeRoute.slug) return;
+      const detail = infoDetails[slug];
+      window.history.pushState({ info: slug }, "", detail.hash);
+      changeView({ kind: "info", slug });
+    },
+    [activeRoute, changeView],
+  );
+
+  const closeDetail = useCallback(() => {
+    if (routeFromHash()) {
       window.history.back();
     } else {
       changeView(null);
@@ -353,14 +497,14 @@ export default function Home() {
   }, [changeView]);
 
   useEffect(() => {
-    const initialSlug = slugFromHash();
+    const initialRoute = routeFromHash();
     // Hydrate direct hash links only after the browser owns the URL.
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    if (initialSlug) setSelectedSlug(initialSlug);
+    if (initialRoute) setActiveRoute(initialRoute);
 
-    const handlePopState = () => changeView(slugFromHash());
+    const handlePopState = () => changeView(routeFromHash());
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && slugFromHash()) {
+      if (event.key === "Escape" && routeFromHash()) {
         window.history.back();
       }
     };
@@ -374,34 +518,112 @@ export default function Home() {
   }, [changeView]);
 
   useEffect(() => {
-    if (selectedSlug) {
+    if (activeRoute) {
       window.setTimeout(() => titleRef.current?.focus(), 250);
     }
-  }, [selectedSlug]);
+  }, [activeRoute]);
 
-  const selected = experiences.find(
-    (experience) => experience.slug === selectedSlug,
-  );
+  const selected =
+    activeRoute?.kind === "work"
+      ? experiences.find((experience) => experience.slug === activeRoute.slug)
+      : null;
 
   if (selected) {
     return (
       <CaseStudy
         experience={selected}
-        onClose={closeExperience}
+        onClose={closeDetail}
         onSelect={openExperience}
         titleRef={titleRef}
       />
     );
   }
 
-  return <Resume onSelect={openExperience} />;
+  if (activeRoute?.kind === "info") {
+    return (
+      <InfoStory
+        detail={infoDetails[activeRoute.slug]}
+        onClose={closeDetail}
+        titleRef={titleRef}
+      />
+    );
+  }
+
+  return <Resume onSelect={openExperience} onOpenInfo={openInfo} />;
 }
 
 function Resume({
   onSelect,
+  onOpenInfo,
 }: {
   onSelect: (slug: string) => void;
+  onOpenInfo: (slug: InfoSlug) => void;
 }) {
+  const [hoverPreview, setHoverPreview] =
+    useState<HoverPreviewState | null>(null);
+
+  const previewProps = (preview: HoverPreviewContent) => {
+    const show = (target: HTMLElement) => {
+      const rect = target.getBoundingClientRect();
+      const cardWidth = 340;
+      const cardHeight = 240;
+      const gap = 8;
+      const preferredX = rect.right + gap;
+      const x =
+        preferredX + cardWidth <= window.innerWidth - 14
+          ? preferredX
+          : Math.max(14, rect.left - cardWidth - gap);
+      const y = Math.min(
+        Math.max(66, rect.top + rect.height / 2 - cardHeight / 2),
+        window.innerHeight - cardHeight - 14,
+      );
+
+      setHoverPreview({ ...preview, x, y });
+    };
+
+    const hide = () =>
+      setHoverPreview((current) => (current?.id === preview.id ? null : current));
+
+    return {
+      onMouseEnter: (event: React.MouseEvent<HTMLElement>) =>
+        show(event.currentTarget),
+      onMouseLeave: hide,
+      onFocus: (event: React.FocusEvent<HTMLElement>) =>
+        show(event.currentTarget),
+      onBlur: hide,
+    };
+  };
+
+  const aboutPreview: HoverPreviewContent = {
+    id: "about",
+    eyebrow: "About me",
+    title: "Alan J Averett",
+    copy: "A quick introduction beyond the résumé.",
+    accent: infoDetails.about.accent,
+    flag: infoDetails.about.flag,
+    effect: "about",
+  };
+
+  const educationPreview: HoverPreviewContent = {
+    id: "education",
+    eyebrow: "Education",
+    title: education.school,
+    copy: `${education.degree} · ${education.dates}`,
+    accent: infoDetails.education.accent,
+    flag: infoDetails.education.flag,
+    effect: "graduation",
+  };
+
+  const scholarshipPreview: HoverPreviewContent = {
+    id: "scholarship",
+    eyebrow: "Recognition",
+    title: "Soc of Hispanic Professional Engineer Scholarship",
+    copy: "Open the achievement note.",
+    accent: infoDetails.scholarship.accent,
+    flag: infoDetails.scholarship.flag,
+    effect: "scholarship",
+  };
+
   return (
     <main className="pdf-viewer">
       <nav className="pdf-toolbar" aria-label="Résumé document controls">
@@ -411,7 +633,7 @@ function Resume({
           </span>
           <span className="pdf-file-copy">
             <strong>alan-averett-resume.pdf</strong>
-            <small>Click a blue employer to open its project story</small>
+            <small>Hover the résumé to discover interactive stories</small>
           </span>
         </div>
         <span className="pdf-page-count" aria-label="Page 1 of 1">
@@ -432,7 +654,20 @@ function Resume({
       <div className="pdf-canvas">
         <article className="pdf-page" aria-labelledby="resume-name">
           <header className="pdf-header">
-            <h1 id="resume-name">Alan J Averett</h1>
+            <h1 id="resume-name">
+              <button
+                className="pdf-inline-trigger pdf-name-trigger"
+                type="button"
+                onClick={() => {
+                  setHoverPreview(null);
+                  onOpenInfo("about");
+                }}
+                title="Open About Alan J Averett"
+                {...previewProps(aboutPreview)}
+              >
+                Alan J Averett
+              </button>
+            </h1>
             <p className="pdf-contact">
               <a href="tel:+18328564666">832.856.4666</a>
               <span aria-hidden="true">|</span>
@@ -454,7 +689,20 @@ function Resume({
             <h2 id="education">Education</h2>
             <div className="pdf-two-column">
               <div>
-                <h3>{education.school}</h3>
+                <h3>
+                  <button
+                    className="pdf-inline-trigger pdf-education-trigger"
+                    type="button"
+                    onClick={() => {
+                      setHoverPreview(null);
+                      onOpenInfo("education");
+                    }}
+                    title={`Open education details for ${education.school}`}
+                    {...previewProps(educationPreview)}
+                  >
+                    {education.school}
+                  </button>
+                </h3>
                 <p>{education.degree}</p>
               </div>
               <div className="pdf-align-right">
@@ -464,7 +712,22 @@ function Resume({
             </div>
             <p className="pdf-achievement">
               <span aria-hidden="true">•</span>
-              <strong>Achievements:</strong> {education.note}
+              <strong>Achievements:</strong>
+              <span>
+                <button
+                  className="pdf-inline-trigger pdf-achievement-trigger"
+                  type="button"
+                  onClick={() => {
+                    setHoverPreview(null);
+                    onOpenInfo("scholarship");
+                  }}
+                  title="Open scholarship details"
+                  {...previewProps(scholarshipPreview)}
+                >
+                  Soc of Hispanic Professional Engineer Scholarship
+                </button>
+                , President of Data Science Society, Chief Lab Manager
+              </span>
             </p>
           </section>
 
@@ -476,9 +739,25 @@ function Resume({
                   <button
                     className="pdf-role-trigger"
                     type="button"
-                    onClick={() => onSelect(experience.slug)}
+                    onClick={() => {
+                      setHoverPreview(null);
+                      onSelect(experience.slug);
+                    }}
                     aria-label={`Open the project story for ${experience.role} at ${experience.company}`}
                     title={`Open the ${experience.company} project story`}
+                    {...previewProps({
+                      id: `work-${experience.slug}`,
+                      eyebrow: experience.role,
+                      title: experience.company,
+                      copy: experiencePreviewCopy[experience.slug],
+                      accent: experience.accent,
+                      flag: String(
+                        experiences.findIndex(
+                          (item) => item.slug === experience.slug,
+                        ) + 1,
+                      ).padStart(2, "0"),
+                      effect: experienceEffects[experience.slug],
+                    })}
                   >
                     <span
                       className="pdf-company"
@@ -525,10 +804,170 @@ function Resume({
           </section>
 
           <footer className="pdf-page-footer">
-            Interactive document · Blue employer names open the work behind the résumé
+            Interactive document · Hover highlighted entities for a preview
           </footer>
         </article>
       </div>
+      {hoverPreview && <OrganicPreview preview={hoverPreview} />}
+    </main>
+  );
+}
+
+function CuteBoat({
+  accent,
+  flag,
+  large = false,
+}: {
+  accent: string;
+  flag: string;
+  large?: boolean;
+}) {
+  return (
+    <div
+      className={`cute-boat-scene${large ? " cute-boat-scene--large" : ""}`}
+      style={{ "--boat-accent": accent } as CSSProperties}
+      aria-hidden="true"
+    >
+      <span className="boat-sun" />
+      <span className="boat-cloud boat-cloud-one" />
+      <span className="boat-cloud boat-cloud-two" />
+      <div className="cute-boat">
+        <span className="boat-flag">{flag}</span>
+        <span className="boat-mast" />
+        <span className="boat-sail boat-sail-main" />
+        <span className="boat-sail boat-sail-small" />
+        <span className="boat-hull">
+          <i />
+          <i />
+        </span>
+      </div>
+      <span className="boat-wave boat-wave-one" />
+      <span className="boat-wave boat-wave-two" />
+      <span className="boat-spark">✦</span>
+    </div>
+  );
+}
+
+const organicParticles: Record<OrganicEffect, string[]> = {
+  about: ["✨", "🧭", "⛵", "☀️", "🌊", "✦"],
+  boats: ["⛵", "🫧", "🐟", "⚓", "〰", "⛵"],
+  books: ["📕", "📗", "📘", "📙", "✏️", "📓"],
+  code: ["</>", "{ }", "01", "⌁", "⚙", "✦"],
+  research: ["🔎", "📄", "Aa", "✦", "⌕", "•••"],
+  map: ["📍", "🗺️", "◉", "12", "✦", "📍"],
+  graduation: ["🎓", "📚", "✏️", "📘", "✦", "🎓"],
+  scholarship: ["⭐", "🏅", "✦", "🎉", "★", "✨"],
+};
+
+function OrganicPreview({ preview }: { preview: HoverPreviewState }) {
+  return (
+    <aside
+      className={`organic-preview organic-preview--${preview.effect}`}
+      style={
+        {
+          "--preview-accent": preview.accent,
+          left: `${preview.x}px`,
+          top: `${preview.y}px`,
+        } as CSSProperties
+      }
+      aria-label={`${preview.title} preview`}
+    >
+      <div className="organic-particles" aria-hidden="true">
+        {organicParticles[preview.effect].map((particle, index) => (
+          <span
+            key={`${particle}-${index}`}
+            style={{ "--particle-index": index } as CSSProperties}
+          >
+            {particle}
+          </span>
+        ))}
+      </div>
+      <div className="organic-caption">
+        <p>{preview.eyebrow}</p>
+        <strong>{preview.title}</strong>
+        <span>{preview.copy}</span>
+        <small>
+          Click to explore <b aria-hidden="true">→</b>
+        </small>
+      </div>
+    </aside>
+  );
+}
+
+function InfoStory({
+  detail,
+  onClose,
+  titleRef,
+}: {
+  detail: InfoDetail;
+  onClose: () => void;
+  titleRef: React.RefObject<HTMLHeadingElement | null>;
+}) {
+  const theme = {
+    "--accent": detail.accent,
+    "--accent-soft": detail.accentSoft,
+  } as CSSProperties;
+
+  return (
+    <main className="case-stage info-stage" style={theme}>
+      <div className="case-grid-bg" aria-hidden="true" />
+      <header className="case-topbar">
+        <button className="back-button" type="button" onClick={onClose}>
+          <span aria-hidden="true">←</span>
+          Back to résumé
+          <kbd>Esc</kbd>
+        </button>
+        <span className="case-counter">Interactive profile</span>
+        <a className="case-contact" href="mailto:ajaverett0@gmail.com">
+          Let&apos;s talk <span aria-hidden="true">↗</span>
+        </a>
+      </header>
+
+      <article className="info-shell">
+        <section className="info-hero">
+          <div className="info-hero-copy">
+            <p className="case-eyebrow">{detail.eyebrow}</p>
+            <h1 ref={titleRef} tabIndex={-1}>
+              {detail.title}
+            </h1>
+            <h2>{detail.subtitle}</h2>
+            <p>{detail.summary}</p>
+          </div>
+          <div className="info-boat-card">
+            <CuteBoat accent={detail.accent} flag={detail.flag} large />
+            <p>
+              <span>Hover discovery</span>
+              A small detail with a bigger story.
+            </p>
+          </div>
+        </section>
+
+        <section className="info-facts" aria-label={`${detail.title} details`}>
+          {detail.facts.map((fact, index) => (
+            <article key={fact.label}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <p>{fact.label}</p>
+              <strong>{fact.value}</strong>
+            </article>
+          ))}
+        </section>
+
+        <section className="info-tags" aria-label="Related topics">
+          <p>Related to this résumé</p>
+          <div>
+            {detail.tags.map((tag) => (
+              <span key={tag}>{tag}</span>
+            ))}
+          </div>
+        </section>
+
+        <footer className="info-footer">
+          <p>Return to the document and keep exploring.</p>
+          <button className="return-button" type="button" onClick={onClose}>
+            Back to résumé <span aria-hidden="true">↗</span>
+          </button>
+        </footer>
+      </article>
     </main>
   );
 }

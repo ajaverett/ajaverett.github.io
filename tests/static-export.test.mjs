@@ -10,7 +10,10 @@ test("exports a complete static resume", async () => {
 
   assert.match(html, /Alan J\. Averett/);
   assert.match(html, /Booz Allen Hamilton/);
-  assert.match(html, /Click a blue employer to open its project story/);
+  assert.match(html, /Hover the résumé to discover interactive stories/);
+  assert.match(html, /title="Open About Alan J Averett"/);
+  assert.match(html, /title="Open education details for Brigham Young University–Idaho"/);
+  assert.match(html, /title="Open scholarship details"/);
   assert.match(html, /class="pdf-page"/);
   assert.match(html, /class="pdf-list-bullet"/);
   assert.match(html, /Soc of Hispanic Professional Engineer Scholarship/);
