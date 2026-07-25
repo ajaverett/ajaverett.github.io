@@ -1,46 +1,38 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import "./globals.css";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host =
-    requestHeaders.get("x-forwarded-host") ??
-    requestHeaders.get("host") ??
-    "ajaverett.github.io";
-  const protocol =
-    requestHeaders.get("x-forwarded-proto") ??
-    (host.includes("localhost") ? "http" : "https");
-  const origin = `${protocol}://${host}`;
-  const description =
-    "An interactive résumé exploring Alan Averett's work across data science, engineering, machine learning, and education.";
+const siteUrl = "https://ajaverett.github.io";
+const description =
+  "An interactive résumé exploring Alan Averett's work across data science, engineering, machine learning, and education.";
 
-  return {
-    metadataBase: new URL(origin),
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: "Alan J. Averett — Data Scientist",
+  description,
+  alternates: {
+    canonical: siteUrl,
+  },
+  openGraph: {
+    type: "website",
+    url: siteUrl,
     title: "Alan J. Averett — Data Scientist",
     description,
-    openGraph: {
-      type: "website",
-      url: origin,
-      title: "Alan J. Averett — Data Scientist",
-      description,
-      images: [
-        {
-          url: `${origin}/og.png`,
-          width: 1730,
-          height: 909,
-          alt: "Alan J. Averett's résumé unfolding into a vibrant data visualization.",
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Alan J. Averett — Data Scientist",
-      description,
-      images: [`${origin}/og.png`],
-    },
-  };
-}
+    images: [
+      {
+        url: `${siteUrl}/og.png`,
+        width: 1730,
+        height: 909,
+        alt: "Alan J. Averett's résumé unfolding into a vibrant data visualization.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Alan J. Averett — Data Scientist",
+    description,
+    images: [`${siteUrl}/og.png`],
+  },
+};
 
 export default function RootLayout({
   children,

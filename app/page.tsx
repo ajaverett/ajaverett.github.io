@@ -299,14 +299,6 @@ const skillGroups = [
   },
 ];
 
-declare global {
-  interface Document {
-    startViewTransition?: (
-      callback: () => void,
-    ) => { finished: Promise<void> };
-  }
-}
-
 function transitionName(name: string): CSSProperties {
   return { viewTransitionName: name } as CSSProperties;
 }
@@ -327,7 +319,8 @@ export default function Home() {
     const update = () => flushSync(() => setSelectedSlug(slug));
 
     if (
-      document.startViewTransition &&
+      "startViewTransition" in document &&
+      typeof document.startViewTransition === "function" &&
       !window.matchMedia("(prefers-reduced-motion: reduce)").matches
     ) {
       document.startViewTransition(update);

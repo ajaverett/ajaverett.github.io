@@ -1,7 +1,7 @@
 # Alan Averett — Interactive Résumé
 
-A résumé that opens into role-by-role data stories. Built with Next-compatible
-React components on Vinext for a static-feeling, highly interactive portfolio.
+A résumé that opens into role-by-role data stories. Built as a fully static
+Next.js export so it can run on GitHub Pages without a server or sign-in.
 
 ## Local development
 
@@ -10,4 +10,5 @@ pnpm dev
 ```
 
 The résumé content lives in `app/page.tsx`; the visual system and responsive
-transitions live in `app/globals.css`.
+transitions live in `app/globals.css`. Pushing `main` automatically publishes
+the exported site to `https://ajaverett.github.io`.
