@@ -41,3 +41,17 @@ test("includes static assets needed by GitHub Pages", async () => {
   await access(new URL("alan-averett-resume.pdf", outputRoot));
   await assert.rejects(access(new URL(".openai/hosting.json", projectRoot)));
 });
+
+test("connects the hover world to the expanded destination", async () => {
+  const [pageSource, css] = await Promise.all([
+    readFile(new URL("app/page.tsx", projectRoot), "utf8"),
+    readFile(new URL("app/globals.css", projectRoot), "utf8"),
+  ]);
+
+  assert.match(pageSource, /viewTransitionName: "theme-world"/);
+  assert.match(pageSource, /openFromPreview/);
+  assert.match(pageSource, /case-hero case-hero--expanded/);
+  assert.doesNotMatch(pageSource, /setHoverPreview\(null\)/);
+  assert.match(css, /::view-transition-group\(theme-world\)/);
+  assert.match(css, /\.case-theme-world\.immersive-world/);
+});

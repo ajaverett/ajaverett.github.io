@@ -527,10 +527,6 @@ function infoPreview(detail: InfoDetail): HoverPreviewContent {
   };
 }
 
-function transitionName(name: string): CSSProperties {
-  return { viewTransitionName: name } as CSSProperties;
-}
-
 function routeFromHash(): DetailRoute {
   if (typeof window === "undefined") return null;
   const hash = window.location.hash;
@@ -549,7 +545,10 @@ export default function Home() {
   const titleRef = useRef<HTMLHeadingElement>(null);
 
   const changeView = useCallback((route: DetailRoute) => {
-    const update = () => flushSync(() => setActiveRoute(route));
+    const update = () => {
+      flushSync(() => setActiveRoute(route));
+      window.scrollTo(0, 0);
+    };
 
     if (
       "startViewTransition" in document &&
@@ -669,6 +668,16 @@ function Resume({
     };
   };
 
+  const openFromPreview = (
+    preview: HoverPreviewContent,
+    open: () => void,
+  ) => {
+    if (hoverPreview?.id !== preview.id) {
+      flushSync(() => setHoverPreview(preview));
+    }
+    open();
+  };
+
   const aboutPreview: HoverPreviewContent = {
     id: "about",
     eyebrow: "About me",
@@ -699,54 +708,47 @@ function Resume({
     effect: "scholarship",
   };
 
-  const renderResumeRole = (experience: Experience) => (
-    <article className="pdf-experience" key={experience.slug}>
-      <button
-        className="pdf-role-trigger"
-        type="button"
-        onClick={() => {
-          setHoverPreview(null);
-          onSelect(experience.slug);
-        }}
-        aria-label={`Open the project story for ${experience.role} at ${experience.company}`}
-        title={`Open the ${experience.company} project story`}
-        {...previewProps(experiencePreview(experience))}
-      >
-        <span
-          className="pdf-company"
-          style={transitionName(`company-${experience.slug}`)}
+  const renderResumeRole = (experience: Experience) => {
+    const preview = experiencePreview(experience);
+
+    return (
+      <article className="pdf-experience" key={experience.slug}>
+        <button
+          className="pdf-role-trigger"
+          type="button"
+          onClick={() =>
+            openFromPreview(preview, () => onSelect(experience.slug))
+          }
+          aria-label={`Open the project story for ${experience.role} at ${experience.company}`}
+          title={`Open the ${experience.company} project story`}
+          {...previewProps(preview)}
         >
-          {experience.company}
-        </span>
-        <span className="pdf-location">{experience.location}</span>
-        <span className="pdf-role">{experience.role}</span>
-        <span
-          className="pdf-dates"
-          style={transitionName(`dates-${experience.slug}`)}
-        >
-          {experience.dates}
-        </span>
-        <span className="pdf-open-cue" aria-hidden="true">
-          Open story ↗
-        </span>
-      </button>
-      {experience.resumeFocus && (
-        <p className="pdf-role-focus">
-          <strong>{experience.resumeFocus}:</strong>
-        </p>
-      )}
-      <ul>
-        {experience.resumeBullets.map((bullet) => (
-          <li key={bullet}>
-            <span className="pdf-list-bullet" aria-hidden="true">
-              •
-            </span>
-            <span>{bullet}</span>
-          </li>
-        ))}
-      </ul>
-    </article>
-  );
+          <span className="pdf-company">{experience.company}</span>
+          <span className="pdf-location">{experience.location}</span>
+          <span className="pdf-role">{experience.role}</span>
+          <span className="pdf-dates">{experience.dates}</span>
+          <span className="pdf-open-cue" aria-hidden="true">
+            Open story ↗
+          </span>
+        </button>
+        {experience.resumeFocus && (
+          <p className="pdf-role-focus">
+            <strong>{experience.resumeFocus}:</strong>
+          </p>
+        )}
+        <ul>
+          {experience.resumeBullets.map((bullet) => (
+            <li key={bullet}>
+              <span className="pdf-list-bullet" aria-hidden="true">
+                •
+              </span>
+              <span>{bullet}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+    );
+  };
 
   return (
     <main
@@ -784,10 +786,9 @@ function Resume({
               <button
                 className="pdf-inline-trigger pdf-name-trigger"
                 type="button"
-                onClick={() => {
-                  setHoverPreview(null);
-                  onOpenInfo("about");
-                }}
+                onClick={() =>
+                  openFromPreview(aboutPreview, () => onOpenInfo("about"))
+                }
                 title="Open About Alan J Averett"
                 {...previewProps(aboutPreview)}
               >
@@ -819,10 +820,11 @@ function Resume({
                   <button
                     className="pdf-inline-trigger pdf-education-trigger"
                     type="button"
-                    onClick={() => {
-                      setHoverPreview(null);
-                      onOpenInfo("education");
-                    }}
+                    onClick={() =>
+                      openFromPreview(educationPreview, () =>
+                        onOpenInfo("education"),
+                      )
+                    }
                     title={`Open education details for ${education.school}`}
                     {...previewProps(educationPreview)}
                   >
@@ -843,10 +845,11 @@ function Resume({
                 <button
                   className="pdf-inline-trigger pdf-achievement-trigger"
                   type="button"
-                  onClick={() => {
-                    setHoverPreview(null);
-                    onOpenInfo("scholarship");
-                  }}
+                  onClick={() =>
+                    openFromPreview(scholarshipPreview, () =>
+                      onOpenInfo("scholarship"),
+                    )
+                  }
                   title="Open scholarship details"
                   {...previewProps(scholarshipPreview)}
                 >
@@ -904,9 +907,11 @@ const organicParticles: Record<OrganicEffect, string[]> = {
 function ThemeWorld({
   preview,
   context = "preview",
+  titleRef,
 }: {
   preview: HoverPreviewContent;
   context?: "preview" | "case";
+  titleRef?: React.RefObject<HTMLHeadingElement | null>;
 }) {
   const particles = Array.from(
     { length: 12 },
@@ -921,18 +926,19 @@ function ThemeWorld({
       style={
         {
           "--preview-accent": preview.accent,
+          viewTransitionName: "theme-world",
         } as CSSProperties
       }
-      aria-hidden="true"
+      aria-hidden={context === "preview" ? true : undefined}
     >
-      <div className="immersive-glow" />
-      <div className="immersive-marquee">
+      <div className="immersive-glow" aria-hidden="true" />
+      <div className="immersive-marquee" aria-hidden="true">
         <span>
           {preview.title} · {preview.title} ·
         </span>
       </div>
-      <div className="immersive-route" />
-      <div className="immersive-particles">
+      <div className="immersive-route" aria-hidden="true" />
+      <div className="immersive-particles" aria-hidden="true">
         {particles.map((particle, index) => (
           <span
             key={`${particle}-${index}`}
@@ -954,16 +960,24 @@ function ThemeWorld({
           <span>{preview.flag}</span>
           <p>{preview.eyebrow}</p>
         </div>
-        <strong>{preview.title}</strong>
+        {context === "case" ? (
+          <h1 ref={titleRef} tabIndex={-1}>
+            {preview.title}
+          </h1>
+        ) : (
+          <strong>{preview.title}</strong>
+        )}
         <p>{preview.copy}</p>
         <small>
           {context === "preview"
             ? "Click or press Enter to explore"
-            : "The hover world, opened"}{" "}
+            : "Scroll to explore the work"}{" "}
           <b>{context === "preview" ? "↗" : "↓"}</b>
         </small>
       </div>
-      <span className="immersive-corner-mark">{preview.flag}</span>
+      <span className="immersive-corner-mark" aria-hidden="true">
+        {preview.flag}
+      </span>
     </div>
   );
 }
@@ -1013,16 +1027,19 @@ function InfoStory({
       </header>
 
       <article className="info-shell">
-        <section className="info-hero">
+        <section className="info-hero info-hero--expanded">
+          <ThemeWorld
+            preview={infoPreview(detail)}
+            context="case"
+            titleRef={titleRef}
+          />
           <div className="info-hero-copy">
-            <p className="case-eyebrow">{detail.eyebrow}</p>
-            <h1 ref={titleRef} tabIndex={-1}>
-              {detail.title}
-            </h1>
-            <h2>{detail.subtitle}</h2>
+            <div className="info-hero-heading">
+              <p className="case-eyebrow">{detail.eyebrow}</p>
+              <h2>{detail.subtitle}</h2>
+            </div>
             <p>{detail.summary}</p>
           </div>
-          <ThemeWorld preview={infoPreview(detail)} context="case" />
         </section>
 
         <section className="info-facts" aria-label={`${detail.title} details`}>
@@ -1095,21 +1112,18 @@ function CaseStudy({
       </header>
 
       <article className="case-shell">
-        <section className="case-hero">
-          <div className="case-hero-copy">
+        <section className="case-hero case-hero--expanded">
+          <ThemeWorld
+            preview={experiencePreview(experience)}
+            context="case"
+            titleRef={titleRef}
+          />
+
+          <div className="case-opened-copy">
             <p className="case-eyebrow">Original résumé wording</p>
-            <h1
-              ref={titleRef}
-              tabIndex={-1}
-              style={transitionName(`company-${experience.slug}`)}
-            >
-              {experience.company}
-            </h1>
             <h2>{experience.role}</h2>
             <p className="case-summary">{experience.resumeBullets[0]}</p>
           </div>
-
-          <ThemeWorld preview={experiencePreview(experience)} context="case" />
 
           <div className="case-meta">
             <div>
@@ -1118,9 +1132,7 @@ function CaseStudy({
             </div>
             <div>
               <span>Timeline</span>
-              <strong style={transitionName(`dates-${experience.slug}`)}>
-                {experience.dates}
-              </strong>
+              <strong>{experience.dates}</strong>
             </div>
           </div>
         </section>
