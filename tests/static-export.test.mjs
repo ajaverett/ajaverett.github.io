@@ -19,6 +19,14 @@ test("exports a complete static resume", async () => {
   assert.match(html, /Soc of Hispanic Professional Engineer Scholarship/);
   assert.match(html, /QPAS technical standards to ~76 stakeholders/);
   assert.match(html, /Wilford Woodruff Papers Foundation/);
+  assert.match(html, /id="volunteer">Volunteer/);
+  assert.match(html, /Database Administrator/);
+  assert.match(html, /County-Level Civic Engagement Organization/);
+  assert.match(html, /May 2026 - Present/);
+  assert.match(html, /Administered Neon CRM, maintaining constituent records/);
+  assert.match(html, /Imported, cleaned, deduplicated, and standardized contact/);
+  assert.match(html, /Protected sensitive information through access controls/);
+  assert.doesNotMatch(html, /Interactive document/);
   assert.match(html, /R’s tidyverse/);
   assert.match(html, /Python\/R/);
   assert.match(html, /https:\/\/ajaverett\.github\.io\/og\.png/);

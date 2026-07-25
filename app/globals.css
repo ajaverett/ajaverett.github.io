@@ -637,12 +637,12 @@ a {
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.38),
     0 18px 48px rgba(0, 0, 0, 0.22);
-  font-size: 13px;
-  line-height: 1.2;
+  font-size: 12.5px;
+  line-height: 1.17;
 }
 
 .pdf-header {
-  margin-bottom: 28px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -669,7 +669,7 @@ a {
 }
 
 .pdf-section {
-  margin-top: 24px;
+  margin-top: 20px;
 }
 
 .pdf-section h2 {
@@ -760,12 +760,12 @@ a {
 }
 
 .pdf-experience-section {
-  margin-top: 27px;
+  margin-top: 22px;
 }
 
 .pdf-experience-list {
   display: grid;
-  gap: 17px;
+  gap: 13px;
 }
 
 .pdf-experience {
@@ -818,7 +818,7 @@ a {
 .pdf-role,
 .pdf-location,
 .pdf-dates {
-  font-size: 13px;
+  font-size: 12.5px;
 }
 
 .pdf-open-cue {
@@ -878,21 +878,21 @@ a {
   margin-top: 2px;
 }
 
-.pdf-skills-section {
-  margin-top: 21px;
+.pdf-volunteer-section {
+  margin-top: 17px;
 }
 
-.pdf-page-footer {
-  position: absolute;
-  right: 0.62in;
-  bottom: 0.22in;
-  left: 0.62in;
-  color: #777;
-  font-family: Arial, sans-serif;
-  font-size: 7px;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
+.pdf-volunteer-section .pdf-experience-list {
+  gap: 11px;
+}
+
+.pdf-role-focus {
+  margin: 3px 0 0 18px;
+  font-size: 12px;
+}
+
+.pdf-skills-section {
+  margin-top: 17px;
 }
 
 .cute-boat-scene {
@@ -1770,36 +1770,90 @@ a {
   }
 }
 
-.immersive-preview--boats .immersive-route {
-  right: -52px;
-  bottom: -82px;
-  left: -52px;
-  height: 220px;
-  border-radius: 50% 50% 0 0 / 30% 30% 0 0;
+.immersive-preview--naval.immersive-world::before {
+  inset: 0;
+  border-radius: 3px 28px 3px 28px;
   background:
-    repeating-radial-gradient(ellipse at 50% 0, transparent 0 22px, rgba(255, 255, 255, 0.18) 23px 26px),
-    linear-gradient(180deg, #3dc7ed, #075f93);
-  opacity: 0.88;
-  animation: immersive-tide 2.8s ease-in-out infinite alternate;
+    linear-gradient(135deg, rgba(1, 8, 15, 0.98), rgba(6, 31, 41, 0.92)),
+    var(--preview-accent);
+  box-shadow:
+    0 0 0 1px rgba(126, 240, 207, 0.62),
+    0 0 48px rgba(34, 211, 174, 0.18),
+    10px 10px 0 rgba(10, 38, 49, 0.94);
+  rotate: 0deg;
+  clip-path: polygon(0 0, 91% 0, 100% 13%, 100% 100%, 8% 100%, 0 88%);
+  animation: naval-panel-pulse 3.4s ease-in-out infinite alternate;
 }
 
-.immersive-preview--boats .immersive-particles span:nth-child(6n + 1),
-.immersive-preview--boats .immersive-particles span:nth-child(6n + 6) {
-  font-size: clamp(46px, 5vw, 68px);
-  animation-name: immersive-sail;
+.immersive-preview--naval.immersive-world::after {
+  top: 25px;
+  right: 23px;
+  width: 190px;
+  border-color: rgba(126, 240, 207, 0.58);
+  border-style: dashed;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 27px rgba(126, 240, 207, 0.035),
+    0 0 0 58px rgba(126, 240, 207, 0.025);
 }
 
-@keyframes immersive-tide {
+.immersive-preview--naval .immersive-glow {
+  background:
+    linear-gradient(rgba(126, 240, 207, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(126, 240, 207, 0.06) 1px, transparent 1px),
+    radial-gradient(circle at 74% 32%, rgba(126, 240, 207, 0.24), transparent 28%);
+  background-size: 24px 24px, 24px 24px, auto;
+}
+
+.immersive-preview--naval .immersive-route {
+  top: 34px;
+  right: 30px;
+  width: 180px;
+  height: 180px;
+  border: 1px solid rgba(126, 240, 207, 0.76);
+  border-radius: 50%;
+  background:
+    linear-gradient(90deg, transparent 49.5%, rgba(126, 240, 207, 0.55) 50%, transparent 50.5%),
+    linear-gradient(transparent 49.5%, rgba(126, 240, 207, 0.55) 50%, transparent 50.5%),
+    repeating-radial-gradient(circle, transparent 0 19px, rgba(126, 240, 207, 0.2) 20px 21px);
+  opacity: 0.86;
+  animation: immersive-radar 4.2s linear infinite;
+}
+
+.immersive-preview--naval .immersive-particles span {
+  min-width: auto;
+  min-height: auto;
+  padding: 5px 7px;
+  color: #d8fff4;
+  border: 1px solid rgba(126, 240, 207, 0.6);
+  border-radius: 2px;
+  background: rgba(2, 20, 27, 0.9);
+  box-shadow: 0 0 18px rgba(126, 240, 207, 0.16);
+  font-size: calc(var(--particle-size) * 0.34);
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 10px rgba(126, 240, 207, 0.65);
+  animation-name: immersive-tactical-sweep;
+}
+
+@keyframes naval-panel-pulse {
   to {
-    translate: 0 3vh;
-    scale: 1.04 0.9;
+    box-shadow:
+      0 0 0 1px rgba(126, 240, 207, 0.82),
+      0 0 68px rgba(34, 211, 174, 0.24),
+      10px 10px 0 rgba(10, 38, 49, 0.94);
   }
 }
 
-@keyframes immersive-sail {
+@keyframes immersive-radar {
+  to {
+    rotate: 1turn;
+  }
+}
+
+@keyframes immersive-tactical-sweep {
   50% {
-    translate: 4vw -2vh;
-    rotate: -6deg;
+    translate: 18px -9px;
+    opacity: 0.62;
   }
 }
 
@@ -1837,24 +1891,137 @@ a {
   }
 }
 
-.immersive-preview--map .immersive-route {
-  top: 12%;
-  right: -2%;
-  width: 78%;
-  height: 60%;
-  border: 3px dashed color-mix(in srgb, var(--preview-accent) 76%, #fff);
-  border-top-color: transparent;
-  border-left-color: transparent;
+.immersive-preview--political.immersive-world::before {
+  inset: 0;
+  border-radius: 28px 5px 28px 5px;
+  background:
+    linear-gradient(112deg, rgba(20, 56, 129, 0.96) 0 48.8%, rgba(246, 241, 224, 0.92) 49% 51%, rgba(135, 27, 46, 0.96) 51.2%),
+    #111421;
+  box-shadow:
+    -8px 9px 0 #173c82,
+    8px -8px 0 #87213a;
+  rotate: 0deg;
+  animation: political-panel-shift 4.2s ease-in-out infinite alternate;
+}
+
+.immersive-preview--political.immersive-world::after {
+  top: 18px;
+  right: 25px;
+  width: 158px;
+  border-color: rgba(255, 255, 255, 0.72);
   border-radius: 50%;
-  opacity: 0.65;
-  rotate: -12deg;
+  box-shadow:
+    0 0 0 23px rgba(255, 255, 255, 0.045),
+    0 0 0 48px rgba(255, 255, 255, 0.025);
+}
+
+.immersive-preview--political .immersive-glow {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 29px, rgba(255, 255, 255, 0.05) 30px),
+    radial-gradient(circle at 78% 20%, rgba(255, 255, 255, 0.24), transparent 27%);
+}
+
+.immersive-preview--political .immersive-route {
+  top: 44px;
+  right: 36px;
+  width: 180px;
+  height: 116px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+  background:
+    linear-gradient(to top, rgba(255, 255, 255, 0.65) 0 38%, transparent 39%) 0 100% / 18px 68% no-repeat,
+    linear-gradient(to top, rgba(255, 255, 255, 0.75) 0 62%, transparent 63%) 31px 100% / 18px 100% no-repeat,
+    linear-gradient(to top, rgba(255, 255, 255, 0.58) 0 48%, transparent 49%) 62px 100% / 18px 78% no-repeat,
+    linear-gradient(to top, rgba(255, 255, 255, 0.72) 0 55%, transparent 56%) 93px 100% / 18px 90% no-repeat,
+    linear-gradient(to top, rgba(255, 255, 255, 0.52) 0 44%, transparent 45%) 124px 100% / 18px 72% no-repeat;
+  opacity: 0.88;
+  animation: political-bars 2.8s ease-in-out infinite alternate;
+}
+
+.immersive-preview--political .immersive-particles span {
+  min-width: auto;
+  min-height: auto;
+  padding: 5px 8px;
+  color: #fffdf2;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  background: #173c82;
+  font-size: calc(var(--particle-size) * 0.34);
+  letter-spacing: 0.05em;
+  text-shadow: none;
+  animation-name: political-token-float;
+}
+
+.immersive-preview--political .immersive-particles span:nth-child(even) {
+  background: #87213a;
+}
+
+@keyframes political-panel-shift {
+  to {
+    filter: saturate(1.12);
+    translate: 2px -2px;
+  }
+}
+
+@keyframes political-bars {
+  to {
+    scale: 1 1.08;
+  }
+}
+
+@keyframes political-token-float {
+  50% {
+    translate: -12px -16px;
+    rotate: -5deg;
+  }
+}
+
+.immersive-preview--crm.immersive-world::before {
+  background:
+    linear-gradient(135deg, rgba(23, 8, 28, 0.96), rgba(17, 42, 50, 0.92)),
+    var(--preview-accent);
+  box-shadow:
+    0 0 0 1px rgba(255, 128, 173, 0.74),
+    0 10px 0 rgba(88, 29, 60, 0.78),
+    0 0 52px rgba(255, 92, 138, 0.2);
+}
+
+.immersive-preview--crm .immersive-glow {
+  background:
+    radial-gradient(circle at 73% 27%, rgba(87, 245, 221, 0.24), transparent 26%),
+    linear-gradient(115deg, transparent 0 48%, rgba(255, 92, 138, 0.16) 48% 49%, transparent 49%);
+}
+
+.immersive-preview--crm .immersive-route {
+  top: 38px;
+  right: 36px;
+  width: 154px;
+  height: 154px;
+  border: 2px solid rgba(87, 245, 221, 0.62);
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 18px rgba(87, 245, 221, 0.05),
+    inset 0 0 0 38px rgba(255, 92, 138, 0.04);
+  opacity: 0.8;
   animation: immersive-route-draw 2.8s ease-in-out infinite alternate;
+}
+
+.immersive-preview--crm .immersive-particles span {
+  min-width: auto;
+  min-height: auto;
+  padding: 5px 8px;
+  color: #fef4fa;
+  border: 1px solid rgba(255, 158, 194, 0.72);
+  border-radius: 999px;
+  background: rgba(64, 20, 49, 0.9);
+  box-shadow: 0 0 18px rgba(255, 92, 138, 0.26);
+  font-size: calc(var(--particle-size) * 0.4);
+  text-shadow: none;
 }
 
 @keyframes immersive-route-draw {
   to {
-    translate: -4vw 2vh;
-    rotate: -3deg;
+    translate: -18px 10px;
+    rotate: -8deg;
     scale: 0.94;
   }
 }
@@ -2176,6 +2343,18 @@ a {
   isolation: isolate;
 }
 
+.case-stage--naval {
+  background: #02080d;
+}
+
+.case-stage--political {
+  background: #0c101d;
+}
+
+.case-stage--crm {
+  background: #130b17;
+}
+
 .case-grid-bg {
   position: fixed;
   inset: 0;
@@ -2192,11 +2371,50 @@ a {
     64px 64px;
 }
 
+.case-stage--naval .case-grid-bg {
+  opacity: 0.58;
+  background:
+    radial-gradient(circle at 77% 15%, rgba(68, 221, 185, 0.22), transparent 24%),
+    linear-gradient(rgba(126, 240, 207, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(126, 240, 207, 0.045) 1px, transparent 1px);
+  background-size: auto, 32px 32px, 32px 32px;
+}
+
+.case-stage--political .case-grid-bg {
+  opacity: 0.55;
+  background:
+    radial-gradient(circle at 20% 12%, rgba(40, 91, 194, 0.31), transparent 27%),
+    radial-gradient(circle at 83% 19%, rgba(178, 42, 65, 0.29), transparent 27%),
+    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+  background-size: auto, auto, 100% 34px;
+}
+
+.case-stage--crm .case-grid-bg {
+  opacity: 0.52;
+  background:
+    radial-gradient(circle at 78% 14%, rgba(255, 92, 138, 0.28), transparent 28%),
+    radial-gradient(circle at 18% 45%, rgba(87, 245, 221, 0.12), transparent 28%),
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: auto, auto, 100% 48px;
+}
+
 .case-grid-bg::after {
   position: absolute;
   inset: 0;
   content: "";
   background: linear-gradient(180deg, transparent 0, #111319 86%);
+}
+
+.case-stage--naval .case-grid-bg::after {
+  background: linear-gradient(180deg, transparent 0, #02080d 86%);
+}
+
+.case-stage--political .case-grid-bg::after {
+  background: linear-gradient(180deg, transparent 0, #0c101d 86%);
+}
+
+.case-stage--crm .case-grid-bg::after {
+  background: linear-gradient(180deg, transparent 0, #130b17 86%);
 }
 
 .case-topbar {
@@ -2338,6 +2556,30 @@ a {
   font-family: var(--serif);
   font-size: clamp(16px, 1.5vw, 21px);
   line-height: 1.55;
+}
+
+.case-theme-world.immersive-world {
+  position: relative;
+  top: auto;
+  left: auto;
+  align-self: center;
+  width: min(100%, 520px);
+  height: 430px;
+  justify-self: center;
+  translate: none;
+  animation: case-theme-arrive 600ms 90ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.case-theme-world .immersive-copy strong {
+  font-size: clamp(34px, 4vw, 56px);
+}
+
+@keyframes case-theme-arrive {
+  from {
+    opacity: 0;
+    translate: 0 28px;
+    scale: 0.94;
+  }
 }
 
 .signal-card {
@@ -2730,7 +2972,7 @@ a {
 
 .career-index {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
 .career-index button {
@@ -2859,6 +3101,10 @@ a {
     gap: 42px;
   }
 
+  .case-theme-world.immersive-world {
+    height: 390px;
+  }
+
   .chapter {
     grid-template-columns: 35px 0.35fr 0.9fr;
   }
@@ -2979,12 +3225,10 @@ a {
     margin-top: 48px;
   }
 
-  .signal-card {
-    min-height: 360px;
-  }
-
-  .signal-field {
-    height: 270px;
+  .case-theme-world.immersive-world {
+    width: min(100% - 16px, 500px);
+    height: 340px;
+    margin: 12px auto 0;
   }
 
   .case-meta {
@@ -3087,7 +3331,6 @@ a {
 
   .pdf-toolbar,
   .pdf-open-cue,
-  .pdf-page-footer,
   .organic-preview,
   .immersive-preview {
     display: none;

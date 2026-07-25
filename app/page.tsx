@@ -16,10 +16,13 @@ type Metric = {
 
 type Experience = {
   slug: string;
+  group: "experience" | "volunteer";
+  effect: OrganicEffect;
   company: string;
   role: string;
   location: string;
   dates: string;
+  resumeFocus?: string;
   eyebrow: string;
   headline: string;
   summary: string;
@@ -54,17 +57,19 @@ type InfoDetail = {
   accent: string;
   accentSoft: string;
   flag: string;
+  effect: OrganicEffect;
   facts: { label: string; value: string }[];
   tags: string[];
 };
 
 type OrganicEffect =
   | "about"
-  | "boats"
+  | "naval"
   | "books"
   | "code"
   | "research"
-  | "map"
+  | "political"
+  | "crm"
   | "graduation"
   | "scholarship";
 
@@ -81,6 +86,8 @@ type HoverPreviewContent = {
 const experiences: Experience[] = [
   {
     slug: "booz-allen",
+    group: "experience",
+    effect: "naval",
     company: "Booz Allen Hamilton",
     role: "Data Scientist II (Senior Consultant)",
     location: "Salt Lake City, UT",
@@ -134,6 +141,8 @@ const experiences: Experience[] = [
   },
   {
     slug: "mountainland",
+    group: "experience",
+    effect: "books",
     company: "Mountainland Technical College",
     role: "Adjunct Faculty Instructor; Part-time",
     location: "Lehi, UT",
@@ -188,6 +197,8 @@ const experiences: Experience[] = [
   },
   {
     slug: "corecodec",
+    group: "experience",
+    effect: "code",
     company: "Corecodec",
     role: "Data Engineer Intern",
     location: "San Antonio, TX",
@@ -232,6 +243,8 @@ const experiences: Experience[] = [
   },
   {
     slug: "rbdc",
+    group: "volunteer",
+    effect: "research",
     company: "Research & Business Development Center",
     role: "Data Consulting Intern",
     location: "Idaho Falls, ID",
@@ -270,12 +283,13 @@ const experiences: Experience[] = [
     pipeline: ["Submissions", "Python", "Anomaly detection", "Plotly / Streamlit", "Public records"],
     tools: ["Python", "Plotly", "Streamlit", "text vectorization"],
     resumeBullets: [
-      "Collaborated with FamilySearch executive leadership to deploy several in-house tuned anomaly detection algorithms in Python, analyzing over 200k submissions of unstructured, participant-submitted information for quality assurance",
-      "Developed dashboards using Plotly and Streamlit that cross-referenced firm-owned content repositories with public records using text vectorization in Python, improving research capabilities for the Wilford Woodruff Papers Foundation",
+      "Collaborated with FamilySearch executive leadership to deploy several in-house tuned anomaly detection algorithms in Python, analyzing over 200k submissions of unstructured, participant-submitted information for quality assurance; developed dashboards using Plotly and Streamlit that cross-referenced firm-owned content repositories with public records using text vectorization in Python, improving research capabilities for the Wilford Woodruff Papers Foundation",
     ],
   },
   {
     slug: "wpa",
+    group: "experience",
+    effect: "political",
     company: "WPA Intelligence",
     role: "Machine Learning Intern",
     location: "SE Washington, DC",
@@ -318,6 +332,59 @@ const experiences: Experience[] = [
       "Improved accuracy and AUC of all future ML models by 1-3% by feature engineering GIS data to classify over 100 million voter records into 12 population density granularities using US Census Bureau’s geographic spatial data and R’s sf library",
     ],
   },
+  {
+    slug: "civic-database",
+    group: "volunteer",
+    effect: "crm",
+    company: "County-Level Civic Engagement Organization",
+    role: "Database Administrator",
+    location: "Saratoga Springs, UT",
+    dates: "May 2026 - Present",
+    resumeFocus: "Neon CRM",
+    eyebrow: "Civic data · CRM administration",
+    headline: "Keeping civic engagement data clean, secure, and usable.",
+    summary:
+      "Administered Neon CRM, maintaining constituent records, user access, data integrity, and system configuration.",
+    accent: "#ff5c8a",
+    accentSoft: "#ffd6e5",
+    metrics: [
+      { value: "Neon", label: "CRM administration" },
+      { value: "Clean", label: "standardized records" },
+      { value: "Access", label: "sensitive information" },
+    ],
+    chapters: [
+      {
+        number: "01",
+        label: "Administration",
+        title: "Constituent data kept dependable.",
+        copy: "Administered Neon CRM, maintaining constituent records, user access, data integrity, and system configuration.",
+      },
+      {
+        number: "02",
+        label: "Data quality",
+        title: "Imported information made consistent.",
+        copy: "Imported, cleaned, deduplicated, and standardized contact and contribution data.",
+      },
+      {
+        number: "03",
+        label: "Protection",
+        title: "Sensitive information handled carefully.",
+        copy: "Protected sensitive information through access controls and data-quality practices.",
+      },
+    ],
+    pipeline: ["Import", "Clean", "Deduplicate", "Standardize", "Protect"],
+    tools: [
+      "Neon CRM",
+      "Constituent records",
+      "Data quality",
+      "Access controls",
+    ],
+    resumeBullets: [
+      "Administered Neon CRM, maintaining constituent records, user access, data integrity, and system configuration.",
+      "Imported, cleaned, deduplicated, and standardized contact and contribution data.",
+      "Protected sensitive information through access controls and data-quality practices.",
+    ],
+  },
 ];
 
 const education = {
@@ -358,6 +425,7 @@ const infoDetails: Record<InfoSlug, InfoDetail> = {
     accent: "#ff6a3d",
     accentSoft: "#ffd8c9",
     flag: "AJ",
+    effect: "about",
     facts: [
       { label: "Current role", value: "Booz Allen Hamilton" },
       { label: "Education", value: "B.Sc. Data Science, Statistics" },
@@ -376,6 +444,7 @@ const infoDetails: Record<InfoSlug, InfoDetail> = {
     accent: "#8c7bff",
     accentSoft: "#ded8ff",
     flag: "BYU-I",
+    effect: "graduation",
     facts: [
       { label: "Location", value: "Rexburg, ID" },
       { label: "Dates", value: "Apr 2020 - Dec 2023" },
@@ -397,6 +466,7 @@ const infoDetails: Record<InfoSlug, InfoDetail> = {
     accent: "#e4b23c",
     accentSoft: "#f8e6af",
     flag: "★",
+    effect: "scholarship",
     facts: [
       {
         label: "Achievement",
@@ -409,25 +479,53 @@ const infoDetails: Record<InfoSlug, InfoDetail> = {
   },
 };
 
-const experienceEffects: Record<string, OrganicEffect> = {
-  "booz-allen": "boats",
-  mountainland: "books",
-  corecodec: "code",
-  rbdc: "research",
-  wpa: "map",
-};
+const experienceRoles = experiences.filter(
+  (experience) => experience.group === "experience",
+);
+const volunteerRoles = experiences.filter(
+  (experience) => experience.group === "volunteer",
+);
+const resumeRoles = [...experienceRoles, ...volunteerRoles];
 
 const experiencePreviewCopy: Record<string, string> = {
   "booz-allen":
-    "Multi-source naval time-series data · QlikSense · predictive maintenance",
+    "Aircraft-carrier readiness · naval time-series data · mission-critical dashboards",
   mountainland:
     "Full data lifecycle · MTECH Data Technology course · student performance evaluation",
   corecodec:
     "Python and Selenium · copyright infringement analysis · automated Excel reports",
   rbdc:
     "200k submissions · anomaly detection · Plotly and Streamlit dashboards",
-  wpa: "100 million voter records · GIS data · 1-3% accuracy and AUC",
+  wpa: "Voter modeling · hundreds of civic campaigns · 100 million voter records",
+  "civic-database":
+    "Neon CRM · constituent records · data integrity · access controls",
 };
+
+function experiencePreview(experience: Experience): HoverPreviewContent {
+  return {
+    id: `work-${experience.slug}`,
+    eyebrow: experience.role,
+    title: experience.company,
+    copy: experiencePreviewCopy[experience.slug],
+    accent: experience.accent,
+    flag: String(
+      resumeRoles.findIndex((item) => item.slug === experience.slug) + 1,
+    ).padStart(2, "0"),
+    effect: experience.effect,
+  };
+}
+
+function infoPreview(detail: InfoDetail): HoverPreviewContent {
+  return {
+    id: `info-${detail.slug}`,
+    eyebrow: detail.eyebrow,
+    title: detail.title,
+    copy: detail.summary,
+    accent: detail.accent,
+    flag: detail.flag,
+    effect: detail.effect,
+  };
+}
 
 function transitionName(name: string): CSSProperties {
   return { viewTransitionName: name } as CSSProperties;
@@ -601,6 +699,55 @@ function Resume({
     effect: "scholarship",
   };
 
+  const renderResumeRole = (experience: Experience) => (
+    <article className="pdf-experience" key={experience.slug}>
+      <button
+        className="pdf-role-trigger"
+        type="button"
+        onClick={() => {
+          setHoverPreview(null);
+          onSelect(experience.slug);
+        }}
+        aria-label={`Open the project story for ${experience.role} at ${experience.company}`}
+        title={`Open the ${experience.company} project story`}
+        {...previewProps(experiencePreview(experience))}
+      >
+        <span
+          className="pdf-company"
+          style={transitionName(`company-${experience.slug}`)}
+        >
+          {experience.company}
+        </span>
+        <span className="pdf-location">{experience.location}</span>
+        <span className="pdf-role">{experience.role}</span>
+        <span
+          className="pdf-dates"
+          style={transitionName(`dates-${experience.slug}`)}
+        >
+          {experience.dates}
+        </span>
+        <span className="pdf-open-cue" aria-hidden="true">
+          Open story ↗
+        </span>
+      </button>
+      {experience.resumeFocus && (
+        <p className="pdf-role-focus">
+          <strong>{experience.resumeFocus}:</strong>
+        </p>
+      )}
+      <ul>
+        {experience.resumeBullets.map((bullet) => (
+          <li key={bullet}>
+            <span className="pdf-list-bullet" aria-hidden="true">
+              •
+            </span>
+            <span>{bullet}</span>
+          </li>
+        ))}
+      </ul>
+    </article>
+  );
+
   return (
     <main
       className={`pdf-viewer${hoverPreview ? " pdf-viewer--previewing" : ""}`}
@@ -713,61 +860,14 @@ function Resume({
           <section className="pdf-section pdf-experience-section" aria-labelledby="experience">
             <h2 id="experience">Experience</h2>
             <div className="pdf-experience-list">
-              {experiences.map((experience) => (
-                <article className="pdf-experience" key={experience.slug}>
-                  <button
-                    className="pdf-role-trigger"
-                    type="button"
-                    onClick={() => {
-                      setHoverPreview(null);
-                      onSelect(experience.slug);
-                    }}
-                    aria-label={`Open the project story for ${experience.role} at ${experience.company}`}
-                    title={`Open the ${experience.company} project story`}
-                    {...previewProps({
-                      id: `work-${experience.slug}`,
-                      eyebrow: experience.role,
-                      title: experience.company,
-                      copy: experiencePreviewCopy[experience.slug],
-                      accent: experience.accent,
-                      flag: String(
-                        experiences.findIndex(
-                          (item) => item.slug === experience.slug,
-                        ) + 1,
-                      ).padStart(2, "0"),
-                      effect: experienceEffects[experience.slug],
-                    })}
-                  >
-                    <span
-                      className="pdf-company"
-                      style={transitionName(`company-${experience.slug}`)}
-                    >
-                      {experience.company}
-                    </span>
-                    <span className="pdf-location">{experience.location}</span>
-                    <span className="pdf-role">{experience.role}</span>
-                    <span
-                      className="pdf-dates"
-                      style={transitionName(`dates-${experience.slug}`)}
-                    >
-                      {experience.dates}
-                    </span>
-                    <span className="pdf-open-cue" aria-hidden="true">
-                      Open story ↗
-                    </span>
-                  </button>
-                  <ul>
-                    {experience.resumeBullets.map((bullet) => (
-                      <li key={bullet}>
-                        <span className="pdf-list-bullet" aria-hidden="true">
-                          •
-                        </span>
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
+              {experienceRoles.map(renderResumeRole)}
+            </div>
+          </section>
+
+          <section className="pdf-section pdf-volunteer-section" aria-labelledby="volunteer">
+            <h2 id="volunteer">Volunteer</h2>
+            <div className="pdf-experience-list">
+              {volunteerRoles.map(renderResumeRole)}
             </div>
           </section>
 
@@ -782,9 +882,6 @@ function Resume({
             </ul>
           </section>
 
-          <footer className="pdf-page-footer">
-            Interactive document · Hover highlighted entities to open a world
-          </footer>
         </article>
       </div>
       {hoverPreview && <ImmersivePreview preview={hoverPreview} />}
@@ -792,53 +889,25 @@ function Resume({
   );
 }
 
-function CuteBoat({
-  accent,
-  flag,
-  large = false,
-}: {
-  accent: string;
-  flag: string;
-  large?: boolean;
-}) {
-  return (
-    <div
-      className={`cute-boat-scene${large ? " cute-boat-scene--large" : ""}`}
-      style={{ "--boat-accent": accent } as CSSProperties}
-      aria-hidden="true"
-    >
-      <span className="boat-sun" />
-      <span className="boat-cloud boat-cloud-one" />
-      <span className="boat-cloud boat-cloud-two" />
-      <div className="cute-boat">
-        <span className="boat-flag">{flag}</span>
-        <span className="boat-mast" />
-        <span className="boat-sail boat-sail-main" />
-        <span className="boat-sail boat-sail-small" />
-        <span className="boat-hull">
-          <i />
-          <i />
-        </span>
-      </div>
-      <span className="boat-wave boat-wave-one" />
-      <span className="boat-wave boat-wave-two" />
-      <span className="boat-spark">✦</span>
-    </div>
-  );
-}
-
 const organicParticles: Record<OrganicEffect, string[]> = {
   about: ["✨", "🧭", "⛵", "☀️", "🌊", "✦"],
-  boats: ["⛵", "🫧", "🐟", "⚓", "〰", "⛵"],
+  naval: ["CVN", "⚓", "F/A-18", "RADAR", "◆", "〰"],
   books: ["📕", "📗", "📘", "📙", "✏️", "📓"],
   code: ["</>", "{ }", "01", "⌁", "⚙", "✦"],
   research: ["🔎", "📄", "Aa", "✦", "⌕", "•••"],
-  map: ["📍", "🗺️", "◉", "12", "✦", "📍"],
+  political: ["VOTE", "51%", "POLL", "✓", "R", "D"],
+  crm: ["CRM", "DB", "ID", "✓", "↻", "◎"],
   graduation: ["🎓", "📚", "✏️", "📘", "✦", "🎓"],
   scholarship: ["⭐", "🏅", "✦", "🎉", "★", "✨"],
 };
 
-function ImmersivePreview({ preview }: { preview: HoverPreviewContent }) {
+function ThemeWorld({
+  preview,
+  context = "preview",
+}: {
+  preview: HoverPreviewContent;
+  context?: "preview" | "case";
+}) {
   const particles = Array.from(
     { length: 12 },
     (_, index) => organicParticles[preview.effect][index % 6],
@@ -846,7 +915,9 @@ function ImmersivePreview({ preview }: { preview: HoverPreviewContent }) {
 
   return (
     <div
-      className={`immersive-preview immersive-preview--${preview.effect}`}
+      className={`immersive-world immersive-preview--${preview.effect}${
+        context === "case" ? " case-theme-world" : ""
+      }`}
       style={
         {
           "--preview-accent": preview.accent,
@@ -854,44 +925,57 @@ function ImmersivePreview({ preview }: { preview: HoverPreviewContent }) {
       }
       aria-hidden="true"
     >
-      <div className="immersive-world">
-        <div className="immersive-glow" />
-        <div className="immersive-marquee">
-          <span>
-            {preview.title} · {preview.title} ·
-          </span>
-        </div>
-        <div className="immersive-route" />
-        <div className="immersive-particles">
-          {particles.map((particle, index) => (
-            <span
-              key={`${particle}-${index}`}
-              style={
-                {
-                  "--particle-index": index,
-                  "--particle-x": `${((index * 37) % 94) + 3}%`,
-                  "--particle-y": `${((index * 53) % 78) + 8}%`,
-                  "--particle-size": `${26 + ((index * 11) % 26)}px`,
-                } as CSSProperties
-              }
-            >
-              {particle}
-            </span>
-          ))}
-        </div>
-        <div className="immersive-copy">
-          <div className="immersive-kicker">
-            <span>{preview.flag}</span>
-            <p>{preview.eyebrow}</p>
-          </div>
-          <strong>{preview.title}</strong>
-          <p>{preview.copy}</p>
-          <small>
-            Click or press Enter to explore <b>↗</b>
-          </small>
-        </div>
-        <span className="immersive-corner-mark">{preview.flag}</span>
+      <div className="immersive-glow" />
+      <div className="immersive-marquee">
+        <span>
+          {preview.title} · {preview.title} ·
+        </span>
       </div>
+      <div className="immersive-route" />
+      <div className="immersive-particles">
+        {particles.map((particle, index) => (
+          <span
+            key={`${particle}-${index}`}
+            style={
+              {
+                "--particle-index": index,
+                "--particle-x": `${((index * 37) % 94) + 3}%`,
+                "--particle-y": `${((index * 53) % 78) + 8}%`,
+                "--particle-size": `${26 + ((index * 11) % 26)}px`,
+              } as CSSProperties
+            }
+          >
+            {particle}
+          </span>
+        ))}
+      </div>
+      <div className="immersive-copy">
+        <div className="immersive-kicker">
+          <span>{preview.flag}</span>
+          <p>{preview.eyebrow}</p>
+        </div>
+        <strong>{preview.title}</strong>
+        <p>{preview.copy}</p>
+        <small>
+          {context === "preview"
+            ? "Click or press Enter to explore"
+            : "The hover world, opened"}{" "}
+          <b>{context === "preview" ? "↗" : "↓"}</b>
+        </small>
+      </div>
+      <span className="immersive-corner-mark">{preview.flag}</span>
+    </div>
+  );
+}
+
+function ImmersivePreview({ preview }: { preview: HoverPreviewContent }) {
+  return (
+    <div
+      className={`immersive-preview immersive-preview--${preview.effect}`}
+      style={{ "--preview-accent": preview.accent } as CSSProperties}
+      aria-hidden="true"
+    >
+      <ThemeWorld preview={preview} />
     </div>
   );
 }
@@ -911,7 +995,10 @@ function InfoStory({
   } as CSSProperties;
 
   return (
-    <main className="case-stage info-stage" style={theme}>
+    <main
+      className={`case-stage info-stage case-stage--${detail.effect}`}
+      style={theme}
+    >
       <div className="case-grid-bg" aria-hidden="true" />
       <header className="case-topbar">
         <button className="back-button" type="button" onClick={onClose}>
@@ -935,13 +1022,7 @@ function InfoStory({
             <h2>{detail.subtitle}</h2>
             <p>{detail.summary}</p>
           </div>
-          <div className="info-boat-card">
-            <CuteBoat accent={detail.accent} flag={detail.flag} large />
-            <p>
-              <span>Hover discovery</span>
-              A small detail with a bigger story.
-            </p>
-          </div>
+          <ThemeWorld preview={infoPreview(detail)} context="case" />
         </section>
 
         <section className="info-facts" aria-label={`${detail.title} details`}>
@@ -991,7 +1072,10 @@ function CaseStudy({
   } as CSSProperties;
 
   return (
-    <main className="case-stage" style={theme}>
+    <main
+      className={`case-stage case-stage--${experience.effect}`}
+      style={theme}
+    >
       <div className="case-grid-bg" aria-hidden="true" />
       <header className="case-topbar">
         <button className="back-button" type="button" onClick={onClose}>
@@ -1001,9 +1085,9 @@ function CaseStudy({
         </button>
         <span className="case-counter">
           {String(
-            experiences.findIndex((item) => item.slug === experience.slug) + 1,
+            resumeRoles.findIndex((item) => item.slug === experience.slug) + 1,
           ).padStart(2, "0")}{" "}
-          / {String(experiences.length).padStart(2, "0")}
+          / {String(resumeRoles.length).padStart(2, "0")}
         </span>
         <a className="case-contact" href="mailto:ajaverett0@gmail.com">
           Let&apos;s talk <span aria-hidden="true">↗</span>
@@ -1025,36 +1109,7 @@ function CaseStudy({
             <p className="case-summary">{experience.resumeBullets[0]}</p>
           </div>
 
-          <div className="signal-card" aria-label="Data signal illustration">
-            <div className="signal-card-head">
-              <span>Signal / output</span>
-              <span>Live narrative</span>
-            </div>
-            <div className="signal-field" aria-hidden="true">
-              {Array.from({ length: 48 }, (_, index) => (
-                <span
-                  key={index}
-                  style={
-                    {
-                      "--height": `${18 + ((index * 31) % 76)}%`,
-                      "--delay": `${(index % 12) * -0.12}s`,
-                    } as CSSProperties
-                  }
-                />
-              ))}
-              <div className="signal-line" />
-              <div className="signal-orbit signal-orbit-one" />
-              <div className="signal-orbit signal-orbit-two" />
-            </div>
-            <div className="signal-caption">
-              <span className="signal-dot" />
-              <p>
-                Raw complexity
-                <strong>→</strong>
-                Useful decision
-              </p>
-            </div>
-          </div>
+          <ThemeWorld preview={experiencePreview(experience)} context="case" />
 
           <div className="case-meta">
             <div>
@@ -1134,7 +1189,7 @@ function CaseStudy({
             <strong>The career index</strong>
           </div>
           <div className="career-index" aria-label="Career navigation">
-            {experiences.map((item, index) => (
+            {resumeRoles.map((item, index) => (
               <button
                 type="button"
                 key={item.slug}
