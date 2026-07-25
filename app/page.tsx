@@ -840,7 +840,7 @@ const organicParticles: Record<OrganicEffect, string[]> = {
 
 function ImmersivePreview({ preview }: { preview: HoverPreviewContent }) {
   const particles = Array.from(
-    { length: 18 },
+    { length: 12 },
     (_, index) => organicParticles[preview.effect][index % 6],
   );
 
@@ -854,42 +854,44 @@ function ImmersivePreview({ preview }: { preview: HoverPreviewContent }) {
       }
       aria-hidden="true"
     >
-      <div className="immersive-glow" />
-      <div className="immersive-marquee">
-        <span>
-          {preview.title} · {preview.title} · {preview.title} ·
-        </span>
-      </div>
-      <div className="immersive-route" />
-      <div className="immersive-particles">
-        {particles.map((particle, index) => (
-          <span
-            key={`${particle}-${index}`}
-            style={
-              {
-                "--particle-index": index,
-                "--particle-x": `${((index * 37) % 94) + 3}%`,
-                "--particle-y": `${((index * 53) % 78) + 8}%`,
-                "--particle-size": `${34 + ((index * 11) % 34)}px`,
-              } as CSSProperties
-            }
-          >
-            {particle}
+      <div className="immersive-world">
+        <div className="immersive-glow" />
+        <div className="immersive-marquee">
+          <span>
+            {preview.title} · {preview.title} ·
           </span>
-        ))}
-      </div>
-      <div className="immersive-copy">
-        <div className="immersive-kicker">
-          <span>{preview.flag}</span>
-          <p>{preview.eyebrow}</p>
         </div>
-        <strong>{preview.title}</strong>
-        <p>{preview.copy}</p>
-        <small>
-          Click or press Enter to explore <b>↗</b>
-        </small>
+        <div className="immersive-route" />
+        <div className="immersive-particles">
+          {particles.map((particle, index) => (
+            <span
+              key={`${particle}-${index}`}
+              style={
+                {
+                  "--particle-index": index,
+                  "--particle-x": `${((index * 37) % 94) + 3}%`,
+                  "--particle-y": `${((index * 53) % 78) + 8}%`,
+                  "--particle-size": `${26 + ((index * 11) % 26)}px`,
+                } as CSSProperties
+              }
+            >
+              {particle}
+            </span>
+          ))}
+        </div>
+        <div className="immersive-copy">
+          <div className="immersive-kicker">
+            <span>{preview.flag}</span>
+            <p>{preview.eyebrow}</p>
+          </div>
+          <strong>{preview.title}</strong>
+          <p>{preview.copy}</p>
+          <small>
+            Click or press Enter to explore <b>↗</b>
+          </small>
+        </div>
+        <span className="immersive-corner-mark">{preview.flag}</span>
       </div>
-      <span className="immersive-corner-mark">{preview.flag}</span>
     </div>
   );
 }
