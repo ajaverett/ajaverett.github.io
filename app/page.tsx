@@ -2,135 +2,113 @@
 
 import {
   type CSSProperties,
-  useCallback,
+  type ReactNode,
   useEffect,
   useRef,
   useState,
 } from "react";
-import { flushSync } from "react-dom";
 
-type Metric = {
-  value: string;
+type Theme =
+  | "about"
+  | "education"
+  | "scholarship"
+  | "leadership"
+  | "lab"
+  | "naval"
+  | "teaching"
+  | "code"
+  | "political"
+  | "research"
+  | "civic";
+
+type Fact = {
   label: string;
+  value: string;
 };
 
-type Experience = {
+type Attachment =
+  | {
+      kind: "quote";
+      quote: string;
+      attribution?: string;
+    }
+  | {
+      kind: "image";
+      src: string;
+      alt: string;
+      caption?: string;
+    }
+  | {
+      kind: "video";
+      src: string;
+      title: string;
+    }
+  | {
+      kind: "embed";
+      src: string;
+      title: string;
+    };
+
+type EntityProfile = {
+  id: string;
+  theme: Theme;
+  eyebrow: string;
+  title: string;
+  peek: string;
+  overview: string;
+  facts: Fact[];
+  points?: string[];
+  tags?: string[];
+  attachments?: Attachment[];
+};
+
+type ResumeRole = {
   slug: string;
   group: "experience" | "volunteer";
-  effect: OrganicEffect;
+  theme: Theme;
   company: string;
   role: string;
   location: string;
   dates: string;
   resumeFocus?: string;
-  eyebrow: string;
-  headline: string;
-  summary: string;
-  accent: string;
-  accentSoft: string;
-  metrics: Metric[];
-  chapters: {
-    number: string;
-    label: string;
-    title: string;
-    copy: string;
-  }[];
-  pipeline: string[];
-  tools: string[];
+  peek: string;
+  overview: string;
+  facts: Fact[];
+  tags: string[];
   resumeBullets: string[];
 };
 
-type InfoSlug = "about" | "education" | "scholarship";
-
-type DetailRoute =
-  | { kind: "work"; slug: string }
-  | { kind: "info"; slug: InfoSlug }
-  | null;
-
-type InfoDetail = {
-  slug: InfoSlug;
-  hash: string;
-  eyebrow: string;
-  title: string;
-  subtitle: string;
-  summary: string;
-  accent: string;
-  accentSoft: string;
-  flag: string;
-  effect: OrganicEffect;
-  facts: { label: string; value: string }[];
-  tags: string[];
+type PeekState = {
+  profile: EntityProfile;
+  left: number;
+  top: number;
+  side: "left" | "right";
 };
 
-type OrganicEffect =
-  | "about"
-  | "naval"
-  | "books"
-  | "code"
-  | "research"
-  | "political"
-  | "crm"
-  | "graduation"
-  | "scholarship";
-
-type HoverPreviewContent = {
-  id: string;
-  eyebrow: string;
-  title: string;
-  copy: string;
-  accent: string;
-  flag: string;
-  effect: OrganicEffect;
-};
-
-const experiences: Experience[] = [
+const roles: ResumeRole[] = [
   {
     slug: "booz-allen",
     group: "experience",
-    effect: "naval",
+    theme: "naval",
     company: "Booz Allen Hamilton",
     role: "Data Scientist II (Senior Consultant)",
     location: "Salt Lake City, UT",
     dates: "May 2024 - Present",
-    eyebrow: "Fleet intelligence · Data systems",
-    headline: "Turning fragmented signals into fleet-ready decisions.",
-    summary:
+    peek:
+      "Aircraft-carrier readiness, naval time-series data, and mission-critical dashboards.",
+    overview:
       "I own the path from raw naval time-series data to dependable, decision-ready products—building the pipelines, models, and dashboards that help teams understand readiness.",
-    accent: "#ff6a3d",
-    accentSoft: "#ffd8c9",
-    metrics: [
-      { value: "~76", label: "stakeholders" },
-      { value: "CI/CD", label: "client deliverables" },
-      { value: "Active", label: "Secret Clearance" },
+    facts: [
+      { label: "Stakeholders", value: "~76" },
+      { label: "Delivery", value: "CI/CD" },
+      { label: "Clearance", value: "Active Secret" },
     ],
-    chapters: [
-      {
-        number: "01",
-        label: "The signal",
-        title: "Many sources. One operational picture.",
-        copy: "Naval readiness depends on time-series data arriving from different systems, at different levels of quality. I designed the path that turns that messy input into a trusted analytical foundation.",
-      },
-      {
-        number: "02",
-        label: "The system",
-        title: "A medallion architecture built to last.",
-        copy: "Using Spark SQL, PySpark, Python, and Databricks Jobs, I orchestrated layered pipelines with clear quality boundaries, repeatable transformations, and maintainable workflows.",
-      },
-      {
-        number: "03",
-        label: "The decision",
-        title: "Readiness made visible.",
-        copy: "I delivered KPI-driven QlikSense dashboards and predictive-maintenance estimates that help fleet stakeholders understand risk and act on average time-to-failure signals.",
-      },
-    ],
-    pipeline: ["Multi-source data", "Databricks", "Spark SQL", "QlikSense", "CI/CD"],
-    tools: [
+    tags: [
       "Databricks",
       "Spark SQL",
-      "PySpark (Python)",
-      "Databricks Jobs/Workflows",
+      "PySpark",
       "QlikSense",
-      "CI/CD",
+      "Predictive maintenance",
     ],
     resumeBullets: [
       "Led end-to-end ETL processes for multi-source naval time-series data, implementing a medallion architecture in Databricks and orchestrating data pipelines using Spark SQL, PySpark (Python), and Databricks Jobs/Workflows",
@@ -142,50 +120,24 @@ const experiences: Experience[] = [
   {
     slug: "mountainland",
     group: "experience",
-    effect: "books",
+    theme: "teaching",
     company: "Mountainland Technical College",
     role: "Adjunct Faculty Instructor; Part-time",
     location: "Lehi, UT",
     dates: "Jul 2025 - Present",
-    eyebrow: "Teaching · Curriculum design",
-    headline: "Teaching the whole data lifecycle—not just the tools.",
-    summary:
-      "I translate industry practice into approachable, competency-based instruction, helping students move from raw data to an explanation people can act on.",
-    accent: "#8c7bff",
-    accentSoft: "#ded8ff",
-    metrics: [
-      { value: "MTECH", label: "Data Technology course" },
-      { value: "Full", label: "data lifecycle" },
-      { value: "02", label: "résumé bullets" },
+    peek:
+      "Competency-based analytics instruction across the complete data lifecycle.",
+    overview:
+      "I translate industry practice into approachable instruction, helping students move from raw data to an explanation people can act on.",
+    facts: [
+      { label: "Course", value: "Data Technology" },
+      { label: "Coverage", value: "Full lifecycle" },
+      { label: "Format", value: "Part-time" },
     ],
-    chapters: [
-      {
-        number: "01",
-        label: "The goal",
-        title: "Make technical confidence repeatable.",
-        copy: "Students need more than syntax. I structure coursework around authentic analytical decisions so each competency connects to a reason, an audience, and a deliverable.",
-      },
-      {
-        number: "02",
-        label: "The curriculum",
-        title: "One lifecycle, many tools.",
-        copy: "The course moves through acquisition, cleaning, analysis, modeling, and visualization using Excel, Python, R, SQL, Power BI, and Tableau.",
-      },
-      {
-        number: "03",
-        label: "The feedback loop",
-        title: "Curriculum that learns, too.",
-        copy: "I use student performance to refine the material, aligning exercises and evaluation with the habits learners will need in real data teams.",
-      },
-    ],
-    pipeline: ["Acquisition", "Python / R", "SQL", "Power BI", "Visualization"],
-    tools: [
+    tags: [
       "Excel",
       "Python",
-      "Pandas",
-      "Scikit-learn",
       "R",
-      "Tidyverse",
       "SQL",
       "Power BI",
       "Tableau",
@@ -198,184 +150,99 @@ const experiences: Experience[] = [
   {
     slug: "corecodec",
     group: "experience",
-    effect: "code",
+    theme: "code",
     company: "Corecodec",
     role: "Data Engineer Intern",
     location: "San Antonio, TX",
     dates: "Dec 2023 - Apr 2024",
-    eyebrow: "Automation · Evidence pipelines",
-    headline: "Building an evidence engine for hard-to-see patterns.",
-    summary:
+    peek:
+      "Python, Selenium, and automated evidence pipelines for copyright analysis.",
+    overview:
       "I automated the collection and transformation of large-scale unstructured app data so copyright-review teams could surface actionable infringement patterns.",
-    accent: "#25c2a0",
-    accentSoft: "#bcefe4",
-    metrics: [
-      { value: "Python", label: "with Selenium" },
-      { value: "Pandas", label: "transformation workflows" },
-      { value: "openpyxl", label: "Excel reports" },
+    facts: [
+      { label: "Extraction", value: "Python + Selenium" },
+      { label: "Transform", value: "Pandas" },
+      { label: "Delivery", value: "Excel reports" },
     ],
-    chapters: [
-      {
-        number: "01",
-        label: "The source",
-        title: "Unstructured evidence at app-store scale.",
-        copy: "The useful signals lived inside large repositories of inconsistent app information. Manual collection would have made broad analysis slow and brittle.",
-      },
-      {
-        number: "02",
-        label: "The engine",
-        title: "A repeatable Python and Selenium pipeline.",
-        copy: "I designed extraction workflows that gathered the source data on a regular cadence, then organized and normalized it for downstream analysis.",
-      },
-      {
-        number: "03",
-        label: "The output",
-        title: "Patterns delivered where teams worked.",
-        copy: "Pandas transformations and automated openpyxl reporting converted raw records into practical Excel outputs for copyright-infringement review.",
-      },
-    ],
-    pipeline: ["App repositories", "Python", "Selenium", "Pandas", "Excel reports"],
-    tools: ["Python", "Selenium", "Pandas", "Excel", "openpyxl"],
+    tags: ["Python", "Selenium", "Pandas", "openpyxl", "ETL"],
     resumeBullets: [
       "Designed ETL pipeline architecture using Python and Selenium to regularly extract large-scale unstructured data from app repositories for copyright infringement analysis",
       "Built Pandas-based transformation workflows and automated Excel reports using openpyxl to surface actionable infringement patterns",
     ],
   },
   {
-    slug: "rbdc",
-    group: "volunteer",
-    effect: "research",
-    company: "Research & Business Development Center",
-    role: "Data Consulting Intern",
-    location: "Idaho Falls, ID",
-    dates: "Sep 2023 - Dec 2023",
-    eyebrow: "Anomaly detection · Research",
-    headline: "Finding quality signals inside 200,000 human stories.",
-    summary:
-      "Working with FamilySearch leadership, I helped turn a large body of participant-submitted information into an anomaly-detection and research workflow.",
-    accent: "#e4b23c",
-    accentSoft: "#f8e6af",
-    metrics: [
-      { value: "200k", label: "submissions" },
-      { value: "Python", label: "anomaly detection" },
-      { value: "Plotly", label: "with Streamlit" },
-    ],
-    chapters: [
-      {
-        number: "01",
-        label: "The corpus",
-        title: "Quality assurance beyond spot checks.",
-        copy: "More than 200,000 unstructured submissions made it difficult to identify unusual patterns through manual review alone.",
-      },
-      {
-        number: "02",
-        label: "The models",
-        title: "In-house anomaly detection, tuned to context.",
-        copy: "I collaborated with the client and the research team to deploy Python algorithms that surfaced records worth a closer look.",
-      },
-      {
-        number: "03",
-        label: "The research surface",
-        title: "From model output to explorable evidence.",
-        copy: "Plotly and Streamlit dashboards cross-referenced first-party content, while vectorized text search opened a new research path for the Wildford Woodruff Papers Foundation.",
-      },
-    ],
-    pipeline: ["Submissions", "Python", "Anomaly detection", "Plotly / Streamlit", "Public records"],
-    tools: ["Python", "Plotly", "Streamlit", "text vectorization"],
-    resumeBullets: [
-      "Collaborated with FamilySearch executive leadership to deploy several in-house tuned anomaly detection algorithms in Python, analyzing over 200k submissions of unstructured, participant-submitted information for quality assurance; developed dashboards using Plotly and Streamlit that cross-referenced firm-owned content repositories with public records using text vectorization in Python, improving research capabilities for the Wilford Woodruff Papers Foundation",
-    ],
-  },
-  {
     slug: "wpa",
     group: "experience",
-    effect: "political",
+    theme: "political",
     company: "WPA Intelligence",
     role: "Machine Learning Intern",
     location: "SE Washington, DC",
     dates: "Jul 2022 - Nov 2022",
-    eyebrow: "Geospatial ML · Civic analytics",
-    headline: "Adding geographic context to 100 million voter records.",
-    summary:
+    peek:
+      "Voter modeling, civic campaigns, and GIS features across 100 million records.",
+    overview:
       "I analyzed national-scale civic data and engineered geographic features that improved how future models understood voter behavior across multiple levels of place.",
-    accent: "#4ba6ff",
-    accentSoft: "#c9e4ff",
-    metrics: [
-      { value: "100M", label: "voter records" },
-      { value: "12", label: "population density granularities" },
-      { value: "1-3%", label: "accuracy and AUC" },
+    facts: [
+      { label: "Records", value: "100M" },
+      { label: "Granularities", value: "12" },
+      { label: "Model lift", value: "1–3%" },
     ],
-    chapters: [
-      {
-        number: "01",
-        label: "The scale",
-        title: "A national dataset with local behavior.",
-        copy: "Voter patterns change with place. I explored more than 100 million records using SQL and R to make demographic and campaign trends easier to understand.",
-      },
-      {
-        number: "02",
-        label: "The features",
-        title: "Twelve geographic lenses.",
-        copy: "I engineered GIS-derived features from U.S. Census Bureau spatial data, classifying voter records into twelve levels of population density.",
-      },
-      {
-        number: "03",
-        label: "The lift",
-        title: "Context that improved every future model.",
-        copy: "The spatial features improved accuracy and AUC by 1–3%, becoming reusable inputs for models of ideological disposition and turnout.",
-      },
-    ],
-    pipeline: ["Voter records", "SQL / R", "GIS data", "12 granularities", "ML models"],
-    tools: ["SQL", "R", "tidyverse", "GIS", "US Census Bureau", "sf"],
+    tags: ["SQL", "R", "tidyverse", "GIS", "US Census Bureau", "sf"],
     resumeBullets: [
       "Analyzed and visualized voter demographic trends using SQL and R’s tidyverse to create digestible reports for hundreds of civic campaigns, training and deploying machine learning models to predict ideological disposition and voter turnout,",
       "Improved accuracy and AUC of all future ML models by 1-3% by feature engineering GIS data to classify over 100 million voter records into 12 population density granularities using US Census Bureau’s geographic spatial data and R’s sf library",
     ],
   },
   {
+    slug: "rbdc",
+    group: "volunteer",
+    theme: "research",
+    company: "Research & Business Development Center",
+    role: "Data Consulting Intern",
+    location: "Idaho Falls, ID",
+    dates: "Sep 2023 - Dec 2023",
+    peek:
+      "Anomaly detection and research workflows across 200,000 submissions.",
+    overview:
+      "Working with FamilySearch leadership, I helped turn participant-submitted information into an anomaly-detection and research workflow.",
+    facts: [
+      { label: "Submissions", value: "200k" },
+      { label: "Analysis", value: "Python" },
+      { label: "Interface", value: "Plotly + Streamlit" },
+    ],
+    tags: [
+      "Python",
+      "Anomaly detection",
+      "Plotly",
+      "Streamlit",
+      "Text vectorization",
+    ],
+    resumeBullets: [
+      "Collaborated with FamilySearch executive leadership to deploy several in-house tuned anomaly detection algorithms in Python, analyzing over 200k submissions of unstructured, participant-submitted information for quality assurance; developed dashboards using Plotly and Streamlit that cross-referenced firm-owned content repositories with public records using text vectorization in Python, improving research capabilities for the Wilford Woodruff Papers Foundation",
+    ],
+  },
+  {
     slug: "civic-database",
     group: "volunteer",
-    effect: "crm",
+    theme: "civic",
     company: "County-Level Civic Engagement Organization",
     role: "Database Administrator",
     location: "Saratoga Springs, UT",
     dates: "May 2026 - Present",
     resumeFocus: "Neon CRM",
-    eyebrow: "Civic data · CRM administration",
-    headline: "Keeping civic engagement data clean, secure, and usable.",
-    summary:
-      "Administered Neon CRM, maintaining constituent records, user access, data integrity, and system configuration.",
-    accent: "#ff5c8a",
-    accentSoft: "#ffd6e5",
-    metrics: [
-      { value: "Neon", label: "CRM administration" },
-      { value: "Clean", label: "standardized records" },
-      { value: "Access", label: "sensitive information" },
+    peek:
+      "Constituent records, data integrity, access controls, and Neon CRM.",
+    overview:
+      "I administer the organization’s CRM foundation so constituent and contribution data stays clean, protected, and useful.",
+    facts: [
+      { label: "Platform", value: "Neon CRM" },
+      { label: "Focus", value: "Data quality" },
+      { label: "Protection", value: "Access controls" },
     ],
-    chapters: [
-      {
-        number: "01",
-        label: "Administration",
-        title: "Constituent data kept dependable.",
-        copy: "Administered Neon CRM, maintaining constituent records, user access, data integrity, and system configuration.",
-      },
-      {
-        number: "02",
-        label: "Data quality",
-        title: "Imported information made consistent.",
-        copy: "Imported, cleaned, deduplicated, and standardized contact and contribution data.",
-      },
-      {
-        number: "03",
-        label: "Protection",
-        title: "Sensitive information handled carefully.",
-        copy: "Protected sensitive information through access controls and data-quality practices.",
-      },
-    ],
-    pipeline: ["Import", "Clean", "Deduplicate", "Standardize", "Protect"],
-    tools: [
+    tags: [
       "Neon CRM",
       "Constituent records",
+      "Deduplication",
       "Data quality",
       "Access controls",
     ],
@@ -387,25 +254,175 @@ const experiences: Experience[] = [
   },
 ];
 
-const education = {
-  school: "Brigham Young University–Idaho",
-  degree: "B.Sc. Data Science, Statistics",
-  dates: "Apr 2020 - Dec 2023",
-  note: "Soc of Hispanic Professional Engineer Scholarship, President of Data Science Society, Chief Lab Manager",
-};
+const staticProfiles: EntityProfile[] = [
+  {
+    id: "alan",
+    theme: "about",
+    eyebrow: "About me",
+    title: "Alan J Averett",
+    peek:
+      "Data scientist, engineer, instructor, and the person behind this very serious résumé.",
+    overview:
+      "My résumé spans naval time-series data, analytics instruction, data engineering, anomaly detection, machine learning, and civic database administration.",
+    facts: [
+      { label: "Current role", value: "Data Scientist II" },
+      { label: "Degree", value: "B.Sc. Data Science" },
+      { label: "Clearance", value: "Active Secret" },
+    ],
+    tags: ["Data science", "Data engineering", "Machine learning", "Teaching"],
+  },
+  {
+    id: "byui",
+    theme: "education",
+    eyebrow: "Education",
+    title: "Brigham Young University–Idaho",
+    peek: "B.Sc. Data Science, Statistics · Rexburg, Idaho.",
+    overview:
+      "The education entry on the résumé, including degree, dates, and listed achievements.",
+    facts: [
+      { label: "Location", value: "Rexburg, ID" },
+      { label: "Dates", value: "Apr 2020 – Dec 2023" },
+      { label: "Degree", value: "B.Sc. Data Science, Statistics" },
+    ],
+    points: [
+      "Soc of Hispanic Professional Engineer Scholarship",
+      "President of Data Science Society",
+      "Chief Lab Manager",
+    ],
+    tags: ["Data science", "Statistics", "Student leadership"],
+  },
+  {
+    id: "rexburg",
+    theme: "education",
+    eyebrow: "Education location",
+    title: "Rexburg, ID",
+    peek: "The setting for my BYU–Idaho education.",
+    overview:
+      "Rexburg, Idaho is the location attached to the Brigham Young University–Idaho entry on the résumé.",
+    facts: [
+      { label: "Institution", value: "BYU–Idaho" },
+      { label: "Degree", value: "B.Sc. Data Science" },
+      { label: "Dates", value: "2020–2023" },
+    ],
+    tags: ["Education", "Idaho"],
+  },
+  {
+    id: "subject",
+    theme: "education",
+    eyebrow: "Field of study",
+    title: "Data Science, Statistics",
+    peek: "The degree subject behind the technical work on this résumé.",
+    overview:
+      "My B.Sc. combines data science and statistics, the academic foundation referenced throughout the experience and skills sections.",
+    facts: [
+      { label: "Degree", value: "Bachelor of Science" },
+      { label: "Institution", value: "BYU–Idaho" },
+      { label: "Completed", value: "Dec 2023" },
+    ],
+    tags: ["Python", "R", "Statistics", "Machine learning"],
+  },
+  {
+    id: "scholarship",
+    theme: "scholarship",
+    eyebrow: "Achievement",
+    title: "Soc of Hispanic Professional Engineer Scholarship",
+    peek: "A scholarship listed among my BYU–Idaho achievements.",
+    overview:
+      "This scholarship appears in the Achievements line of the education section and can later hold award imagery, documentation, or a personal note.",
+    facts: [
+      { label: "Type", value: "Scholarship" },
+      { label: "Section", value: "Education" },
+      { label: "Status", value: "Résumé achievement" },
+    ],
+    tags: ["Scholarship", "Engineering", "Recognition"],
+  },
+  {
+    id: "data-society",
+    theme: "leadership",
+    eyebrow: "Leadership",
+    title: "President of Data Science Society",
+    peek: "Student leadership inside BYU–Idaho’s data science community.",
+    overview:
+      "This leadership role appears in the Achievements line of the education section and is ready for event photos, quotes, or additional context.",
+    facts: [
+      { label: "Role", value: "President" },
+      { label: "Organization", value: "Data Science Society" },
+      { label: "Section", value: "Education" },
+    ],
+    tags: ["Leadership", "Data science", "Community"],
+  },
+  {
+    id: "lab-manager",
+    theme: "lab",
+    eyebrow: "Leadership",
+    title: "Chief Lab Manager",
+    peek: "A hands-on leadership role listed among my education achievements.",
+    overview:
+      "Chief Lab Manager is listed in the education achievements and can later expand with lab details, photographs, or supporting material.",
+    facts: [
+      { label: "Role", value: "Chief Lab Manager" },
+      { label: "Section", value: "Education" },
+      { label: "Status", value: "Résumé achievement" },
+    ],
+    tags: ["Leadership", "Lab operations", "Education"],
+  },
+];
+
+const roleProfiles: EntityProfile[] = roles.flatMap((role) => [
+  {
+    id: `company-${role.slug}`,
+    theme: role.theme,
+    eyebrow: role.role,
+    title: role.company,
+    peek: role.peek,
+    overview: role.overview,
+    facts: [
+      { label: "Location", value: role.location },
+      { label: "Timeline", value: role.dates },
+      ...role.facts.slice(0, 1),
+    ],
+    points: role.resumeBullets,
+    tags: role.tags,
+  },
+  {
+    id: `location-${role.slug}`,
+    theme: role.theme,
+    eyebrow: "Résumé location",
+    title: role.location,
+    peek: `${role.company} · ${role.role}`,
+    overview: `${role.location} is the location attached to my ${role.role} entry at ${role.company}.`,
+    facts: [
+      { label: "Organization", value: role.company },
+      { label: "Role", value: role.role },
+      { label: "Timeline", value: role.dates },
+    ],
+    points: role.resumeBullets,
+    tags: [role.location, ...role.tags.slice(0, 4)],
+  },
+]);
+
+const profiles = Object.fromEntries(
+  [...staticProfiles, ...roleProfiles].map((profile) => [profile.id, profile]),
+) as Record<string, EntityProfile>;
+
+const experienceRoles = roles.filter((role) => role.group === "experience");
+const volunteerRoles = roles.filter((role) => role.group === "volunteer");
 
 const skillGroups = [
   {
     label: "Python/R",
-    items: "pandas, PySpark, numpy, polars, sklearn, TensorFlow/Keras, xgboost, statsmodels, spaCy, selenium, tidyverse",
+    items:
+      "pandas, PySpark, numpy, polars, sklearn, TensorFlow/Keras, xgboost, statsmodels, spaCy, selenium, tidyverse",
   },
   {
     label: "Visualization",
-    items: "ggplot2, matplotlib, seaborn, plotly, altair, Streamlit, QlikSense, R Shiny, Power BI, Tableau, Mermaid",
+    items:
+      "ggplot2, matplotlib, seaborn, plotly, altair, Streamlit, QlikSense, R Shiny, Power BI, Tableau, Mermaid",
   },
   {
     label: "Other Technical Skills",
-    items: "SQL, Spark SQL, Excel, Quarto, LaTeX, regex, Agile Workflow (Scrum), Confluence",
+    items:
+      "SQL, Spark SQL, Excel, Quarto, LaTeX, regex, Agile Workflow (Scrum), Confluence",
   },
   {
     label: "Development",
@@ -413,346 +430,91 @@ const skillGroups = [
   },
 ];
 
-const infoDetails: Record<InfoSlug, InfoDetail> = {
-  about: {
-    slug: "about",
-    hash: "#about",
-    eyebrow: "About me",
-    title: "Alan J Averett",
-    subtitle: "Data Scientist II (Senior Consultant)",
-    summary:
-      "My résumé spans naval time-series data, analytics instruction, data engineering, anomaly detection, and machine learning.",
-    accent: "#ff6a3d",
-    accentSoft: "#ffd8c9",
-    flag: "AJ",
-    effect: "about",
-    facts: [
-      { label: "Current role", value: "Booz Allen Hamilton" },
-      { label: "Education", value: "B.Sc. Data Science, Statistics" },
-      { label: "Based near", value: "Salt Lake City, UT" },
-    ],
-    tags: ["Python", "R", "SQL", "Spark", "Databricks", "Machine Learning"],
-  },
-  education: {
-    slug: "education",
-    hash: "#education/byu-idaho",
-    eyebrow: "Education",
-    title: "Brigham Young University–Idaho",
-    subtitle: "B.Sc. Data Science, Statistics",
-    summary:
-      "Brigham Young University–Idaho · Rexburg, ID · Apr 2020 - Dec 2023",
-    accent: "#8c7bff",
-    accentSoft: "#ded8ff",
-    flag: "BYU-I",
-    effect: "graduation",
-    facts: [
-      { label: "Location", value: "Rexburg, ID" },
-      { label: "Dates", value: "Apr 2020 - Dec 2023" },
-      {
-        label: "Activities",
-        value: "President of Data Science Society, Chief Lab Manager",
-      },
-    ],
-    tags: ["Data Science", "Statistics", "Data Science Society", "Lab Manager"],
-  },
-  scholarship: {
-    slug: "scholarship",
-    hash: "#recognition/shpe-scholarship",
-    eyebrow: "Recognition",
-    title: "Soc of Hispanic Professional Engineer Scholarship",
-    subtitle: "Education achievement",
-    summary:
-      "Listed among the achievements earned while completing a B.Sc. in Data Science, Statistics at Brigham Young University–Idaho.",
-    accent: "#e4b23c",
-    accentSoft: "#f8e6af",
-    flag: "★",
-    effect: "scholarship",
-    facts: [
-      {
-        label: "Achievement",
-        value: "Soc of Hispanic Professional Engineer Scholarship",
-      },
-      { label: "School", value: "Brigham Young University–Idaho" },
-      { label: "Degree", value: "B.Sc. Data Science, Statistics" },
-    ],
-    tags: ["Scholarship", "Data Science", "Statistics", "Achievement"],
-  },
+const themeMarks: Record<Theme, string[]> = {
+  about: ["AJ", "✦", "DATA"],
+  education: ["BOOK", "01", "✎"],
+  scholarship: ["★", "AWARD", "✦"],
+  leadership: ["LEAD", "↑", "TEAM"],
+  lab: ["LAB", "◎", "OPS"],
+  naval: ["CVN", "RADAR", "F/A-18"],
+  teaching: ["BOOK", "CLASS", "✎"],
+  code: ["</>", "01", "{ }"],
+  political: ["VOTE", "51%", "POLL"],
+  research: ["200k", "Aa", "⌕"],
+  civic: ["CRM", "DB", "✓"],
 };
 
-const experienceRoles = experiences.filter(
-  (experience) => experience.group === "experience",
-);
-const volunteerRoles = experiences.filter(
-  (experience) => experience.group === "volunteer",
-);
-const resumeRoles = [...experienceRoles, ...volunteerRoles];
+function calculatePeekPosition(element: HTMLElement) {
+  const rect = element.getBoundingClientRect();
+  const peekWidth = Math.min(360, window.innerWidth - 24);
+  const peekHeight = 220;
+  const gap = 18;
+  const margin = 12;
+  const fitsRight = rect.right + gap + peekWidth <= window.innerWidth - margin;
+  const side: PeekState["side"] = fitsRight ? "right" : "left";
+  const rawLeft = fitsRight
+    ? rect.right + gap
+    : rect.left - peekWidth - gap;
+  const left = Math.max(
+    margin,
+    Math.min(rawLeft, window.innerWidth - peekWidth - margin),
+  );
+  const rawTop = rect.top + rect.height / 2 - peekHeight / 2;
+  const top = Math.max(
+    margin,
+    Math.min(rawTop, window.innerHeight - peekHeight - margin),
+  );
 
-const experiencePreviewCopy: Record<string, string> = {
-  "booz-allen":
-    "Aircraft-carrier readiness · naval time-series data · mission-critical dashboards",
-  mountainland:
-    "Full data lifecycle · MTECH Data Technology course · student performance evaluation",
-  corecodec:
-    "Python and Selenium · copyright infringement analysis · automated Excel reports",
-  rbdc:
-    "200k submissions · anomaly detection · Plotly and Streamlit dashboards",
-  wpa: "Voter modeling · hundreds of civic campaigns · 100 million voter records",
-  "civic-database":
-    "Neon CRM · constituent records · data integrity · access controls",
-};
-
-function experiencePreview(experience: Experience): HoverPreviewContent {
-  return {
-    id: `work-${experience.slug}`,
-    eyebrow: experience.role,
-    title: experience.company,
-    copy: experiencePreviewCopy[experience.slug],
-    accent: experience.accent,
-    flag: String(
-      resumeRoles.findIndex((item) => item.slug === experience.slug) + 1,
-    ).padStart(2, "0"),
-    effect: experience.effect,
-  };
-}
-
-function infoPreview(detail: InfoDetail): HoverPreviewContent {
-  return {
-    id: `info-${detail.slug}`,
-    eyebrow: detail.eyebrow,
-    title: detail.title,
-    copy: detail.summary,
-    accent: detail.accent,
-    flag: detail.flag,
-    effect: detail.effect,
-  };
-}
-
-function routeFromHash(): DetailRoute {
-  if (typeof window === "undefined") return null;
-  const hash = window.location.hash;
-  const workSlug = hash.replace(/^#work\//, "");
-
-  if (experiences.some((experience) => experience.slug === workSlug)) {
-    return { kind: "work", slug: workSlug };
-  }
-
-  const detail = Object.values(infoDetails).find((item) => item.hash === hash);
-  return detail ? { kind: "info", slug: detail.slug } : null;
+  return { left, top, side };
 }
 
 export default function Home() {
-  const [activeRoute, setActiveRoute] = useState<DetailRoute>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
+  const [peek, setPeek] = useState<PeekState | null>(null);
+  const [expanded, setExpanded] = useState<EntityProfile | null>(null);
+  const dialogTitleRef = useRef<HTMLHeadingElement>(null);
 
-  const changeView = useCallback((route: DetailRoute) => {
-    const update = () => {
-      flushSync(() => setActiveRoute(route));
-      window.scrollTo(0, 0);
+  useEffect(() => {
+    const hidePeek = () => setPeek(null);
+    window.addEventListener("scroll", hidePeek, true);
+    window.addEventListener("resize", hidePeek);
+    return () => {
+      window.removeEventListener("scroll", hidePeek, true);
+      window.removeEventListener("resize", hidePeek);
     };
-
-    if (
-      "startViewTransition" in document &&
-      typeof document.startViewTransition === "function" &&
-      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-      document.startViewTransition(update);
-    } else {
-      update();
-    }
   }, []);
 
-  const openExperience = useCallback(
-    (slug: string) => {
-      if (activeRoute?.kind === "work" && slug === activeRoute.slug) return;
-      window.history.pushState({ work: slug }, "", `#work/${slug}`);
-      changeView({ kind: "work", slug });
-    },
-    [activeRoute, changeView],
-  );
-
-  const openInfo = useCallback(
-    (slug: InfoSlug) => {
-      if (activeRoute?.kind === "info" && slug === activeRoute.slug) return;
-      const detail = infoDetails[slug];
-      window.history.pushState({ info: slug }, "", detail.hash);
-      changeView({ kind: "info", slug });
-    },
-    [activeRoute, changeView],
-  );
-
-  const closeDetail = useCallback(() => {
-    if (routeFromHash()) {
-      window.history.back();
-    } else {
-      changeView(null);
-    }
-  }, [changeView]);
-
   useEffect(() => {
-    const initialRoute = routeFromHash();
-    // Hydrate direct hash links only after the browser owns the URL.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    if (initialRoute) setActiveRoute(initialRoute);
+    if (!expanded) return;
 
-    const handlePopState = () => changeView(routeFromHash());
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.setTimeout(() => dialogTitleRef.current?.focus(), 80);
+
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && routeFromHash()) {
-        window.history.back();
-      }
+      if (event.key === "Escape") setExpanded(null);
     };
-
-    window.addEventListener("popstate", handlePopState);
     window.addEventListener("keydown", handleKeyDown);
+
     return () => {
-      window.removeEventListener("popstate", handlePopState);
+      document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [changeView]);
+  }, [expanded]);
 
-  useEffect(() => {
-    if (activeRoute) {
-      window.setTimeout(() => titleRef.current?.focus(), 250);
-    }
-  }, [activeRoute]);
-
-  const selected =
-    activeRoute?.kind === "work"
-      ? experiences.find((experience) => experience.slug === activeRoute.slug)
-      : null;
-
-  if (selected) {
-    return (
-      <CaseStudy
-        experience={selected}
-        onClose={closeDetail}
-        onSelect={openExperience}
-        titleRef={titleRef}
-      />
-    );
-  }
-
-  if (activeRoute?.kind === "info") {
-    return (
-      <InfoStory
-        detail={infoDetails[activeRoute.slug]}
-        onClose={closeDetail}
-        titleRef={titleRef}
-      />
-    );
-  }
-
-  return <Resume onSelect={openExperience} onOpenInfo={openInfo} />;
-}
-
-function Resume({
-  onSelect,
-  onOpenInfo,
-}: {
-  onSelect: (slug: string) => void;
-  onOpenInfo: (slug: InfoSlug) => void;
-}) {
-  const [hoverPreview, setHoverPreview] =
-    useState<HoverPreviewContent | null>(null);
-
-  const previewProps = (preview: HoverPreviewContent) => {
-    const show = () => setHoverPreview(preview);
-
-    const hide = () =>
-      setHoverPreview((current) => (current?.id === preview.id ? null : current));
-
-    return {
-      onMouseEnter: show,
-      onMouseLeave: hide,
-      onFocus: show,
-      onBlur: hide,
-    };
+  const showPeek = (profile: EntityProfile, element: HTMLElement) => {
+    setPeek({ profile, ...calculatePeekPosition(element) });
   };
 
-  const openFromPreview = (
-    preview: HoverPreviewContent,
-    open: () => void,
-  ) => {
-    if (hoverPreview?.id !== preview.id) {
-      flushSync(() => setHoverPreview(preview));
-    }
-    open();
-  };
-
-  const aboutPreview: HoverPreviewContent = {
-    id: "about",
-    eyebrow: "About me",
-    title: "Alan J Averett",
-    copy: "A quick introduction beyond the résumé.",
-    accent: infoDetails.about.accent,
-    flag: infoDetails.about.flag,
-    effect: "about",
-  };
-
-  const educationPreview: HoverPreviewContent = {
-    id: "education",
-    eyebrow: "Education",
-    title: education.school,
-    copy: `${education.degree} · ${education.dates}`,
-    accent: infoDetails.education.accent,
-    flag: infoDetails.education.flag,
-    effect: "graduation",
-  };
-
-  const scholarshipPreview: HoverPreviewContent = {
-    id: "scholarship",
-    eyebrow: "Recognition",
-    title: "Soc of Hispanic Professional Engineer Scholarship",
-    copy: "Open the achievement note.",
-    accent: infoDetails.scholarship.accent,
-    flag: infoDetails.scholarship.flag,
-    effect: "scholarship",
-  };
-
-  const renderResumeRole = (experience: Experience) => {
-    const preview = experiencePreview(experience);
-
-    return (
-      <article className="pdf-experience" key={experience.slug}>
-        <button
-          className="pdf-role-trigger"
-          type="button"
-          onClick={() =>
-            openFromPreview(preview, () => onSelect(experience.slug))
-          }
-          aria-label={`Open the project story for ${experience.role} at ${experience.company}`}
-          title={`Open the ${experience.company} project story`}
-          {...previewProps(preview)}
-        >
-          <span className="pdf-company">{experience.company}</span>
-          <span className="pdf-location">{experience.location}</span>
-          <span className="pdf-role">{experience.role}</span>
-          <span className="pdf-dates">{experience.dates}</span>
-          <span className="pdf-open-cue" aria-hidden="true">
-            Open story ↗
-          </span>
-        </button>
-        {experience.resumeFocus && (
-          <p className="pdf-role-focus">
-            <strong>{experience.resumeFocus}:</strong>
-          </p>
-        )}
-        <ul>
-          {experience.resumeBullets.map((bullet) => (
-            <li key={bullet}>
-              <span className="pdf-list-bullet" aria-hidden="true">
-                •
-              </span>
-              <span>{bullet}</span>
-            </li>
-          ))}
-        </ul>
-      </article>
-    );
+  const openProfile = (profile: EntityProfile) => {
+    setPeek(null);
+    setExpanded(profile);
   };
 
   return (
     <main
-      className={`pdf-viewer${hoverPreview ? " pdf-viewer--previewing" : ""}`}
+      className={`pdf-viewer${peek ? " pdf-viewer--peeking" : ""}${
+        expanded ? " pdf-viewer--expanded" : ""
+      }`}
     >
       <nav className="pdf-toolbar" aria-label="Résumé document controls">
         <div className="pdf-file">
@@ -761,7 +523,7 @@ function Resume({
           </span>
           <span className="pdf-file-copy">
             <strong>alan-averett-resume.pdf</strong>
-            <small>Hover a blue name and watch the page come alive</small>
+            <small>Hover a highlighted entity for a peek · click to expand</small>
           </span>
         </div>
         <span className="pdf-page-count" aria-label="Page 1 of 1">
@@ -783,17 +545,17 @@ function Resume({
         <article className="pdf-page" aria-labelledby="resume-name">
           <header className="pdf-header">
             <h1 id="resume-name">
-              <button
-                className="pdf-inline-trigger pdf-name-trigger"
-                type="button"
-                onClick={() =>
-                  openFromPreview(aboutPreview, () => onOpenInfo("about"))
-                }
-                title="Open About Alan J Averett"
-                {...previewProps(aboutPreview)}
+              <EntityTrigger
+                profileId="alan"
+                className="entity-name"
+                activeId={peek?.profile.id}
+                expandedId={expanded?.id}
+                onPeek={showPeek}
+                onLeave={() => setPeek(null)}
+                onExpand={openProfile}
               >
                 Alan J Averett
-              </button>
+              </EntityTrigger>
             </h1>
             <p className="pdf-contact">
               <a href="tel:+18328564666">832.856.4666</a>
@@ -817,64 +579,115 @@ function Resume({
             <div className="pdf-two-column">
               <div>
                 <h3>
-                  <button
-                    className="pdf-inline-trigger pdf-education-trigger"
-                    type="button"
-                    onClick={() =>
-                      openFromPreview(educationPreview, () =>
-                        onOpenInfo("education"),
-                      )
-                    }
-                    title={`Open education details for ${education.school}`}
-                    {...previewProps(educationPreview)}
+                  <EntityTrigger
+                    profileId="byui"
+                    className="entity-school"
+                    activeId={peek?.profile.id}
+                    expandedId={expanded?.id}
+                    onPeek={showPeek}
+                    onLeave={() => setPeek(null)}
+                    onExpand={openProfile}
                   >
-                    {education.school}
-                  </button>
+                    Brigham Young University–Idaho
+                  </EntityTrigger>
                 </h3>
-                <p>{education.degree}</p>
+                <p>
+                  B.Sc.{" "}
+                  <EntityTrigger
+                    profileId="subject"
+                    activeId={peek?.profile.id}
+                    expandedId={expanded?.id}
+                    onPeek={showPeek}
+                    onLeave={() => setPeek(null)}
+                    onExpand={openProfile}
+                  >
+                    Data Science, Statistics
+                  </EntityTrigger>
+                </p>
               </div>
               <div className="pdf-align-right">
-                <p>Rexburg, ID</p>
-                <p>{education.dates}</p>
+                <p>
+                  <EntityTrigger
+                    profileId="rexburg"
+                    className="entity-location"
+                    activeId={peek?.profile.id}
+                    expandedId={expanded?.id}
+                    onPeek={showPeek}
+                    onLeave={() => setPeek(null)}
+                    onExpand={openProfile}
+                  >
+                    Rexburg, ID
+                  </EntityTrigger>
+                </p>
+                <p>Apr 2020 - Dec 2023</p>
               </div>
             </div>
             <p className="pdf-achievement">
               <span aria-hidden="true">•</span>
               <strong>Achievements:</strong>
-              <span>
-                <button
-                  className="pdf-inline-trigger pdf-achievement-trigger"
-                  type="button"
-                  onClick={() =>
-                    openFromPreview(scholarshipPreview, () =>
-                      onOpenInfo("scholarship"),
-                    )
-                  }
-                  title="Open scholarship details"
-                  {...previewProps(scholarshipPreview)}
+              <span className="achievement-list">
+                <EntityTrigger
+                  profileId="scholarship"
+                  activeId={peek?.profile.id}
+                  expandedId={expanded?.id}
+                  onPeek={showPeek}
+                  onLeave={() => setPeek(null)}
+                  onExpand={openProfile}
                 >
                   Soc of Hispanic Professional Engineer Scholarship
-                </button>
-                , President of Data Science Society, Chief Lab Manager
+                </EntityTrigger>
+                <span>, </span>
+                <EntityTrigger
+                  profileId="data-society"
+                  activeId={peek?.profile.id}
+                  expandedId={expanded?.id}
+                  onPeek={showPeek}
+                  onLeave={() => setPeek(null)}
+                  onExpand={openProfile}
+                >
+                  President of Data Science Society
+                </EntityTrigger>
+                <span>, </span>
+                <EntityTrigger
+                  profileId="lab-manager"
+                  activeId={peek?.profile.id}
+                  expandedId={expanded?.id}
+                  onPeek={showPeek}
+                  onLeave={() => setPeek(null)}
+                  onExpand={openProfile}
+                >
+                  Chief Lab Manager
+                </EntityTrigger>
               </span>
             </p>
           </section>
 
-          <section className="pdf-section pdf-experience-section" aria-labelledby="experience">
-            <h2 id="experience">Experience</h2>
-            <div className="pdf-experience-list">
-              {experienceRoles.map(renderResumeRole)}
-            </div>
-          </section>
+          <ResumeGroup
+            id="experience"
+            label="Experience"
+            roles={experienceRoles}
+            activeId={peek?.profile.id}
+            expandedId={expanded?.id}
+            onPeek={showPeek}
+            onLeave={() => setPeek(null)}
+            onExpand={openProfile}
+          />
 
-          <section className="pdf-section pdf-volunteer-section" aria-labelledby="volunteer">
-            <h2 id="volunteer">Volunteer</h2>
-            <div className="pdf-experience-list">
-              {volunteerRoles.map(renderResumeRole)}
-            </div>
-          </section>
+          <ResumeGroup
+            id="volunteer"
+            label="Volunteer"
+            roles={volunteerRoles}
+            activeId={peek?.profile.id}
+            expandedId={expanded?.id}
+            onPeek={showPeek}
+            onLeave={() => setPeek(null)}
+            onExpand={openProfile}
+          />
 
-          <section className="pdf-section pdf-skills-section" aria-labelledby="skills">
+          <section
+            className="pdf-section pdf-skills-section"
+            aria-labelledby="skills"
+          >
             <h2 id="skills">Skills</h2>
             <ul>
               {skillGroups.map((group) => (
@@ -884,345 +697,328 @@ function Resume({
               ))}
             </ul>
           </section>
-
         </article>
       </div>
-      {hoverPreview && <ImmersivePreview preview={hoverPreview} />}
+
+      {peek && !expanded && <PeekCard peek={peek} />}
+      {expanded && (
+        <DetailCanvas
+          profile={expanded}
+          titleRef={dialogTitleRef}
+          onClose={() => setExpanded(null)}
+        />
+      )}
     </main>
   );
 }
 
-const organicParticles: Record<OrganicEffect, string[]> = {
-  about: ["✨", "🧭", "⛵", "☀️", "🌊", "✦"],
-  naval: ["CVN", "⚓", "F/A-18", "RADAR", "◆", "〰"],
-  books: ["📕", "📗", "📘", "📙", "✏️", "📓"],
-  code: ["</>", "{ }", "01", "⌁", "⚙", "✦"],
-  research: ["🔎", "📄", "Aa", "✦", "⌕", "•••"],
-  political: ["VOTE", "51%", "POLL", "✓", "R", "D"],
-  crm: ["CRM", "DB", "ID", "✓", "↻", "◎"],
-  graduation: ["🎓", "📚", "✏️", "📘", "✦", "🎓"],
-  scholarship: ["⭐", "🏅", "✦", "🎉", "★", "✨"],
-};
-
-function ThemeWorld({
-  preview,
-  context = "preview",
-  titleRef,
+function EntityTrigger({
+  profileId,
+  className = "",
+  activeId,
+  expandedId,
+  onPeek,
+  onLeave,
+  onExpand,
+  children,
 }: {
-  preview: HoverPreviewContent;
-  context?: "preview" | "case";
-  titleRef?: React.RefObject<HTMLHeadingElement | null>;
+  profileId: string;
+  className?: string;
+  activeId?: string;
+  expandedId?: string;
+  onPeek: (profile: EntityProfile, element: HTMLElement) => void;
+  onLeave: () => void;
+  onExpand: (profile: EntityProfile) => void;
+  children: ReactNode;
 }) {
-  const particles = Array.from(
-    { length: 12 },
-    (_, index) => organicParticles[preview.effect][index % 6],
-  );
+  const profile = profiles[profileId];
+  const isActive = activeId === profileId;
 
   return (
-    <div
-      className={`immersive-world immersive-preview--${preview.effect}${
-        context === "case" ? " case-theme-world" : ""
+    <button
+      className={`entity-trigger ${className}${
+        isActive ? " entity-trigger--active" : ""
       }`}
-      style={
-        {
-          "--preview-accent": preview.accent,
-          viewTransitionName: "theme-world",
-        } as CSSProperties
-      }
-      aria-hidden={context === "preview" ? true : undefined}
+      type="button"
+      data-theme={profile.theme}
+      aria-haspopup="dialog"
+      aria-expanded={expandedId === profileId}
+      aria-label={`Explore ${profile.title}`}
+      onMouseEnter={(event) => onPeek(profile, event.currentTarget)}
+      onMouseLeave={onLeave}
+      onFocus={(event) => onPeek(profile, event.currentTarget)}
+      onBlur={onLeave}
+      onClick={() => onExpand(profile)}
     >
-      <div className="immersive-glow" aria-hidden="true" />
-      <div className="immersive-marquee" aria-hidden="true">
-        <span>
-          {preview.title} · {preview.title} ·
-        </span>
-      </div>
-      <div className="immersive-route" aria-hidden="true" />
-      <div className="immersive-particles" aria-hidden="true">
-        {particles.map((particle, index) => (
-          <span
-            key={`${particle}-${index}`}
-            style={
-              {
-                "--particle-index": index,
-                "--particle-x": `${((index * 37) % 94) + 3}%`,
-                "--particle-y": `${((index * 53) % 78) + 8}%`,
-                "--particle-size": `${26 + ((index * 11) % 26)}px`,
-              } as CSSProperties
-            }
-          >
-            {particle}
-          </span>
+      {children}
+    </button>
+  );
+}
+
+function ResumeGroup({
+  id,
+  label,
+  roles: groupRoles,
+  activeId,
+  expandedId,
+  onPeek,
+  onLeave,
+  onExpand,
+}: {
+  id: string;
+  label: string;
+  roles: ResumeRole[];
+  activeId?: string;
+  expandedId?: string;
+  onPeek: (profile: EntityProfile, element: HTMLElement) => void;
+  onLeave: () => void;
+  onExpand: (profile: EntityProfile) => void;
+}) {
+  return (
+    <section
+      className={`pdf-section pdf-role-section pdf-${id}-section`}
+      aria-labelledby={id}
+    >
+      <h2 id={id}>{label}</h2>
+      <div className="pdf-role-list">
+        {groupRoles.map((role) => (
+          <article className="pdf-role-entry" key={role.slug}>
+            <div className="pdf-role-heading">
+              <EntityTrigger
+                profileId={`company-${role.slug}`}
+                className="entity-company"
+                activeId={activeId}
+                expandedId={expandedId}
+                onPeek={onPeek}
+                onLeave={onLeave}
+                onExpand={onExpand}
+              >
+                {role.company}
+              </EntityTrigger>
+              <EntityTrigger
+                profileId={`location-${role.slug}`}
+                className="entity-location pdf-location"
+                activeId={activeId}
+                expandedId={expandedId}
+                onPeek={onPeek}
+                onLeave={onLeave}
+                onExpand={onExpand}
+              >
+                {role.location}
+              </EntityTrigger>
+              <span className="pdf-role-title">{role.role}</span>
+              <span className="pdf-dates">{role.dates}</span>
+            </div>
+            {role.resumeFocus && (
+              <p className="pdf-role-focus">
+                <strong>{role.resumeFocus}:</strong>
+              </p>
+            )}
+            <ul>
+              {role.resumeBullets.map((bullet) => (
+                <li key={bullet}>
+                  <span className="pdf-list-bullet" aria-hidden="true">
+                    •
+                  </span>
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
         ))}
       </div>
-      <div className="immersive-copy">
-        <div className="immersive-kicker">
-          <span>{preview.flag}</span>
-          <p>{preview.eyebrow}</p>
-        </div>
-        {context === "case" ? (
-          <h1 ref={titleRef} tabIndex={-1}>
-            {preview.title}
-          </h1>
-        ) : (
-          <strong>{preview.title}</strong>
-        )}
-        <p>{preview.copy}</p>
-        <small>
-          {context === "preview"
-            ? "Click or press Enter to explore"
-            : "Scroll to explore the work"}{" "}
-          <b>{context === "preview" ? "↗" : "↓"}</b>
-        </small>
-      </div>
-      <span className="immersive-corner-mark" aria-hidden="true">
-        {preview.flag}
-      </span>
-    </div>
+    </section>
   );
 }
 
-function ImmersivePreview({ preview }: { preview: HoverPreviewContent }) {
-  return (
-    <div
-      className={`immersive-preview immersive-preview--${preview.effect}`}
-      style={{ "--preview-accent": preview.accent } as CSSProperties}
-      aria-hidden="true"
-    >
-      <ThemeWorld preview={preview} />
-    </div>
-  );
-}
-
-function InfoStory({
-  detail,
-  onClose,
-  titleRef,
-}: {
-  detail: InfoDetail;
-  onClose: () => void;
-  titleRef: React.RefObject<HTMLHeadingElement | null>;
-}) {
-  const theme = {
-    "--accent": detail.accent,
-    "--accent-soft": detail.accentSoft,
+function PeekCard({ peek }: { peek: PeekState }) {
+  const marks = themeMarks[peek.profile.theme];
+  const style = {
+    "--peek-left": `${peek.left}px`,
+    "--peek-top": `${peek.top}px`,
   } as CSSProperties;
 
   return (
-    <main
-      className={`case-stage info-stage case-stage--${detail.effect}`}
-      style={theme}
+    <>
+      <div className="peek-scrim" aria-hidden="true" />
+      <aside
+        className="peek-card"
+        data-theme={peek.profile.theme}
+        data-side={peek.side}
+        style={style}
+        aria-hidden="true"
+      >
+        <div className="peek-marks">
+          {marks.map((mark, index) => (
+            <span key={`${mark}-${index}`}>{mark}</span>
+          ))}
+        </div>
+        <p className="peek-eyebrow">{peek.profile.eyebrow}</p>
+        <strong>{peek.profile.title}</strong>
+        <p className="peek-copy">{peek.profile.peek}</p>
+        <small>
+          Click the text to expand <b>↗</b>
+        </small>
+      </aside>
+    </>
+  );
+}
+
+function DetailCanvas({
+  profile,
+  titleRef,
+  onClose,
+}: {
+  profile: EntityProfile;
+  titleRef: React.RefObject<HTMLHeadingElement | null>;
+  onClose: () => void;
+}) {
+  return (
+    <div
+      className="detail-layer"
+      role="presentation"
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) onClose();
+      }}
     >
-      <div className="case-grid-bg" aria-hidden="true" />
-      <header className="case-topbar">
-        <button className="back-button" type="button" onClick={onClose}>
-          <span aria-hidden="true">←</span>
-          Back to résumé
-          <kbd>Esc</kbd>
+      <section
+        className="detail-canvas"
+        data-theme={profile.theme}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="detail-title"
+      >
+        <button
+          className="detail-close"
+          type="button"
+          onClick={onClose}
+          aria-label="Close expanded detail"
+        >
+          <span aria-hidden="true">×</span>
+          Close <kbd>Esc</kbd>
         </button>
-        <span className="case-counter">Interactive profile</span>
-        <a className="case-contact" href="mailto:ajaverett0@gmail.com">
-          Let&apos;s talk <span aria-hidden="true">↗</span>
-        </a>
-      </header>
 
-      <article className="info-shell">
-        <section className="info-hero info-hero--expanded">
-          <ThemeWorld
-            preview={infoPreview(detail)}
-            context="case"
-            titleRef={titleRef}
-          />
-          <div className="info-hero-copy">
-            <div className="info-hero-heading">
-              <p className="case-eyebrow">{detail.eyebrow}</p>
-              <h2>{detail.subtitle}</h2>
-            </div>
-            <p>{detail.summary}</p>
+        <header className="detail-header">
+          <div className="detail-marks" aria-hidden="true">
+            {themeMarks[profile.theme].map((mark, index) => (
+              <span key={`${mark}-${index}`}>{mark}</span>
+            ))}
           </div>
-        </section>
+          <p>{profile.eyebrow}</p>
+          <h2 id="detail-title" ref={titleRef} tabIndex={-1}>
+            {profile.title}
+          </h2>
+          <p className="detail-lead">{profile.peek}</p>
+        </header>
 
-        <section className="info-facts" aria-label={`${detail.title} details`}>
-          {detail.facts.map((fact, index) => (
+        <div className="detail-facts" aria-label="Key details">
+          {profile.facts.map((fact, index) => (
             <article key={fact.label}>
               <span>{String(index + 1).padStart(2, "0")}</span>
-              <p>{fact.label}</p>
+              <small>{fact.label}</small>
               <strong>{fact.value}</strong>
             </article>
           ))}
-        </section>
+        </div>
 
-        <section className="info-tags" aria-label="Related topics">
-          <p>Related to this résumé</p>
-          <div>
-            {detail.tags.map((tag) => (
-              <span key={tag}>{tag}</span>
-            ))}
-          </div>
-        </section>
+        <div className="detail-body">
+          <section className="detail-overview">
+            <p className="detail-section-label">Add-on context</p>
+            <h3>The story behind the line.</h3>
+            <p>{profile.overview}</p>
+            {profile.points && profile.points.length > 0 && (
+              <ul>
+                {profile.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            )}
+            {profile.tags && (
+              <div className="detail-tags" aria-label="Related topics">
+                {profile.tags.map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
+            )}
+          </section>
 
-        <footer className="info-footer">
-          <p>Return to the document and keep exploring.</p>
-          <button className="return-button" type="button" onClick={onClose}>
-            Back to résumé <span aria-hidden="true">↗</span>
-          </button>
-        </footer>
-      </article>
-    </main>
+          <section className="attachment-board" aria-label="Attached media">
+            <div className="attachment-heading">
+              <p className="detail-section-label">Expandable canvas</p>
+              <span>Media-ready</span>
+            </div>
+            {profile.attachments && profile.attachments.length > 0 ? (
+              <div className="attachment-list">
+                {profile.attachments.map((attachment, index) => (
+                  <AttachmentRenderer
+                    attachment={attachment}
+                    key={`${attachment.kind}-${index}`}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="attachment-empty">
+                <div className="attachment-types" aria-hidden="true">
+                  <span>Image</span>
+                  <span>Video</span>
+                  <span>Quote</span>
+                  <span>Embed</span>
+                </div>
+                <strong>Ready for the good stuff.</strong>
+                <p>
+                  This space can hold project screenshots, short videos,
+                  testimonials, documents, or embedded interactive work without
+                  creating another page.
+                </p>
+              </div>
+            )}
+          </section>
+        </div>
+      </section>
+    </div>
   );
 }
 
-function CaseStudy({
-  experience,
-  onClose,
-  onSelect,
-  titleRef,
-}: {
-  experience: Experience;
-  onClose: () => void;
-  onSelect: (slug: string) => void;
-  titleRef: React.RefObject<HTMLHeadingElement | null>;
-}) {
-  const theme = {
-    "--accent": experience.accent,
-    "--accent-soft": experience.accentSoft,
-  } as CSSProperties;
+function AttachmentRenderer({ attachment }: { attachment: Attachment }) {
+  if (attachment.kind === "quote") {
+    return (
+      <figure className="attachment attachment-quote">
+        <blockquote>“{attachment.quote}”</blockquote>
+        {attachment.attribution && (
+          <figcaption>{attachment.attribution}</figcaption>
+        )}
+      </figure>
+    );
+  }
+
+  if (attachment.kind === "image") {
+    return (
+      <figure className="attachment attachment-image">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={attachment.src} alt={attachment.alt} />
+        {attachment.caption && <figcaption>{attachment.caption}</figcaption>}
+      </figure>
+    );
+  }
+
+  if (attachment.kind === "video") {
+    return (
+      <figure className="attachment attachment-video">
+        <video controls preload="metadata" src={attachment.src}>
+          <track kind="captions" />
+        </video>
+        <figcaption>{attachment.title}</figcaption>
+      </figure>
+    );
+  }
 
   return (
-    <main
-      className={`case-stage case-stage--${experience.effect}`}
-      style={theme}
-    >
-      <div className="case-grid-bg" aria-hidden="true" />
-      <header className="case-topbar">
-        <button className="back-button" type="button" onClick={onClose}>
-          <span aria-hidden="true">←</span>
-          Back to résumé
-          <kbd>Esc</kbd>
-        </button>
-        <span className="case-counter">
-          {String(
-            resumeRoles.findIndex((item) => item.slug === experience.slug) + 1,
-          ).padStart(2, "0")}{" "}
-          / {String(resumeRoles.length).padStart(2, "0")}
-        </span>
-        <a className="case-contact" href="mailto:ajaverett0@gmail.com">
-          Let&apos;s talk <span aria-hidden="true">↗</span>
-        </a>
-      </header>
-
-      <article className="case-shell">
-        <section className="case-hero case-hero--expanded">
-          <ThemeWorld
-            preview={experiencePreview(experience)}
-            context="case"
-            titleRef={titleRef}
-          />
-
-          <div className="case-opened-copy">
-            <p className="case-eyebrow">Original résumé wording</p>
-            <h2>{experience.role}</h2>
-            <p className="case-summary">{experience.resumeBullets[0]}</p>
-          </div>
-
-          <div className="case-meta">
-            <div>
-              <span>Location</span>
-              <strong>{experience.location}</strong>
-            </div>
-            <div>
-              <span>Timeline</span>
-              <strong>{experience.dates}</strong>
-            </div>
-          </div>
-        </section>
-
-        <section className="metric-band" aria-label="Key impact">
-          {experience.metrics.map((metric) => (
-            <div key={metric.label} className="metric">
-              <strong>{metric.value}</strong>
-              <span>{metric.label}</span>
-            </div>
-          ))}
-          <p>Context from the original résumé.</p>
-        </section>
-
-        <section className="story-section" aria-labelledby="story-heading">
-          <div className="story-intro">
-            <p>Source of truth</p>
-            <h2 id="story-heading">Original résumé wording.</h2>
-          </div>
-          <div className="chapter-list">
-            {experience.resumeBullets.map((bullet, index) => (
-              <article className="chapter chapter--resume" key={bullet}>
-                <div className="chapter-number">
-                  {String(index + 1).padStart(2, "0")}
-                </div>
-                <p className="chapter-label">Résumé bullet</p>
-                <p className="chapter-copy chapter-bullet-copy">
-                  <span aria-hidden="true">•</span>
-                  <span>{bullet}</span>
-                </p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="system-section" aria-labelledby="system-heading">
-          <div className="system-copy">
-            <p>Tools and workflow</p>
-            <h2 id="system-heading">Referenced in the résumé.</h2>
-            <p>
-              This view organizes the technologies and workflow terms used in
-              the original résumé.
-            </p>
-            <div className="tool-list" aria-label="Tools used">
-              {experience.tools.map((tool) => (
-                <span key={tool}>{tool}</span>
-              ))}
-            </div>
-          </div>
-          <div className="pipeline" aria-label="Project workflow">
-            {experience.pipeline.map((step, index) => (
-              <div className="pipeline-step" key={step}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <strong>{step}</strong>
-                {index < experience.pipeline.length - 1 && (
-                  <i aria-hidden="true">→</i>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <footer className="case-footer">
-          <div>
-            <span>Explore another role</span>
-            <strong>The career index</strong>
-          </div>
-          <div className="career-index" aria-label="Career navigation">
-            {resumeRoles.map((item, index) => (
-              <button
-                type="button"
-                key={item.slug}
-                onClick={() => onSelect(item.slug)}
-                aria-pressed={item.slug === experience.slug}
-                style={
-                  {
-                    "--item-accent": item.accent,
-                  } as CSSProperties
-                }
-              >
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <strong>{item.company}</strong>
-              </button>
-            ))}
-          </div>
-          <button className="return-button" type="button" onClick={onClose}>
-            Return to résumé <span aria-hidden="true">↗</span>
-          </button>
-        </footer>
-      </article>
-    </main>
+    <iframe
+      className="attachment attachment-embed"
+      src={attachment.src}
+      title={attachment.title}
+      loading="lazy"
+      allowFullScreen
+    />
   );
 }

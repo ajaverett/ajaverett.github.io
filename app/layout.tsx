@@ -3,7 +3,7 @@ import "./globals.css";
 
 const siteUrl = "https://ajaverett.github.io";
 const description =
-  "An interactive résumé exploring Alan Averett's work across data science, engineering, machine learning, and education.";
+  "Alan Averett's single-page interactive résumé, with expandable context for his work across data science, engineering, machine learning, education, and civic data.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: `${siteUrl}/og.png`,
-        width: 1730,
+        url: `${siteUrl}/og-v2.png`,
+        width: 1731,
         height: 909,
-        alt: "Alan J. Averett's résumé unfolding into a vibrant data visualization.",
+        alt: "Alan J Averett's one-page résumé with a colorful interactive peek emerging from a highlighted line.",
       },
     ],
   },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Alan J. Averett — Data Scientist",
     description,
-    images: [`${siteUrl}/og.png`],
+    images: [`${siteUrl}/og-v2.png`],
   },
 };
 
