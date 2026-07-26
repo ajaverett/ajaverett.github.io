@@ -216,6 +216,8 @@ a {
 }
 
 .pdf-page {
+  --resume-content-scale: 1;
+
   position: relative;
   width: 8.5in;
   height: 11in;
@@ -230,6 +232,11 @@ a {
   font-family: var(--resume-serif);
   font-size: 12.35px;
   line-height: 1.16;
+}
+
+.pdf-page-content {
+  transform: scale(var(--resume-content-scale));
+  transform-origin: top center;
 }
 
 .pdf-header {

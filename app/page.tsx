@@ -4,6 +4,7 @@ import {
   type CSSProperties,
   type ReactNode,
   useEffect,
+  useLayoutEffect,
   useRef,
   useState,
 } from "react";
@@ -478,7 +479,46 @@ function calculatePeekPosition(element: HTMLElement) {
 export default function Home() {
   const [peek, setPeek] = useState<PeekState | null>(null);
   const [expanded, setExpanded] = useState<EntityProfile | null>(null);
+  const resumePageRef = useRef<HTMLElement>(null);
+  const resumeContentRef = useRef<HTMLDivElement>(null);
   const dialogTitleRef = useRef<HTMLHeadingElement>(null);
+
+  useLayoutEffect(() => {
+    const page = resumePageRef.current;
+    const content = resumeContentRef.current;
+    if (!page || !content) return;
+
+    let active = true;
+    const fitContentToPage = () => {
+      if (!active) return;
+
+      const styles = window.getComputedStyle(page);
+      const availableHeight =
+        page.clientHeight -
+        Number.parseFloat(styles.paddingTop) -
+        Number.parseFloat(styles.paddingBottom);
+      const contentHeight = content.scrollHeight;
+      const scale =
+        contentHeight > 0
+          ? Math.min(1, availableHeight / contentHeight)
+          : 1;
+
+      page.style.setProperty(
+        "--resume-content-scale",
+        scale.toFixed(5),
+      );
+    };
+
+    fitContentToPage();
+    const observer = new ResizeObserver(fitContentToPage);
+    observer.observe(content);
+    document.fonts.ready.then(fitContentToPage);
+
+    return () => {
+      active = false;
+      observer.disconnect();
+    };
+  }, []);
 
   useEffect(() => {
     const hidePeek = () => {
@@ -603,7 +643,12 @@ export default function Home() {
       </nav>
 
       <div className="pdf-canvas">
-        <article className="pdf-page" aria-labelledby="resume-name">
+        <article
+          ref={resumePageRef}
+          className="pdf-page"
+          aria-labelledby="resume-name"
+        >
+          <div ref={resumeContentRef} className="pdf-page-content">
           <header className="pdf-header">
             <h1 id="resume-name">
               <EntityTrigger
@@ -758,6 +803,7 @@ export default function Home() {
               ))}
             </ul>
           </section>
+          </div>
         </article>
       </div>
 
