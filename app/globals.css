@@ -3,6 +3,7 @@
 :root {
   --sans: "Inter", Arial, sans-serif;
   --serif: "Libre Caslon Display", Georgia, serif;
+  --resume-serif: "Times New Roman", Times, Georgia, serif;
   --mono: "DM Mono", "Courier New", monospace;
   --pdf-blue: #0000ee;
   --viewer: #55585c;
@@ -224,6 +225,7 @@ a {
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.38),
     0 18px 48px rgba(0, 0, 0, 0.22);
+  font-family: var(--resume-serif);
   font-size: 12.35px;
   line-height: 1.16;
 }

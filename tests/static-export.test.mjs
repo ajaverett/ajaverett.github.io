@@ -73,6 +73,8 @@ test("uses one entity interaction system without routed pages", async () => {
     /pushState|CaseStudy|InfoStory/,
   );
   assert.match(css, /\.entity-trigger:hover/);
+  assert.match(css, /--resume-serif: "Times New Roman"/);
+  assert.match(css, /font-family: var\(--resume-serif\)/);
   assert.match(css, /\.peek-card/);
   assert.match(css, /\.detail-layer/);
   assert.match(css, /\.attachment-board/);
