@@ -66,12 +66,16 @@ test("uses one entity interaction system without routed pages", async () => {
   assert.match(pageSource, /function AttachmentRenderer/);
   assert.match(pageSource, /kind: "video"/);
   assert.match(pageSource, /kind: "embed"/);
+  assert.match(pageSource, /runSurfaceTransition/);
+  assert.match(pageSource, /document\.startViewTransition/);
   assert.doesNotMatch(
     pageSource,
-    /pushState|startViewTransition|CaseStudy|InfoStory/,
+    /pushState|CaseStudy|InfoStory/,
   );
   assert.match(css, /\.entity-trigger:hover/);
   assert.match(css, /\.peek-card/);
   assert.match(css, /\.detail-layer/);
   assert.match(css, /\.attachment-board/);
+  assert.match(css, /view-transition-name: entity-surface/);
+  assert.match(css, /::view-transition-group\(entity-surface\)/);
 });

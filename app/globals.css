@@ -506,6 +506,7 @@ a {
     7px 8px 0 color-mix(in srgb, var(--entity-accent) 40%, #111);
   font-family: var(--sans);
   pointer-events: none;
+  view-transition-name: entity-surface;
   transform-origin: left center;
   animation: peek-pop 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
@@ -678,13 +679,7 @@ a {
   place-items: center;
   background: rgba(5, 7, 11, 0.75);
   backdrop-filter: blur(9px) grayscale(0.35);
-  animation: detail-layer-in 260ms ease both;
-}
-
-@keyframes detail-layer-in {
-  from {
-    opacity: 0;
-  }
+  view-transition-name: detail-backdrop;
 }
 
 .detail-canvas {
@@ -710,14 +705,7 @@ a {
     0 42px 120px rgba(0, 0, 0, 0.55),
     0 0 0 8px color-mix(in srgb, var(--entity-accent) 6%, transparent);
   font-family: var(--sans);
-  animation: detail-canvas-in 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-@keyframes detail-canvas-in {
-  from {
-    opacity: 0;
-    transform: translateY(42px) scale(0.9);
-  }
+  view-transition-name: entity-surface;
 }
 
 .detail-close {
@@ -1113,6 +1101,93 @@ a {
   font-family: var(--serif);
   font-size: 28px;
   line-height: 1.12;
+}
+
+/* The hover peek is the expanded canvas: one shared visual surface. */
+
+::view-transition-group(root) {
+  animation-duration: 1ms;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-group(entity-surface) {
+  z-index: 120;
+  overflow: clip;
+  animation-duration: 820ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+::view-transition-image-pair(entity-surface) {
+  isolation: auto;
+}
+
+::view-transition-old(entity-surface),
+::view-transition-new(entity-surface) {
+  height: 100%;
+  mix-blend-mode: normal;
+  animation-duration: 820ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+::view-transition-old(entity-surface) {
+  animation-name: entity-surface-out;
+}
+
+::view-transition-new(entity-surface) {
+  animation-name: entity-surface-in;
+}
+
+@keyframes entity-surface-out {
+  0%,
+  44% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes entity-surface-in {
+  from,
+  28% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+::view-transition-group(detail-backdrop) {
+  z-index: 100;
+  animation-duration: 520ms;
+  animation-timing-function: ease;
+}
+
+::view-transition-old(detail-backdrop) {
+  animation: detail-backdrop-out 360ms ease both;
+}
+
+::view-transition-new(detail-backdrop) {
+  animation: detail-backdrop-in 520ms ease both;
+}
+
+@keyframes detail-backdrop-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes detail-backdrop-out {
+  to {
+    opacity: 0;
+  }
 }
 
 /* Responsive behavior */

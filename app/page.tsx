@@ -7,6 +7,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { flushSync } from "react-dom";
 
 type Theme =
   | "about"
@@ -474,14 +475,16 @@ export default function Home() {
   const dialogTitleRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
-    const hidePeek = () => setPeek(null);
+    const hidePeek = () => {
+      if (!expanded) setPeek(null);
+    };
     window.addEventListener("scroll", hidePeek, true);
     window.addEventListener("resize", hidePeek);
     return () => {
       window.removeEventListener("scroll", hidePeek, true);
       window.removeEventListener("resize", hidePeek);
     };
-  }, []);
+  }, [expanded]);
 
   useEffect(() => {
     if (!expanded) return;
@@ -505,9 +508,61 @@ export default function Home() {
     setPeek({ profile, ...calculatePeekPosition(element) });
   };
 
-  const openProfile = (profile: EntityProfile) => {
-    setPeek(null);
-    setExpanded(profile);
+  const runSurfaceTransition = (
+    update: () => void,
+    onFinished?: () => void,
+  ) => {
+    if (
+      "startViewTransition" in document &&
+      typeof document.startViewTransition === "function" &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      const transition = document.startViewTransition(() =>
+        flushSync(update),
+      );
+      if (onFinished) {
+        transition.finished.finally(onFinished);
+      }
+      return;
+    }
+
+    flushSync(update);
+    onFinished?.();
+  };
+
+  const openProfile = (profile: EntityProfile, element: HTMLElement) => {
+    const expand = () =>
+      runSurfaceTransition(() => setExpanded(profile));
+
+    if (peek?.profile.id === profile.id) {
+      expand();
+      return;
+    }
+
+    flushSync(() => {
+      setPeek({ profile, ...calculatePeekPosition(element) });
+    });
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(expand);
+    });
+  };
+
+  const closeProfile = () => {
+    const canReturnToPeek =
+      !!expanded && peek?.profile.id === expanded.id;
+
+    if (canReturnToPeek) {
+      runSurfaceTransition(
+        () => setExpanded(null),
+        () => setPeek(null),
+      );
+      return;
+    }
+
+    runSurfaceTransition(() => {
+      setExpanded(null);
+      setPeek(null);
+    });
   };
 
   return (
@@ -705,7 +760,7 @@ export default function Home() {
         <DetailCanvas
           profile={expanded}
           titleRef={dialogTitleRef}
-          onClose={() => setExpanded(null)}
+          onClose={closeProfile}
         />
       )}
     </main>
@@ -728,7 +783,7 @@ function EntityTrigger({
   expandedId?: string;
   onPeek: (profile: EntityProfile, element: HTMLElement) => void;
   onLeave: () => void;
-  onExpand: (profile: EntityProfile) => void;
+  onExpand: (profile: EntityProfile, element: HTMLElement) => void;
   children: ReactNode;
 }) {
   const profile = profiles[profileId];
@@ -748,7 +803,7 @@ function EntityTrigger({
       onMouseLeave={onLeave}
       onFocus={(event) => onPeek(profile, event.currentTarget)}
       onBlur={onLeave}
-      onClick={() => onExpand(profile)}
+      onClick={(event) => onExpand(profile, event.currentTarget)}
     >
       {children}
     </button>
@@ -772,7 +827,7 @@ function ResumeGroup({
   expandedId?: string;
   onPeek: (profile: EntityProfile, element: HTMLElement) => void;
   onLeave: () => void;
-  onExpand: (profile: EntityProfile) => void;
+  onExpand: (profile: EntityProfile, element: HTMLElement) => void;
 }) {
   return (
     <section
