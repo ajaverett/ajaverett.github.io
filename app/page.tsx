@@ -230,7 +230,6 @@ const roles: ResumeRole[] = [
     role: "Database Administrator",
     location: "Saratoga Springs, UT",
     dates: "May 2026 - Present",
-    resumeFocus: "Neon CRM",
     peek:
       "Constituent records, data integrity, access controls, and Neon CRM.",
     overview:
