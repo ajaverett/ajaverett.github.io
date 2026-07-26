@@ -218,9 +218,11 @@ a {
 .pdf-page {
   position: relative;
   width: 8.5in;
-  min-height: 11in;
+  height: 11in;
+  aspect-ratio: 8.5 / 11;
   margin: 0 auto;
   padding: 0.47in 0.6in 0.42in;
+  overflow: hidden;
   background: #fff;
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.38),
@@ -1189,7 +1191,7 @@ a {
 
   .pdf-page {
     width: 8.5in;
-    min-height: 11in;
+    height: 11in;
     padding: 0.47in 0.6in 0.42in;
     font-size: 12.35px;
     zoom: calc((100vw - 24px) / 816px);

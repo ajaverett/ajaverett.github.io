@@ -77,6 +77,8 @@ test("uses one entity interaction system without routed pages", async () => {
   assert.doesNotMatch(css, /\.entity-trigger(?::hover|:focus-visible|--active)?::after/);
   assert.match(css, /--resume-serif: "Times New Roman"/);
   assert.match(css, /font-family: var\(--resume-serif\)/);
+  assert.match(css, /aspect-ratio: 8\.5 \/ 11/);
+  assert.match(css, /height: 11in/);
   assert.match(css, /\.peek-card/);
   assert.match(css, /\.detail-layer/);
   assert.match(css, /\.attachment-board/);
