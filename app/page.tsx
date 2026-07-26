@@ -492,31 +492,47 @@ export default function Home() {
     const fitContentToPage = () => {
       if (!active) return;
 
+      const applyScale = (scale: number) => {
+        page.style.setProperty(
+          "--resume-content-scale",
+          scale.toFixed(5),
+        );
+        page.style.setProperty(
+          "--resume-content-width",
+          `${(100 / scale).toFixed(5)}%`,
+        );
+      };
       const styles = window.getComputedStyle(page);
       const availableHeight =
         page.clientHeight -
         Number.parseFloat(styles.paddingTop) -
         Number.parseFloat(styles.paddingBottom);
-      const contentHeight = content.scrollHeight;
-      const scale =
-        contentHeight > 0
-          ? Math.min(1, availableHeight / contentHeight)
-          : 1;
 
-      page.style.setProperty(
-        "--resume-content-scale",
-        scale.toFixed(5),
-      );
+      applyScale(1);
+      if (content.scrollHeight <= availableHeight) return;
+
+      let lowerScale = 0.4;
+      let upperScale = 1;
+      for (let iteration = 0; iteration < 14; iteration += 1) {
+        const candidateScale = (lowerScale + upperScale) / 2;
+        applyScale(candidateScale);
+        const visualHeight = content.scrollHeight * candidateScale;
+
+        if (visualHeight <= availableHeight) {
+          lowerScale = candidateScale;
+        } else {
+          upperScale = candidateScale;
+        }
+      }
+
+      applyScale(lowerScale);
     };
 
     fitContentToPage();
-    const observer = new ResizeObserver(fitContentToPage);
-    observer.observe(content);
     document.fonts.ready.then(fitContentToPage);
 
     return () => {
       active = false;
-      observer.disconnect();
     };
   }, []);
 

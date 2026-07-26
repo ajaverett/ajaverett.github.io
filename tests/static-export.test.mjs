@@ -66,7 +66,8 @@ test("uses one entity interaction system without routed pages", async () => {
   assert.match(pageSource, /function DetailCanvas/);
   assert.match(pageSource, /function AttachmentRenderer/);
   assert.match(pageSource, /className="pdf-page-content"/);
-  assert.match(pageSource, /ResizeObserver\(fitContentToPage\)/);
+  assert.match(pageSource, /--resume-content-width/);
+  assert.match(pageSource, /iteration < 14/);
   assert.match(pageSource, /kind: "video"/);
   assert.match(pageSource, /kind: "embed"/);
   assert.match(pageSource, /runSurfaceTransition/);
@@ -81,7 +82,9 @@ test("uses one entity interaction system without routed pages", async () => {
   assert.match(css, /font-family: var\(--resume-serif\)/);
   assert.match(css, /aspect-ratio: 8\.5 \/ 11/);
   assert.match(css, /height: 11in/);
+  assert.match(css, /width: var\(--resume-content-width\)/);
   assert.match(css, /scale\(var\(--resume-content-scale\)\)/);
+  assert.match(css, /transform-origin: top left/);
   assert.match(css, /\.peek-card/);
   assert.match(css, /\.detail-layer/);
   assert.match(css, /\.attachment-board/);

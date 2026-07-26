@@ -217,6 +217,7 @@ a {
 
 .pdf-page {
   --resume-content-scale: 1;
+  --resume-content-width: 100%;
 
   position: relative;
   width: 8.5in;
@@ -235,8 +236,9 @@ a {
 }
 
 .pdf-page-content {
+  width: var(--resume-content-width);
   transform: scale(var(--resume-content-scale));
-  transform-origin: top center;
+  transform-origin: top left;
 }
 
 .pdf-header {
