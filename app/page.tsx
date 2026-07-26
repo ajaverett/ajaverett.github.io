@@ -69,7 +69,7 @@ type ResumeRole = {
   theme: Theme;
   company: string;
   role: string;
-  location: string;
+  location?: string;
   dates: string;
   resumeFocus?: string;
   peek: string;
@@ -200,7 +200,6 @@ const roles: ResumeRole[] = [
     theme: "research",
     company: "Research & Business Development Center",
     role: "Data Consulting Intern",
-    location: "Idaho Falls, ID",
     dates: "Sep 2023 - Dec 2023",
     peek:
       "Anomaly detection and research workflows across 200,000 submissions.",
@@ -228,7 +227,6 @@ const roles: ResumeRole[] = [
     theme: "civic",
     company: "County-Level Civic Engagement Organization",
     role: "Database Administrator",
-    location: "Saratoga Springs, UT",
     dates: "May 2026 - Present",
     peek:
       "Constituent records, data integrity, access controls, and Neon CRM.",
@@ -368,8 +366,8 @@ const staticProfiles: EntityProfile[] = [
   },
 ];
 
-const roleProfiles: EntityProfile[] = roles.flatMap((role) => [
-  {
+const roleProfiles: EntityProfile[] = roles.flatMap((role) => {
+  const companyProfile: EntityProfile = {
     id: `company-${role.slug}`,
     theme: role.theme,
     eyebrow: role.role,
@@ -377,14 +375,21 @@ const roleProfiles: EntityProfile[] = roles.flatMap((role) => [
     peek: role.peek,
     overview: role.overview,
     facts: [
-      { label: "Location", value: role.location },
+      ...(role.location
+        ? [{ label: "Location", value: role.location }]
+        : []),
       { label: "Timeline", value: role.dates },
       ...role.facts.slice(0, 1),
     ],
     points: role.resumeBullets,
     tags: role.tags,
-  },
-  {
+  };
+
+  if (!role.location) {
+    return [companyProfile];
+  }
+
+  const locationProfile: EntityProfile = {
     id: `location-${role.slug}`,
     theme: role.theme,
     eyebrow: "Résumé location",
@@ -398,8 +403,10 @@ const roleProfiles: EntityProfile[] = roles.flatMap((role) => [
     ],
     points: role.resumeBullets,
     tags: [role.location, ...role.tags.slice(0, 4)],
-  },
-]);
+  };
+
+  return [companyProfile, locationProfile];
+});
 
 const profiles = Object.fromEntries(
   [...staticProfiles, ...roleProfiles].map((profile) => [profile.id, profile]),
@@ -849,17 +856,19 @@ function ResumeGroup({
               >
                 {role.company}
               </EntityTrigger>
-              <EntityTrigger
-                profileId={`location-${role.slug}`}
-                className="entity-location pdf-location"
-                activeId={activeId}
-                expandedId={expandedId}
-                onPeek={onPeek}
-                onLeave={onLeave}
-                onExpand={onExpand}
-              >
-                {role.location}
-              </EntityTrigger>
+              {role.location && (
+                <EntityTrigger
+                  profileId={`location-${role.slug}`}
+                  className="entity-location pdf-location"
+                  activeId={activeId}
+                  expandedId={expandedId}
+                  onPeek={onPeek}
+                  onLeave={onLeave}
+                  onExpand={onExpand}
+                >
+                  {role.location}
+                </EntityTrigger>
+              )}
               <span className="pdf-role-title">{role.role}</span>
               <span className="pdf-dates">{role.dates}</span>
             </div>
