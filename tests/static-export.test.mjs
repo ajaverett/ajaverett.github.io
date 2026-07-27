@@ -8,13 +8,16 @@ const outputRoot = new URL("../out/", import.meta.url);
 test("exports a complete static resume", async () => {
   const html = await readFile(new URL("index.html", outputRoot), "utf8");
 
-  assert.match(html, /Alan J\. Averett/);
+  assert.match(html, /AJ Averett/);
   assert.match(html, /Booz Allen Hamilton/);
   assert.match(
     html,
     /Hover a highlighted entity for a peek · click to expand/,
   );
-  assert.match(html, /aria-label="Explore Alan J Averett"/);
+  assert.match(html, /aria-label="Explore AJ Averett"/);
+  assert.match(html, /aj-averett-resume\.pdf/);
+  assert.match(html, /Print or save the résumé as a PDF/);
+  assert.doesNotMatch(html, /Original PDF|href="\/alan-averett-resume\.pdf"/);
   assert.match(
     html,
     /aria-label="Explore Brigham Young University–Idaho"/,
@@ -51,7 +54,6 @@ test("includes static assets needed by GitHub Pages", async () => {
 
   assert.ok(assetEntries.length > 0);
   await access(new URL("og-v2.png", outputRoot));
-  await access(new URL("alan-averett-resume.pdf", outputRoot));
   await assert.rejects(access(new URL(".openai/hosting.json", projectRoot)));
 });
 
@@ -72,6 +74,7 @@ test("uses one entity interaction system without routed pages", async () => {
   assert.match(pageSource, /kind: "embed"/);
   assert.match(pageSource, /runSurfaceTransition/);
   assert.match(pageSource, /document\.startViewTransition/);
+  assert.match(pageSource, /window\.print\(\)/);
   assert.doesNotMatch(
     pageSource,
     /pushState|CaseStudy|InfoStory/,

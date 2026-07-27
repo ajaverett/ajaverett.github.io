@@ -1,4 +1,4 @@
-# Alan Averett — Interactive Résumé
+# AJ Averett — Interactive Résumé
 
 A résumé that opens into role-by-role data stories. Built as a fully static
 Next.js export so it can run on GitHub Pages without a server or sign-in.

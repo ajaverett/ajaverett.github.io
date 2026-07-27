@@ -258,7 +258,7 @@ const staticProfiles: EntityProfile[] = [
     id: "alan",
     theme: "about",
     eyebrow: "About me",
-    title: "Alan J Averett",
+    title: "AJ Averett",
     peek:
       "Data scientist, engineer, instructor, and the person behind this very serious résumé.",
     overview:
@@ -639,23 +639,22 @@ export default function Home() {
             PDF
           </span>
           <span className="pdf-file-copy">
-            <strong>alan-averett-resume.pdf</strong>
+            <strong>aj-averett-resume.pdf</strong>
             <small>Hover a highlighted entity for a peek · click to expand</small>
           </span>
         </div>
         <span className="pdf-page-count" aria-label="Page 1 of 1">
           1 / 1
         </span>
-        <a
+        <button
           className="pdf-download"
-          href="/alan-averett-resume.pdf"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Open the original résumé PDF"
+          type="button"
+          onClick={() => window.print()}
+          aria-label="Print or save the résumé as a PDF"
         >
-          <span>Original PDF</span>
-          <b aria-hidden="true">↗</b>
-        </a>
+          <span>Download</span>
+          <b aria-hidden="true">Ctrl+P</b>
+        </button>
       </nav>
 
       <div className="pdf-canvas">
@@ -676,7 +675,7 @@ export default function Home() {
                 onLeave={() => setPeek(null)}
                 onExpand={openProfile}
               >
-                Alan J Averett
+                AJ Averett
               </EntityTrigger>
             </h1>
             <p className="pdf-contact">

@@ -196,8 +196,12 @@ a {
   align-items: center;
   gap: 8px;
   padding: 8px 10px;
+  color: inherit;
+  border: 0;
   border-radius: 3px;
+  background: transparent;
   font-size: 9px;
+  cursor: pointer;
   transition: background 150ms ease;
 }
 
@@ -206,7 +210,8 @@ a {
 }
 
 .pdf-download b {
-  font-size: 13px;
+  font-size: 8px;
+  font-weight: 600;
 }
 
 .pdf-canvas {
