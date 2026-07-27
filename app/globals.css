@@ -842,6 +842,7 @@ a {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
+  view-transition-name: entity-eyebrow;
 }
 
 .peek-card > strong {
@@ -854,6 +855,7 @@ a {
   line-height: 0.9;
   letter-spacing: -0.04em;
   text-wrap: balance;
+  view-transition-name: entity-title;
 }
 
 .peek-copy {
@@ -862,6 +864,7 @@ a {
   font-family: var(--serif);
   font-size: 13px;
   line-height: 1.25;
+  view-transition-name: entity-lead;
 }
 
 .peek-card small {
@@ -1009,6 +1012,10 @@ a {
   letter-spacing: 0.15em;
 }
 
+.detail-header > p:first-of-type {
+  view-transition-name: entity-eyebrow;
+}
+
 .detail-header h2 {
   max-width: 860px;
   margin: 0;
@@ -1021,6 +1028,7 @@ a {
   text-shadow:
     3px 3px 0 color-mix(in srgb, var(--entity-accent) 60%, #151820),
     0 24px 54px rgba(0, 0, 0, 0.36);
+  view-transition-name: entity-title;
 }
 
 .detail-header h2:focus {
@@ -1034,6 +1042,7 @@ a {
   font-family: var(--serif);
   font-size: clamp(17px, 2vw, 23px);
   line-height: 1.4;
+  view-transition-name: entity-lead;
 }
 
 .detail-marks {
@@ -1340,6 +1349,25 @@ a {
 
 ::view-transition-image-pair(entity-surface) {
   isolation: auto;
+}
+
+::view-transition-group(entity-eyebrow),
+::view-transition-group(entity-title),
+::view-transition-group(entity-lead) {
+  z-index: 140;
+  animation-duration: 900ms;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-old(entity-eyebrow),
+::view-transition-new(entity-eyebrow),
+::view-transition-old(entity-title),
+::view-transition-new(entity-title),
+::view-transition-old(entity-lead),
+::view-transition-new(entity-lead) {
+  mix-blend-mode: normal;
+  animation-duration: 900ms;
+  animation-timing-function: linear;
 }
 
 ::view-transition-old(entity-surface),
