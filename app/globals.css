@@ -352,9 +352,8 @@ a {
 .entity-hotspot--active {
   z-index: 45;
   overflow: visible;
-  box-shadow:
-    0 0 0 3px color-mix(in srgb, var(--entity-soft) 68%, transparent),
-    0 5px 12px color-mix(in srgb, var(--entity-accent) 22%, transparent);
+  box-shadow: 0 5px 12px
+    color-mix(in srgb, var(--entity-accent) 22%, transparent);
   filter: saturate(1.08);
   transform: scale(1.085);
 }
@@ -641,7 +640,7 @@ a {
   z-index: 45;
   color: color-mix(in srgb, var(--entity-accent) 46%, #111);
   background: color-mix(in srgb, var(--entity-soft) 72%, #fff);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--entity-soft) 58%, transparent);
+  box-shadow: none;
   transform: scale(1.075);
 }
 
