@@ -345,8 +345,27 @@ a {
 }
 
 .pdf-role-heading {
+  grid-template-areas:
+    "company location"
+    "title dates";
   align-items: baseline;
   line-height: 1.08;
+}
+
+.pdf-role-heading > .entity-company {
+  grid-area: company;
+}
+
+.pdf-role-heading > .entity-location {
+  grid-area: location;
+}
+
+.pdf-role-title {
+  grid-area: title;
+}
+
+.pdf-dates {
+  grid-area: dates;
 }
 
 .pdf-role-title,

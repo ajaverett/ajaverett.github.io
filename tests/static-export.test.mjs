@@ -85,6 +85,9 @@ test("uses one entity interaction system without routed pages", async () => {
   assert.match(css, /font-family: var\(--resume-serif\)/);
   assert.match(css, /aspect-ratio: 8\.5 \/ 11/);
   assert.match(css, /height: 11in/);
+  assert.match(css, /"company location"\s+"title dates"/);
+  assert.match(css, /grid-area: title/);
+  assert.match(css, /grid-area: dates/);
   assert.match(css, /width: var\(--resume-content-width\)/);
   assert.match(css, /scale\(var\(--resume-content-scale\)\)/);
   assert.match(css, /transform-origin: top left/);
