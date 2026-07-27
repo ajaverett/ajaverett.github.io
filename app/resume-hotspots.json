@@ -1,0 +1,138 @@
+[
+  {
+    "id": "alan-1",
+    "profileId": "alan",
+    "x": 39.02353,
+    "y": 4.46654,
+    "width": 21.95294,
+    "height": 3.53535
+  },
+  {
+    "id": "rexburg-1",
+    "profileId": "rexburg",
+    "x": 87.07108,
+    "y": 13.10922,
+    "width": 7.53676,
+    "height": 1.33838
+  },
+  {
+    "id": "byui-1",
+    "profileId": "byui",
+    "x": 7.35294,
+    "y": 13.2197,
+    "width": 26.78,
+    "height": 1.42677
+  },
+  {
+    "id": "subject-1",
+    "profileId": "subject",
+    "x": 10.87487,
+    "y": 14.59596,
+    "width": 14.80654,
+    "height": 1.42424
+  },
+  {
+    "id": "scholarship-1",
+    "profileId": "scholarship",
+    "x": 19.98709,
+    "y": 16.21212,
+    "width": 32.61739,
+    "height": 1.42424
+  },
+  {
+    "id": "data-society-1",
+    "profileId": "data-society",
+    "x": 53.34173,
+    "y": 16.21212,
+    "width": 21.42493,
+    "height": 1.42424
+  },
+  {
+    "id": "lab-manager-1",
+    "profileId": "lab-manager",
+    "x": 75.50392,
+    "y": 16.21212,
+    "width": 12.47036,
+    "height": 1.42424
+  },
+  {
+    "id": "location-booz-allen-1",
+    "profileId": "location-booz-allen",
+    "x": 83.26814,
+    "y": 20.67235,
+    "width": 11.33971,
+    "height": 1.33838
+  },
+  {
+    "id": "company-booz-allen-1",
+    "profileId": "company-booz-allen",
+    "x": 7.35294,
+    "y": 20.78283,
+    "width": 16.73686,
+    "height": 1.42677
+  },
+  {
+    "id": "location-mountainland-1",
+    "profileId": "location-mountainland",
+    "x": 89.09902,
+    "y": 33.23548,
+    "width": 5.50882,
+    "height": 1.33838
+  },
+  {
+    "id": "company-mountainland-1",
+    "profileId": "company-mountainland",
+    "x": 7.35294,
+    "y": 33.34596,
+    "width": 26.08497,
+    "height": 1.42677
+  },
+  {
+    "id": "location-corecodec-1",
+    "profileId": "location-corecodec",
+    "x": 84.2549,
+    "y": 41.63194,
+    "width": 10.35294,
+    "height": 1.33838
+  },
+  {
+    "id": "company-corecodec-1",
+    "profileId": "company-corecodec",
+    "x": 7.35294,
+    "y": 41.74242,
+    "width": 8.22824,
+    "height": 1.42677
+  },
+  {
+    "id": "location-wpa-1",
+    "profileId": "location-wpa",
+    "x": 82.26814,
+    "y": 51.4173,
+    "width": 12.33971,
+    "height": 1.33838
+  },
+  {
+    "id": "company-wpa-1",
+    "profileId": "company-wpa",
+    "x": 7.35294,
+    "y": 51.52778,
+    "width": 14.12157,
+    "height": 1.42677
+  },
+  {
+    "id": "company-rbdc-1",
+    "profileId": "company-rbdc",
+    "x": 7.35294,
+    "y": 63.13131,
+    "width": 33.25621,
+    "height": 1.57576
+  },
+  {
+    "id": "company-civic-database-1",
+    "profileId": "company-civic-database",
+    "x": 7.35294,
+    "y": 72.71465,
+    "width": 36.37111,
+    "height": 1.42677
+  }
+]

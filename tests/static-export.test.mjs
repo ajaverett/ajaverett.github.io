@@ -28,8 +28,8 @@ test("exports a complete static resume", async () => {
     /aria-label="Explore Soc of Hispanic Professional Engineer Scholarship"/,
   );
   assert.match(html, /aria-label="Explore Salt Lake City, UT"/);
-  assert.match(html, /class="pdf-page"/);
-  assert.match(html, /class="pdf-list-bullet"/);
+  assert.match(html, /class="pdf-page-image"/);
+  assert.match(html, /class="pdf-hotspot-layer"/);
   assert.match(html, /QPAS technical standards to ~76 stakeholders/);
   assert.match(html, /Wilford Woodruff Papers Foundation/);
   assert.match(html, /id="volunteer">Volunteer/);
@@ -57,17 +57,26 @@ test("includes static assets needed by GitHub Pages", async () => {
 
   assert.ok(assetEntries.length > 0);
   await access(new URL("og-v2.png", outputRoot));
+  await access(new URL("resume-page.png", outputRoot));
+  await access(new URL("aj-averett-resume.pdf", outputRoot));
+  await access(new URL("fonts/stix-two-text-latin.woff2", outputRoot));
   await assert.rejects(access(new URL(".openai/hosting.json", projectRoot)));
 });
 
 test("uses one entity interaction system without routed pages", async () => {
-  const [pageSource, css] = await Promise.all([
+  const [pageSource, css, hotspotSource, generatorSource] = await Promise.all([
     readFile(new URL("app/page.tsx", projectRoot), "utf8"),
     readFile(new URL("app/globals.css", projectRoot), "utf8"),
+    readFile(new URL("app/resume-hotspots.json", projectRoot), "utf8"),
+    readFile(new URL("scripts/generate_resume.py", projectRoot), "utf8"),
   ]);
+  const hotspots = JSON.parse(hotspotSource);
 
   assert.match(pageSource, /function EntityTrigger/);
   assert.match(pageSource, /className="entity-trigger__label"/);
+  assert.match(pageSource, /function EntityHotspot/);
+  assert.match(pageSource, /resumeHotspots\.map/);
+  assert.match(pageSource, /src="\/resume-page\.png"/);
   assert.match(pageSource, /function PeekCard/);
   assert.match(pageSource, /function DetailCanvas/);
   assert.match(pageSource, /function AttachmentRenderer/);
@@ -75,7 +84,7 @@ test("uses one entity interaction system without routed pages", async () => {
   assert.match(pageSource, /className="pdf-page-content"/);
   assert.doesNotMatch(
     pageSource,
-    /fitContentToPage|resumeContentRef|--resume-content-width/,
+    /fitContentToPage|resumeContentRef|--resume-content-width|ResizeObserver/,
   );
   assert.match(pageSource, /kind: "video"/);
   assert.match(pageSource, /kind: "embed"/);
@@ -87,10 +96,14 @@ test("uses one entity interaction system without routed pages", async () => {
     /pushState|CaseStudy|InfoStory/,
   );
   assert.match(css, /\.entity-trigger:hover/);
+  assert.match(css, /\.entity-hotspot:hover/);
   assert.match(css, /animation: entity-attention-shimmer 15s ease-in-out infinite/);
   assert.match(css, /@keyframes entity-attention-shimmer/);
+  assert.match(css, /animation: hotspot-attention-shimmer 15s ease-in-out infinite/);
+  assert.match(css, /@keyframes hotspot-attention-shimmer/);
   assert.doesNotMatch(css, /\.entity-trigger(?::hover|:focus-visible|--active)?::after/);
-  assert.match(css, /--resume-serif: "STIX Two Text"/);
+  assert.match(css, /--resume-serif: "STIX Two Text Local"/);
+  assert.match(css, /url\("\/fonts\/stix-two-text-latin\.woff2"\)/);
   assert.match(css, /--resume-copy-size: 11\.15px/);
   assert.match(css, /--resume-entry-size: 12\.5px/);
   assert.match(css, /--resume-leading: 1\.24/);
@@ -100,7 +113,6 @@ test("uses one entity interaction system without routed pages", async () => {
   assert.match(css, /aspect-ratio: 8\.5 \/ 11/);
   assert.match(css, /height: 11in/);
   assert.match(css, /\.pdf-page-frame/);
-  assert.match(css, /scale\(var\(--resume-page-scale\)\)/);
   assert.doesNotMatch(css, /\bzoom:/);
   assert.match(css, /"company location"\s+"title dates"/);
   assert.match(css, /grid-area: title/);
@@ -110,11 +122,15 @@ test("uses one entity interaction system without routed pages", async () => {
     /--resume-content-width|--resume-content-scale/,
   );
   assert.match(css, /transform-origin: top left/);
-  assert.match(css, /-webkit-text-size-adjust: 100%/);
-  assert.match(css, /text-size-adjust: 100%/);
+  assert.match(css, /-webkit-text-size-adjust: none/);
+  assert.match(css, /text-size-adjust: none/);
   assert.match(css, /\.peek-card/);
   assert.match(css, /\.detail-layer/);
   assert.match(css, /\.attachment-board/);
   assert.match(css, /view-transition-name: entity-surface/);
   assert.match(css, /::view-transition-group\(entity-surface\)/);
+  assert.ok(hotspots.length >= 15);
+  assert.ok(hotspots.every((hotspot) => hotspot.profileId));
+  assert.match(generatorSource, /SimpleDocTemplate/);
+  assert.match(generatorSource, /extract_hotspots/);
 });

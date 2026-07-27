@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 const siteUrl = "https://ajaverett.github.io";
@@ -32,6 +32,12 @@ export const metadata: Metadata = {
     description,
     images: [`${siteUrl}/og-v2.png`],
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({

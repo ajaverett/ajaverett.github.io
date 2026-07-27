@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "generate:resume": "python scripts/generate_resume.py",
     "test": "next build && node --test tests/static-export.test.mjs",
     "lint": "eslint . --ignore-pattern out --ignore-pattern .next --ignore-pattern dist"
   },

@@ -4,11 +4,13 @@ import {
   type CSSProperties,
   type ReactNode,
   useEffect,
-  useLayoutEffect,
   useRef,
   useState,
 } from "react";
 import { flushSync } from "react-dom";
+import Image from "next/image";
+import resumeData from "./resume-data.json";
+import resumeHotspots from "./resume-hotspots.json";
 
 type Theme =
   | "about"
@@ -484,29 +486,7 @@ function calculatePeekPosition(element: HTMLElement) {
 export default function Home() {
   const [peek, setPeek] = useState<PeekState | null>(null);
   const [expanded, setExpanded] = useState<EntityProfile | null>(null);
-  const resumeFrameRef = useRef<HTMLDivElement>(null);
-  const resumePageRef = useRef<HTMLElement>(null);
   const dialogTitleRef = useRef<HTMLHeadingElement>(null);
-
-  useLayoutEffect(() => {
-    const frame = resumeFrameRef.current;
-    const page = resumePageRef.current;
-    if (!frame || !page) return;
-
-    const scalePageToFrame = () => {
-      const scale = Math.min(1, frame.clientWidth / 816);
-      page.style.setProperty(
-        "--resume-page-scale",
-        scale.toFixed(5),
-      );
-    };
-
-    scalePageToFrame();
-    const observer = new ResizeObserver(scalePageToFrame);
-    observer.observe(frame);
-
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     const hidePeek = () => {
@@ -630,11 +610,32 @@ export default function Home() {
       </nav>
 
       <div className="pdf-canvas">
-        <div ref={resumeFrameRef} className="pdf-page-frame">
+        <div className="pdf-page-frame">
+          <Image
+            className="pdf-page-image"
+            src="/resume-page.png"
+            width={1734}
+            height={2244}
+            priority
+            alt="AJ Averett's one-page resume"
+          />
+          <div className="pdf-hotspot-layer" aria-label="Interactive resume details">
+            {resumeHotspots.map((hotspot) => (
+              <EntityHotspot
+                key={hotspot.id}
+                hotspot={hotspot}
+                activeId={peek?.profile.id}
+                expandedId={expanded?.id}
+                onPeek={showPeek}
+                onLeave={() => setPeek(null)}
+                onExpand={openProfile}
+              />
+            ))}
+          </div>
           <article
-            ref={resumePageRef}
-            className="pdf-page"
+            className="pdf-page pdf-page--legacy"
             aria-labelledby="resume-name"
+            aria-hidden="true"
           >
             <div className="pdf-page-content">
           <header className="pdf-header">
@@ -794,6 +795,7 @@ export default function Home() {
             </div>
           </article>
         </div>
+        <AccessibleResume />
       </div>
 
       {peek && !expanded && <PeekCard peek={peek} />}
@@ -805,6 +807,119 @@ export default function Home() {
         />
       )}
     </main>
+  );
+}
+
+function EntityHotspot({
+  hotspot,
+  activeId,
+  expandedId,
+  onPeek,
+  onLeave,
+  onExpand,
+}: {
+  hotspot: (typeof resumeHotspots)[number];
+  activeId?: string;
+  expandedId?: string;
+  onPeek: (profile: EntityProfile, element: HTMLElement) => void;
+  onLeave: () => void;
+  onExpand: (profile: EntityProfile, element: HTMLElement) => void;
+}) {
+  const profile = profiles[hotspot.profileId];
+  if (!profile) return null;
+
+  const cropX =
+    hotspot.x === 0
+      ? 0
+      : (hotspot.x / (100 - hotspot.width)) * 100;
+  const cropY =
+    hotspot.y === 0
+      ? 0
+      : (hotspot.y / (100 - hotspot.height)) * 100;
+  const style = {
+    left: `${hotspot.x}%`,
+    top: `${hotspot.y}%`,
+    width: `${hotspot.width}%`,
+    height: `${hotspot.height}%`,
+    "--hotspot-crop-size": `${10000 / hotspot.width}% ${
+      10000 / hotspot.height
+    }%`,
+    "--hotspot-crop-position": `${cropX}% ${cropY}%`,
+  } as CSSProperties;
+
+  return (
+    <button
+      className={`entity-hotspot${
+        activeId === profile.id ? " entity-hotspot--active" : ""
+      }`}
+      type="button"
+      style={style}
+      data-theme={profile.theme}
+      data-profile-id={profile.id}
+      aria-haspopup="dialog"
+      aria-expanded={expandedId === profile.id}
+      aria-label={`Explore ${profile.title}`}
+      onMouseEnter={(event) => onPeek(profile, event.currentTarget)}
+      onMouseLeave={onLeave}
+      onFocus={(event) => onPeek(profile, event.currentTarget)}
+      onBlur={onLeave}
+      onClick={(event) => onExpand(profile, event.currentTarget)}
+    />
+  );
+}
+
+function AccessibleResume() {
+  const { header, education, skillGroups } = resumeData;
+
+  return (
+    <article className="resume-accessible">
+      <h1>{header.name}</h1>
+      <p>
+        {header.phone} | {header.email} | {header.linkedin} | {header.website}
+      </p>
+      <section>
+        <h2>Education</h2>
+        <h3>{education.school}</h3>
+        <p>
+          {education.degree} {education.subject} | {education.location} |{" "}
+          {education.dates}
+        </p>
+        <p>
+          Achievements:{" "}
+          {education.achievements.map((achievement) => achievement.label).join(", ")}
+        </p>
+      </section>
+      {(["experience", "volunteer"] as const).map((group) => (
+        <section key={group}>
+          <h2>{group === "experience" ? "Experience" : "Volunteer"}</h2>
+          {resumeData.roles
+            .filter((role) => role.group === group)
+            .map((role) => (
+              <div key={role.slug}>
+                <h3>{role.company}</h3>
+                <p>
+                  {role.role} | {role.location} | {role.dates}
+                </p>
+                <ul>
+                  {role.resumeBullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+        </section>
+      ))}
+      <section>
+        <h2>Skills</h2>
+        <ul>
+          {skillGroups.map((group) => (
+            <li key={group.label}>
+              <strong>{group.label}:</strong> {group.items}
+            </li>
+          ))}
+        </ul>
+      </section>
+    </article>
   );
 }
 

@@ -1,9 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Libre+Caslon+Display&family=STIX+Two+Text:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Libre+Caslon+Display&display=swap");
+
+@font-face {
+  font-family: "STIX Two Text Local";
+  src: url("/fonts/stix-two-text-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: block;
+}
 
 :root {
   --sans: "Inter", Arial, sans-serif;
   --serif: "Libre Caslon Display", Georgia, serif;
-  --resume-serif: "STIX Two Text", Georgia, serif;
+  --resume-serif: "STIX Two Text Local", Georgia, serif;
   --mono: "DM Mono", "Courier New", monospace;
   --pdf-blue: #0000ee;
   --viewer: #55585c;
@@ -17,8 +25,8 @@
 html {
   background: var(--viewer);
   scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 }
 
 body {
@@ -227,6 +235,150 @@ a {
   width: 8.5in;
   aspect-ratio: 8.5 / 11;
   margin: 0 auto;
+  isolation: isolate;
+  background: #fff;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.38),
+    0 18px 48px rgba(0, 0, 0, 0.22);
+}
+
+.pdf-page-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+}
+
+.pdf-hotspot-layer {
+  position: absolute;
+  z-index: 40;
+  inset: 0;
+  pointer-events: none;
+}
+
+.entity-hotspot {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 2px;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  pointer-events: auto;
+  transform-origin: center;
+  transition:
+    box-shadow 160ms ease,
+    filter 160ms ease,
+    transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.entity-hotspot::before,
+.entity-hotspot::after {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+}
+
+.entity-hotspot::before {
+  z-index: 1;
+  inset: 0;
+  opacity: 0;
+  background-image: url("/resume-page.png");
+  background-position: var(--hotspot-crop-position);
+  background-size: var(--hotspot-crop-size);
+  background-repeat: no-repeat;
+  transition:
+    opacity 120ms ease,
+    filter 160ms ease;
+}
+
+.entity-hotspot::after {
+  z-index: 2;
+  top: -35%;
+  bottom: -35%;
+  left: -55%;
+  width: 34%;
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--entity-accent) 42%, #fff),
+    #fff,
+    transparent
+  );
+  filter: blur(0.45px);
+  mix-blend-mode: screen;
+  transform: skewX(-18deg) translateX(-230%);
+  animation: hotspot-attention-shimmer 15s ease-in-out infinite;
+}
+
+.entity-hotspot:hover,
+.entity-hotspot:focus-visible,
+.entity-hotspot--active {
+  z-index: 45;
+  overflow: visible;
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--entity-soft) 68%, transparent),
+    0 5px 12px color-mix(in srgb, var(--entity-accent) 22%, transparent);
+  filter: saturate(1.08);
+  transform: scale(1.085);
+}
+
+.entity-hotspot:hover::before,
+.entity-hotspot:focus-visible::before,
+.entity-hotspot--active::before {
+  opacity: 1;
+  filter: brightness(1.025);
+}
+
+.entity-hotspot:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--entity-accent) 78%, #111);
+  outline-offset: 3px;
+}
+
+@keyframes hotspot-attention-shimmer {
+  0%,
+  86% {
+    opacity: 0;
+    transform: skewX(-18deg) translateX(-230%);
+  }
+
+  88% {
+    opacity: 0.92;
+  }
+
+  95% {
+    opacity: 0.92;
+    transform: skewX(-18deg) translateX(620%);
+  }
+
+  96%,
+  100% {
+    opacity: 0;
+    transform: skewX(-18deg) translateX(620%);
+  }
+}
+
+.resume-accessible {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  border: 0 !important;
+  white-space: nowrap !important;
+}
+
+.pdf-page--legacy {
+  display: none;
 }
 
 .pdf-page {
@@ -1384,6 +1536,10 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .entity-hotspot::after {
+    display: none;
+  }
+
   .entity-trigger__label {
     background-image: none;
     -webkit-text-fill-color: currentColor;
@@ -1428,6 +1584,13 @@ a {
     width: 8.5in;
     height: 11in;
     margin: 0;
+    box-shadow: none;
+  }
+
+  .pdf-hotspot-layer,
+  .resume-accessible,
+  .pdf-page--legacy {
+    display: none;
   }
 
   .entity-trigger {

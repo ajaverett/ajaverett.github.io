@@ -1,0 +1,275 @@
+{
+  "header": {
+    "name": "AJ Averett",
+    "phone": "832.856.4666",
+    "phoneHref": "+18328564666",
+    "email": "ajaverett0@gmail.com",
+    "linkedin": "linkedin.com/in/ajaverett",
+    "linkedinHref": "https://www.linkedin.com/in/ajaverett",
+    "website": "ajaverett.github.io",
+    "websiteHref": "https://ajaverett.github.io"
+  },
+  "education": {
+    "school": "Brigham Young University–Idaho",
+    "degree": "B.Sc.",
+    "subject": "Data Science, Statistics",
+    "location": "Rexburg, ID",
+    "dates": "Apr 2020 - Dec 2023",
+    "achievements": [
+      {
+        "profileId": "scholarship",
+        "label": "Soc of Hispanic Professional Engineer Scholarship"
+      },
+      {
+        "profileId": "data-society",
+        "label": "President of Data Science Society"
+      },
+      {
+        "profileId": "lab-manager",
+        "label": "Chief Lab Manager"
+      }
+    ]
+  },
+  "roles": [
+    {
+      "slug": "booz-allen",
+      "group": "experience",
+      "theme": "naval",
+      "company": "Booz Allen Hamilton",
+      "role": "Data Scientist II (Senior Consultant)",
+      "location": "Salt Lake City, UT",
+      "dates": "May 2024 - Present",
+      "peek": "Aircraft-carrier readiness, naval time-series data, and mission-critical dashboards.",
+      "overview": "I own the path from raw naval time-series data to dependable, decision-ready products-building the pipelines, models, and dashboards that help teams understand readiness.",
+      "facts": [
+        {
+          "label": "Stakeholders",
+          "value": "~76"
+        },
+        {
+          "label": "Delivery",
+          "value": "CI/CD"
+        },
+        {
+          "label": "Clearance",
+          "value": "Active Secret"
+        }
+      ],
+      "tags": [
+        "Databricks",
+        "Spark SQL",
+        "PySpark",
+        "QlikSense",
+        "Predictive maintenance"
+      ],
+      "resumeBullets": [
+        "Led end-to-end ETL processes for multi-source naval time-series data, implementing a medallion architecture in Databricks and orchestrating data pipelines using Spark SQL, PySpark (Python), and Databricks Jobs/Workflows",
+        "Built, delivered, and maintained robust, KPI-driven, mission-critical dashboards in QlikSense compliant with QPAS technical standards to ~76 stakeholders across several naval commands to inform about fleet-wide warfighting readiness",
+        "Developed time-series predictive maintenance pipelines, enabling the estimation of average time-to-failure for ship parts",
+        "Operated in Scrum and Agile development cycles for CI/CD on client deliverables, Active Secret Clearance"
+      ]
+    },
+    {
+      "slug": "mountainland",
+      "group": "experience",
+      "theme": "teaching",
+      "company": "Mountainland Technical College",
+      "role": "Adjunct Faculty Instructor; Part-time",
+      "location": "Lehi, UT",
+      "dates": "Jul 2025 - Present",
+      "peek": "Competency-based analytics instruction across the complete data lifecycle.",
+      "overview": "I translate industry practice into approachable instruction, helping students move from raw data to an explanation people can act on.",
+      "facts": [
+        {
+          "label": "Course",
+          "value": "Data Technology"
+        },
+        {
+          "label": "Coverage",
+          "value": "Full lifecycle"
+        },
+        {
+          "label": "Format",
+          "value": "Part-time"
+        }
+      ],
+      "tags": [
+        "Excel",
+        "Python",
+        "R",
+        "SQL",
+        "Power BI",
+        "Tableau"
+      ],
+      "resumeBullets": [
+        "Delivered competency-based analytics instruction using Excel, Python (Pandas, Scikit-learn), R (Tidyverse), SQL, Power BI, and Tableau, covering the full data lifecycle from acquisition to visualization for the MTECH Data Technology course",
+        "Developed and refined curriculum to align with industry practices with use of student performance evaluation"
+      ]
+    },
+    {
+      "slug": "corecodec",
+      "group": "experience",
+      "theme": "code",
+      "company": "Corecodec",
+      "role": "Data Engineer Intern",
+      "location": "San Antonio, TX",
+      "dates": "Dec 2023 - Apr 2024",
+      "peek": "Python, Selenium, and automated evidence pipelines for copyright analysis.",
+      "overview": "I automated the collection and transformation of large-scale unstructured app data so copyright-review teams could surface actionable infringement patterns.",
+      "facts": [
+        {
+          "label": "Extraction",
+          "value": "Python + Selenium"
+        },
+        {
+          "label": "Transform",
+          "value": "Pandas"
+        },
+        {
+          "label": "Delivery",
+          "value": "Excel reports"
+        }
+      ],
+      "tags": [
+        "Python",
+        "Selenium",
+        "Pandas",
+        "openpyxl",
+        "ETL"
+      ],
+      "resumeBullets": [
+        "Designed ETL pipeline architecture using Python and Selenium to regularly extract large-scale unstructured data from app repositories for copyright infringement analysis",
+        "Built Pandas-based transformation workflows and automated Excel reports using openpyxl to surface actionable infringement patterns"
+      ]
+    },
+    {
+      "slug": "wpa",
+      "group": "experience",
+      "theme": "political",
+      "company": "WPA Intelligence",
+      "role": "Machine Learning Intern",
+      "location": "SE Washington, DC",
+      "dates": "Jul 2022 - Nov 2022",
+      "peek": "Voter modeling, civic campaigns, and GIS features across 100 million records.",
+      "overview": "I analyzed national-scale civic data and engineered geographic features that improved how future models understood voter behavior across multiple levels of place.",
+      "facts": [
+        {
+          "label": "Records",
+          "value": "100M"
+        },
+        {
+          "label": "Granularities",
+          "value": "12"
+        },
+        {
+          "label": "Model lift",
+          "value": "1-3%"
+        }
+      ],
+      "tags": [
+        "SQL",
+        "R",
+        "tidyverse",
+        "GIS",
+        "US Census Bureau",
+        "sf"
+      ],
+      "resumeBullets": [
+        "Analyzed and visualized voter demographic trends using SQL and R's tidyverse to create digestible reports for hundreds of civic campaigns, training and deploying machine learning models to predict ideological disposition and voter turnout,",
+        "Improved accuracy and AUC of all future ML models by 1-3% by feature engineering GIS data to classify over 100 million voter records into 12 population density granularities using US Census Bureau's geographic spatial data and R's sf library"
+      ]
+    },
+    {
+      "slug": "rbdc",
+      "group": "volunteer",
+      "theme": "research",
+      "company": "Research & Business Development Center",
+      "role": "Data Consulting Intern",
+      "location": "Idaho Falls, ID",
+      "interactiveLocation": false,
+      "dates": "Sep 2023 - Dec 2023",
+      "peek": "Anomaly detection and research workflows across 200,000 submissions.",
+      "overview": "Working with FamilySearch leadership, I helped turn participant-submitted information into an anomaly-detection and research workflow.",
+      "facts": [
+        {
+          "label": "Submissions",
+          "value": "200k"
+        },
+        {
+          "label": "Analysis",
+          "value": "Python"
+        },
+        {
+          "label": "Interface",
+          "value": "Plotly + Streamlit"
+        }
+      ],
+      "tags": [
+        "Python",
+        "Anomaly detection",
+        "Plotly",
+        "Streamlit",
+        "Text vectorization"
+      ],
+      "resumeBullets": [
+        "Collaborated with FamilySearch executive leadership to deploy several in-house tuned anomaly detection algorithms in Python, analyzing over 200k submissions of unstructured, participant-submitted information for quality assurance; developed dashboards using Plotly and Streamlit that cross-referenced firm-owned content repositories with public records using text vectorization in Python, improving research capabilities for the Wilford Woodruff Papers Foundation"
+      ]
+    },
+    {
+      "slug": "civic-database",
+      "group": "volunteer",
+      "theme": "civic",
+      "company": "County-Level Civic Engagement Organization",
+      "role": "Database Administrator",
+      "location": "Saratoga Springs, UT",
+      "interactiveLocation": false,
+      "dates": "May 2026 - Present",
+      "peek": "Constituent records, data integrity, access controls, and Neon CRM.",
+      "overview": "I administer the organization's CRM foundation so constituent and contribution data stays clean, protected, and useful.",
+      "facts": [
+        {
+          "label": "Platform",
+          "value": "Neon CRM"
+        },
+        {
+          "label": "Focus",
+          "value": "Data quality"
+        },
+        {
+          "label": "Protection",
+          "value": "Access controls"
+        }
+      ],
+      "tags": [
+        "Neon CRM",
+        "Constituent records",
+        "Deduplication",
+        "Data quality",
+        "Access controls"
+      ],
+      "resumeBullets": [
+        "Administered Neon CRM, maintaining constituent records, user access, data integrity, and system configuration.",
+        "Imported, cleaned, deduplicated, and standardized contact and contribution data.",
+        "Protected sensitive information through access controls and data-quality practices."
+      ]
+    }
+  ],
+  "skillGroups": [
+    {
+      "label": "Python/R",
+      "items": "pandas, PySpark, numpy, polars, sklearn, TensorFlow/Keras, xgboost, statsmodels, spaCy, selenium, tidyverse"
+    },
+    {
+      "label": "Visualization",
+      "items": "ggplot2, matplotlib, seaborn, plotly, altair, Streamlit, QlikSense, R Shiny, Power BI, Tableau, Mermaid"
+    },
+    {
+      "label": "Other Technical Skills",
+      "items": "SQL, Spark SQL, Excel, Quarto, LaTeX, regex, Agile Workflow (Scrum), Confluence"
+    },
+    {
+      "label": "Development",
+      "items": "Databricks, Jupyter, Spark, Git, GitHub, Docker, Azure"
+    }
+  ]
+}
