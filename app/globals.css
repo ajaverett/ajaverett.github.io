@@ -302,19 +302,21 @@ a {
   top: -35%;
   bottom: -35%;
   left: -55%;
-  width: 34%;
+  width: 18%;
   opacity: 0;
   background: linear-gradient(
     90deg,
     transparent,
-    color-mix(in srgb, var(--entity-accent) 42%, #fff),
-    #fff,
+    rgba(255, 255, 255, 0.62),
     transparent
   );
-  filter: blur(0.45px);
+  filter: blur(0.75px);
   mix-blend-mode: screen;
-  transform: skewX(-18deg) translateX(-230%);
-  animation: hotspot-attention-shimmer 15s ease-in-out infinite;
+  transform: skewX(-16deg) translateX(-240%);
+}
+
+.entity-hotspot--hinted::after {
+  animation: hotspot-attention-shimmer 900ms ease-out 1;
 }
 
 .entity-hotspot:hover,
@@ -342,25 +344,23 @@ a {
 }
 
 @keyframes hotspot-attention-shimmer {
-  0%,
-  86% {
+  0% {
     opacity: 0;
-    transform: skewX(-18deg) translateX(-230%);
+    transform: skewX(-16deg) translateX(-240%);
   }
 
-  88% {
-    opacity: 0.92;
+  18% {
+    opacity: 0.24;
   }
 
-  95% {
-    opacity: 0.92;
-    transform: skewX(-18deg) translateX(620%);
+  82% {
+    opacity: 0.24;
+    transform: skewX(-16deg) translateX(880%);
   }
 
-  96%,
   100% {
     opacity: 0;
-    transform: skewX(-18deg) translateX(620%);
+    transform: skewX(-16deg) translateX(880%);
   }
 }
 

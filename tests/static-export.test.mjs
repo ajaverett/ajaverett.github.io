@@ -76,6 +76,8 @@ test("uses one entity interaction system without routed pages", async () => {
   assert.match(pageSource, /className="entity-trigger__label"/);
   assert.match(pageSource, /function EntityHotspot/);
   assert.match(pageSource, /resumeHotspots\.map/);
+  assert.match(pageSource, /setHintedHotspotId/);
+  assert.match(pageSource, /window\.setTimeout\(advanceHint, 15_000\)/);
   assert.match(pageSource, /src="\/resume-page\.png"/);
   assert.match(pageSource, /function PeekCard/);
   assert.match(pageSource, /function DetailCanvas/);
@@ -99,7 +101,8 @@ test("uses one entity interaction system without routed pages", async () => {
   assert.match(css, /\.entity-hotspot:hover/);
   assert.match(css, /animation: entity-attention-shimmer 15s ease-in-out infinite/);
   assert.match(css, /@keyframes entity-attention-shimmer/);
-  assert.match(css, /animation: hotspot-attention-shimmer 15s ease-in-out infinite/);
+  assert.match(css, /\.entity-hotspot--hinted::after/);
+  assert.match(css, /animation: hotspot-attention-shimmer 900ms ease-out 1/);
   assert.match(css, /@keyframes hotspot-attention-shimmer/);
   assert.doesNotMatch(css, /\.entity-trigger(?::hover|:focus-visible|--active)?::after/);
   assert.match(css, /--resume-serif: "STIX Two Text Local"/);

@@ -486,7 +486,25 @@ function calculatePeekPosition(element: HTMLElement) {
 export default function Home() {
   const [peek, setPeek] = useState<PeekState | null>(null);
   const [expanded, setExpanded] = useState<EntityProfile | null>(null);
+  const [hintedHotspotId, setHintedHotspotId] = useState<string | null>(null);
   const dialogTitleRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    let currentIndex = -1;
+    let timer: number;
+
+    const advanceHint = () => {
+      currentIndex =
+        currentIndex < 0
+          ? Math.floor(Math.random() * resumeHotspots.length)
+          : (currentIndex + 1) % resumeHotspots.length;
+      setHintedHotspotId(resumeHotspots[currentIndex].id);
+      timer = window.setTimeout(advanceHint, 15_000);
+    };
+
+    timer = window.setTimeout(advanceHint, 7_000);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const hidePeek = () => {
@@ -626,6 +644,7 @@ export default function Home() {
                 hotspot={hotspot}
                 activeId={peek?.profile.id}
                 expandedId={expanded?.id}
+                hinted={hintedHotspotId === hotspot.id}
                 onPeek={showPeek}
                 onLeave={() => setPeek(null)}
                 onExpand={openProfile}
@@ -814,6 +833,7 @@ function EntityHotspot({
   hotspot,
   activeId,
   expandedId,
+  hinted,
   onPeek,
   onLeave,
   onExpand,
@@ -821,6 +841,7 @@ function EntityHotspot({
   hotspot: (typeof resumeHotspots)[number];
   activeId?: string;
   expandedId?: string;
+  hinted: boolean;
   onPeek: (profile: EntityProfile, element: HTMLElement) => void;
   onLeave: () => void;
   onExpand: (profile: EntityProfile, element: HTMLElement) => void;
@@ -851,7 +872,7 @@ function EntityHotspot({
     <button
       className={`entity-hotspot${
         activeId === profile.id ? " entity-hotspot--active" : ""
-      }`}
+      }${hinted ? " entity-hotspot--hinted" : ""}`}
       type="button"
       style={style}
       data-theme={profile.theme}
