@@ -7,9 +7,9 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "generate:resume": "python scripts/generate_resume.py",
-    "test": "next build && node --test tests/static-export.test.mjs",
+    "test": "next build --webpack && node --test tests/static-export.test.mjs",
     "lint": "eslint . --ignore-pattern out --ignore-pattern .next --ignore-pattern dist"
   },
   "dependencies": {

@@ -321,6 +321,7 @@ a {
   background-position: var(--hotspot-crop-position);
   background-size: var(--hotspot-crop-size);
   background-repeat: no-repeat;
+  mix-blend-mode: multiply;
   transition:
     opacity 120ms ease,
     filter 160ms ease;
@@ -352,8 +353,7 @@ a {
 .entity-hotspot--active {
   z-index: 45;
   overflow: visible;
-  box-shadow: 0 5px 12px
-    color-mix(in srgb, var(--entity-accent) 22%, transparent);
+  box-shadow: none;
   filter: saturate(1.08);
   transform: scale(1.085);
 }
@@ -639,7 +639,7 @@ a {
 .entity-trigger--active {
   z-index: 45;
   color: color-mix(in srgb, var(--entity-accent) 46%, #111);
-  background: color-mix(in srgb, var(--entity-soft) 72%, #fff);
+  background: transparent;
   box-shadow: none;
   transform: scale(1.075);
 }
