@@ -189,12 +189,6 @@ a {
   white-space: nowrap;
 }
 
-.pdf-file-copy small {
-  margin-top: 2px;
-  color: #aeb2b7;
-  font-size: 8px;
-}
-
 .pdf-page-count {
   color: #c5c8cc;
   font-size: 10px;
@@ -1385,7 +1379,6 @@ a {
     padding: 7px 10px;
   }
 
-  .pdf-file-copy small,
   .pdf-page-count,
   .pdf-download span {
     display: none;

@@ -670,7 +670,6 @@ export default function Home() {
           </span>
           <span className="pdf-file-copy">
             <strong>aj-averett-resume.pdf</strong>
-            <small>Hover a highlighted entity for a peek · click to expand</small>
           </span>
         </div>
         <span className="pdf-page-count" aria-label="Page 1 of 1">

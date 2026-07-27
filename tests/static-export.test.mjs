@@ -10,7 +10,7 @@ test("exports a complete static resume", async () => {
 
   assert.match(html, /AJ Averett/);
   assert.match(html, /Booz Allen Hamilton/);
-  assert.match(
+  assert.doesNotMatch(
     html,
     /Hover a highlighted entity for a peek · click to expand/,
   );
