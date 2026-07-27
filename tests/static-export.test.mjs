@@ -81,6 +81,15 @@ test("uses one entity interaction system without routed pages", async () => {
   assert.match(pageSource, /src="\/resume-page\.png"/);
   assert.match(pageSource, /function PeekCard/);
   assert.match(pageSource, /function DetailCanvas/);
+  assert.match(pageSource, /window\.visualViewport/);
+  assert.match(pageSource, /viewport\.width \* scale/);
+  assert.match(pageSource, /viewport\.height \* scale/);
+  assert.match(pageSource, /viewport\.offsetLeft/);
+  assert.match(pageSource, /viewport\.offsetTop/);
+  assert.match(pageSource, /scale\(\$\{1 \/ scale\}\)`/);
+  assert.match(pageSource, /viewport\.addEventListener\("resize", update\)/);
+  assert.match(pageSource, /viewport\.addEventListener\("scroll", update\)/);
+  assert.match(pageSource, /window\.visualViewport\.scale <= 1\.01/);
   assert.match(pageSource, /function AttachmentRenderer/);
   assert.match(pageSource, /className="pdf-page-frame"/);
   assert.match(pageSource, /className="pdf-page-content"/);
@@ -129,6 +138,8 @@ test("uses one entity interaction system without routed pages", async () => {
   assert.match(css, /text-size-adjust: none/);
   assert.match(css, /\.peek-card/);
   assert.match(css, /\.detail-layer/);
+  assert.match(css, /calc\(20px \+ env\(safe-area-inset-top, 0px\)\)/);
+  assert.match(css, /\.detail-canvas \{[\s\S]*?max-height: 100%/);
   assert.match(css, /\.attachment-board/);
   assert.match(css, /view-transition-name: entity-surface/);
   assert.match(css, /::view-transition-group\(entity-surface\)/);

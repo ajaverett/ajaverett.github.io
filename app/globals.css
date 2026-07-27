@@ -859,16 +859,18 @@ a {
   inset: 0;
   display: grid;
   padding: 22px;
+  overflow: hidden;
   place-items: center;
   background: rgba(5, 7, 11, 0.75);
   backdrop-filter: blur(9px) grayscale(0.35);
+  overscroll-behavior: contain;
   view-transition-name: detail-backdrop;
 }
 
 .detail-canvas {
   position: relative;
-  width: min(1120px, calc(100vw - 44px));
-  max-height: calc(100svh - 44px);
+  width: min(1120px, 100%);
+  max-height: 100%;
   overflow: auto;
   color: #f5f1e8;
   border: 1px solid color-mix(in srgb, var(--entity-accent) 68%, #fff);
@@ -888,6 +890,8 @@ a {
     0 42px 120px rgba(0, 0, 0, 0.55),
     0 0 0 8px color-mix(in srgb, var(--entity-accent) 6%, transparent);
   font-family: var(--sans);
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   view-transition-name: entity-surface;
 }
 
@@ -1430,12 +1434,16 @@ a {
   }
 
   .detail-layer {
-    padding: 10px;
+    padding:
+      calc(20px + env(safe-area-inset-top, 0px))
+      calc(10px + env(safe-area-inset-right, 0px))
+      calc(12px + env(safe-area-inset-bottom, 0px))
+      calc(10px + env(safe-area-inset-left, 0px));
   }
 
   .detail-canvas {
-    width: calc(100vw - 20px);
-    max-height: calc(100svh - 20px);
+    width: 100%;
+    max-height: 100%;
     border-radius: 20px;
   }
 

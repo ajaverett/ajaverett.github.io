@@ -483,6 +483,65 @@ function calculatePeekPosition(element: HTMLElement) {
   return { left, top, side };
 }
 
+function getDetailViewportStyle(): CSSProperties | undefined {
+  const viewport = window.visualViewport;
+
+  if (!viewport) return undefined;
+
+  const scale = viewport.scale > 0 ? viewport.scale : 1;
+
+  return {
+    position: "fixed",
+    top: 0,
+    right: "auto",
+    bottom: "auto",
+    left: 0,
+    width: viewport.width * scale,
+    height: viewport.height * scale,
+    transform: `translate3d(${viewport.offsetLeft}px, ${viewport.offsetTop}px, 0) scale(${1 / scale})`,
+    transformOrigin: "top left",
+  };
+}
+
+function useDetailViewportStyle() {
+  const [style, setStyle] = useState<CSSProperties | undefined>(() =>
+    typeof window === "undefined" ? undefined : getDetailViewportStyle(),
+  );
+
+  useEffect(() => {
+    const viewport = window.visualViewport;
+    if (!viewport) return;
+
+    let animationFrame: number | null = null;
+    const update = () => {
+      if (animationFrame !== null) return;
+
+      animationFrame = window.requestAnimationFrame(() => {
+        animationFrame = null;
+        setStyle(getDetailViewportStyle());
+      });
+    };
+
+    update();
+    viewport.addEventListener("resize", update);
+    viewport.addEventListener("scroll", update);
+    window.addEventListener("resize", update);
+    window.addEventListener("orientationchange", update);
+
+    return () => {
+      if (animationFrame !== null) {
+        window.cancelAnimationFrame(animationFrame);
+      }
+      viewport.removeEventListener("resize", update);
+      viewport.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+      window.removeEventListener("orientationchange", update);
+    };
+  }, []);
+
+  return style;
+}
+
 export default function Home() {
   const [peek, setPeek] = useState<PeekState | null>(null);
   const [expanded, setExpanded] = useState<EntityProfile | null>(null);
@@ -547,7 +606,8 @@ export default function Home() {
     if (
       "startViewTransition" in document &&
       typeof document.startViewTransition === "function" &&
-      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+      (!window.visualViewport || window.visualViewport.scale <= 1.01)
     ) {
       const transition = document.startViewTransition(() =>
         flushSync(update),
@@ -1112,9 +1172,12 @@ function DetailCanvas({
   titleRef: React.RefObject<HTMLHeadingElement | null>;
   onClose: () => void;
 }) {
+  const viewportStyle = useDetailViewportStyle();
+
   return (
     <div
       className="detail-layer"
+      style={viewportStyle}
       role="presentation"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) onClose();
