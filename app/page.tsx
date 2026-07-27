@@ -71,6 +71,7 @@ type ResumeRole = {
   company: string;
   role: string;
   location?: string;
+  interactiveLocation?: boolean;
   dates: string;
   resumeFocus?: string;
   peek: string;
@@ -201,6 +202,8 @@ const roles: ResumeRole[] = [
     theme: "research",
     company: "Research & Business Development Center",
     role: "Data Consulting Intern",
+    location: "Idaho Falls, ID",
+    interactiveLocation: false,
     dates: "Sep 2023 - Dec 2023",
     peek:
       "Anomaly detection and research workflows across 200,000 submissions.",
@@ -228,6 +231,8 @@ const roles: ResumeRole[] = [
     theme: "civic",
     company: "County-Level Civic Engagement Organization",
     role: "Database Administrator",
+    location: "Saratoga Springs, UT",
+    interactiveLocation: false,
     dates: "May 2026 - Present",
     peek:
       "Constituent records, data integrity, access controls, and Neon CRM.",
@@ -386,7 +391,7 @@ const roleProfiles: EntityProfile[] = roles.flatMap((role) => {
     tags: role.tags,
   };
 
-  if (!role.location) {
+  if (!role.location || role.interactiveLocation === false) {
     return [companyProfile];
   }
 
@@ -917,19 +922,22 @@ function ResumeGroup({
               >
                 {role.company}
               </EntityTrigger>
-              {role.location && (
-                <EntityTrigger
-                  profileId={`location-${role.slug}`}
-                  className="entity-location pdf-location"
-                  activeId={activeId}
-                  expandedId={expandedId}
-                  onPeek={onPeek}
-                  onLeave={onLeave}
-                  onExpand={onExpand}
-                >
-                  {role.location}
-                </EntityTrigger>
-              )}
+              {role.location &&
+                (role.interactiveLocation === false ? (
+                  <span className="pdf-location">{role.location}</span>
+                ) : (
+                  <EntityTrigger
+                    profileId={`location-${role.slug}`}
+                    className="entity-location pdf-location"
+                    activeId={activeId}
+                    expandedId={expandedId}
+                    onPeek={onPeek}
+                    onLeave={onLeave}
+                    onExpand={onExpand}
+                  >
+                    {role.location}
+                  </EntityTrigger>
+                ))}
               <span className="pdf-role-title">{role.role}</span>
               <span className="pdf-dates">{role.dates}</span>
             </div>

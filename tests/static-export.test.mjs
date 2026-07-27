@@ -36,7 +36,10 @@ test("exports a complete static resume", async () => {
   assert.match(html, /Database Administrator/);
   assert.match(html, /County-Level Civic Engagement Organization/);
   assert.match(html, /May 2026 - Present/);
-  assert.doesNotMatch(html, /Idaho Falls, ID|Saratoga Springs, UT/);
+  assert.match(html, /Idaho Falls, ID/);
+  assert.match(html, /Saratoga Springs, UT/);
+  assert.doesNotMatch(html, /aria-label="Explore Idaho Falls, ID"/);
+  assert.doesNotMatch(html, /aria-label="Explore Saratoga Springs, UT"/);
   assert.match(html, /Administered Neon CRM, maintaining constituent records/);
   assert.match(html, /Imported, cleaned, deduplicated, and standardized contact/);
   assert.match(html, /Protected sensitive information through access controls/);
