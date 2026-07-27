@@ -233,6 +233,7 @@ a {
   --resume-page-scale: 1;
   --resume-copy-size: 11.15px;
   --resume-entry-size: 12.5px;
+  --resume-leading: 1.24;
 
   position: absolute;
   top: 0;
@@ -248,13 +249,13 @@ a {
     0 18px 48px rgba(0, 0, 0, 0.22);
   font-family: var(--resume-serif);
   font-size: var(--resume-copy-size);
-  line-height: 1.12;
+  line-height: var(--resume-leading);
   transform: scale(var(--resume-page-scale));
   transform-origin: top left;
 }
 
 .pdf-header {
-  margin-bottom: 13px;
+  margin-bottom: 16px;
   text-align: center;
 }
 
@@ -281,12 +282,12 @@ a {
 }
 
 .pdf-section {
-  margin-top: 14px;
+  margin-top: 17px;
 }
 
 .pdf-section h2 {
-  margin: 0 0 3px;
-  padding-bottom: 1px;
+  margin: 0 0 4px;
+  padding-bottom: 2px;
   border-bottom: 1px solid #111;
   font-size: 13px;
   line-height: 1;
@@ -324,7 +325,7 @@ a {
 .pdf-achievement {
   display: flex;
   gap: 4px;
-  margin: 3px 0 0 16px;
+  margin: 4px 0 0 16px;
 }
 
 .pdf-achievement strong {
@@ -336,20 +337,20 @@ a {
 }
 
 .pdf-role-section {
-  margin-top: 15px;
+  margin-top: 18px;
 }
 
 .pdf-volunteer-section {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
 .pdf-role-list {
   display: grid;
-  gap: 8px;
+  gap: 12px;
 }
 
 .pdf-volunteer-section .pdf-role-list {
-  gap: 7px;
+  gap: 10px;
 }
 
 .pdf-role-entry {
@@ -393,13 +394,13 @@ a {
 }
 
 .pdf-role-focus {
-  margin: 2px 0 0 14px;
+  margin: 3px 0 0 14px;
   font-size: 10.7px;
 }
 
 .pdf-role-entry ul,
 .pdf-skills-section ul {
-  margin: 3px 0 0 14px;
+  margin: 4px 0 0 14px;
   padding: 0;
 }
 
@@ -418,11 +419,11 @@ a {
 
 .pdf-role-entry li + li,
 .pdf-skills-section li + li {
-  margin-top: 1px;
+  margin-top: 2px;
 }
 
 .pdf-skills-section {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
 /* Interactive résumé entities */
