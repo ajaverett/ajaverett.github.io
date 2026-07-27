@@ -130,28 +130,28 @@ def build_pdf(data: dict) -> None:
         "Company",
         fontName=BOLD,
         fontSize=10.4,
-        leading=11.3,
+        leading=11.45,
         textColor=BLUE,
     )
     body_style = ParagraphStyle(
         "Body",
         fontName=REGULAR,
         fontSize=9.4,
-        leading=11,
+        leading=11.15,
     )
     right_style = ParagraphStyle(
         "Right",
         parent=body_style,
         alignment=TA_RIGHT,
         fontSize=9,
-        leading=10.6,
+        leading=10.75,
     )
     achievement_style = ParagraphStyle(
         "Achievement",
         parent=body_style,
         leftIndent=13,
         firstLineIndent=-8,
-        spaceBefore=1.8,
+        spaceBefore=1.9,
     )
     bullet_style = ParagraphStyle(
         "Bullet",
@@ -263,13 +263,15 @@ def build_pdf(data: dict) -> None:
                 )
                 for bullet in role["resumeBullets"]
             ]
-            entry = [heading, Spacer(1, 1.2), *bullets]
+            entry = [heading, Spacer(1, 1.3), *bullets]
             story.append(KeepTogether(entry))
 
             if index != len(group_roles) - 1:
-                story.append(Spacer(1, 10 if group == "experience" else 8))
+                story.append(
+                    Spacer(1, 10.25 if group == "experience" else 8.25)
+                )
 
-        story.append(Spacer(1, 10 if group == "experience" else 8))
+        story.append(Spacer(1, 10.25 if group == "experience" else 8.25))
 
     story.append(section_heading("Skills", section_style))
     story.append(Spacer(1, 1.8))
