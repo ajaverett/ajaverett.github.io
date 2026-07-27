@@ -88,6 +88,9 @@ test("uses one entity interaction system without routed pages", async () => {
   assert.match(css, /\.entity-trigger:hover/);
   assert.doesNotMatch(css, /\.entity-trigger(?::hover|:focus-visible|--active)?::after/);
   assert.match(css, /--resume-serif: "STIX Two Text"/);
+  assert.match(css, /--resume-copy-size: 11\.15px/);
+  assert.match(css, /--resume-entry-size: 12\.5px/);
+  assert.match(css, /\.pdf-role-entry,\s+\.pdf-skills-section\s+{\s+font-size: var\(--resume-copy-size\)/);
   assert.match(css, /font-family: var\(--resume-serif\)/);
   assert.match(css, /aspect-ratio: 8\.5 \/ 11/);
   assert.match(css, /height: 11in/);
@@ -102,8 +105,8 @@ test("uses one entity interaction system without routed pages", async () => {
     /--resume-content-width|--resume-content-scale/,
   );
   assert.match(css, /transform-origin: top left/);
-  assert.match(css, /-webkit-text-size-adjust: none/);
-  assert.match(css, /text-size-adjust: none/);
+  assert.match(css, /-webkit-text-size-adjust: 100%/);
+  assert.match(css, /text-size-adjust: 100%/);
   assert.match(css, /\.peek-card/);
   assert.match(css, /\.detail-layer/);
   assert.match(css, /\.attachment-board/);
