@@ -606,6 +606,7 @@ export default function Home() {
   const runSurfaceTransition = (
     update: () => void,
     onFinished?: () => void,
+    direction: "open" | "close" = "open",
   ) => {
     if (
       "startViewTransition" in document &&
@@ -613,12 +614,18 @@ export default function Home() {
       !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
       (!window.visualViewport || window.visualViewport.scale <= 1.01)
     ) {
+      const root = document.documentElement;
+      if (direction === "close") {
+        root.classList.add("surface-transition--closing");
+      }
+
       const transition = document.startViewTransition(() =>
         flushSync(update),
       );
-      if (onFinished) {
-        transition.finished.finally(onFinished);
-      }
+      void transition.finished.finally(() => {
+        root.classList.remove("surface-transition--closing");
+        onFinished?.();
+      });
       return;
     }
 
@@ -651,14 +658,19 @@ export default function Home() {
       runSurfaceTransition(
         () => setExpanded(null),
         () => setPeek(null),
+        "close",
       );
       return;
     }
 
-    runSurfaceTransition(() => {
-      setExpanded(null);
-      setPeek(null);
-    });
+    runSurfaceTransition(
+      () => {
+        setExpanded(null);
+        setPeek(null);
+      },
+      undefined,
+      "close",
+    );
   };
 
   return (

@@ -1455,6 +1455,27 @@ a {
   animation: detail-backdrop-in 520ms ease both;
 }
 
+html.surface-transition--closing::view-transition-group(entity-surface),
+html.surface-transition--closing::view-transition-old(entity-surface),
+html.surface-transition--closing::view-transition-new(entity-surface),
+html.surface-transition--closing::view-transition-group(entity-eyebrow),
+html.surface-transition--closing::view-transition-old(entity-eyebrow),
+html.surface-transition--closing::view-transition-new(entity-eyebrow),
+html.surface-transition--closing::view-transition-group(entity-title),
+html.surface-transition--closing::view-transition-old(entity-title),
+html.surface-transition--closing::view-transition-new(entity-title),
+html.surface-transition--closing::view-transition-group(entity-lead),
+html.surface-transition--closing::view-transition-old(entity-lead),
+html.surface-transition--closing::view-transition-new(entity-lead) {
+  animation-duration: 360ms;
+}
+
+html.surface-transition--closing::view-transition-group(detail-backdrop),
+html.surface-transition--closing::view-transition-old(detail-backdrop),
+html.surface-transition--closing::view-transition-new(detail-backdrop) {
+  animation-duration: 220ms;
+}
+
 @keyframes detail-backdrop-in {
   from {
     opacity: 0;

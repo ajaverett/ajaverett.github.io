@@ -109,6 +109,7 @@ test("uses one entity interaction system without routed pages", async () => {
   assert.match(pageSource, /kind: "embed"/);
   assert.match(pageSource, /runSurfaceTransition/);
   assert.match(pageSource, /document\.startViewTransition/);
+  assert.match(pageSource, /surface-transition--closing/);
   assert.match(pageSource, /window\.print\(\)/);
   assert.doesNotMatch(
     pageSource,
@@ -160,6 +161,11 @@ test("uses one entity interaction system without routed pages", async () => {
   assert.match(css, /::view-transition-group\(entity-title\)/);
   assert.match(css, /@keyframes entity-copy-flight-out/);
   assert.match(css, /@keyframes entity-copy-flight-in/);
+  assert.match(
+    css,
+    /surface-transition--closing::view-transition-group\(entity-surface\)/,
+  );
+  assert.match(css, /animation-duration: 360ms/);
   assert.ok(hotspots.length >= 15);
   assert.ok(hotspots.every((hotspot) => hotspot.profileId));
   assert.ok(textLayer.length >= 90);
