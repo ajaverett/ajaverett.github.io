@@ -72,8 +72,10 @@ test("uses one entity interaction system without routed pages", async () => {
   assert.match(pageSource, /function AttachmentRenderer/);
   assert.match(pageSource, /className="pdf-page-frame"/);
   assert.match(pageSource, /className="pdf-page-content"/);
-  assert.match(pageSource, /--resume-content-width/);
-  assert.match(pageSource, /iteration < 14/);
+  assert.doesNotMatch(
+    pageSource,
+    /fitContentToPage|resumeContentRef|--resume-content-width/,
+  );
   assert.match(pageSource, /kind: "video"/);
   assert.match(pageSource, /kind: "embed"/);
   assert.match(pageSource, /runSurfaceTransition/);
@@ -85,7 +87,7 @@ test("uses one entity interaction system without routed pages", async () => {
   );
   assert.match(css, /\.entity-trigger:hover/);
   assert.doesNotMatch(css, /\.entity-trigger(?::hover|:focus-visible|--active)?::after/);
-  assert.match(css, /--resume-serif: "Times New Roman"/);
+  assert.match(css, /--resume-serif: "STIX Two Text"/);
   assert.match(css, /font-family: var\(--resume-serif\)/);
   assert.match(css, /aspect-ratio: 8\.5 \/ 11/);
   assert.match(css, /height: 11in/);
@@ -95,8 +97,10 @@ test("uses one entity interaction system without routed pages", async () => {
   assert.match(css, /"company location"\s+"title dates"/);
   assert.match(css, /grid-area: title/);
   assert.match(css, /grid-area: dates/);
-  assert.match(css, /width: var\(--resume-content-width\)/);
-  assert.match(css, /scale\(var\(--resume-content-scale\)\)/);
+  assert.doesNotMatch(
+    css,
+    /--resume-content-width|--resume-content-scale/,
+  );
   assert.match(css, /transform-origin: top left/);
   assert.match(css, /-webkit-text-size-adjust: none/);
   assert.match(css, /text-size-adjust: none/);

@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Libre+Caslon+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Libre+Caslon+Display&family=STIX+Two+Text:wght@400;600;700&display=swap");
 
 :root {
   --sans: "Inter", Arial, sans-serif;
   --serif: "Libre Caslon Display", Georgia, serif;
-  --resume-serif: "Times New Roman", Times, Georgia, serif;
+  --resume-serif: "STIX Two Text", Georgia, serif;
   --mono: "DM Mono", "Courier New", monospace;
   --pdf-blue: #0000ee;
   --viewer: #55585c;
@@ -229,8 +229,6 @@ a {
 
 .pdf-page {
   --resume-page-scale: 1;
-  --resume-content-scale: 1;
-  --resume-content-width: 100%;
 
   position: absolute;
   top: 0;
@@ -238,35 +236,29 @@ a {
   width: 8.5in;
   height: 11in;
   aspect-ratio: 8.5 / 11;
-  padding: 0.47in 0.6in 0.42in;
+  padding: 0.42in 0.52in 0.36in;
   overflow: hidden;
   background: #fff;
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.38),
     0 18px 48px rgba(0, 0, 0, 0.22);
   font-family: var(--resume-serif);
-  font-size: 12.35px;
-  line-height: 1.16;
+  font-size: 11.15px;
+  line-height: 1.12;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   transform: scale(var(--resume-page-scale));
   transform-origin: top left;
 }
 
-.pdf-page-content {
-  width: var(--resume-content-width);
-  transform: scale(var(--resume-content-scale));
-  transform-origin: top left;
-}
-
 .pdf-header {
-  margin-bottom: 19px;
+  margin-bottom: 13px;
   text-align: center;
 }
 
 .pdf-header h1 {
-  margin: 0 0 7px;
-  font-size: 39px;
+  margin: 0 0 5px;
+  font-size: 35px;
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0.01em;
@@ -275,10 +267,10 @@ a {
 .pdf-contact {
   display: flex;
   flex-wrap: wrap;
-  gap: 3px 6px;
+  gap: 2px 5px;
   justify-content: center;
   margin: 0;
-  font-size: 11.3px;
+  font-size: 10.2px;
 }
 
 .pdf-contact a:hover {
@@ -287,14 +279,14 @@ a {
 }
 
 .pdf-section {
-  margin-top: 19px;
+  margin-top: 14px;
 }
 
 .pdf-section h2 {
-  margin: 0 0 4px;
+  margin: 0 0 3px;
   padding-bottom: 1px;
   border-bottom: 1px solid #111;
-  font-size: 14.5px;
+  font-size: 13px;
   line-height: 1;
   text-transform: uppercase;
 }
@@ -312,7 +304,7 @@ a {
 }
 
 .pdf-two-column h3 {
-  font-size: 14px;
+  font-size: 12.5px;
   line-height: 1.08;
 }
 
@@ -322,8 +314,8 @@ a {
 
 .pdf-achievement {
   display: flex;
-  gap: 6px;
-  margin: 4px 0 0 20px;
+  gap: 4px;
+  margin: 3px 0 0 16px;
 }
 
 .pdf-achievement strong {
@@ -335,20 +327,20 @@ a {
 }
 
 .pdf-role-section {
-  margin-top: 21px;
+  margin-top: 15px;
 }
 
 .pdf-volunteer-section {
-  margin-top: 16px;
+  margin-top: 12px;
 }
 
 .pdf-role-list {
   display: grid;
-  gap: 12px;
+  gap: 8px;
 }
 
 .pdf-volunteer-section .pdf-role-list {
-  gap: 10px;
+  gap: 7px;
 }
 
 .pdf-role-entry {
@@ -382,7 +374,7 @@ a {
 .pdf-role-title,
 .pdf-location,
 .pdf-dates {
-  font-size: 12.35px;
+  font-size: 11.15px;
 }
 
 .pdf-location,
@@ -392,13 +384,13 @@ a {
 }
 
 .pdf-role-focus {
-  margin: 3px 0 0 18px;
-  font-size: 11.8px;
+  margin: 2px 0 0 14px;
+  font-size: 10.7px;
 }
 
 .pdf-role-entry ul,
 .pdf-skills-section ul {
-  margin: 4px 0 0 18px;
+  margin: 3px 0 0 14px;
   padding: 0;
 }
 
@@ -408,7 +400,7 @@ a {
 
 .pdf-role-entry li {
   display: grid;
-  grid-template-columns: 10px minmax(0, 1fr);
+  grid-template-columns: 8px minmax(0, 1fr);
 }
 
 .pdf-list-bullet {
@@ -417,11 +409,11 @@ a {
 
 .pdf-role-entry li + li,
 .pdf-skills-section li + li {
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 .pdf-skills-section {
-  margin-top: 16px;
+  margin-top: 12px;
 }
 
 /* Interactive résumé entities */
@@ -467,7 +459,7 @@ a {
 .entity-company,
 .entity-school {
   color: var(--pdf-blue);
-  font-size: 14.5px;
+  font-size: 13px;
   font-weight: 700;
 }
 
@@ -1235,13 +1227,6 @@ a {
     padding: 12px 12px 32px;
   }
 
-  .pdf-page {
-    width: 8.5in;
-    height: 11in;
-    padding: 0.47in 0.6in 0.42in;
-    font-size: 12.35px;
-  }
-
   .pdf-page-frame {
     width: calc(100vw - 24px);
   }
@@ -1379,11 +1364,7 @@ a {
   }
 
   .pdf-page {
-    width: 8.5in;
-    min-height: 11in;
-    padding: 0.47in 0.6in 0.42in;
     box-shadow: none;
-    font-size: 12.35px;
     transform: none;
   }
 
