@@ -99,10 +99,10 @@ test("uses one entity interaction system without routed pages", async () => {
   );
   assert.match(css, /\.entity-trigger:hover/);
   assert.match(css, /\.entity-hotspot:hover/);
-  assert.match(css, /animation: entity-attention-shimmer 15s ease-in-out infinite/);
-  assert.match(css, /@keyframes entity-attention-shimmer/);
-  assert.match(css, /\.entity-hotspot--hinted::after/);
-  assert.match(css, /animation: hotspot-attention-shimmer 900ms ease-out 1/);
+  assert.doesNotMatch(css, /entity-attention-shimmer/);
+  assert.match(pageSource, /className="entity-hotspot__glint"/);
+  assert.match(css, /\.entity-hotspot__glint/);
+  assert.match(css, /animation: hotspot-attention-shimmer 650ms ease-out 1/);
   assert.match(css, /@keyframes hotspot-attention-shimmer/);
   assert.doesNotMatch(css, /\.entity-trigger(?::hover|:focus-visible|--active)?::after/);
   assert.match(css, /--resume-serif: "STIX Two Text Local"/);

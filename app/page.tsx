@@ -872,7 +872,7 @@ function EntityHotspot({
     <button
       className={`entity-hotspot${
         activeId === profile.id ? " entity-hotspot--active" : ""
-      }${hinted ? " entity-hotspot--hinted" : ""}`}
+      }`}
       type="button"
       style={style}
       data-theme={profile.theme}
@@ -885,7 +885,9 @@ function EntityHotspot({
       onFocus={(event) => onPeek(profile, event.currentTarget)}
       onBlur={onLeave}
       onClick={(event) => onExpand(profile, event.currentTarget)}
-    />
+    >
+      {hinted && <span className="entity-hotspot__glint" aria-hidden="true" />}
+    </button>
   );
 }
 

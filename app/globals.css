@@ -277,8 +277,7 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
-.entity-hotspot::before,
-.entity-hotspot::after {
+.entity-hotspot::before {
   position: absolute;
   content: "";
   pointer-events: none;
@@ -297,26 +296,25 @@ a {
     filter 160ms ease;
 }
 
-.entity-hotspot::after {
+.entity-hotspot__glint {
+  position: absolute;
   z-index: 2;
   top: -35%;
   bottom: -35%;
   left: -55%;
-  width: 18%;
+  width: 14%;
   opacity: 0;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.62),
+    rgba(255, 255, 255, 0.46),
     transparent
   );
-  filter: blur(0.75px);
+  filter: blur(0.9px);
   mix-blend-mode: screen;
+  pointer-events: none;
   transform: skewX(-16deg) translateX(-240%);
-}
-
-.entity-hotspot--hinted::after {
-  animation: hotspot-attention-shimmer 900ms ease-out 1;
+  animation: hotspot-attention-shimmer 650ms ease-out 1;
 }
 
 .entity-hotspot:hover,
@@ -350,17 +348,17 @@ a {
   }
 
   18% {
-    opacity: 0.24;
+    opacity: 0.14;
   }
 
   82% {
-    opacity: 0.24;
-    transform: skewX(-16deg) translateX(880%);
+    opacity: 0.14;
+    transform: skewX(-16deg) translateX(1080%);
   }
 
   100% {
     opacity: 0;
-    transform: skewX(-16deg) translateX(880%);
+    transform: skewX(-16deg) translateX(1080%);
   }
 }
 
@@ -605,43 +603,6 @@ a {
 
 .entity-trigger__label {
   color: inherit;
-  background-image: linear-gradient(
-    105deg,
-    currentColor 0%,
-    currentColor 42%,
-    color-mix(in srgb, var(--entity-accent) 72%, #fff) 47%,
-    #fff 50%,
-    color-mix(in srgb, var(--entity-accent-2) 70%, #fff) 53%,
-    currentColor 58%,
-    currentColor 100%
-  );
-  background-position: 100% 50%;
-  background-size: 300% 100%;
-  background-repeat: no-repeat;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: entity-attention-shimmer 15s ease-in-out infinite;
-}
-
-@keyframes entity-attention-shimmer {
-  0%,
-  86% {
-    background-position: 100% 50%;
-    filter: drop-shadow(0 0 0 transparent);
-  }
-
-  91% {
-    filter: drop-shadow(
-      0 0 2px color-mix(in srgb, var(--entity-accent) 55%, transparent)
-    );
-  }
-
-  96%,
-  100% {
-    background-position: 0% 50%;
-    filter: drop-shadow(0 0 0 transparent);
-  }
 }
 
 .entity-trigger:hover,
@@ -1536,7 +1497,7 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .entity-hotspot::after {
+  .entity-hotspot__glint {
     display: none;
   }
 
