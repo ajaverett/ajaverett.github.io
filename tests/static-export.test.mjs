@@ -67,6 +67,7 @@ test("uses one entity interaction system without routed pages", async () => {
   ]);
 
   assert.match(pageSource, /function EntityTrigger/);
+  assert.match(pageSource, /className="entity-trigger__label"/);
   assert.match(pageSource, /function PeekCard/);
   assert.match(pageSource, /function DetailCanvas/);
   assert.match(pageSource, /function AttachmentRenderer/);
@@ -86,6 +87,8 @@ test("uses one entity interaction system without routed pages", async () => {
     /pushState|CaseStudy|InfoStory/,
   );
   assert.match(css, /\.entity-trigger:hover/);
+  assert.match(css, /animation: entity-attention-shimmer 15s ease-in-out infinite/);
+  assert.match(css, /@keyframes entity-attention-shimmer/);
   assert.doesNotMatch(css, /\.entity-trigger(?::hover|:focus-visible|--active)?::after/);
   assert.match(css, /--resume-serif: "STIX Two Text"/);
   assert.match(css, /--resume-copy-size: 11\.15px/);

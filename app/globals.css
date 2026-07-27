@@ -450,6 +450,47 @@ a {
     transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.entity-trigger__label {
+  color: inherit;
+  background-image: linear-gradient(
+    105deg,
+    currentColor 0%,
+    currentColor 42%,
+    color-mix(in srgb, var(--entity-accent) 72%, #fff) 47%,
+    #fff 50%,
+    color-mix(in srgb, var(--entity-accent-2) 70%, #fff) 53%,
+    currentColor 58%,
+    currentColor 100%
+  );
+  background-position: 100% 50%;
+  background-size: 300% 100%;
+  background-repeat: no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: entity-attention-shimmer 15s ease-in-out infinite;
+}
+
+@keyframes entity-attention-shimmer {
+  0%,
+  86% {
+    background-position: 100% 50%;
+    filter: drop-shadow(0 0 0 transparent);
+  }
+
+  91% {
+    filter: drop-shadow(
+      0 0 2px color-mix(in srgb, var(--entity-accent) 55%, transparent)
+    );
+  }
+
+  96%,
+  100% {
+    background-position: 0% 50%;
+    filter: drop-shadow(0 0 0 transparent);
+  }
+}
+
 .entity-trigger:hover,
 .entity-trigger:focus-visible,
 .entity-trigger--active {
@@ -1342,6 +1383,11 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .entity-trigger__label {
+    background-image: none;
+    -webkit-text-fill-color: currentColor;
+  }
+
   *,
   *::before,
   *::after {
@@ -1387,6 +1433,12 @@ a {
     background: transparent;
     box-shadow: none;
     transform: none;
+  }
+
+  .entity-trigger__label {
+    animation: none;
+    background-image: none;
+    -webkit-text-fill-color: currentColor;
   }
 
 }

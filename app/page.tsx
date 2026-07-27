@@ -846,7 +846,7 @@ function EntityTrigger({
       onBlur={onLeave}
       onClick={(event) => onExpand(profile, event.currentTarget)}
     >
-      {children}
+      <span className="entity-trigger__label">{children}</span>
     </button>
   );
 }
