@@ -1,8 +1,9 @@
-"""Generate the canonical one-page resume, preview image metadata, and hotspots.
+"""Generate the canonical resume, page image, hotspots, and selectable text.
 
 The website displays a rendered page instead of asking mobile browsers to
 typeset a transformed miniature document. Interactive links embedded in this
-PDF become normalized hotspot rectangles consumed by the React UI.
+PDF become normalized hotspot rectangles, while positioned PDF text objects
+become a transparent browser text layer for native selection and copying.
 """
 
 from __future__ import annotations
@@ -13,6 +14,7 @@ from xml.sax.saxutils import escape
 
 import pypdfium2 as pdfium
 from pypdf import PdfReader
+from pypdfium2.raw import FPDF_PAGEOBJ_TEXT
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER, TA_RIGHT
 from reportlab.lib.pagesizes import LETTER
@@ -37,6 +39,7 @@ FONT_DIR = PUBLIC_DIR / "fonts"
 PDF_PATH = PUBLIC_DIR / "aj-averett-resume.pdf"
 PREVIEW_PATH = PUBLIC_DIR / "resume-page.png"
 HOTSPOT_PATH = ROOT / "app" / "resume-hotspots.json"
+TEXT_LAYER_PATH = ROOT / "app" / "resume-text-layer.json"
 
 PAGE_WIDTH, PAGE_HEIGHT = LETTER
 LEFT_MARGIN = 39
@@ -322,6 +325,63 @@ def extract_hotspots() -> None:
     )
 
 
+def extract_text_layer() -> None:
+    document = pdfium.PdfDocument(str(PDF_PATH))
+    if len(document) != 1:
+        raise RuntimeError(f"Expected one PDF page, generated {len(document)}")
+
+    page = document[0]
+    text_page = page.get_textpage()
+    items = []
+
+    for text_object in page.get_objects():
+        if text_object.type != FPDF_PAGEOBJ_TEXT:
+            continue
+
+        # Pdfium exposes page objects in the PDF's reading order. Attaching the
+        # text page lets each object retain its original spaces and punctuation.
+        text_object.textpage = text_page
+        text = text_object.extract()
+        if not text:
+            continue
+
+        left, bottom, right, top = text_object.get_bounds()
+        font = text_object.get_font()
+        items.append(
+            {
+                "id": f"text-{len(items) + 1}",
+                "text": text,
+                "x": round(left / PAGE_WIDTH * 100, 5),
+                "y": round((PAGE_HEIGHT - top) / PAGE_HEIGHT * 100, 5),
+                "width": round((right - left) / PAGE_WIDTH * 100, 5),
+                "height": round((top - bottom) / PAGE_HEIGHT * 100, 5),
+                "fontSize": round(
+                    text_object.get_font_size() / PAGE_WIDTH * 100,
+                    5,
+                ),
+                "bold": font.get_weight() >= 600,
+                "_baseline": float(text_object.get_matrix().f),
+            }
+        )
+
+    for index, item in enumerate(items):
+        next_item = items[index + 1] if index + 1 < len(items) else None
+        item["lineBreakAfter"] = (
+            next_item is None
+            or abs(item["_baseline"] - next_item["_baseline"]) > 2.2
+        )
+        del item["_baseline"]
+
+    TEXT_LAYER_PATH.write_text(
+        json.dumps(items, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+
+    text_page.close()
+    page.close()
+    document.close()
+
+
 def render_preview() -> None:
     document = pdfium.PdfDocument(str(PDF_PATH))
     if len(document) != 1:
@@ -342,10 +402,12 @@ def main() -> None:
     data = json.loads(DATA_PATH.read_text(encoding="utf-8"))
     build_pdf(data)
     extract_hotspots()
+    extract_text_layer()
     render_preview()
     print(f"Generated {PDF_PATH.relative_to(ROOT)}")
     print(f"Generated {PREVIEW_PATH.relative_to(ROOT)}")
     print(f"Generated {HOTSPOT_PATH.relative_to(ROOT)}")
+    print(f"Generated {TEXT_LAYER_PATH.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

@@ -11,6 +11,7 @@ import { flushSync } from "react-dom";
 import Image from "next/image";
 import resumeData from "./resume-data.json";
 import resumeHotspots from "./resume-hotspots.json";
+import resumeTextLayer from "./resume-text-layer.json";
 
 type Theme =
   | "about"
@@ -231,7 +232,7 @@ const roles: ResumeRole[] = [
     slug: "civic-database",
     group: "volunteer",
     theme: "civic",
-    company: "County-Level Civic Engagement Organization",
+    company: "UCDP Central Committee",
     role: "Database Administrator",
     location: "Saratoga Springs, UT",
     interactiveLocation: false,
@@ -696,6 +697,11 @@ export default function Home() {
             priority
             alt="AJ Averett's one-page resume"
           />
+          <ResumeTextLayer
+            onPeek={showPeek}
+            onLeave={() => setPeek(null)}
+            onExpand={openProfile}
+          />
           <div className="pdf-hotspot-layer" aria-label="Interactive resume details">
             {resumeHotspots.map((hotspot) => (
               <EntityHotspot
@@ -936,6 +942,7 @@ function EntityHotspot({
       style={style}
       data-theme={profile.theme}
       data-profile-id={profile.id}
+      data-hotspot-id={hotspot.id}
       aria-haspopup="dialog"
       aria-expanded={expandedId === profile.id}
       aria-label={`Explore ${profile.title}`}
@@ -947,6 +954,121 @@ function EntityHotspot({
     >
       {hinted && <span className="entity-hotspot__glint" aria-hidden="true" />}
     </button>
+  );
+}
+
+function ResumeTextLayer({
+  onPeek,
+  onLeave,
+  onExpand,
+}: {
+  onPeek: (profile: EntityProfile, element: HTMLElement) => void;
+  onLeave: () => void;
+  onExpand: (profile: EntityProfile, element: HTMLElement) => void;
+}) {
+  const hoveredHotspotId = useRef<string | null>(null);
+
+  const findHotspot = (
+    layer: HTMLElement,
+    clientX: number,
+    clientY: number,
+  ) => {
+    const rect = layer.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) return undefined;
+
+    const x = ((clientX - rect.left) / rect.width) * 100;
+    const y = ((clientY - rect.top) / rect.height) * 100;
+
+    return resumeHotspots.find(
+      (hotspot) =>
+        x >= hotspot.x &&
+        x <= hotspot.x + hotspot.width &&
+        y >= hotspot.y &&
+        y <= hotspot.y + hotspot.height,
+    );
+  };
+
+  const getHotspotTrigger = (hotspotId: string) =>
+    document.querySelector<HTMLElement>(
+      `[data-hotspot-id="${hotspotId}"]`,
+    );
+
+  const resetHoverCursor = (layer: HTMLElement) => {
+    hoveredHotspotId.current = null;
+    layer.style.cursor = "text";
+  };
+
+  const clearHover = (layer: HTMLElement) => {
+    resetHoverCursor(layer);
+    onLeave();
+  };
+
+  return (
+    <div
+      className="pdf-text-layer"
+      aria-hidden="true"
+      onPointerMove={(event) => {
+        if (event.pointerType === "touch") return;
+        if (event.buttons !== 0) {
+          if (hoveredHotspotId.current) clearHover(event.currentTarget);
+          return;
+        }
+
+        const hotspot = findHotspot(
+          event.currentTarget,
+          event.clientX,
+          event.clientY,
+        );
+        if (hoveredHotspotId.current === hotspot?.id) return;
+
+        if (!hotspot) {
+          clearHover(event.currentTarget);
+          return;
+        }
+
+        const profile = profiles[hotspot.profileId];
+        const trigger = getHotspotTrigger(hotspot.id);
+        if (!profile || !trigger) return;
+
+        hoveredHotspotId.current = hotspot.id;
+        event.currentTarget.style.cursor = "pointer";
+        onPeek(profile, trigger);
+      }}
+      onPointerLeave={(event) => clearHover(event.currentTarget)}
+      onClick={(event) => {
+        const selection = window.getSelection();
+        if (selection && !selection.isCollapsed) return;
+
+        const hotspot = findHotspot(
+          event.currentTarget,
+          event.clientX,
+          event.clientY,
+        );
+        if (!hotspot) return;
+
+        const profile = profiles[hotspot.profileId];
+        const trigger = getHotspotTrigger(hotspot.id);
+        if (profile && trigger) onExpand(profile, trigger);
+      }}
+    >
+      {resumeTextLayer.map((item) => (
+        <span
+          className="pdf-text-word"
+          key={item.id}
+          style={{
+            left: `${item.x}%`,
+            top: `${item.y}%`,
+            width: `${item.width}%`,
+            height: `${item.height}%`,
+            fontSize: `${item.fontSize}cqw`,
+            fontWeight: item.bold ? 700 : 400,
+          }}
+        >
+          {item.text}
+          {item.lineBreakAfter ? "\n" : ""}
+        </span>
+      ))}
+    </div>
   );
 }
 

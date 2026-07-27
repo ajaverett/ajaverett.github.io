@@ -243,6 +243,42 @@ a {
   user-select: none;
 }
 
+.pdf-text-layer {
+  position: absolute;
+  z-index: 50;
+  inset: 0;
+  overflow: hidden;
+  color: transparent;
+  font-family: var(--resume-serif);
+  cursor: text;
+  pointer-events: auto;
+  user-select: text;
+  -webkit-user-select: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-touch-callout: default;
+  container-type: inline-size;
+}
+
+.pdf-text-word {
+  position: absolute;
+  display: block;
+  overflow: visible;
+  color: transparent;
+  line-height: 1;
+  white-space: pre;
+  pointer-events: auto;
+  user-select: text;
+  -webkit-user-select: text;
+  -webkit-text-fill-color: transparent;
+  transform-origin: top left;
+}
+
+.pdf-text-word::selection {
+  color: transparent;
+  background: rgba(54, 97, 234, 0.34);
+  -webkit-text-fill-color: transparent;
+}
+
 .pdf-hotspot-layer {
   position: absolute;
   z-index: 40;
@@ -1550,6 +1586,7 @@ a {
   }
 
   .pdf-hotspot-layer,
+  .pdf-text-layer,
   .resume-accessible,
   .pdf-page--legacy {
     display: none;

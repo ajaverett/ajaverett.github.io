@@ -29,12 +29,14 @@ test("exports a complete static resume", async () => {
   );
   assert.match(html, /aria-label="Explore Salt Lake City, UT"/);
   assert.match(html, /class="pdf-page-image"/);
+  assert.match(html, /class="pdf-text-layer"/);
   assert.match(html, /class="pdf-hotspot-layer"/);
   assert.match(html, /QPAS technical standards to ~76 stakeholders/);
   assert.match(html, /Wilford Woodruff Papers Foundation/);
   assert.match(html, /id="volunteer">Volunteer/);
   assert.match(html, /Database Administrator/);
-  assert.match(html, /County-Level Civic Engagement Organization/);
+  assert.match(html, /UCDP Central Committee/);
+  assert.doesNotMatch(html, /County-Level Civic Engagement Organization/);
   assert.match(html, /May 2026 - Present/);
   assert.match(html, /Idaho Falls, ID/);
   assert.match(html, /Saratoga Springs, UT/);
@@ -64,17 +66,23 @@ test("includes static assets needed by GitHub Pages", async () => {
 });
 
 test("uses one entity interaction system without routed pages", async () => {
-  const [pageSource, css, hotspotSource, generatorSource] = await Promise.all([
-    readFile(new URL("app/page.tsx", projectRoot), "utf8"),
-    readFile(new URL("app/globals.css", projectRoot), "utf8"),
-    readFile(new URL("app/resume-hotspots.json", projectRoot), "utf8"),
-    readFile(new URL("scripts/generate_resume.py", projectRoot), "utf8"),
-  ]);
+  const [pageSource, css, hotspotSource, textLayerSource, generatorSource] =
+    await Promise.all([
+      readFile(new URL("app/page.tsx", projectRoot), "utf8"),
+      readFile(new URL("app/globals.css", projectRoot), "utf8"),
+      readFile(new URL("app/resume-hotspots.json", projectRoot), "utf8"),
+      readFile(new URL("app/resume-text-layer.json", projectRoot), "utf8"),
+      readFile(new URL("scripts/generate_resume.py", projectRoot), "utf8"),
+    ]);
   const hotspots = JSON.parse(hotspotSource);
+  const textLayer = JSON.parse(textLayerSource);
 
   assert.match(pageSource, /function EntityTrigger/);
   assert.match(pageSource, /className="entity-trigger__label"/);
   assert.match(pageSource, /function EntityHotspot/);
+  assert.match(pageSource, /function ResumeTextLayer/);
+  assert.match(pageSource, /window\.getSelection\(\)/);
+  assert.match(pageSource, /data-hotspot-id/);
   assert.match(pageSource, /resumeHotspots\.map/);
   assert.match(pageSource, /setHintedHotspotId/);
   assert.match(pageSource, /window\.setTimeout\(advanceHint, 15_000\)/);
@@ -108,6 +116,9 @@ test("uses one entity interaction system without routed pages", async () => {
   );
   assert.match(css, /\.entity-trigger:hover/);
   assert.match(css, /\.entity-hotspot:hover/);
+  assert.match(css, /\.pdf-text-layer/);
+  assert.match(css, /user-select: text/);
+  assert.match(css, /\.pdf-text-word::selection/);
   assert.doesNotMatch(css, /entity-attention-shimmer/);
   assert.match(pageSource, /className="entity-hotspot__glint"/);
   assert.match(css, /\.entity-hotspot__glint/);
@@ -145,6 +156,26 @@ test("uses one entity interaction system without routed pages", async () => {
   assert.match(css, /::view-transition-group\(entity-surface\)/);
   assert.ok(hotspots.length >= 15);
   assert.ok(hotspots.every((hotspot) => hotspot.profileId));
+  assert.ok(textLayer.length >= 90);
+  assert.ok(
+    textLayer.every(
+      (item) =>
+        item.text &&
+        item.x >= 0 &&
+        item.y >= 0 &&
+        item.x + item.width <= 100 &&
+        item.y + item.height <= 100 &&
+        item.fontSize > 0 &&
+        typeof item.lineBreakAfter === "boolean",
+    ),
+  );
+  assert.match(
+    textLayer
+      .map((item) => `${item.text}${item.lineBreakAfter ? "\n" : ""}`)
+      .join(""),
+    /UCDP Central Committee/,
+  );
   assert.match(generatorSource, /SimpleDocTemplate/);
   assert.match(generatorSource, /extract_hotspots/);
+  assert.match(generatorSource, /extract_text_layer/);
 });
