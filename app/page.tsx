@@ -583,7 +583,10 @@ export default function Home() {
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    window.setTimeout(() => dialogTitleRef.current?.focus(), 80);
+    window.setTimeout(
+      () => dialogTitleRef.current?.focus({ preventScroll: true }),
+      80,
+    );
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setExpanded(null);
