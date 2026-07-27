@@ -70,6 +70,7 @@ test("uses one entity interaction system without routed pages", async () => {
   assert.match(pageSource, /function PeekCard/);
   assert.match(pageSource, /function DetailCanvas/);
   assert.match(pageSource, /function AttachmentRenderer/);
+  assert.match(pageSource, /className="pdf-page-frame"/);
   assert.match(pageSource, /className="pdf-page-content"/);
   assert.match(pageSource, /--resume-content-width/);
   assert.match(pageSource, /iteration < 14/);
@@ -88,6 +89,9 @@ test("uses one entity interaction system without routed pages", async () => {
   assert.match(css, /font-family: var\(--resume-serif\)/);
   assert.match(css, /aspect-ratio: 8\.5 \/ 11/);
   assert.match(css, /height: 11in/);
+  assert.match(css, /\.pdf-page-frame/);
+  assert.match(css, /scale\(var\(--resume-page-scale\)\)/);
+  assert.doesNotMatch(css, /\bzoom:/);
   assert.match(css, /"company location"\s+"title dates"/);
   assert.match(css, /grid-area: title/);
   assert.match(css, /grid-area: dates/);

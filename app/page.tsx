@@ -484,6 +484,7 @@ function calculatePeekPosition(element: HTMLElement) {
 export default function Home() {
   const [peek, setPeek] = useState<PeekState | null>(null);
   const [expanded, setExpanded] = useState<EntityProfile | null>(null);
+  const resumeFrameRef = useRef<HTMLDivElement>(null);
   const resumePageRef = useRef<HTMLElement>(null);
   const resumeContentRef = useRef<HTMLDivElement>(null);
   const dialogTitleRef = useRef<HTMLHeadingElement>(null);
@@ -539,6 +540,26 @@ export default function Home() {
     return () => {
       active = false;
     };
+  }, []);
+
+  useLayoutEffect(() => {
+    const frame = resumeFrameRef.current;
+    const page = resumePageRef.current;
+    if (!frame || !page) return;
+
+    const scalePageToFrame = () => {
+      const scale = Math.min(1, frame.clientWidth / 816);
+      page.style.setProperty(
+        "--resume-page-scale",
+        scale.toFixed(5),
+      );
+    };
+
+    scalePageToFrame();
+    const observer = new ResizeObserver(scalePageToFrame);
+    observer.observe(frame);
+
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -663,12 +684,13 @@ export default function Home() {
       </nav>
 
       <div className="pdf-canvas">
-        <article
-          ref={resumePageRef}
-          className="pdf-page"
-          aria-labelledby="resume-name"
-        >
-          <div ref={resumeContentRef} className="pdf-page-content">
+        <div ref={resumeFrameRef} className="pdf-page-frame">
+          <article
+            ref={resumePageRef}
+            className="pdf-page"
+            aria-labelledby="resume-name"
+          >
+            <div ref={resumeContentRef} className="pdf-page-content">
           <header className="pdf-header">
             <h1 id="resume-name">
               <EntityTrigger
@@ -823,8 +845,9 @@ export default function Home() {
               ))}
             </ul>
           </section>
-          </div>
-        </article>
+            </div>
+          </article>
+        </div>
       </div>
 
       {peek && !expanded && <PeekCard peek={peek} />}
