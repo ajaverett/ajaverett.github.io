@@ -85,6 +85,8 @@ test("uses one entity interaction system without routed pages", async () => {
   assert.match(css, /width: var\(--resume-content-width\)/);
   assert.match(css, /scale\(var\(--resume-content-scale\)\)/);
   assert.match(css, /transform-origin: top left/);
+  assert.match(css, /-webkit-text-size-adjust: none/);
+  assert.match(css, /text-size-adjust: none/);
   assert.match(css, /\.peek-card/);
   assert.match(css, /\.detail-layer/);
   assert.match(css, /\.attachment-board/);
