@@ -158,6 +158,8 @@ test("uses one entity interaction system without routed pages", async () => {
   assert.match(css, /view-transition-name: entity-title/);
   assert.match(css, /view-transition-name: entity-lead/);
   assert.match(css, /::view-transition-group\(entity-title\)/);
+  assert.match(css, /@keyframes entity-copy-flight-out/);
+  assert.match(css, /@keyframes entity-copy-flight-in/);
   assert.ok(hotspots.length >= 15);
   assert.ok(hotspots.every((hotspot) => hotspot.profileId));
   assert.ok(textLayer.length >= 90);

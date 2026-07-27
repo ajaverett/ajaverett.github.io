@@ -1354,8 +1354,8 @@ a {
 ::view-transition-group(entity-eyebrow),
 ::view-transition-group(entity-title),
 ::view-transition-group(entity-lead) {
-  z-index: 140;
-  animation-duration: 900ms;
+  z-index: 160;
+  animation-duration: 1080ms;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1366,8 +1366,43 @@ a {
 ::view-transition-old(entity-lead),
 ::view-transition-new(entity-lead) {
   mix-blend-mode: normal;
-  animation-duration: 900ms;
+  animation-duration: 1080ms;
   animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+::view-transition-old(entity-eyebrow),
+::view-transition-old(entity-title),
+::view-transition-old(entity-lead) {
+  animation-name: entity-copy-flight-out;
+}
+
+::view-transition-new(entity-eyebrow),
+::view-transition-new(entity-title),
+::view-transition-new(entity-lead) {
+  animation-name: entity-copy-flight-in;
+}
+
+@keyframes entity-copy-flight-out {
+  0%,
+  78% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes entity-copy-flight-in {
+  0%,
+  78% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 ::view-transition-old(entity-surface),
